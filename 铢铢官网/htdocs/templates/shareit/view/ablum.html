@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>营销大咖都在这里！</title>
+		<meta name="keywords" content="">
+		<meta name="description" content="">
+		<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,initial-scale=1.0" />
+		<meta name="format-detection" content="telephone=no,email=no" />
+		<link rel="stylesheet" href="../css/style.css" />
+		<script src="../js/jquery-2.1.4.min.js"></script>
+		<script src="../js/common.js"></script>
+		<script src="https://res2.wx.qq.com/open/js/jweixin-1.4.0.js"></script>
+		<script type="text/javascript" charset="UTF-8" src="//res.cdn.openinstall.io/openinstall.js"></script>
+		<script>
+			window.onload=function(){
+			    document.getElementById('z_indexs').style.display = "block"
+			}
+		</script>
+	</head>
+	
+	<body>
+		<div style="position: absolute;background: #FFF;width: 100%;height: 100%;top: 0;z-index: 999;display: none;" id="z_indexs"></div>
+		<div class="ablum hd">
+			<div class="header">
+				<div class="header_logo">
+					<label class="db_logo">
+						<img src="../img/logo.png">
+					</label>
+					<label class="db_logowz">
+						<img src="../img/logowenz.png" >
+						<p>打开APP收藏、下载</p>
+					</label>
+				</div>
+				<div class="dh_jump">
+					<a onclick="downApp()">打开</a>
+				</div>
+			</div>
+			<div style="width: 100%; height: 0.5rem;background: #f5f5f5;"></div>
+			<div class="ablum_data">
+				<p class="data_avatar"><img src="" class="data_avatar_img"><img src="../img/start_big_fff.png" class="avatar_play"><label class="ablum_num"><span></span></label></p>
+				<p class="data_name"></p>
+				<P class="data_Introduction"></P>
+			</div>
+			<div style="width: 100%; height: 0.5rem;background: #f5f5f5;"></div>
+			<div class="exepert_introduction">
+				<h5 class="introdu_title">
+            		<span>简介</span>
+         		</h5>
+         		<div id="introd_centen">
+					<p id="introd_con"></p>
+					<!--<input type="button" value="展开全部" id="introd_expand"/>-->
+					<span id="introd_expand">展开全部</span>
+					<span id="shower" style="display: none;"></span>
+				</div>
+			</div>
+			
+			<div style="width: 100%; height: 0.5rem;background: #f5f5f5;"></div>
+			<div class="exepert_course">
+				<h5 class="introdu_title">
+            		<span>节目</span>
+         		</h5>
+         		<div class="ablum_course">
+         			<ul id="ablum_course_list">
+         				<!--<li>
+         					<label>1</label>
+         					<p class="ablun_course_title"><span class="cour_title">专辑标题，两行，么样巴拉巴拉专辑标题，两行，么样巴拉巴拉</span><span class="cur_time">2018-10-10</span></p>
+         					<p class="ablun_coures_content">
+         						<span class="ablun_course_play"><img src="../img/played_small.png">320</span>
+         						<span class="ablun_course_num"><img src="../img/time_small_999.png">12:30</span>
+         						<span class="ablun_course_price">试学</span>
+         					</p>
+         				</li>-->
+         				
+         				
+         				
+         				
+         			</ul>
+         		</div>
+         		<div class="coures_jump"><a onclick="downApp()">打开APP，查看更多...</a></div>
+			</div>
+			<div style="width: 100%; height: 0.5rem;background: #f5f5f5;"></div>
+			<div class="album_evaluation">
+				<h5 class="introdu_title">
+            		<span>评价</span>
+         		</h5>
+         		<div class="evaluation_list">
+         			<ul id="commentList">
+         				<!--<li>
+         					<p>评论数评论数评论数评论数评论数评论数评论数评论数评论数评论数评论数评论数评论数评论数</p>
+         					<p><span>4分</span><span>用户昵称<img src="../img/played_small.png"></span></p>
+         				</li>-->
+         				
+         			</ul>
+         		</div>
+			</div>
+			<div style="width: 100%; height: 0.5rem;background: #f5f5f5;"></div>
+			<div><a id="courses_jump" onclick="downApp()"><label class="unionAmt_block"><span class="unionAmt_pirce"></span>聊币|</label><span class="ablum_prise" style="position: relative;left: 0.5rem;">立即购买</span> <span class="ablum_down" style="position: relative;left: 0.5rem;">立即下载</span></a></div>
+		</div>
+	</body>
+	<script>
+		
+
+
+		$(document).ready(function(){
+
+
+
+
+			
+			var imgUrl;
+			customerId = getURLParameter("customerId");
+			//var customerId = 10000010;
+			sessionStorage.setItem('customerId', customerId);
+			code = getURLParameter("code");
+			//var unionId = 10000013
+			unionId = getURLParameter("unionId");
+			console.log(unionId)
+			
+			//获取专辑
+			if(sessionStorage.getItem('customerId') != null) {
+				
+				$.post("/api/curriculum/getAllCurrByUnionId",{
+					"customerId":customerId,
+					"unionId":unionId,
+					"type":0
+				},function(data){
+					console.log(data)
+					var openAll = 0;
+					if(data.result == true && data.code == 0) {
+						document.getElementById('z_indexs').style.display = "none"
+						imgUrl = data.data.unionPhoto;
+						$(".data_avatar_img").attr('src',data.data.unionPhoto)
+						var playCount = data.data.playCount;
+						
+						 if( playCount >= 10000){
+						 	var num = parseInt((playCount/10000))+'w';
+							
+						 }else{
+						 	var num = playCount;
+						 }
+						$(".ablum_num span").html(num);
+						$(".data_name").html(data.data.unionName);
+						$(".data_Introduction").html(data.data.nickName);
+						$("#introd_centen p").html(data.data.unionIntroduction);
+						var target = document.getElementById('introd_con');
+						var shower = document.getElementById('shower');
+						var btn = document.getElementById('introd_expand')  //点击事件
+						//console.log(data.data.unionIntroduction)
+						function countLines(ele) {
+							var styles = window.getComputedStyle(ele, null);   
+							
+ 						
+							var lh = parseInt(styles.lineHeight, 10);
+							var h = parseInt(styles.height, 10);
+							var lc = Math.round(h / lh);   //这个是行数
+							//console.log('line count:', lc, 'line-height:', lh, 'height:', h);
+							return lc;
+						}
+
+						function change() {
+							shower.innerHTML = countLines(target);   
+							
+						}
+						window.onresize = change;
+						change();
+						
+							 
+						var line = $("#shower").val()  ;
+						//console.log(countLines(target))   //这里是总行数
+						var totalLine = countLines(target);
+						if(totalLine > 10){  //这里是总行数大于10行的
+							btn.style.display = "block";
+								btn.innerHTML = countLines(target) > 10 ? "显示全部" : "";
+								target.innerHTML = data.data.unionIntroduction.substring(0,(10/totalLine) * data.data.unionIntroduction.length);  //按比例显示，总是显示十行，那就显示 10除以总行数的长度这么多字符串 
+								btn.onclick = function(){
+									if(openAll == 0){  //默认点击
+										openAll = 1;
+										target.innerHTML = data.data.unionIntroduction;
+									}else{
+										openAll = 0;
+										target.innerHTML = data.data.unionIntroduction.substring(0,(10/totalLine) * data.data.unionIntroduction.length); 
+									}
+									
+								}
+						}else{  //小于等于10行
+							btn.style.display = "none"
+							target.innerHTML = data.data.unionIntroduction;
+						}
+					
+					}
+					
+						var unionAmt = data.data.unionAmt;
+						if(unionAmt == 0){
+							$(".album_evaluation").css("display","none");
+							$(".ablum_prise").css("display","none");
+							$(".unionAmt_block").css("display","none")
+							
+						} else{
+							$(".unionAmt_pirce").text(unionAmt)
+							$(".ablum_down").css("display","none");
+						}
+						fun.ablumList(data.data.curriculumList,data.data.unionId)
+					
+				})
+				
+			}
+			
+			$.get("/api/union/assessmentList",{
+				"unionId":unionId,
+				"pageIndex":1,
+				"pageItemCount":4
+			},function(data){
+				fun.commentList(data.data)
+			})
+			
+//			$("#ablum_course_list").on("click",".courese_jump",function(){
+//				var curriculumId = $(this).parent().attr('id');
+//				var unionId = $(this).parent().attr('aid');
+//				window.location.href = "courese.html?curriculumId="+ id + "&unionId=" + unionId
+//
+//				
+//			})
+
+
+			//var url = encodeURIComponent("https://other.expertol.cn/shareit/view/ablum.html?code=83fe94e9&unionId=10000006&curriculumId=10000107;
+	        var url = encodeURIComponent(location.href.split('#')[0]);
+	        //alert(url)
+	        
+	        var data = getCookie("dataName"); 
+			//console.log(data)
+				var timestamp = null;
+			var nonceStr = null;
+			var signature = null;
+			if(data != null || data != undefined){
+				var signArray = data.split(",");
+				timestamp = signArray[0];
+				nonceStr = signArray[1];
+				signature = signArray[2];
+				
+			}
+			//console.log(signature)
+			if(timestamp == null || signature == null || nonceStr == null) { 
+				$.get("/getSignature", {
+						"url": url
+					},
+					function(data) {
+						//console.log(data)
+						timestamp = data.data.timestamp;
+						nonceStr = data.data.nonceStr;
+						signature = data.data.signature;
+						// console.log(nonceStr)
+						// console.log(signature)
+						// console.log(timestamp)
+						var saveData = timestamp +"," + nonceStr +"," + signature;
+						saveCookie("dataName", saveData, 2); 
+						
+					
+						wx.config({
+							debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的onMenuShareAppMessage参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+							appId: 'wx74bf89427d4f03a6', // 必填，企业号的唯一标识，此处填写企业号corpid
+							timestamp: timestamp, // 必填，生成签名的时间戳
+							nonceStr: nonceStr, // 必填，生成签名的随机串
+							signature: signature, // 必填，签名，见附录1
+							jsApiList: [
+								'onMenuShareTimeline',
+								'onMenuShareAppMessage',
+								'onMenuShareQZone',
+								'onMenuShareQQ',
+								'onMenuShareWeibo'
+							] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+						});
+
+					});
+
+			} 
+			else { //3个都有值，直接执行下一步
+				wx.config({
+					debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的onMenuShareAppMessage参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+					appId: 'wx74bf89427d4f03a6', // 必填，企业号的唯一标识，此处填写企业号corpid
+					timestamp: timestamp, // 必填，生成签名的时间戳
+					nonceStr: nonceStr, // 必填，生成签名的随机串
+					signature: signature, // 必填，签名，见附录1
+					jsApiList: [
+						'onMenuShareTimeline',
+						'onMenuShareAppMessage',
+						'onMenuShareQZone',
+						'onMenuShareQQ',
+						'onMenuShareWeibo'
+					] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+				});
+
+			}
+	        
+	        if(imgUrl == null){
+	        	imgUrl = 'https://livegle-video-test.oss-cn-shenzhen.aliyuncs.com/livegle-Person/PhotoAlbum/15238715193011801152036022770.jpeg'
+	        }
+	       var muUrl =  location.href.split('#')[0];
+	        wx.ready(function () {
+		        wx.onMenuShareTimeline({
+				    title: '营销大咖都在这里！', // 分享标题
+				    desc: '我已加入，邀你一起成长', // 分享描述
+				    link: muUrl, // 分享链接
+				    imgUrl: imgUrl, // 分享图标
+				    type: '', // 分享类型,music、video或link，不填默认为link
+				    dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+				    success: function () { 
+				        // 用户确认分享后执行的回调函数
+				    },
+				    cancel: function () { 
+				        // 用户取消分享后执行的回调函数
+				    }
+				});
+				
+				wx.onMenuShareAppMessage({
+	                title: '营销大咖都在这里!', // 分享标题
+	                desc: '我已加入，邀你一起成长', // 分享描述
+	                link: muUrl, // 分享链接
+	                imgUrl: imgUrl, // 分享图标
+	                type: 'link', // 分享类型,music、video或link，不填默认为link
+	                dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+	                success: function () { 
+	                    // 用户确认分享后执行的回调函数
+	                },
+	                cancel: function () { 
+	                    // 用户取消分享后执行的回调函数
+	                }
+		        });
+		        
+		        wx.onMenuShareQQ({ 
+					title: '营销大咖都在这里!', // 分享标题
+					desc: '我已加入，邀你一起成长', // 分享描述
+					link: muUrl, // 分享链接
+					imgUrl: imgUrl, // 分享图标
+					type: 'link', // 分享类型,music、video或link，不填默认为link
+					dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+					success: function() {
+						// 用户确认分享后执行的回调函数
+					},
+					cancel: function() {
+						// 用户取消分享后执行的回调函数
+					}
+				});
+				//分享到腾讯微博
+				wx.onMenuShareWeibo({ 
+					title: '营销大咖都在这里!', // 分享标题
+					desc: '我已加入，邀你一起成长', // 分享描述
+					link: muUrl, // 分享链接
+					imgUrl: imgUrl, // 分享图标
+					type: 'link', // 分享类型,music、video或link，不填默认为link
+					dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+					success: function() {
+						// 用户确认分享后执行的回调函数
+					},
+					cancel: function() {
+						// 用户取消分享后执行的回调函数
+					}
+				});
+				//分享到QQ空间
+				wx.onMenuShareQZone({ 
+					title: '营销大咖都在这里!', // 分享标题
+					desc: '我已加入，邀你一起成长', // 分享描述
+					link: muUrl, // 分享链接
+					imgUrl: imgUrl, // 分享图标
+					type: 'link', // 分享类型,music、video或link，不填默认为link
+					dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+					success: function() {
+						// 用户确认分享后执行的回调函数
+					},
+					cancel: function() {
+						// 用户取消分享后执行的回调函数
+					}
+
+			})
+		    })
+			
+		})
+		
+		function saveCookie(dataName, data, closeHours){
+			
+			 var str = dataName + "=" + escape(data);
+        
+       //为0时不设定过期时间，浏览器关闭时cookie自动消失    
+        if(closeHours > 0){
+			        var date = new Date();
+			        var ms = closeHours*3600*1000;
+			        date.setTime(date.getTime() + ms);
+			        str += "; expires=" + date.toString();
+    		}
+   			 document.cookie = str;
+			
+		
+		}
+		
+		function getCookie(dataName){
+			
+			
+			var arrstr = document.cookie.split("; "); 
+			
+			
+			for(var i = 0;i < arrstr.length;i ++){
+		        var temp = arrstr[i].split("=");
+		    	
+		        if(temp[0] == dataName){  
+		       
+		        	return unescape(temp[1]);	
+		        }else{
+		        	continue;  
+		        }
+		        
+		    }
+		}
+		
+		var fun = {
+			ablumList : function(data,unionId){
+				//console.log(data)
+				var length = data.length;
+				if(length > 4){
+					length = 4;
+				} 
+				for(var i = 0; i < length; i++){   
+					var createTime = data[i].createTime;
+					var date = new Date(createTime);
+					var Y = date.getFullYear() + '-';
+			        var M = (date.getMonth()+1 < 10 ? '0'+(date.getMonth()+1) : date.getMonth()+1) + '-';
+			        var D = date.getDate() + ' ';
+			        var h = date.getHours() + ':';
+			        var m = date.getMinutes() + ':';
+			        var s = date.getSeconds();
+					var createTimes = Y+M+D+h+m+s; 
+					
+					var curriculumTime = data[i].curriculumTime;
+					var curriculumTimes = (Math.floor(curriculumTime/60))+":"+(curriculumTime-Math.floor(curriculumTime/60)*60);
+					
+					var testFlag = data[i].testFlag;
+					//console.log(testFlag)
+			
+					if(data[i].curriculumName.length > 16) data[i].curriculumName = data[i].curriculumName.substring(0,16) + '...';//控制显示五个字符+....；
+					
+					if(testFlag == 0){  
+							var str = "<li id='"+data[i].curriculumId+"' aid='"+unionId+"'><a class='courese_jump' onclick='downApp()'>";
+						str += "<label>" + data[i].seqNum + "</label>"
+						str += "<p class='ablun_course_title'><span class='cour_title'>"+data[i].curriculumName+"</span><span class='cur_time'>"+createTimes+"</span></p>"
+						str += "<p class='ablun_coures_content'>"
+						str += "<span class='ablun_course_play'><img src='../img/played_small.png'>"+data[i].playNum+"</span>";
+						str += "<span class='ablun_course_num'><img src='../img/time_small_999.png'>"+curriculumTimes+"</span>";
+						str += "</p>"
+						str += "</a></li>"
+						$("#ablum_course_list").append(str)
+					} else{
+					
+						var str = "<li id='"+data[i].curriculumId+"' aid='"+unionId+"'><a class='courese_jump' onclick='downApp()'>";
+						str += "<label>" + data[i].seqNum + "</label>"
+						str += "<p class='ablun_course_title'><span class='cour_title'>"+data[i].curriculumName+"</span><span class='cur_time'>"+createTimes+"</span></p>"
+						str += "<p class='ablun_coures_content'>"
+						str += "<span class='ablun_course_play'><img src='../img/played_small.png'>"+data[i].playNum+"</span>";
+						str += "<span class='ablun_course_num'><img src='../img/time_small_999.png'>"+curriculumTimes+"</span>";
+						str += "<span id='ablun_course_price'>试学</span>"
+						str += "</p>"
+						str += "</a></li>"
+						$("#ablum_course_list").append(str)
+					}
+				}
+				
+			},
+			commentList :function(data){
+				
+				if(data != null){
+					for(var i = 0;i<data.length; i++){
+						var str = "<li>";
+						str += "<p>"+data[i].assessmentContent+"</p>";
+						str += "<p><span>"+data[i].unionScore+"</span><span class='comm_name'>"+data[i].nickName+"<img src='"+data[i].photo+"'></span></p>";
+						str += "</li>"
+						$("#commentList").append(str)
+					}
+				}
+			
+				
+			}
+		}
+		
+		function downApp(){  
+		var data = OpenInstall.parseUrlParams();
+		 new OpenInstall({
+	        /*appKey必选参数，openinstall平台为每个应用分配的ID*/
+	        appKey : "pb31xx",
+	        /*可选参数，自定义android平台的apk下载文件名，只有apk在openinstall托管时才有效；个别andriod浏览器下载时，中文文件名显示乱码，请慎用中文文件名！*/
+	        //apkFileName : 'com.fm.openinstalldemo-v2.2.0.apk',
+	        /*可选参数，是否优先考虑拉起app，以牺牲下载体验为代价*/
+	        //preferWakeup:true,
+	        /*自定义遮罩的html*/
+	        //mask:function(){
+	        //  return "<div id='openinstall_shadow' style='position:fixed;left:0;top:0;background:rgba(0,255,0,0.5);filter:alpha(opacity=50);width:100%;height:100%;z-index:10000;'></div>"
+	        //},
+	        /*openinstall初始化完成的回调函数，可选*/
+	        onready : function() {
+	        	
+	        var m = this;
+			
+	            /*在app已安装的情况尝试拉起app*/
+	            m.schemeWakeup();
+	            /*用户点击某个按钮时(假定按钮id为downloadButton)，安装app*/
+	           
+	             m.wakeupOrInstall();
+
+	        }
+	    }, data); 
+	
+	}
+	</script>
+</html>

@@ -1,0 +1,131 @@
+﻿<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<link rel="icon" href="../img/favicon.ico" type="image/x-icon">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<title>专家工作台</title>
+		<link rel="stylesheet" href="../public/css/style.css">
+		<link rel="stylesheet" href="../package/layui/css/layui.css" />
+		
+		<script type="text/javascript" src="../package/layui/layui.js"></script>
+		<script src="../public/js/public/jquery.min.js"></script>
+		<script src="../public/js/public/es6-promise.min.js"></script>
+		<script src="../public/js/public/aliyun-oss-sdk-5.2.0.min.js"></script>
+		<script src="../public/js/public/aliyun-upload-sdk-1.4.0.min.js"></script>
+		<script src="../public/js/index.js"></script>
+	</head>
+
+	<body class="layui-layout-body">
+		<input type="hidden" id="customerId" />
+		<input type="hidden" id="specialistFlag" />
+		<div class="layui-layout layui-layout-admin">
+			<div class="layui-header" id="menu">
+				<div class="layui-logo"><img src="../img/logo.png"></div>
+				<!-- 头部区域（可配合layui已有的水平导航） -->
+				<ul class="layui-nav layui-layout-right" id="top_title_nav">
+					<li class="layui-nav-item">
+						<a href="../../index.html">首页</a>
+					</li>
+					<li class="layui-nav-item">
+						<a href="index.html" class="color_slect">专家工作台</a>
+					</li>
+					<li class="layui-nav-item" style="display:none">
+						<a href="javascript:;">消息</a>
+						<dl class="layui-nav-child">
+							<dd>
+								<a href="news.html">系统通知</a>
+							</dd>
+							<dd>
+								<a href="">专辑评论通知</a>
+							</dd>
+							<dd>
+								<a href="">课程评论通知</a>
+							</dd>
+							<dd>
+								<a href="">动态评论通知</a>
+							</dd>
+							<dd>
+								<a href="">账单通知</a>
+							</dd>
+						</dl>
+					</li>
+					
+					<li class="layui-nav-item">
+						<a href="about.html">关于我们</a>
+					</li>
+					<li class="layui-nav-item">
+						<a class="l_header_back" style="cursor: pointer;">退出</a>
+					</li>
+				</ul>
+			</div>
+
+			<div class="layui-side layui-bg-black">
+				<div class="layui-side-scroll">
+					<!-- 左侧导航区域 -->
+					<ul class="layui-nav layui-nav-tree" lay-filter="test" id="index_left">
+						<li class="layui-nav-item layui-nav-itemed">
+							<a class="" href="javascript:;" id="indexOverview" _href="Overview/overview.html" onclick="ces('indexOverview')">概览</a>
+						</li>
+						<li class="layui-nav-item">
+							<a href="javascript:;" id="onclickInfo">课程</a>
+							<dl class="layui-nav-child">
+								<dd>
+									<a href="javascript:;" id="indexUpload" _href="Course/upload.html" onclick="ces('indexUpload')">上传课程</a>
+								</dd>
+								<dd>
+									<a href="javascript:;" id="indexEdit" _href="Course/edit.html" onclick="ces('indexEdit')">创建专辑</a>
+								</dd>
+								<dd>
+									<a href="javascript:;" id="indexMycourses" _href="Course/mycourses.html" onclick="ces('indexMycourses')">我的课程</a>
+								</dd>
+								<dd>
+									<a href="javascript:;" id="indexMyalbum" _href="Course/myalbum.html" onclick="ces('indexMyalbum')">我的专辑</a>
+								</dd>
+							</dl>
+						</li>
+						<li class="layui-nav-item">
+							<a href="JavaScript:;" id="setting_click">设置</a>     
+							<dl class="layui-nav-child">
+								<dd>
+									<a href="javascript:;" id="indexHome" _href="Setting/homepage.html" onclick="ces('indexHome')">主页</a>
+								</dd>
+								<dd>
+									<a href="javascript:;" id="indexMessage" _href="Setting/message.html" onclick="ces('indexMessage')">消息设置</a>
+								</dd>
+								<dd>
+									<a href="javascript:;" id="indexPrivacy" _href="Setting/privacy.html" onclick="ces('indexPrivacy')">隐私设置</a>
+								</dd>
+								<dd>
+									<a href="javascript:;" id="indexAccount" _href="Setting/account.html" onclick="ces('indexAccount')" style="display: none;">账号绑定</a>
+								</dd>
+							</dl>
+						</li>
+						<li class="layui-nav-item">
+							<a href="javascript:;" id="indexHelp" _href="Help/help.html" onclick="ces('indexHelp')">帮助</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+
+			<!--主题内容区-->
+			<!--概览-->
+			<div class="layui-body" id="Overview">
+                <iframe  id="iframeindex" name="" src="Overview/overview.html" style="width:100%;min-width:900px;height:99%;border:none;background: white;"></iframe>
+            </div>
+			
+		</div>
+		<script>
+			//JavaScript代码区域
+			layui.use(['layer', 'form', 'element'], function(){
+			    var layer = layui.layer
+			    ,form = layui.form
+			    ,element = layui.element
+			    ,laypage = layui.laypage
+			});
+			
+		</script>
+	</body>
+
+</html>

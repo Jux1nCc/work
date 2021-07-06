@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul id="ul1">
+        <li>隔壁老王1</li>
+        <li id="li2">隔壁老王2</li>
+        <li>隔壁老王3</li>
+        <li>隔壁老王4</li>
+        <li>隔壁老王5</li>
+    </ul>
+    <ul id="ul2">
+        <li>隔壁老张1</li>
+        <li>隔壁老张2</li>
+        <li>隔壁老张3</li>
+        <li>隔壁老张4</li>
+        <li>隔壁老张5</li>
+    </ul>
+    <script>
+        var ul1 = document.getElementById('ul1');
+        var ul2 = document.getElementById('ul2');
+        var li2 = document.getElementById('li2');
+        // 添加新元素  直接添加到最后面
+        var li = document.createElement('li');
+        li.innerText = '我是新来的';
+        ul1.appendChild(li);
+        //  添加已有元素 则移动到最后面
+        ul2.appendChild(li2);
+        //  添加元素有子元素 则子元素跟随父元素一起移动到最后面
+        ul1.appendChild(ul2)
+    </script>
+</body>
+
+</html>

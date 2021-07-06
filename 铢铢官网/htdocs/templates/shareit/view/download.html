@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<title>咨聊-营销大咖都在这里!</title>
+		
+		<meta name="keywords" content="">
+		<meta name="description" content="">
+		<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,initial-scale=1.0" />
+		<meta name="format-detection" content="telephone=no,email=no" />
+		<link rel="icon" href="../img/favicon.ico" type="image/x-icon">
+		<link rel="stylesheet" href="../css/style.css">
+		<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+		<script src="https://res2.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+		<script src="../js/swiper.min.js"></script>
+		<script type="text/javascript">
+        //var link = "http://adv.xxx.com/Index.html";//原网页地址
+        //var link = encodeURIComponent(location.href.split('#')[0]);//编码动态获取地址
+        //var link = "http://adv.xxx.com/Index.html?from=groupmessage";//微信加入参数后的地址
+        var url = encodeURIComponent(location.href.split('#')[0]);  
+			var data = getCookie("dataName");
+			//console.log(data)
+			var timestamp = null;
+			var nonceStr = null;
+			var signature = null;
+			if(data != null || data != undefined) {
+				var signArray = data.split(",");
+				timestamp = signArray[0];
+				nonceStr = signArray[1];
+				signature = signArray[2];
+
+			}
+			//console.log(signature)
+			if(timestamp == null || signature == null || nonceStr == null) {
+				$.get("/getSignature", {
+						"url": url   //也就是这个
+					},
+					function(data) {
+						//console.log(data)
+						timestamp = data.data.timestamp;
+						nonceStr = data.data.nonceStr;
+						signature = data.data.signature;
+						var saveData = timestamp + "," + nonceStr + "," + signature;
+						saveCookie("dataName", saveData, 2);
+
+						wx.config({
+							debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的onMenuShareAppMessage参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+							appId: 'wx74bf89427d4f03a6', // 必填，企业号的唯一标识，此处填写企业号corpid
+							timestamp: timestamp, // 必填，生成签名的时间戳
+							nonceStr: nonceStr, // 必填，生成签名的随机串
+							signature: signature, // 必填，签名，见附录1
+							jsApiList: [
+								'onMenuShareTimeline',
+								'onMenuShareAppMessage',
+								'onMenuShareQZone',
+								'onMenuShareQQ',
+								'onMenuShareWeibo'
+							] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+						});
+
+					});
+
+			} else { //3个都有值，直接执行下一步
+				wx.config({
+					debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的onMenuShareAppMessage参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+					appId: 'wx74bf89427d4f03a6', // 必填，企业号的唯一标识，此处填写企业号corpid
+					timestamp: timestamp, // 必填，生成签名的时间戳
+					nonceStr: nonceStr, // 必填，生成签名的随机串
+					signature: signature, // 必填，签名，见附录1
+					jsApiList: [
+						'onMenuShareTimeline',
+						'onMenuShareAppMessage',
+						'onMenuShareQZone',
+						'onMenuShareQQ',
+						'onMenuShareWeibo'
+					] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+				});
+
+			}
+
+				var imgUrl = 'https://livegle-video-test.oss-cn-shenzhen.aliyuncs.com/livegle-Person/PhotoAlbum/15238715193011801152036022770.jpeg';
+				
+			
+
+			//https://other.expertol.cn/shareit/view/expert.html?code=83fe94e9&customerId=1000010   那这个呢  刚刚那个是给后台的，这个不清楚，一步一步测
+			var muUrl =  location.href.split('#')[0]; 
+			wx.ready(function() {
+				
+				wx.onMenuShareTimeline({
+					title: '营销大咖都在这里！', // 分享标题
+					desc: '我已加入，邀你一起成长', // 分享描述
+					link: muUrl, // 分享链接
+					imgurl: imgUrl, // 分享图标
+					type: '', // 分享类型,music、video或link，不填默认为link
+					dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+					success: function() {
+						// 用户确认分享后执行的回调函数
+					},
+					cancel: function() {
+						// 用户取消分享后执行的回调函数
+					}
+				});
+
+				wx.onMenuShareAppMessage({
+					title: '营销大咖都在这里!', // 分享标题
+					desc: '我已加入，邀你一起成长', // 分享描述
+					link: muUrl, // 分享链接
+					imgurl: imgUrl, // 分享图标
+					type: 'link', // 分享类型,music、video或link，不填默认为link
+					dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+					success: function() {
+						// 用户确认分享后执行的回调函数
+					},
+					cancel: function() {
+						// 用户取消分享后执行的回调函数
+					}
+				});
+
+				wx.onMenuShareQQ({
+					title: '营销大咖都在这里!', // 分享标题
+					desc: '我已加入，邀你一起成长', // 分享描述
+					link: muUrl, // 分享链接
+					imgurl: imgUrl, // 分享图标
+					type: 'link', // 分享类型,music、video或link，不填默认为link
+					dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+					success: function() {
+						// 用户确认分享后执行的回调函数
+					},
+					cancel: function() {
+						// 用户取消分享后执行的回调函数
+					}
+				});
+				//分享到腾讯微博
+				wx.onMenuShareWeibo({
+					title: '营销大咖都在这里!', // 分享标题
+					desc: '我已加入，邀你一起成长', // 分享描述
+					link: muUrl, // 分享链接
+					imgurl: imgUrl, // 分享图标
+					type: 'link', // 分享类型,music、video或link，不填默认为link
+					dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+					success: function() {
+						// 用户确认分享后执行的回调函数
+					},
+					cancel: function() {
+						// 用户取消分享后执行的回调函数
+					}
+				});
+				//分享到QQ空间
+				wx.onMenuShareQZone({
+					title: '营销大咖都在这里!', // 分享标题
+					desc: '我已加入，邀你一起成长', // 分享描述
+					link: muUrl, // 分享链接
+					imgurl: imgUrl, // 分享图标
+					type: 'link', // 分享类型,music、video或link，不填默认为link
+					dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+					success: function() {
+						// 用户确认分享后执行的回调函数
+					},
+					cancel: function() {
+						// 用户取消分享后执行的回调函数
+					}
+
+				})
+			})
+			
+			function saveCookie(dataName, data, closeHours){
+			
+			 var str = dataName + "=" + escape(data);
+        
+		       //为0时不设定过期时间，浏览器关闭时cookie自动消失    
+		        if(closeHours > 0){
+					        var date = new Date();
+					        var ms = closeHours*3600*1000;
+					        date.setTime(date.getTime() + ms);
+					        str += "; expires=" + date.toString();
+		    		}
+		   			 document.cookie = str;
+					
+				
+				}
+				
+				function getCookie(dataName){
+					
+					
+					var arrstr = document.cookie.split("; "); 
+					
+					
+					for(var i = 0;i < arrstr.length;i ++){
+				        var temp = arrstr[i].split("=");
+				    	
+				        if(temp[0] == dataName){  
+				       
+				        	return unescape(temp[1]);	
+				        }else{
+				        	continue;  
+				        }
+				        
+				    }
+				}
+        
+   		</script>
+    
+	</head>
+
+	<body>
+		<div>
+			<img src="../img/dow.png" style="width:100%">
+		</div>
+		<div>
+			<button id="download_btn">立即免费体验</button>
+		</div>
+		
+
+		
+	
+	</body>
+	
+	<script type="text/javascript" charset="UTF-8" src="//res.cdn.openinstall.io/openinstall.js"></script>
+	<script type="text/javascript">
+	    //openinstall初始化时将与openinstall服务器交互，应尽可能早的调用
+	    /*web页面向app传递的json数据(json string/js Object)，应用被拉起或是首次安装时，通过相应的android/ios api可以获取此数据*/
+	    var data = OpenInstall.parseUrlParams();//openinstall.js中提供的工具函数，解析url中的所有查询参数
+	    new OpenInstall({
+	        /*appKey必选参数，openinstall平台为每个应用分配的ID*/
+	        appKey : "pb31xx",
+	        /*可选参数，自定义android平台的apk下载文件名，只有apk在openinstall托管时才有效；个别andriod浏览器下载时，中文文件名显示乱码，请慎用中文文件名！*/
+	        //apkFileName : 'com.fm.openinstalldemo-v2.2.0.apk',
+	        /*可选参数，是否优先考虑拉起app，以牺牲下载体验为代价*/
+	        //preferWakeup:true,
+	        /*自定义遮罩的html*/
+	        //mask:function(){
+	        //  return "<div id='openinstall_shadow' style='position:fixed;left:0;top:0;background:rgba(0,255,0,0.5);filter:alpha(opacity=50);width:100%;height:100%;z-index:10000;'></div>"
+	        //},
+	        /*openinstall初始化完成的回调函数，可选*/
+	        onready : function() {
+	            var m = this, button = document.getElementById("download_btn");
+	            button.style.visibility = "visible";
+	
+	            /*在app已安装的情况尝试拉起app*/
+	            m.schemeWakeup();
+	            /*用户点击某个按钮时(假定按钮id为downloadButton)，安装app*/
+	            button.onclick = function() {
+	                m.wakeupOrInstall();
+	                return false;
+	            }
+	        }
+	    }, data);
+	
+	</script>
+
+</html>

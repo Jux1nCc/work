@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0, viewport-fit=cover">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>小小元宵换大礼</title>
+    <link rel="stylesheet" href="http://activity.folkcam.cn/common/layer/theme/default/layer.css">
+    <link rel="stylesheet" href="http://activity.folkcam.cn/common/comm.css">
+    <link rel="stylesheet" href="./index.css?v=02" as="style">
+  </head>
+<body>
+  <div class="page PingFang">
+    <header></header>
+    <div class="main">
+      <p>收集元宵的方式: <span>可通过直播间盲盒抽奖获得</span></p>
+      <div class="ishave flexbox">当前我拥有: <span>0个</span>元宵<i></i></div>
+      <div class="gift">
+        <div class="title"></div>
+        <p class="title-text">元宵换礼物</p>
+        <ul>
+          <li class="flexbox">
+            <div class="gift-pic column">
+              <img src="images/headpic.png" alt="">
+              <div class="gift-pic-name">元宵晚餐</div>
+              <div class="gift-pic-price">(<span class="picPrice">6000</span><span class="appUnit">钻石</span>)</div>
+            </div>
+            <div class="gift-count column">
+              <span>我要换</span>
+              <div class="gift-count-control flexbox">
+                <span class="flexbox sub gray" onclick="subNum(this)">-</span>
+                <span class="control-line line-sub gray"></span>
+                <span class="flexbox sum">0</span>
+                <span class="control-line line-add"></span>
+                <span class="flexbox add" onclick="addNum(this)">+</span>
+                <span class="flexbox gift-unit">个</span>
+              </div>
+              <span>每个需消耗<span class="isNeed">0个</span>元宵</span>
+            </div>
+            <div class="gift-exchange flexbox" onclick="toGetGift(this)">确认兑换</div>
+            <div class="li-line"></div>
+          </li>
+          <li class="flexbox">
+            <div class="gift-pic column">
+              <img src="images/headpic.png" alt="">
+              <div class="gift-pic-name">抱月示爱</div>
+              <div class="gift-pic-price">(<span class="picPrice">8100</span><span class="appUnit">钻石</span>)</div>
+            </div>
+            <div class="gift-count column">
+              <span>我要换</span>
+              <div class="gift-count-control flexbox">
+                <span class="flexbox sub gray" onclick="subNum(this)">-</span>
+                <span class="control-line line-sub gray"></span>
+                <span class="flexbox sum">0</span>
+                <span class="control-line line-add"></span>
+                <span class="flexbox add" onclick="addNum(this)">+</span>
+                <span class="flexbox gift-unit">个</span>
+              </div>
+              <span>每个需消耗<span class="isNeed">0个</span>元宵</span>
+            </div>
+            <div class="gift-exchange flexbox" onclick="toGetGift(this)">确认兑换</div>
+            <div class="li-line"></div>
+          </li>
+          <li class="flexbox">
+            <div class="gift-pic column">
+              <img src="images/headpic.png" alt="">
+              <div class="gift-pic-name">陪你看灯会</div>
+              <div class="gift-pic-price">(<span class="picPrice">30000</span><span class="appUnit">钻石</span>)</div>
+            </div>
+            <div class="gift-count column">
+              <span>我要换</span>
+              <div class="gift-count-control flexbox">
+                <span class="flexbox sub gray" onclick="subNum(this)">-</span>
+                <span class="control-line line-sub gray"></span>
+                <span class="flexbox sum">0</span>
+                <span class="control-line line-add"></span>
+                <span class="flexbox add" onclick="addNum(this)">+</span>
+                <span class="flexbox gift-unit">个</span>
+              </div>
+              <span>每个需消耗<span class="isNeed">0个</span>元宵</span>
+            </div>
+            <div class="gift-exchange flexbox" onclick="toGetGift(this)">确认兑换</div>
+          </li>
+        </ul>
+      </div>
+      <div class="rule">
+        <div class="title"></div>
+        <p class="title-text">兑换礼物的规则</p>
+        <div class="rule-main">
+          <p>1、兑换礼物需消耗您通过直播间盲盒抽奖获得的“元宵”个数(即消耗直播间背包中剩余的“元宵”个数);</p>
+          <p>2、兑换礼物发放: 通过次活动页兑换的大礼物, <span class="white">将发放至您的背包礼物</span>,可在送礼的时候切换到“背包礼物”, 选中要赠送的礼物送出;</p>
+          <p>3、礼物兑换后<span class="white">有效期1个月</span>, 兑换后请尽快使用, 逾期未使用将过期。</p>
+        </div>
+      </div>
+      <footer class="column">
+        <span class="isApple">本活动奖励由<span class="appName">觅伊</span>平台提供, 与苹果公司无关</span>
+        <span>一本活动最终解释权归<span class="appName">觅伊</span>所有一</span>
+      </footer>
+    </div>
+  </div>
+  <div class="dialog">
+    <div id="isLogin" class="popup">
+      <button class="dialog-ok isLogin-login" onclick="jumpToMe()"></button>
+      <button class="dialog-close login-close"></button>
+    </div>
+  </div>
+</body>
+<script src="http://activity.folkcam.cn/common/jquery.min.js"></script>
+<script src="http://activity.folkcam.cn/common/layer/layer.js"></script>
+<script src="http://activity.folkcam.cn/common/app.js"></script>
+<script src="http://activity.folkcam.cn/common/rem.js"></script>
+<script src="http://activity.folkcam.cn/common/config.js"></script>
+<script src="index.js?v=02"></script>
+</html>

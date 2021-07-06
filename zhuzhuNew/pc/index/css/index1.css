@@ -1,0 +1,157 @@
+*{
+	margin: 0 auto;
+}
+.section1{
+	width: 100%;
+	height: 969px;
+	position: relative;
+	/* background-image: url(../image/bridal-4677348.png); */
+}
+.section1 .content{
+	left: 20%;
+	top: 20%;
+	position: absolute;
+	z-index: 10;
+	
+}
+.section1>.content>p{
+	font-size: 64px;
+	font-family: HelloFont-WenYiHei, HelloFont;
+	font-weight: normal;
+	color: #FFFFFF;
+	line-height: 180px;
+}
+.section1>.content>ul>li{
+	font-size: 32px;
+	font-family: PingFangSC-Medium, PingFang SC;
+	font-weight: 500;
+	color: #FFFFFF;
+	letter-spacing: 6px;
+	line-height: 65px;
+}
+.section1>.content>ul>li>i{
+	width: 5px;
+	height: 5px;
+	display: inline-block;
+	background: #FFFFFF;
+	margin: 10px;
+}
+.btn{
+	display: flex;
+	margin-top: 120px;
+	/* text-align: center; */
+	/* align-content: center; */
+}
+.btn>.btn1,.btn>.btn2{
+	/* margin-right: 30px; */
+	margin: 0 30px 0 0;
+	width: 216px;
+	height: 56px;
+	background: #FFFFFF;
+	border-radius: 28px;
+	font-size: 20px;
+	font-family: PingFangSC-Regular, PingFang SC;
+	font-weight: 400;
+	color: #000000;
+	align-items: center;
+	/* justify-content: center; */
+	display: flex;
+	line-height: 28px;
+}
+.btn>.btn1>div,.btn>.btn2>div{
+	align-items: center;
+	justify-content: center;
+	display: flex;
+}
+.btn>div>div>img{
+	margin: 0 10px 0 0;
+}
+.swiper-pagination-bullet{
+	display: block;
+	margin: 10px 0;
+}
+.swiper-pagination-bullet-active{
+	display: block;
+	width: 10px;
+	height: 32px;
+	background: #CB22EB;
+	border-radius: 5px;
+}
+nav{
+	position: fixed;
+	right: 30px;
+	top: 40%;
+	z-index: 12;
+}
+.zhe{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top:0;
+	left: 0;
+	/* background: rgba(255,255,255,.1); */
+	/* opacity: 0.2; */
+	z-index: 9;
+	overflow: hidden;
+}
+.section2{
+	width: 100%;
+	height: 969px;
+	background: #FFFDFF;
+}
+.section2>.content{
+	width: 70%;
+	display: flex;
+	padding-top: 100px;
+	margin: 0 auto;
+	align-items: center;
+	justify-content: space-around;
+}
+.section2>.content>.right{
+	width: 400px;
+}
+.section2>.content>.right>p{
+	width: 500px;
+	height: 90px;
+	font-size: 64px;
+	font-family: PingFangSC-Medium, PingFang SC;
+	font-weight: 500;
+	color: #000000;
+	margin-bottom: 20px;
+	/* line-height: 180px; */
+}
+.section2>.content>.right>ul>li{
+	font-size: 24px;
+	font-family: PingFangSC-Regular, PingFang SC;
+	font-weight: 400;
+	color: #222222;
+	line-height: 33px;
+	line-height: 50px;
+}
+/* .section2>.content>footer{
+	width: 1920px;
+	height: 100px;
+	background: #E37FF6;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	border-radius: 100% 100% 100% 100% / 0% 0% 30% 30%;
+} */
+.swiper-container{
+    --swiper-theme-color: #ff6600;
+    --swiper-pagination-color: #00ff33;/* 两种都可以 */
+  }
+.nav>ul>li:first-child span{
+	display: block;
+}
+.nav>ul>li:first-child{
+	font-weight: bold;
+}
+footer{
+	width: 100vw;
+	height: 100px;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	z-index: 99;
+}

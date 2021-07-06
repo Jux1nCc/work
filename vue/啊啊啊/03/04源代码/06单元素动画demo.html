@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    /* 正常状态 */
+    .box {
+      width: 500px;
+      height: 500px;
+      background-color: #f00;
+      margin: 0 auto;
+      transition: all 1.5s;
+    }
+    .xxx-enter-active {
+      transition: opacity 0.5s;
+    }
+
+    .xxx-leave-active {
+      transition: opacity 0.5s;
+    }
+    /* 动画实现：transtion  animation */
+    /* .xxx-enter,  */
+    /* 进入时，希望从什么状态变到正常状态 */
+    .xxx-enter {
+      opacity: 0;
+      width: 0;
+      height: 0;
+      transform: translateX(-500px);
+    }
+    /* 离开时，希望从正常状态变到什么状态 */
+    .xxx-leave-to /* .fade-leave-active below version 2.1.8 */ {
+      opacity: 0;
+      width: 0;
+      height: 0;
+      transform: translateX(500px);
+    }
+  </style>
+  <!-- 单元素动画
+动画条件：进入/离开  v-if/v-show
+动画实现过程：
+    1：一定要有一个transition标签包住
+    2：在transition标签上一定要加一个name，该name的值就是后面css的前缀
+        .xxx-leave-active：离开动画的执行体，主体就是为了放一个transition
+        .xxx-enter-active:进入动画的执行体，主体就是为了放一个transition
+        .xxx-leave-to：离开时，希望从正常状态变到什么状态
+        .xxx-enter:进入时希望从什么状态变到正常状态，
+
+-->
+  <body>
+    <div id="app">
+      <button @click="bol=!bol">点我啊</button>
+      <transition name="xxx">
+        <div class="box" v-if="bol"></div>
+      </transition>
+    </div>
+    <script src="./vue.js"></script>
+    <script>
+      new Vue({
+        el: "#app",
+        data: {
+          bol: true,
+        },
+      });
+    </script>
+  </body>
+</html>

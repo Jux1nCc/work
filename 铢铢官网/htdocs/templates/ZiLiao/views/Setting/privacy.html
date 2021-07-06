@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>隐私设置</title>
+		<link rel="stylesheet" href="../../public/css/style.css">
+		<link rel="stylesheet" href="../../package/layui/css/layui.css" />
+
+		<script type="text/javascript" src="../../package/layui/layui.js"></script>
+		<script src="../../public/js/public/jquery.min.js"></script>
+		<script src="../../public/js/index.js"></script>
+		<script src="../../public/js/setting/privacy.js"></script>
+	</head>
+	<body>
+		<div id="privacy_setting">
+			<div class="privacy_title">
+				<h3>隐私设置</h3>
+			</div>
+			<div class="privacy_news">
+				<p><strong>评论</strong><span>设置谁可以评论我发布的课程</span></p>
+				<ul>
+					<li><input type="radio" name="privacy" id="allmore" value="0" title="所有人" />所有人</li>
+		    		<li><input type="radio" name="privacy" id="myfriend" value="1" title="我关注的人、已入驻的专家、关注我的人" />我关注的人、已入驻的专家、关注我的人</li>
+		    		<li><input type="radio" name="privacy" id="onlyfriend" value="2" title="仅关注我的人" />仅关注我的人</li>
+		    		<li><input type="radio" name="privacy" id="close" value="3" title="关闭评论" />关闭评论</li>
+				</ul>
+				
+				<p style="margin-top: 50px;"><strong>@提到我</strong><span>设置谁可以评论我发布的课程</span></p>
+				<ul>
+					<li><input type="radio" name="Mention" id="timemore" value="0" title="所有人" />所有人</li>
+		    		<li><input type="radio" name="Mention" id="timefriend" value="1" title="我关注的人、已入驻的专家、关注我的人" />我关注的人、已入驻的专家、关注我的人</li>
+		    		<li><input type="radio" name="Mention" id="timeonlyfriend" value="2" title="仅关注我的人" />仅关注我的人</li>
+				</ul>
+				<button class="privacy_btn_save">保存设置</button>
+			</div>
+		</div>
+	</body>
+</html>

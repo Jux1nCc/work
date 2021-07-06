@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0, viewport-fit=cover">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="msapplication-tap-highlight" content="no">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Cache-Control" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <title>礼物周星榜活动奖励</title>
+  <link rel="stylesheet" href="http://activity.folkcam.cn/common/comm.css">
+  <link rel="stylesheet" href="http://activity.folkcam.cn/common/layer/theme/default/layer.css">
+  <style>
+    .page {
+      position: relative;
+      width: 100vw;
+      background: linear-gradient(#703efd, #e562ce);
+      padding-bottom: .5rem;
+    }
+
+    header {
+      width: 95%;
+      height: 6.65rem;
+      background-image: url(images/head.png);
+      background-size: 100% 100%;
+    }
+
+    .back-home {
+      position: absolute;
+      right: 0;
+      top: 5.5rem;
+      width: 1.38rem;
+      height: .66rem;
+      background-image: url('images/back_homepage.png');
+      background-size: 100% 100%;
+      z-index: 99;
+    }
+
+    .rule-nav-wrap {
+      width: 4.4rem;
+      height: .65rem;
+      background-color: #790cd6;
+      border-radius: .1rem;
+      border: 1px solid #fffece;
+      color: #fff;
+      margin: 0 auto;
+    }
+
+    .rule-nav {
+      font-size: #fffefe;
+      width: 2.2rem;
+      height: .65rem;
+      text-align: center;
+      line-height: .65rem;
+      font-size: .32rem;
+    }
+
+    .rule-nav-1 {
+      background-image: url('images/rule_nav.png');
+      background-size: 100% 100%;
+    }
+
+    .rule-wrap,
+    .award-wrap {
+      width: 7.05rem;
+      height: 26.2rem;
+      background-color: #fcf4ff;
+      border-radius: .1rem;
+      margin: .5rem auto;
+      padding: .1rem;
+    }
+
+    .rule-wrap-title,
+    .award-wrap-title {
+      width: 2.66rem;
+      height: .6rem;
+      font-size: .3rem;
+      color: #ffdade;
+      border-radius: .1rem;
+      background-color: #844afb;
+      text-align: center;
+      line-height: .6rem;
+    }
+
+    .rule-wrap-text {
+      color: #0a68ff;
+      font-size: .28rem;
+      padding: 0 .35rem;
+      line-height: 1.7;
+      margin: .1rem auto;
+    }
+
+    table {
+      margin-bottom: .4rem;
+    }
+
+    table img {
+      width: 1rem;
+      height: .8rem;
+      border-radius: .1rem;
+    }
+
+    table div {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0 .15rem;
+      margin: .15rem auto;
+    }
+
+    table p {
+      width: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      text-align: center;
+    }
+
+    table p span {
+      color: #fff;
+      font-size: .26rem;
+    }
+
+    td,
+    th {
+      background-color: #844afb;
+      border-radius: .1rem;
+      vertical-align: middle;
+    }
+
+    th {
+      color: #ffc9fd;
+      font-size: .28rem;
+    }
+
+    th:first-child {
+      width: .88rem;
+    }
+
+    th:nth-child(2) {
+      width: 2.56rem;
+    }
+
+    th:nth-child(3) {
+      width: 3.08rem;
+    }
+
+    tr:first-child {
+      height: .96rem;
+    }
+
+    .attention {
+      color: #f12982;
+    }
+
+    .explain {
+      color: #7828e6;
+    }
+
+    .attention h3,
+    .explain h3 {
+      font-size: .34rem;
+      margin-bottom: .3rem;
+    }
+
+    .attention p,
+    .explain p {
+      font-size: .26rem;
+      margin-bottom: .3rem;
+      padding: 0 .1rem;
+    }
+
+    .award-wrap {
+      width: 7.05rem;
+      height: 14.3rem;
+    }
+
+    .award-wrap-title {
+      width: 1.7rem;
+      height: .6rem;
+      margin: .3rem 0;
+    }
+
+    .award-wrap p {
+      padding-left: .4rem;
+      padding-right: .2rem;
+    }
+
+    .award-play-rule p {
+      color: #0a68ff;
+      font-size: .28rem;
+    }
+
+    .award-rule-page p {
+      color: #790cd6;
+      font-size: .28rem;
+      margin-bottom: .3rem;
+    }
+
+    .award-rule-page p span {
+      color: #f18301;
+      font-size: .28rem;
+    }
+
+    footer {
+      width: 100%;
+      height: 1.5rem;
+      color: #fff;
+    }
+
+    #openOutApp {
+      width: 5.46rem;
+      height: 8.54rem;
+      background-image: url(images/miyi.png);
+      background-size: 100% 100%;
+      margin: 0 auto;
+    }
+
+    .to-download {
+      width: 2rem;
+      height: .64rem;
+      bottom: 40%;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page">
+    <header></header>
+    <div class="back-home" onclick="toHomePage()"></div>
+    <div class="rule-nav-wrap flexbox">
+      <div class="rule-nav rule-nav-1" onclick="changeNav(this,1)">活动奖励</div>
+      <div class="rule-nav" onclick="changeNav(this,2)">活动规则</div>
+    </div>
+    <div class="rule-wrap">
+      <div class="rule-wrap-title">周星及探星奖励</div>
+      <p class="rule-wrap-text">每周周星榜前3名周星主播及周星星探，可获得奖励。</p>
+      <table cellspacing="5">
+        <tr>
+          <th>周榜排名</th>
+          <th>礼物周星主播</th>
+          <th>周星星探</th>
+        </tr>
+        <tr>
+          <th>第一</th>
+          <td>
+            <div>
+              <img src="images/live.png">
+              <p>
+                <span>次周直播</span>
+                <span>分成+5%</span>
+              </p>
+            </div>
+            <div>
+              <img src="images/broadcast.png">
+              <p>
+                <span>全直播间</span>
+                <span>广播1天</span>
+              </p>
+            </div>
+            <div>
+              <img src="images/recommend.png">
+              <p>
+                <span>星榜推荐</span>
+                <span>第一名</span>
+              </p>
+            </div>
+            <div>
+              <img src="images/head01.png">
+              <p>
+                <span>璀璨周星</span>
+                <span>-头像框</span>
+              </p>
+            </div>
+            <div>
+              <img src="images/bubble02.png">
+              <p>
+                <span>周星</span>
+                <span>-气泡</span>
+              </p>
+            </div>
+          </td>
+          <td>
+            <div>
+              <img src="images/tower.png">
+              <p>
+                <span>带你住城堡</span>
+                <span>(5200<span class="appUnit">钻石</span>)</span>
+              </p>
+            </div>
+            <div>
+              <img src="images/angel.png">
+              <p>
+                <span>爱你小天使</span>
+                <span>(1999<span class="appUnit">钻石</span>)</span>
+              </p>
+            </div>
+            <div>
+              <img src="images/dog.png">
+              <p>
+                <span>告白盒子</span>
+                <span>(999<span class="appUnit">钻石</span>)</span>
+              </p>
+            </div>
+            <div>
+              <img src="images/head04.png">
+              <p>
+                <span>造星大亨</span>
+                <span>-头像框</span>
+              </p>
+            </div>
+            <div>
+              <img src="images/bubble01.png">
+              <p>
+                <span>星探</span>
+                <span>-气泡</span>
+              </p>
+            </div>
+            <div>
+              <img src="images/enter01.png">
+              <p>
+                <span>星探一号</span>
+                <span>-进场特效</span>
+              </p>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <th>第二</th>
+          <td>
+            <div>
+              <img src="images/live.png">
+              <p>
+                <span>次周直播</span>
+                <span>分成+4%</span>
+              </p>
+            </div>
+            <div>
+              <img src="images/recommend.png">
+              <p>
+                <span>星榜推荐</span>
+                <span>第二名</span>
+              </p>
+            </div>
+            <div>
+              <img src="images/head02.png">
+              <p>
+                <span>人气周星</span>
+                <span>-头像框</span>
+              </p>
+            </div>
+            <div>
+              <img src="images/bubble02.png">
+              <p>
+                <span>周星</span>
+                <span>-气泡</span>
+              </p>
+            </div>
+          </td>
+          <td>
+            <div>
+              <img src="images/angel.png">
+              <p>
+                <span>爱你小天使</span>
+                <span>(1999<span class="appUnit">钻石</span>)</span>
+              </p>
+            </div>
+            <div>
+              <img src="images/dog.png">
+              <p>
+                <span>告白盒子</span>
+                <span>(999<span class="appUnit">钻石</span>)</span>
+              </p>
+            </div>
+            <div>
+              <img src="images/head05.png">
+              <p>
+                <span>造星伯乐</span>
+                <span>-头像框</span>
+              </p>
+            </div>
+            <div>
+              <img src="images/bubble01.png">
+              <p>
+                <span>星探</span>
+                <span>-气泡</span>
+              </p>
+            </div>
+            <div>
+              <img src="images/enter02.png">
+              <p>
+                <span>星探二号</span>
+                <span>-进场特效</span>
+              </p>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <th>第三</th>
+          <td>
+            <div>
+              <img src="images/live.png">
+              <p>
+                <span>次周直播</span>
+                <span>分成+3%</span>
+              </p>
+            </div>
+            <div>
+              <img src="images/recommend.png">
+              <p>
+                <span>星榜推荐</span>
+                <span>第三名</span>
+              </p>
+            </div>
+            <div>
+              <img src="images/head03.png">
+              <p>
+                <span>小小周星</span>
+                <span>-头像框</span>
+              </p>
+            </div>
+            <div>
+              <img src="images/bubble02.png">
+              <p>
+                <span>周星</span>
+                <span>-气泡</span>
+              </p>
+            </div>
+          </td>
+          <td>
+            <div>
+              <img src="images/dog.png">
+              <p>
+                <span>告白盒子</span>
+                <span>(999<span class="appUnit">钻石</span>)</span>
+              </p>
+            </div>
+            <div>
+              <img src="images/head06.png">
+              <p>
+                <span>造星玩家</span>
+                <span>-头像框</span>
+              </p>
+            </div>
+            <div>
+              <img src="images/bubble01.png">
+              <p>
+                <span>星探</span>
+                <span>-气泡</span>
+              </p>
+            </div>
+            <div>
+              <img src="images/enter03.png">
+              <p>
+                <span>星探三号</span>
+                <span>-进场特效</span>
+              </p>
+            </div>
+          </td>
+        </tr>
+      </table>
+      <div class="attention">
+        <h3>注意:</h3>
+        <p>以上周榜奖励中的“直播分成奖励”、“礼物奖励” 有领奖门槛，需要求周星主播的总积分达到20w。</p>
+        <p>其他奖励均无领奖门槛。</p>
+      </div>
+      <div class="explain">
+        <h3>奖励发放说明</h3>
+        <p>1、发放时间：所有奖励于统计周期结束后的周一0点发放；</p>
+        <p>2、奖励有效期：从发放时间起，全平台直播间广播有效期1天，其他奖励有效期均为7天； </p>
+        <p>3、到账方式：装扮类奖励发放至个性商城，需手动确认使用；礼物奖励发放至背包礼物； </p>
+        <p>4、如果在发放星榜推荐位奖励期间，用户的账号被永久冻结或自行注销，将取消其奖励资格，并将名额顺延给下一位中奖用户。 </p>
+      </div>
+    </div>
+    <div class="award-wrap popup">
+      <div class="award-wrap-title">主播玩法</div>
+      <div class="award-play-rule">
+        <p>礼物周星主播：</p>
+        <p>当前周收到指定周星礼物获得积分（1<span class="appUnit">钻石</span>周星礼物=1积分）最多的前三名主播，成为礼物周星主 播，获得礼物周星奖</p>
+      </div>
+      <div class="award-wrap-title">用户玩法</div>
+      <div class="award-play-rule">
+        <p>周星星探：</p>
+        <p>给周星主播贡献积分（1<span class="appUnit">钻石</span>周星礼物=1积分）最多的用户，成为周星星探，获得周星星探奖励。 </p>
+      </div>
+      <div class="award-wrap-title">活动规则</div>
+      <div class="award-rule-page">
+        <p>1.活动时间：每周一00:00:00-周日23:59:59（所有玩法统计时间均为北京时间）；</p>
+        <p>2.每周指定3个“周星礼物”，主播收集/用户送出 “周星礼物”即可参加活动进入榜单，榜单根据积分 进行排名（1<span
+            class="appUnit">钻石</span>周星礼物=1积分）。若榜单积分相同，则先达到的排在前面。</p>
+        <p>3.<span class="orange">加速增长环节</span>：每日累计收获积分最多的主播进 入次日的<span class="orange">“冠军黑马”</span>资源位推荐，并将<span
+            class="orange">享受次日收到的周星礼物价值20%的加速（即1<span class="appUnit">钻石</span>周星礼物=1.2积分。）；</span></p>
+        <p>4.周榜前三名周星主播及其星探将分别获得相应的丰厚奖励；</p>
+        <p>5.该活动只统计在线直播时所获得的礼物，直播回放及其他渠道均不统计；自己给自己送出的礼物不计入统计。</p>
+      </div>
+    </div>
+    <footer class="column">
+      <span class="apple">本活动奖励由<span class="appName">觅伊</span>平台提供，与苹果公司无关。</span>
+      <span>一本活动最终解释权归<span class="appName">觅伊</span>所有一</span>
+    </footer>
+  </div>
+  <div class="dialog">
+    <div id="openOutApp" class="popup">
+      <button class="dialog-ok to-download" onclick="download()"></button>
+      <button class="dialog-close login-close"></button>
+    </div>
+  </div>
+</body>
+<script src="http://activity.folkcam.cn/common/rem.js"></script>
+<script src="http://activity.folkcam.cn/common/app.js"></script>
+<script src="http://activity.folkcam.cn/common/config.js"></script>
+<script src="http://activity.folkcam.cn/common/jquery.min.js"></script>
+<script src="http://activity.folkcam.cn/common/layer/layer.js"></script>
+<script src="http://res.cdn.openinstall.io/openinstall.js"></script>
+<script>
+  var type = $config.getQueryStringByName("type"),
+    appType = $config.getQueryStringByName("appType"),
+    appBool = openInWebview(),// 是否app外打开
+    app = [{  //兔聊  
+      name: '兔聊',
+      downloadUrl: 'https://www.expertol.cn/',
+      appKey: 'bmhy9f',
+      vipName: '会员',
+      util: '聊币',
+      title: '发现身边的俊男美女，线上聊，线下约。快来找我吧，点击进入 >',
+      textContent: '发现身边“美”一刻',
+      umImage1: 'https://jw-yunying.oss-cn-shenzhen.aliyuncs.com/share/image/defaultShare.jpg'
+    },
+    { //觅伊
+      name: '觅伊',
+      downloadUrl: 'http://www.rklive888.com/',
+      appKey: 'c6xjxt',
+      vipName: '贵族',
+      util: '钻石',
+      title: '找对象 上觅伊',
+      textContent: '6000万人都在玩的交友APP',
+      umImage1: 'https://jw-yunying.oss-cn-shenzhen.aliyuncs.com/share/image/defaultShare.jpg'
+    }]
+  if (appType == 1) {
+    $('.appUnit').text('聊币')
+    $('.appName').text('兔聊')
+  }
+  if ($config.browser.versions.android) {
+    $('.apple').addClass('popup')
+  }
+  function changeNav(that, type) {
+    $(that).addClass('rule-nav-1').siblings('.rule-nav').removeClass('rule-nav-1')
+    if (type == 1) {
+      $('.rule-wrap').removeClass('popup').siblings('.award-wrap').addClass('popup')
+    } else {
+      $('.rule-wrap').addClass('popup').siblings('.award-wrap').removeClass('popup')
+    }
+  }
+  function toHomePage() {
+    if (!appBool) {
+      if (appType == 1) {
+        $('#openOutApp').css('background-image', 'url(images/tuliao.png)')
+      }
+      $config.dialogComm($('#openOutApp'), 'openOutApp')
+      return
+    }
+    if (type == 1) {
+      window.history.go(-1)
+    } else {
+      window.history.go(-2)
+    }
+  }
+  function download() {
+    layer.closeAll()
+    if ($config.browser.versions.android) {
+      window.location.href = app[appType - 1].downloadUrl
+    } else {
+      if (appType == 1) {
+        window.location.href = app[0].downloadUrl
+      } else {
+        var data = OpenInstall.parseUrlParams();//openinstall.js中提供的工具函数，解析url中的所有查询参数
+        new OpenInstall({
+          /*appKey必选参数，openinstall平台为每个应用分配的ID*/
+          appKey: app[1].appKey,
+          onready: function () {
+            var m = this;
+            /*在app已安装的情况尝试拉起app*/
+            m.schemeWakeup();
+            // 未安装时去Appstore
+            m.wakeupOrInstall();
+          }
+        })
+      }
+    }
+  }
+  function shareTc() {
+    var img = "http://miyiurl.rklive888.com/activities/weekstar21/dev/images/miao.png",
+      title = '礼物周星争夺战',
+      subtitle = '守擂周星, 做璀璨周星主播',
+      sharingState = 'weekstarsV2',
+      apptype = appType
+    var path = window.location.href.split('?')[0], url = '',
+      arr = window.location.href.split('?')[1].split('&'), result = [];
+    for (var i = 0; i < arr.length; i++) {
+      (function (index) {
+        var item = arr[index];
+        if (item.indexOf('customerId') < 0 && item.indexOf('token') < 0 && item.indexOf('isFrom') < 0) {
+          result.push(item)
+        }
+      })(i)
+    }
+    result.push('isFrom=h5');
+    query = result.join('&');
+    if (apptype) {
+      url = path + '?' + query + '&appType=' + apptype;
+    } else {
+      url = path + '?' + query;
+    }
+    if (browser.versions.android) {
+      client.jumpToShare(img, title, url, subtitle, sharingState);
+    } else {
+      window.webkit.messageHandlers.jumpToShare.postMessage({
+        img: img,
+        title: title,
+        url: url,
+        subtitle: subtitle,
+        type: sharingState,
+        shareLink: 0,
+      });
+    }
+  }
+</script>
+
+</html>

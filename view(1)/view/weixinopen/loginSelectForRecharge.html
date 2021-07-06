@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head lang="zh-CN">
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible"content="IE=edge,chrome=1">
+<meta name="renderer"content="webkit">
+<meta name="viewport"content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="apple-mobile-web-app-capable"content="yes">
+<meta name="apple-mobile-web-app-status-bar-style"content="black-translucent">
+<meta name="format-detection"content="telephone=no">
+<meta name="screen-orientation"content="portrait">
+<meta name="x5-orientation"content="portrait">
+<title>请登录</title>
+<script>//判断屏幕宽度计算字号大小
+(function(doc, win) { var docEl = doc.documentElement, resizeEvt ='orientationchange'in window ? 'orientationchange':'resize', recalc = function() { var clientWidth = docEl.clientWidth;
+		if (!clientWidth) { return; }
+	docEl.style.fontSize = 100 * (clientWidth / 375) + 'px'; }
+	;
+	if (!doc.addEventListener) { return; }
+win.addEventListener(resizeEvt, recalc, false); doc.addEventListener('DOMContentLoaded', recalc, false); recalc(); }
+)(document, window); 
+</script>
+<link rel="stylesheet" type="text/css"
+	href="../../view/assets/css/withdraw_mini.css" />
+	<link rel="stylesheet" type="text/css" href="../../view/assets/css/layer.css" />
+<script type="text/javascript" language="javascript"
+	src="../../view/assets/js/jquery-1.11.1.min.js"></script>	
+<script type="text/javascript" language="javascript"
+	src="../../view/js/common.js"></script>		
+<script type="text/javascript" language="javascript" src="../../view/js/alert.js"></script>	
+<script type="text/javascript" language="javascript" src="../../view/js/layer.js"></script>
+</head>
+<body>
+<div class="login-wrap"><h2>请登录您的兔聊账号</h2><div class="login-way">
+<h3>请选择登录方式</h3>
+<ul class="login-way-list">
+<a href="https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxd7555f83fe7e0627&redirect_uri=http%3a%2f%2fwxgzh.rablive.cn%2fview%2faccount%2fgetWeixinInfoForRecharge&response_type=code&scope=snsapi_base&state=123#wechat_redirect"><li class="js_login_wx"data-type="wx"><i class="icon-login icon-wechat"></i>当前微信号</li></a>
+
+<!-- <a href="https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx1ff5ef37556f8347&redirect_uri=http%3a%2f%2flocalhost:8080/folkcam-app%2fview%2faccount%2fgetOpenId&response_type=code&scope=snsapi_base&state=123#wechat_redirect"><li class="js_login_wx"data-type="wx"><i class="icon-login icon-wechat"></i>当前微信号</li></a> -->
+
+<a href="https://graph.qq.com/oauth2.0/authorize?response_type=code&client_id=101357802&redirect_uri=http%3a%2f%2fwxgzh.rablive.cn%2fview%2fmobile%2fqqCallBack&state=1" onclick="aClick();"><li class="js_login_qq"><i class="icon-login icon-QQ"></i>QQ</li></a>
+<!-- <a href="https://api.weibo.com/oauth2/authorize?client_id=2461509110&redirect_uri=http%3a%2f%2fwxgzh.rablive.cn%2fview%2faccount%2fweiboCallBack"><li class="js_login_weibo"><i class="icon-login icon-weibo"></i>微博</li></a> -->
+<a href="https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxd7555f83fe7e0627&redirect_uri=http%3a%2f%2fwxgzh.rablive.cn%2fview%2faccount%2flogin&response_type=code&scope=snsapi_base&state=123#wechat_redirect"><li class="js_login_mobile_code"data-type="mobile_code"><i class="icon-login icon-phone"></i>手机号</li></a>
+</ul>
+</body>
+<script type="text/javascript">
+$(function(){
+	var isExit = getURLParameter("isExit");
+	if(isExit && isExit==0){
+// 		alert("提示","该微信号未注册");
+		layer.open({
+			  title: [
+			    '提示',
+			    'background-color:#8DCE16; color:#fff;'
+			  ]
+			  ,anim: 'up'
+			  ,content: '该微信号未注册，请前往兔聊app注册'
+			  ,btn: ['确认', '取消']
+			});
+	}
+	if(isExit && isExit==2){
+		layer.open({
+			  title: [
+			    '提示',
+			    'background-color:#8DCE16; color:#fff;'
+			  ]
+			  ,anim: 'up'
+			  ,content: '该微博号未注册，请前往兔聊app注册'
+			  ,btn: ['确认', '取消']
+			});
+	}
+	if(isExit && isExit==6){
+		layer.open({
+			  title: [
+			    '提示',
+			    'background-color:#8DCE16; color:#fff;'
+			  ]
+			  ,anim: 'up'
+			  ,content: '该QQ号未注册，请前往兔聊app注册'
+			  ,btn: ['确认', '取消']
+			});
+	}
+	
+	if(getURLParameter("flag")){
+	 	var e2 = document.createElement("a");
+	 	document.body.appendChild(e2);
+	 	var url2="https://graph.qq.com/oauth2.0/authorize?response_type=code&client_id=101357802&redirect_uri=http%3a%2f%2fwxgzh.rablive.cn%2fview%2fmobile%2fqqCallBack&state=1";
+	 	e2.href = url2; //url 是你得到的连接
+	 	e2.target = '_self'; //指定在新窗口打开
+	 	e2.click();
+	 	document.body.removeChild(e2);
+	}
+});
+function aClick(){
+	var el = document.createElement("a");
+	document.body.appendChild(el);
+	var url="https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxd7555f83fe7e0627&redirect_uri=http%3a%2f%2fwxgzh.rablive.cn%2fview%2faccount%2flogin2&response_type=code&scope=snsapi_base&state=123#wechat_redirect";
+	el.href = url; //url 是你得到的连接
+	el.target = '_self'; //指定在新窗口打开
+	el.click();
+	document.body.removeChild(el);
+}
+</script>
+</html>

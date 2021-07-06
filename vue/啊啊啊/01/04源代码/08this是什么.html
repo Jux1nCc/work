@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- 注意：html里面不要使用this访问data与methods,使用了可能报错，不使用一定正确
+                 在methods里面一定要使用this访问data与methods 
+                data与methods中的属性都会在vue实例化后平铺到vue实例对象上也就是平铺到了this身上
+      -->
+    <div id="app">
+      <button @click="add">点我啊</button>
+      <p>你点了我{{num}}下</p>
+    </div>
+    <script src="./vue.js"></script>
+    <script>
+      //   function Person() {}
+      //   window.console.log(new Person());
+      let app = new Vue({
+        el: "#app",
+        data: {
+          // data中的属性会在new Vue实例化后平铺到vue返回的实例对象也就是this上
+          num: 0,
+          xxx: 123456,
+          xxx2: 789,
+        },
+        methods: {
+          // methods中的方法在new Vue实例化后会平铺到vue返回的实例对象上也就是this上
+          add() {
+            if (this.num < 10) {
+              this.num++;
+            }
+            this.alertEvent();
+            //   this就是vue实例对象
+            window.console.log(this);
+            window.console.log("app:", app);
+            window.console.log(this === app);
+            window.console.log(this.xxx2);
+          },
+          alertEvent() {
+            alert(123);
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

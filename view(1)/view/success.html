@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="description" content="" />
+<meta name="author" content="" />
+<title>聊币充值</title>
+<script type="application/x-javascript">
+	addEventListener("load", function() {
+		setTimeout(hideURLbar, 0);
+	}, false);
+	
+	function hideURLbar(){
+		window.scrollTo(0,1);
+	}
+</script>
+<!-- font files  -->
+<link href='//fonts.googleapis.com/css?family=Muli:400,300' rel='stylesheet' type='text/css'>
+<link href='//fonts.googleapis.com/css?family=Nunito:400,300,700' rel='stylesheet' type='text/css'>
+<!-- /font files  -->
+<!-- css files -->
+<link href="@{/assets/weixinopen/css/style.css" rel='stylesheet' type='text/css' />
+<!-- /css files -->
+</head>
+<body>
+<!-- <h1>Unique Login Form</h1> -->
+<div class="log">
+	<div class="content1">
+		<h5>兔聊账号</h5>
+		<form name="login" method="post" action="LoginServlet">
+			<input type="text" name="username" value="请输入您的手机注册号" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '请输入您的手机注册号';}">
+			<input type="password" name="password" value="请输入登录密码" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '请输入登录密码';}">
+			<div class="button-row">
+				<input type="submit" class="register" value="登录">
+				<div class="clear"></div>
+			</div>
+		</form>
+	</div>
+	<div class="clear"></div>
+</div>
+<div class="footer">
+	<p>Copyright © 2016 folkcam All Rights Reserved. 2016 镜玩公司  版权所有 粤ICP备16028473号-1 </p>
+</div>
+<script type="text/javascript" src="@{/assets/js/NB.js}"></script>
+<script type="text/javascript" src="@{/assets/js/jquery-1.11.1.min.js}"></script>
+</body>
+</html>

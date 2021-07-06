@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0, viewport-fit=cover">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="msapplication-tap-highlight" content="no">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Cache-Control" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <title>视频聊天 聊你想聊</title>
+  <link rel="stylesheet" href="http://activity.folkcam.cn/common/comm.css">
+  <link rel="stylesheet" href="http://activity.folkcam.cn/common/layer/theme/default/layer.css">
+  <style>
+    .title {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 1.1rem;
+      background: linear-gradient(90deg, #ff5f82, #febc82);
+      z-index: 2;
+      font-size: 0.44rem;
+      color: #fff;
+    }
+
+    .title-icon {
+      width: 0.85rem;
+      height: 0.55rem;
+      margin-right: 0.2rem;
+      margin-top: 0.1rem;
+    }
+
+    .main {
+      display: flex;
+      position: relative;
+      width: 100%;
+      padding-top: 1.42rem;
+      padding-bottom: 1.85rem;
+      background-color: #f1f1f1;
+    }
+
+    .item {
+      position: relative;
+      width: 3.4rem;
+      margin-left: 0.23rem;
+      margin-bottom: 0.24rem;
+      border-radius: 0.08rem;
+      background-color: #fff;
+    }
+
+    .main-ul-a .item {
+      height: 4.93rem;
+    }
+
+    .main-ul-b .item {
+      height: 5.3rem;
+    }
+
+    .item-btn {
+      position: absolute;
+      top: 0.15rem;
+      right: 0.15rem;
+      width: 0.64rem;
+      height: 0.3rem;
+      border-top-left-radius: 0.1rem;
+      border-bottom-right-radius: 0.1rem;
+      background-color: #f7859e;
+      font-size: 0.18rem;
+      color: #fff;
+      text-align: center;
+      line-height: 1.6;
+    }
+
+    .item-img {
+      width: 100%;
+    }
+
+    .video-chat {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+    }
+
+    .main-ul-a .video-chat {
+      height: 0.78rem;
+    }
+
+    .main-ul-b .video-chat {
+      height: 0.88rem;
+    }
+
+    .chat-title {
+      font-size: 0.24rem;
+      color: #fe4b73;
+    }
+
+    .chat-hot {
+      font-size: 0.16rem;
+      color: #7b7b7b;
+      margin-top: 0.1rem;
+    }
+
+    .chat-icon {
+      width: 0.37rem;
+      height: 0.25rem;
+      margin-right: 0.1rem;
+    }
+
+    .hot-icon {
+      width: 1.32rem;
+      height: 0.19rem;
+    }
+
+    .first {
+      height: 4.6rem;
+    }
+
+    .first .video-chat {
+      height: 0.72rem;
+    }
+
+    .downLoad-btn {
+      position: absolute;
+      bottom: 1.42rem;
+      left: 0;
+      width: 100%;
+      height: 0.64rem;
+      text-align: center;
+    }
+
+    .downLoad-btn button {
+      width: 6.08rem;
+      height: 100%;
+      border: none;
+      border-radius: 0.08rem;
+      background-color: #f7859e;
+      font-size: 0.34rem;
+      color: #fff;
+    }
+
+    .footer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 1.4rem;
+      background-color: rgba(0, 0, 0, .5);
+      z-index: 2;
+      justify-content: space-around;
+      font-size: 0.3rem;
+      color: #fff;
+    }
+
+    .logo {
+      width: 0.91rem;
+      height: 0.91rem;
+    }
+
+    .btn {
+      position: relative;
+      width: 3rem;
+      height: 0.9rem;
+      border: none;
+      border-radius: 0.9rem;
+      background: linear-gradient(#fdba80, #fe6181);
+      font-size: 0.4rem;
+      color: #fff;
+      box-shadow: inset 0 -0.05rem #b21c3c;
+    }
+
+    .heart {
+      position: absolute;
+      top: -0.5rem;
+      left: 0;
+      width: 0.6rem;
+      height: 0.63rem;
+      transform: rotate(-45deg);
+      opacity: 0;
+      -webkit-animation: move 2s linear;
+      animation: move 2s linear;
+    }
+
+    .arrow {
+      width: 0.37rem;
+      height: 0.42rem;
+      margin-right: 0.1rem;
+      -webkit-animation: free_download 1s linear alternate infinite;
+      animation: free_download 1s linear alternate infinite;
+    }
+
+    @-webkit-keyframes free_download {
+      0% {
+        -webkit-transform: scale(1);
+      }
+
+      100% {
+        -webkit-transform: scale(1.3);
+      }
+    }
+
+    @keyframes free_download {
+      0% {
+        transform: scale(1);
+      }
+
+      100% {
+        transform: scale(1.3);
+      }
+    }
+
+    @-webkit-keyframes move {
+      0% {
+        -webkit-left: 0;
+        -webkit-transform: rotate(-45deg);
+        -webkit-opacity: 1
+      }
+
+      100% {
+        -webkit-left: 80%;
+        -webkit-transform: rotate(0deg);
+        -webkit-opacity: 0
+      }
+    }
+
+    @keyframes move {
+      0% {
+        left: 0;
+        transform: rotate(-45deg);
+        opacity: 1
+      }
+
+      100% {
+        left: 80%;
+        transform: rotate(0deg);
+        opacity: 0
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="title flexbox">
+    <img class="title-icon" src="./image/title_video.png" alt="">
+    视频聊天 聊你想聊
+  </div>
+  <div class="main">
+    <ul class="main-ul-a">
+      <div class="item first" onclick="downLoad()">
+        <div class="item-btn flexbox">空闲</div>
+        <img class="item-img" src="./image/IMG_01.png" alt="">
+        <div class="video-chat column">
+          <div class="chat-title flexbox">
+            <img class="chat-icon" src="./image/chat_video.png" alt="">
+            视频看她
+          </div>
+          <div class="chat-hot flexbox">
+            聊天热度：
+            <img class="hot-icon" src="./image/hot.png" alt="">
+          </div>
+        </div>
+      </div>
+      <div class="item" onclick="downLoad()">
+        <div class="item-btn flexbox">空闲</div>
+        <img class="item-img" src="./image/IMG_03.png" alt="">
+        <div class="video-chat column">
+          <div class="chat-title flexbox">
+            <img class="chat-icon" src="./image/chat_video.png" alt="">
+            视频看她
+          </div>
+          <div class="chat-hot flexbox">
+            聊天热度：
+            <img class="hot-icon" src="./image/hot.png" alt="">
+          </div>
+        </div>
+      </div>
+      <div class="item" onclick="downLoad()">
+        <div class="item-btn flexbox">空闲</div>
+        <img class="item-img" src="./image/IMG_05.png" alt="">
+        <div class="video-chat column">
+          <div class="chat-title flexbox">
+            <img class="chat-icon" src="./image/chat_video.png" alt="">
+            视频看她
+          </div>
+          <div class="chat-hot flexbox">
+            聊天热度：
+            <img class="hot-icon" src="./image/hot.png" alt="">
+          </div>
+        </div>
+      </div>
+      <div class="item" onclick="downLoad()">
+        <div class="item-btn flexbox">空闲</div>
+        <img class="item-img" src="./image/IMG_07.png" alt="">
+        <div class="video-chat column">
+          <div class="chat-title flexbox">
+            <img class="chat-icon" src="./image/chat_video.png" alt="">
+            视频看她
+          </div>
+          <div class="chat-hot flexbox">
+            聊天热度：
+            <img class="hot-icon" src="./image/hot.png" alt="">
+          </div>
+        </div>
+      </div>
+    </ul>
+    <ul class="main-ul-b">
+      <div class="item" onclick="downLoad()">
+        <div class="item-btn flexbox">空闲</div>
+        <img class="item-img" src="./image/IMG_02.png" alt="">
+        <div class="video-chat column">
+          <div class="chat-title flexbox">
+            <img class="chat-icon" src="./image/chat_video.png" alt="">
+            视频看她
+          </div>
+          <div class="chat-hot flexbox">
+            聊天热度：
+            <img class="hot-icon" src="./image/hot.png" alt="">
+          </div>
+        </div>
+      </div>
+      <div class="item" onclick="downLoad()">
+        <div class="item-btn flexbox">空闲</div>
+        <img class="item-img" src="./image/IMG_04.png" alt="">
+        <div class="video-chat column">
+          <div class="chat-title flexbox">
+            <img class="chat-icon" src="./image/chat_video.png" alt="">
+            视频看她
+          </div>
+          <div class="chat-hot flexbox">
+            聊天热度：
+            <img class="hot-icon" src="./image/hot.png" alt="">
+          </div>
+        </div>
+      </div>
+      <div class="item" onclick="downLoad()">
+        <div class="item-btn flexbox">空闲</div>
+        <img class="item-img" src="./image/IMG_06.png" alt="">
+        <div class="video-chat column">
+          <div class="chat-title flexbox">
+            <img class="chat-icon" src="./image/chat_video.png" alt="">
+            视频看她
+          </div>
+          <div class="chat-hot flexbox">
+            聊天热度：
+            <img class="hot-icon" src="./image/hot.png" alt="">
+          </div>
+        </div>
+      </div>
+      <div class="item" onclick="downLoad()">
+        <div class="item-btn flexbox">空闲</div>
+        <img class="item-img" src="./image/IMG_08.png" alt="">
+        <div class="video-chat column">
+          <div class="chat-title flexbox">
+            <img class="chat-icon" src="./image/chat_video.png" alt="">
+            视频看她
+          </div>
+          <div class="chat-hot flexbox">
+            聊天热度：
+            <img class="hot-icon" src="./image/hot.png" alt="">
+          </div>
+        </div>
+      </div>
+    </ul>
+    <div class="downLoad-btn popup" onclick="downLoad()">
+      <button>下载查看更多精彩内容</button>
+    </div>
+  </div>
+  <div class="footer flexbox" onclick="downLoad()">
+    <img class="logo" src="./image/logo.png" alt="">
+    聊附近的人 私密聊
+    <button class="btn flexbox">
+      <img class="heart" src="./image/heart.png" alt="">
+      <img class="arrow" src="./image/arrow.png" alt="">
+      马上下载
+    </button>
+  </div>
+</body>
+<script src="http://activity.folkcam.cn/common/rem.js"></script>
+<script src="http://activity.folkcam.cn/common/jquery.min.js"></script>
+<script src="http://activity.folkcam.cn/common/layer/layer.js"></script>
+<script>
+  $(window).scroll(function () {
+    if (getDocumentTop() + getWindowHeight() > getScrollHeight() - 100) {
+      $('.downLoad-btn').fadeIn()
+    } else {
+      $('.downLoad-btn').fadeOut()
+    }
+  })
+  //文档高度
+  function getDocumentTop() {
+    var scrollTop = 0, bodyScrollTop = 0, documentScrollTop = 0;
+    if (document.body) {
+      bodyScrollTop = document.body.scrollTop;
+    }
+    if (document.documentElement) {
+      documentScrollTop = document.documentElement.scrollTop;
+    }
+    scrollTop = (bodyScrollTop - documentScrollTop > 0) ? bodyScrollTop : documentScrollTop;
+    return scrollTop;
+  }
+
+  //可视窗口高度
+  function getWindowHeight() {
+    var windowHeight = 0;
+    if (document.compatMode == "CSS1Compat") {
+      windowHeight = document.documentElement.clientHeight;
+    } else {
+      windowHeight = document.body.clientHeight;
+    }
+    return windowHeight;
+  }
+
+  //滚动条滚动高度
+  function getScrollHeight() {
+    var scrollHeight = 0, bodyScrollHeight = 0, documentScrollHeight = 0;
+    if (document.body) {
+      bodyScrollHeight = document.body.scrollHeight;
+    }
+    if (document.documentElement) {
+      documentScrollHeight = document.documentElement.scrollHeight;
+    }
+    scrollHeight = (bodyScrollHeight - documentScrollHeight > 0) ? bodyScrollHeight : documentScrollHeight;
+    return scrollHeight;
+  }
+  function downLoad() {
+    window.location.href = 'https://jw-version.oss-cn-shenzhen.aliyuncs.com/android/RabLiveSms.apk'
+  }
+</script>
+
+</html>

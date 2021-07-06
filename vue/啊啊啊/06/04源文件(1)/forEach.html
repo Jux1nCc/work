@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let arr = [
+        { a: 1, b: 2 },
+        { a: 2, b: 3 },
+      ];
+      arr.forEach((item) => {
+        item.c = {
+          id: item.a,
+          name: item.b,
+        };
+      });
+      //   let arr = [1, 3, 5, 7, 9];
+      //   arr.forEach(function (item) {
+      //     item = 30;
+      //   });
+      window.console.log(arr);
+    </script>
+  </body>
+</html>

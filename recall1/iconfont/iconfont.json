@@ -1,0 +1,37 @@
+{
+  "id": "2078239",
+  "name": "recall",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "8748264",
+      "name": "钱包",
+      "font_class": "qianbao",
+      "unicode": "e677",
+      "unicode_decimal": 58999
+    },
+    {
+      "icon_id": "15726872",
+      "name": "钱包金融资金",
+      "font_class": "qianbaojinrongzijin",
+      "unicode": "e629",
+      "unicode_decimal": 58921
+    },
+    {
+      "icon_id": "1920212",
+      "name": "微信方",
+      "font_class": "weixinfang",
+      "unicode": "e61b",
+      "unicode_decimal": 58907
+    },
+    {
+      "icon_id": "14110604",
+      "name": "支付宝",
+      "font_class": "zhifubao",
+      "unicode": "e627",
+      "unicode_decimal": 58919
+    }
+  ]
+}

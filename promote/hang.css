@@ -1,0 +1,383 @@
+
+
+    @font-face {
+      font-family: "youshe";
+      src: url("./优设标题黑.ttf");
+      font-weight: normal;
+      font-style: normal;
+      color: #333;
+    }
+
+    @font-face {
+      font-family: "pingfang";
+      src: url("./PingFangMedium.ttf");
+      font-weight: normal;
+      font-style: normal;
+      color: #333;
+    }
+    .font-family {
+      font-family: 'pingfang';
+    }
+
+    .wrap1 {
+      width: 100%;
+      height: 100vh;
+      background: rgba(255, 255, 255, 0);
+    }
+
+    .wrap1-main {
+      width: 100%;
+      height: 80%;
+      position: relative;
+    }
+
+    .wrap1-main .wrap1-fade {
+      position: absolute;
+      top: -5%;
+      right: 2%;
+      width: 50%;
+      height: 9%;
+      border: 1px solid #e33d25;
+      border-radius: 0.92rem;
+      font-size: 0.3rem;
+      color: #e33d25;
+    }
+    .wrap1 .main-img {
+      display: block;
+      width: 90%;
+      height: 60%;
+      margin: 0 auto;
+    }
+
+    .wrap1 .main {
+      position: absolute;
+      top: 37%;
+      left: 7%;
+      width: 85%;
+      height: 67%;
+    }
+
+    .wrap1-main div {
+      position: absolute;
+      left: 0;
+      width: 100%;
+      color: #fa5348;
+      line-height: 1.4;
+      text-align: center;
+    }
+
+    .wrap1-main div p,
+    .wrap1-time,
+    .wrap1-credits {
+      font-size: 0.4rem;
+
+    }
+
+    .receive {
+      top: 42%;
+    }
+
+    .receiving {
+      top: 66%;
+      font-size: 0.38rem;
+    }
+    .receiving .appUnit{
+      font-size: 0.34rem;
+    }
+    .award-over .appUnit{
+      font-size: 0.34rem;
+    }
+    .deputy {
+      bottom: 3.5%;
+      font-size: 0.4rem;
+    }
+
+    .wrap2 {
+      width: 100%;
+      height: 100vh;
+      background: rgba(255, 255, 255, 0);
+    }
+
+    .wrap2 img {
+      display: block;
+      width: 90%;
+    }
+
+    .wrap3 {
+      width: 100%;
+      height: 100vh;
+      background: rgba(255, 255, 255, 0);
+    }
+
+    .wrap3-main {
+      position: relative;
+      width: 100%;
+      height: 60%;
+    }
+
+    .wrap3 img {
+      display: block;
+      width: 90%;
+      margin: 0 auto;
+    }
+
+    .wrap3 .main {
+      position: absolute;
+      top: 55%;
+      left: 13%;
+      width: 70%;
+      height: 60%;
+      background-color: #ffe0d6;
+      border: 2px solid #fff;
+      border-top-left-radius: 0.3rem;
+      border-bottom-right-radius: 0.3rem;
+      overflow: hidden;
+    }
+
+    .watch-time,
+    .send-comm {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      width: 100%;
+      height: 35%;
+      border-bottom: 2px solid #fff;
+      box-shadow: inset 1px 1px 10px #febab3;
+    }
+
+    .watch-time p,
+    .send-comm p {
+      font-size: 0.45rem;
+      color: #fff; 
+      /* #ffa371 #ffe26d*/
+      z-index: 3;
+    }
+
+    .onceDay {
+      height: 30%;
+      font-size: 0.3rem;
+      white-space: nowrap;
+      color: #e33d25;
+      box-shadow: inset 1px 1px 10px #febab3;
+    }
+
+    .progress {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 0%;
+      height: 100%;
+      background-color: #e95e49;
+      border-top-right-radius: 0.4rem;
+      border-bottom-right-radius: 0.4rem;
+    }
+
+    .wrap3 .summ-btn {
+      height: 90%;
+      width: 80%;
+      background: linear-gradient(#fd881b, #f3420d);
+      border: none;
+      border-radius: 0.5rem;
+      color: #fff;
+      z-index: 3;
+      font-size: 0.34rem;
+    }
+
+    .wrap3-all{
+      height: 70%;
+      color: #e33d25;
+      text-align: center;
+      font-size: 0.45rem;
+      box-shadow: inset 1px 1px 10px #febab3;
+      border-bottom: 2px solid #fff;
+    }
+    .miss{
+      background-color: #c7c7c7;
+      box-shadow: none;
+    }
+    
+
+    .wrap1 .wrap1-main .youshe {
+      font-family: 'youshe';
+      font-size: 0.5rem;
+    }
+    .youshe .appUnit1{
+      font-size: 0.5rem;
+    }
+    /* .wrap1 {
+      width: 100%;
+      height: 100vh;
+      overflow: hidden;
+      background: rgba(0, 0, 0, 0);
+    }
+
+    .wrap1 .summary {
+      width: 100%;
+      height: 90%;
+      display: block;
+      position: relative;
+      padding-top: 1.4rem;
+    }
+
+    .summary>.hang1 {
+      width: 90%;
+      height: 60%;
+      display: block;
+      margin: auto;
+    }
+
+    .fade-item {
+      position: absolute;
+      top: 0.84rem;
+      right: 0.14rem;
+      width: 50%;
+      height: 0.92rem;
+      z-index: 1;
+    }
+
+    .main {
+      position: absolute;
+      top: 48%;
+      left: 0.66rem;
+      width: 80%;
+      height: 50%;
+      margin: 0 auto;
+    }
+
+    .main>div {
+      position: relative;
+      width: 100%;
+      height: 38%;
+      background-color: #ffe2d8;
+      border-radius: 0.3rem;
+      border: 0.06rem solid #fff;
+      margin-bottom: 0.2rem;
+      box-shadow: inset 1px 1px 0.4rem #febcb5;
+      color: #fa5348;
+    }
+
+    .main .deputy {
+      height: 20%;
+    }
+
+    .connect {
+      position: absolute;
+      top: 90%;
+      left: 10%;
+      width: 80%;
+      height: 1rem;
+      background: url(./image/connect.png) no-repeat;
+      background-size: 100%;
+      z-index: 1;
+    }
+
+    .main p,
+    .main p span {
+      font-size: 0.5rem;
+    }
+
+    .main p.youshe {
+      font-size: 0.6rem;
+    } */
+/* 女用户 */
+/* .wrap2{
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+.wrap2>img{
+  width: 7.07rem;
+  height: 6.7rem;
+  display: block;
+  margin: 2.95rem auto 0;
+} */
+/* 男用户 */
+/* .wrap3{
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+.wrap3>img{
+  width: 6.68rem;
+  height: 5.3rem;
+  display: block;
+  margin: 2.52rem auto 0;
+  z-index: -10;
+}
+.summary{
+  position: absolute;
+  bottom: 4.12rem;
+  left: 0.83rem;
+  width: 5.6rem;
+  height: 2.35rem;
+  background-color: #ffe2d8;
+  border: 0.06rem solid #fff;
+  border-bottom-right-radius: 0.36rem;
+  border-top-left-radius: 0.36rem;
+  box-shadow: inset 1px 1px 10px #feb8b1;
+  overflow: hidden;
+}
+.summary>div{
+  position: relative;
+  width: 100%;
+  height: 38%;
+  padding: 0 0.3rem;
+}
+.summary span {
+  font-size: 0.44rem;
+  color: #ffa371;
+}
+.send-comm,.watch-time {
+  border-bottom: 0.06rem solid #fff;
+}
+.watch-progress,.send-progress{
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 0%;
+  background-color: #e95e49;
+  border-top-right-radius: 0.36rem;
+  border-bottom-right-radius: 0.36rem;
+  z-index: -2;
+}
+.summary .fix-text{
+  height: 24%;
+  text-align: center;
+  color: #e33d25;
+  font-size: 0.32rem;
+  line-height: 1.7;
+}
+div.summary-btn{
+  padding-top: 0.06rem;
+}
+.summ-btn{
+  width: 2.82rem;
+  height: 0.64rem;
+  border-radius: 0.16rem;
+  margin: 0 auto ;
+  background: linear-gradient(#fd881b,#f3420d);
+  font-size: 0.36rem;
+  color: #fff;
+  text-align: center;
+  line-height: 0.64rem;
+}
+.rece-award span{
+  color: #fff;
+}
+.rece-award>div{
+  width: 100%;
+  border-radius: 0;
+  background-color: #c7c7c7;
+}
+.summary.all-award{
+  text-align: center;
+  line-height: 2.26rem;
+  font-size: 0.35rem;
+  color: #fd8222;
+}
+.hang-time{
+  font-size: 0.5rem;
+} */

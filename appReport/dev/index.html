@@ -1,0 +1,169 @@
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>年度报告</title>
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0, minimal-ui,viewport-fit=cover">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="pathname" content="magic_activity">
+  <meta name="description" content="年度报告">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge;chrome=1">
+  <link rel="stylesheet" href="http://activity.folkcam.cn/common/comm.css">
+  <link rel="stylesheet" href="http://activity.folkcam.cn/common/layer/theme/default/layer.css">
+  <link rel="stylesheet" href="http://activity.folkcam.cn/common/swiper.min.css">
+  <link rel="stylesheet" href="./index.css?v=030">
+</head>
+
+<body>
+  <audio id="voice" autoplay="autoplay" loop="loop">
+    <source src="http://miyiurl.rklive888.com/activities/appReport/music.mp3" />
+  </audio>
+  <div class="swiper-container container">
+    <div class="swiper-wrapper wrap scrollDiv">
+      <div class="swiper-slide contain bg load-img cssImg">
+        <div>
+          <p>时间总是匆匆，在<span class="appName">觅伊</span>的这一年，是不是过得不太一样？</p>
+          <i class="arrow-1 load-img cssImg"></i>
+          <i class="arrow-2 load-img cssImg"></i>
+          <span class="start">一直向上滑，查看年度账单</span>
+        </div>
+      </div>
+      <div class="swiper-slide contain-1 bg load-img cssImg">
+        <div class="youshe column">
+          <!-- <span class="youshe-red register-date">10月9日,</span>
+            <span>你注册了<span class="appName">觅伊</span>,</span>
+            <span>开启你的撩汉女神之路。</span> -->
+        </div>
+      </div>
+      <div class="swiper-slide contain-2 bg load-img cssImg">
+        <div class="youshe column">
+          <!-- <span>这一年,</span>
+            <span>你一共聊了<span class="youshe-red">34</span>个男神,</span>
+            <span>其中有<span class="youshe-red">20</span>位也喜欢了你,</span>
+            <span>女神潜力股就是你了！</span> -->
+        </div>
+      </div>
+      <div class="swiper-slide contain-3 bg load-img cssImg">
+        <div class="youshe column">
+          <!-- <span>这一年,</span>
+            <span>你一共进行了</span>
+            <span>语音和视频聊天共<span class="youshe-red">999</span>分钟</span>
+            <span>其中和你聊得最畅快的是</span>
+            <span><span class="appName">觅伊</span>号</span>
+            <span>12345678</span>
+            <span>12345678</span>
+            <span>12345678</span>
+            <span>的小哥哥</span> -->
+        </div>
+      </div>
+      <div class="swiper-slide contain-4 bg load-img cssImg">
+        <div class="youshe column">
+          <!-- <span>这一年,</span>
+            <span>你在<span class="appName">觅伊</span>共收获了<span class="youshe-red">999</span><span class="appUnit">钻石</span></span>
+            <span>其中对你最钟情的是</span>
+            <span><span class="appName">觅伊</span>号<span class="youshe-red">99999999</span></span>
+            <span>的小哥哥,</span>
+            <span>他陪伴了你<span class="youshe-red">345</span>分钟,</span>
+            <span>是你忠实的守护者呢。</span> -->
+        </div>
+      </div>
+      <div class="swiper-slide contain-5 bg load-img cssImg">
+        <div class="youshe column">
+          <!-- <span>这一年你直播了<span class="youshe-red">345</span>小时,</span>
+            <span>累积了<span class="youshe-red">567</span>星光值,</span>
+            <span>达到了<span class="youshe-red">34</span>级。</span> -->
+        </div>
+      </div>
+      <div class="swiper-slide contain-6 bg load-img cssImg">
+        <div class="youshe column">
+          <!-- <span>这一年,</span>
+            <span>有<span>34</span>个小哥哥,</span>
+            <span>送了你<span>34</span>个礼物,</span>
+            <span>相当于<span>34</span>个<span class="appUnit">钻石</span>哦。</span>
+            <span>其中你的幸运礼物是</span> -->
+        </div>
+        <div class="gift flexbox">
+          <!-- <img src="images/flower.png" class="gift-item" alt=""> -->
+        </div>
+      </div>
+      <div class="swiper-slide contain-7 bg load-img cssImg">
+        <div class="youshe column">
+          <!-- <span>这一年,</span>
+            <span>你被推荐了<span class="youshe-red">34</span>次,</span>
+            <span>击败了全平台<span class="youshe-red">53%</span>的女生,</span>
+            <span>如此优秀的你</span>
+            <span>一定要继续保持哦。</span> -->
+        </div>
+      </div>
+      <div class="swiper-slide contain-keyword bg load-img cssImg" id="capture">
+        <div class="white-bg load-img cssImg">
+          <span class="youshe-red white-title">2020，你的年度关键词</span>
+          <i class="pink-pro"></i>
+          <span class="keyword">星光主播</span>
+          <i class="share-pro load-img cssImg"></i>
+          <div class="youshe column">
+            <span class="youshe-red">分享你的年度报告</span>
+            <span class="youshe-red">带着好运迎接新的一年吧</span>
+          </div>
+          <div class="img popup"></div>
+          <div class="share-btn flexbox" onclick="shareTc()">点击分享</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="dialog">
+    <!-- 是否在app内打开 -->
+    <div id="openOutApp" class="popup">
+      <button class="dialog-ok" onclick="download()"></button>
+      <button class="dialog-close" onclick="goToBack()"></button>
+    </div>
+  </div>
+</body>
+<script src="http://activity.folkcam.cn/common/jquery.min.js"></script>
+<script src="http://activity.folkcam.cn/common/layer/layer.js"></script>
+<script src="http://activity.folkcam.cn/common/swiper.min.js"></script>
+<script src="http://res.cdn.openinstall.io/openinstall.js"></script>
+<script src="http://activity.folkcam.cn/common/moment.js"></script>
+<script src="http://activity.folkcam.cn/common/config.js?v=2021"></script>
+<script src="http://activity.folkcam.cn/common/app.js"></script>
+<script src="http://activity.folkcam.cn/common/rem.js"></script>
+<script src="index.js?v=121"></script>
+<script src="http://activity.folkcam.cn/common/vconsole.min.js"></script>
+<script>
+  var vConsole = new VConsole()
+  console.log(window.location.href);
+</script>
+<!-- <script>
+  $(document).ready(function () {
+    var voice = document.getElementById('voice');
+    voice.play();
+    if (typeof WeixinJSBridge == "object" && typeof WeixinJSBridge.invoke == "function") {
+      voice.play();
+    } else {
+      if (document.addEventListener) {
+        document.addEventListener("WeixinJSBridgeReady", function () {
+          voice.play();
+        }, false);
+      } else if (document.attachEvent) {
+        document.attachEvent("WeixinJSBridgeReady", function () {
+          voice.play();
+        });
+        document.attachEvent("onWeixinJSBridgeReady", function () {
+          voice.play();
+        });
+      }
+    }
+  })
+  var voiceStatus = true;
+  document.addEventListener("touchstart", function (e) {
+    if (voiceStatus) {
+      voice.play();
+      voiceStatus = false;
+    }
+  }, false);
+</script> -->
+
+</html>

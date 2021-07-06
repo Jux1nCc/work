@@ -1,0 +1,251 @@
+.page{
+  position: relative;
+  width: 100vw;
+  background-color: #feb0dc;
+}
+header{
+  width: 100%;
+  height: 6.37rem;
+  background-image: url("images/header.png");
+  background-size: 100% 100%;
+  margin: 0 auto;
+}
+.nav{
+  justify-content: space-around;
+  padding: 0 .5rem;
+}
+.nav-item{
+  background-size: 100% 100%;
+  font-size: .34rem;
+  font-weight: 700;
+}
+.award-nav{
+  width: 2.76rem;
+  height: 1.13rem;
+  color: #fff;
+  background-image: url("images/rule_nav_a.png");
+}
+.rule-nav{
+  width: 2.39rem;
+  height: .78rem;
+  color: #6d44da;
+  background-image: url("images/rule_nav_b.png");
+}
+.main{
+  position: relative;
+  width: 6.9rem;
+  height: 16.05rem;
+  background-color: #915add;
+  border-radius: .16rem;
+  margin: 0 auto .4rem;
+  box-shadow: 0 .2rem 0 #784abe;
+  padding-left: .3rem;
+  padding-right: .2rem;
+  padding-top: .4rem;
+}
+.main h1{
+  color: #f3da72;
+  font-size: .32rem;
+  margin: .4rem 0 .3rem;
+}
+.main p{
+  color: #fff;
+  font-weight: 700;
+  font-size: .26rem;
+  margin-bottom: .15rem;
+}
+.main p.center{
+  text-align: center;
+  margin: .3rem 0 .6rem;
+}
+.main p i{
+  display: inline-block;
+  width: .34rem;
+  height: .34rem;
+  border-radius: 50%;
+  background-color: #ca7eea;
+  line-height: .34rem;
+  text-align: center;
+  font-size: .22rem;
+  font-weight: 500;
+  font-style: normal;
+  margin-right: .2rem;
+}
+.blind-pic{
+  width: .5rem;
+  height: .5rem;
+  vertical-align: middle;
+  margin: 0 .1rem;
+}
+.act-time-icon,
+.act-rule-icon{
+  width: 2.24rem;
+  height: .73rem;
+  background-image: url("images/rule_title_bg.png");
+  background-size: 100% 100%;
+  margin: 0 auto;
+  color: #6d44da;
+  font-weight: 700;
+  font-size: .3rem;
+  padding-bottom: .1rem;
+}
+.heart-a{
+  position: absolute;
+  bottom: 1%;
+  right: 9%;
+  width: .94rem;
+  height: .89rem;
+  background-image: url("images/rule_bg_heart_little.png");
+  background-size: 100% 100%;
+  opacity: .8;
+}
+.heart-b{
+  position: absolute;
+  bottom: 2%;
+  right: 0;
+  width: 1.06rem;
+  height: 1.01rem;
+  background-image: url("images/rule_bg_heart_big.png");
+  background-size: 100% 100%;
+  opacity: .6;
+}
+.attention{
+  width: 6.9rem;
+  height: 1.9rem;
+  background-color: #fedcfe;
+  margin: 0 auto;
+  color: #c987e9;
+  border-radius: .16rem;
+  font-weight: 700;
+  padding-left: .2rem;
+  padding-top: .4rem;
+}
+.attention p{
+  font-size: .28rem;
+}
+.attention p:first-child{
+  margin-bottom: .2rem;
+}
+.wrap-a{
+  width: 6.86rem;
+  height: 14rem;
+  border-radius: .18rem;
+  background-color: #ac63e3;
+  margin: 0 auto;
+  padding: .4rem .25rem .3rem;
+}
+.wrap-a p{
+  padding-left: .1rem;
+  margin-bottom: .4rem;
+}
+.wrap-a p,
+.wrap-a p span{
+  font-size: .28rem;
+  color: #fff;
+}
+.wrap-a-title{
+  width: 3.1rem;
+  height: .5rem;
+  color: #fff;
+  font-size: .3rem;
+  font-weight: 700;
+  border-radius: .5rem;
+  background: linear-gradient(#885ae3, #a561e3);
+  margin-bottom: .2rem;
+}
+.wrap-a-title.little{
+  width: 1.5rem;
+}
+.wrap-b{
+  width: 6.86rem;
+  height: 9.8rem;
+  border-radius: .18rem;
+  background-color: #fedefe;
+  margin: .27rem auto;
+}
+.wrap-b p{
+  margin-bottom: .2rem;
+}
+.wrap-b p,
+.wrap-b p span{
+  color: #c987e9;
+  font-size: .26rem;
+  font-weight: 700;
+}
+.wrap-b h4{
+  color: #ab70d6;
+  font-size: .28rem;
+  margin: .2rem 0;
+}
+table{
+  background: #fff5fe;
+  border-radius: .15rem;
+  border: 0.02rem solid #f46496;
+}
+th{
+  background-color: #feec9a;
+  color: #d6732f;
+  font-size: .3rem;
+  vertical-align: middle;
+  height: 1rem;
+}
+th:first-child{
+  width: 1.05rem;
+  border-top-left-radius: 0.1rem;
+}
+th:nth-child(2){
+  width: 3rem;
+}
+th:last-child{
+  width: 2.35rem;
+  font-size: .22rem;
+  border-top-right-radius: 0.1rem;
+}
+th,td{
+  border: 0.02rem solid #f46496;
+}
+td{
+  vertical-align: middle;
+  text-align: center;
+  font-size: .24rem;
+  color: #666;
+  height: 1.23rem;
+}
+td span{
+  font-size: .24rem;
+}
+.wrap-main{
+  width: 100%;
+  height: 8.8rem;
+  background-color: #fff2ff;
+  border-radius: .18rem;
+  padding: .3rem .31rem .5rem;
+}
+.wrap-main-title{
+  width: 3.07rem;
+  height: 0.35rem;
+  background-image: url("images/rule_award_title.png");
+  background-size: 100% 100%;
+  margin: 0 auto .3rem;
+}
+.award-main .attention{
+  width: 6.86rem;
+  height: 1.88rem;
+}
+.gift-01{
+  width: .61rem;
+  vertical-align: bottom;
+}
+.gift-02{
+  width: .61rem;
+  vertical-align: bottom;
+}
+.gift-pk{
+  width: .52rem;
+  vertical-align: text-bottom;
+}
+footer{
+  width: 100%;
+  height: 1.5rem;
+  color: #fff;
+}

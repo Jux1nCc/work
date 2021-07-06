@@ -1,0 +1,818 @@
+@font-face {
+  font-family: "pingfang";
+  src: url("./PingFangMedium.ttf");
+  font-weight: normal;
+  font-style: normal;
+  color: #333;
+}
+.font-family{
+  font-family: 'pingfang';
+}
+.opacity{
+  opacity: 0.5;
+}
+.page{
+  width: 100%;
+  position: relative;
+  background: url(./bg.png) no-repeat;
+  background-size: 100% 100%;
+}
+.page-man{
+  background: url(./bg1.png) no-repeat;
+  background-size: 100% 100%;
+}
+.head{
+  position: relative;
+  width: 100%;
+  height: 4.3rem;
+}
+.page-man .head{
+  height: 4.2rem;
+}
+.act-time{
+  position: absolute;
+  top: 3.6rem;
+  left: 0.54rem;
+  width: 3.83rem;
+  height: 0.36rem;
+  border-radius: 0.18rem;
+  font-size: 0.22rem;
+  color: #fff;
+  line-height: 0.36rem;
+  text-align: center;
+  background-color: #e12703;
+}
+.wrap{
+  width: 6.48rem;
+  background-color: #ffe4d8;
+  border-radius: 0.18rem;
+  box-shadow: 0 0 10px #d7574d;
+  color: #de2712;
+  margin: 0 auto;
+  position: relative;
+} 
+.shadow{
+  border-radius: 0.18rem;
+  width: 100%;
+  box-shadow: inset -5px -1px 10px #ffbcb3;
+  color: #f63221;
+}
+.red-line{
+  position: absolute;
+  width: 0.06rem;
+  height: 0.27rem;
+  background-color: #ff4f28;
+  border-radius: 0.06rem;
+  transform: rotate(35deg);
+  -webkit-transform:rotate(35deg);
+}
+.yellow-line{
+  position: absolute;
+  width: 0.04rem;
+  height: 0.2rem;
+  border-radius: 0.04rem;
+  background-color: #ffa240;
+  transform: rotate(35deg);
+  -webkit-transform:rotate(35deg);
+}
+.time-red-left{
+  top: 0.33rem;
+  left: 1.06rem;
+}
+.time-red-right{
+  top: 0.33rem;
+  right: 1.23rem;
+}
+.time-yellow-left{
+  top: 0.36rem;
+  left: 1.23rem;
+}
+.time-yellow-right{
+  top: 0.36rem;
+  right: 1.1rem;
+}
+.line{
+  position: absolute;
+  bottom: -0.5rem;
+  width: 0.17rem;
+  height: 0.7rem;
+  z-index: 2;
+  border-radius: 0.17rem;
+  background-color: #b83535;
+}
+.left-line{
+  left: 0.76rem;
+}
+.right-line{
+  right: 0.76rem;
+}
+.line>span{
+  position: absolute;
+  width: 0.05rem;
+  height: 0.14rem;
+  border-radius: 0.05rem;
+  background-color: #dfa9a8;
+  top: 0.22rem;
+  left: 0.02rem;
+}
+.time .shadow{
+  height: 5.27rem;
+  padding-top: 0.28rem;
+  margin-bottom: 0.34rem;
+  position: relative;
+}
+.time-title{
+  text-align: center;
+}
+.time-title .appUnit{
+  font-size: 0.25rem;
+}
+.time ul{
+  width: 100%;
+  height: 4.4rem;
+  padding: 0.2rem 0.26rem 0.36rem 0.22rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-content: space-between;
+  background: url(./image/award.png) no-repeat;
+  background-position: 40% 40%;
+  background-size: 88% 64%;
+}
+.time-items{
+  width: 30%;
+  justify-content: space-between;
+  margin-bottom: 0.3rem;
+  height: 1.48rem;
+}
+.time-items:nth-child(1){
+  margin-left: -0.1rem;
+}
+.time-items:nth-child(2){
+  margin-left: 0.2rem;
+}
+.time-items:nth-child(3){
+  margin-right: -0.1rem;
+}
+/* .time-items:nth-child(4){
+  margin-left: 0.2rem;
+}
+.time-items:nth-child(5){
+  margin-left: 0.3rem;
+} */
+.time-items:nth-child(6){
+  margin-right: -0.1rem;
+}
+.item-title{
+  height: 0.32rem;
+  line-height: 0.32rem;
+  font-size: 0.16rem;
+  padding: 0 0.1rem;
+  color: #fff;
+  background-color: #f24532;
+  border-radius: 0.32rem;
+}
+.item-img{
+  width: 1.34rem;
+  height: 0.72rem;
+}
+.item-type{
+  font-size: 0.18rem;
+}
+.wrap>span{
+  position: absolute;
+  width: 0.25rem;
+  height: 0.25rem;
+  border-radius: 0.25rem;
+  background-color: #671817;
+}
+.time>span,.look>span{
+  bottom: 0.02rem;
+}
+.progress>span{
+  top: 0.02rem;
+}
+.progress>i{
+  position: absolute;
+  top: 1.55rem;
+  left: 0.1rem;
+  width: 0.06rem;
+  height: 0.06rem;
+  border-radius: 0.06rem;
+  background-color: #ef422f;
+}
+span.left{
+  left: 0.72rem;
+}
+span.right{
+  right: 0.72rem;
+}
+.progress .shadow{
+  padding: 0.28rem 0 0.3rem 0.27rem;
+}
+.shadow p{
+  font-size: 0.26rem;
+  font-weight: 700;
+}
+.progress-red-left{
+  left: 1.85rem;
+  top: 0.39rem;
+}
+.progress-red-right{
+  right: 2.15rem;
+  top: 0.39rem;
+}
+.progress-yellow-left{
+  left: 2rem;
+  top: 0.43rem;
+}
+.progress-yellow-right{
+  right: 2.04rem;
+  top: 0.43rem;
+}
+.progress-title{
+  padding-left: 2.1rem;
+  font-size: 0.34rem;
+  font-weight: 700;
+}
+.progress p{
+  height: 0.38rem;
+  line-height: 0.38rem;
+}
+.played{
+  margin-top: 0.26rem;
+  font-size: 0.26rem;
+}
+.played span{
+  display: inline-block;
+  padding: 0 0.1rem;
+  height: 100%;
+  border-radius: 0.38rem;
+  text-align: center;
+  color: #fff;
+  font-weight: 700;
+  background-color: #f24532;
+  font-size: 0.24rem;
+}
+@-webkit-keyframes free_download {
+  0% {
+    -webkit-transform: scale(1);
+  }
+
+  100% {
+    -webkit-transform: scale(1.2);
+  }
+}
+
+@keyframes free_download {
+  0% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(1.2);
+  }
+}
+.progress button{
+  width: 4rem;
+  height: 0.64rem;
+  margin-left: 1rem;
+  margin-top: 0.34rem;
+  border: none;
+  border-radius: 0.64rem;
+  background: linear-gradient(#fd8b1b,#f0430c);
+  font-size: 0.26rem;
+  line-height: 0.64rem;
+  text-align: center;
+  color: #fff;
+}
+.progress .disabled{
+  animation: none;
+  background: gray;
+}
+.progress .isaward{
+  -webkit-animation: free_download 1s linear alternate infinite;
+  animation: free_download 1s linear alternate infinite;
+}
+.rule{
+  margin-top: 0.86rem;
+  position: relative;
+}
+.rule .shadow{
+  padding: 0.7rem 0.4rem 0.34rem .36rem;
+}
+.rule-title{
+  position: absolute;
+  top: -0.36rem;
+  left: 1.92rem;
+  width: 2.68rem;
+  height: 0.72rem;
+  border-bottom-right-radius: 0.55rem;
+  border-top-left-radius: 0.55rem;
+  line-height: 0.72rem;
+  text-align: center;
+  color: #fff;
+  background: linear-gradient(#f88d2d,#fe6515);
+}
+.rule p{
+  font-size: 0.24rem;
+  line-height: 2;
+}
+.rule p .appBag{
+  font-size: 0.24rem;
+}
+.rule p .appUnit,
+.rule p .appGoldVip,
+.rule p .appSliverVip{
+  font-size: 0.24rem;
+}
+.orange{
+  font-size: 0.24rem;
+  color: #fd8222;
+}
+.tips p{
+  font-size: 0.2rem;
+  color: #ef3e2c;
+}
+.foot{
+  width: 100%;
+  color: #fff;
+  text-align: center;
+  line-height: 0.36rem;
+  padding: 0.2rem 0;
+}
+.foot p,.foot span{
+  font-size: 0.16rem;
+}
+/* 用户端 */
+.look{
+  margin-bottom: 0.34rem;
+  text-align: center;
+}
+.look-red-left{
+  top: 0.44rem;
+  left: 1.7rem;
+}
+.look-red-right{
+  top: 0.44rem;
+  right: 1.85rem;
+}
+.look-yellow-left{
+  top: 0.5rem;
+  left: 1.85rem;
+}
+.look-yellow-right{
+  top: 0.5rem;
+  right: 1.75rem;
+}
+.look .shadow{
+  padding: 0.34rem 0 0.72rem;
+}
+.look-title,.comment-title{
+  font-size: 0.34rem;
+  color: #e32200;
+  font-weight: 700;
+  text-align: center;
+}
+.look-title2{
+  margin: 0.26rem 0 0.42rem;
+  font-size: 0.24rem;
+  color: #e65948;
+}
+.look-time{
+  position: relative;
+  width: 5.54rem;
+  height: 0.3rem;
+  line-height: 0.3rem;
+  margin: 0 auto;
+  margin-bottom: 0.05rem;
+}
+.look-time li{
+  position: absolute;
+  top: 0;
+  font-size: 0.22rem;
+  font-weight: 700;
+}
+.look-time li:nth-child(1){
+  left: 0;
+}
+.look-time li:nth-child(2){
+  left: 14%;
+}
+.look-time li:nth-child(3){
+  left: 34%;
+}
+.look-time li:nth-child(4){
+  left: 74%;
+}
+.look-progress{
+  position: relative;
+  /* width: 5.54rem; */
+  width: 87%;
+  height: 0.2rem;
+  margin: 0 auto;
+  border-radius: 0.2rem;
+  background-color: #bb3231;
+  margin-bottom: 0.18rem;
+}
+.progress-wrap{
+  height: 100%;
+  width: 0%;
+  border-radius: 0.2rem;
+  background-color: #ff6260;
+}
+.progress-line li{
+  position: absolute;
+  top: 0;
+  width: 0.04rem;
+  height: 0.2rem;
+  background-color: #fff;
+}
+.progress-line :nth-child(1){
+  left: 19%;
+}
+.progress-line :nth-child(2){
+  left: 39%;
+}
+.progress-line :nth-child(3){
+  left: 79%;
+}
+.look-award{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: 3.06rem;
+  padding-right: 0.9rem;
+}
+.look-award li{
+  width: 1.5rem;
+  height: 1.7rem;
+}
+.look-award li:first-child{
+  margin-left: 0.4rem;
+}
+.look-award li:last-child{
+  height: 100%;
+}
+.award-img{
+  height: 1.3rem;
+  width: 100%;
+}
+.award-img .img-box{
+  width: 1.24rem;
+  height: 0.94rem;
+  background-color: #ffda94;
+  border: 0.05rem solid #ff6360;
+  border-radius: 0.08rem;
+  margin-bottom: 0.05rem;
+}
+.img-car{
+  width: 1.01rem;
+  height: 0.56rem;
+  background: url(./image/car.png) no-repeat;
+  background-size: 100% 100%;
+}
+.img-10-2{
+  width: 0.48rem;
+  height: 0.64rem;
+  background: url(./image/10-2.png) no-repeat;
+  background-size: 100% 100%;
+}
+.img-85{
+  width: 0.48rem;
+  height: 0.64rem;
+  background: url(./image/85折.png) no-repeat;
+  background-size: 100% 100%;
+}
+.img-vip{
+  width: 1.01rem;
+  height: 0.46rem;
+  background: url(./image/goldVip.png) no-repeat;
+  background-size: 100% 100%;
+}
+.img-title{
+  font-size: 0.15rem;
+  font-weight: 700;
+}
+.award-btn{
+  width: 1.33rem;
+  height: 0.42rem;
+  border-radius: 0.08rem;
+  background: linear-gradient(#ff8b00,#f53f00);
+  font-size: 0.2rem;
+  color: #fff;
+  line-height: 0.42rem;
+}
+.disabled{
+  background: none;
+  background-color: #fea75d;
+}
+.comment .shadow{
+  color: #e32200;
+  font-weight: 700;
+  padding: 0.4rem 0 0.34rem;
+}
+.comment-red-left{
+  top: 0.5rem;
+  left: 1.9rem;
+}
+.comment-red-right{
+  top: 0.5rem;
+  right: 2.06rem;
+}
+.comment-yellow-left{
+  top: 0.55rem;
+  left: 2.06rem;
+}
+.comment-yellow-right{
+  top: 0.55rem;
+  right: 1.9rem;
+}
+.comment p{
+  font-size: 0.23rem;
+  margin: 0.42rem 0.37rem;
+}
+.comment p .appGift{
+  font-size: 0.23rem;
+}
+.comment-progress{
+  padding: 0 0.42rem;
+  justify-content: space-between;
+  font-size: 0.22rem;
+}
+.comment-pro-box{
+  position: relative;
+  width: 2.65rem;
+  height: 0.24rem;
+  border-radius: 0.24rem;
+  background-color: #bb3231;
+  color: #fff;
+}
+.comment-pro-box span{
+  position: absolute;
+  font-size: 0.14rem;
+  top: 10%;
+  left: 47%;
+}
+.comment-pro-wrap{
+  width: 0%;
+  height: 100%;
+  border-radius: 0.24rem;
+  background-color: #ff6361;
+}
+.pro-btn{
+  width: 1.54rem;
+  height: 0.5rem;
+  border-radius: 0.5rem;
+  line-height: 0.5rem;
+  text-align: center;
+  background: linear-gradient(#ff8b00,#f53f00);
+  color: #fff;
+  font-size: 0.22rem;
+}
+.miss{
+  background: none;
+  background-color: #aaa;
+}
+/* 弹窗 */
+
+/* 领取奖励提示 */
+#isreceive,#received,#discount10-2,#discount85{
+  position: relative;
+  /*  7.5rem;   */
+  width: 6rem;
+  /* 9.58rem */
+  height: 7.67rem;
+  margin: 0 auto;
+  background: url(./image/领取提示.png) no-repeat;
+  background-size: 100% 100%;
+}
+.isreceive-main{
+  position: absolute;
+  /* top: 2.6rem;
+  left: 1.8rem;
+  width: 4rem;
+  height: 2.54rem; */
+  top: 2.08rem;
+  left: 1.44rem;
+  width: 3.2rem;
+  height: 2.1rem;
+}
+.isreceive-img{
+  /* width: 4rem;
+  height: 2rem; */
+  width: 3.2rem;
+  height: 1.6rem;
+  background-color: #ffeee6;
+  background: url(./image/聊天气泡.png) no-repeat;
+  background-size: 100% 100%;
+}
+.isreceive-main span{
+  /* font-size: 0.34rem; */
+  font-size: 0.28rem;
+  font-weight: 700;
+}
+@-webkit-keyframes free_download {
+  0% {
+    -webkit-transform: scale(0.9);
+  }
+
+  100% {
+    -webkit-transform: scale(1.1);
+  }
+}
+
+@keyframes free_download {
+  0% {
+    transform: scale(0.9);
+  }
+
+  100% {
+    transform: scale(1.1);
+  }
+}
+#isreceive p{
+  position: absolute;
+  width: 100%;
+  /* bottom: 2.9rem; */
+  bottom: 2.32rem;
+  left: 0;
+  color: #ffe466;
+  /* font-size: 0.26rem; */
+  font-size: 0.2rem;
+  text-align: center;
+  -webkit-animation: free_download 1s linear alternate infinite;
+  animation: free_download 1s linear alternate infinite;
+}
+#isreceive p span{
+  /* font-size: 0.26rem; */
+  font-size: 0.2rem;
+}
+.layui-layer.layui-layer-page{
+  top: 10% !important;
+}
+#isreceive .dialog-close{
+  left: 45%;
+  bottom: 2%;
+}
+#isreceive .dialog-ok{
+  /* width: 2.28rem;
+  height: 0.82rem; */
+  width: 1.82rem;
+  height: 0.66rem;
+  bottom: 18%;
+  left: 56%;
+}
+#isreceive .dialog-submit{
+  left: 13%;
+}
+/* 领取成功 */
+#received{
+  background: url(./image/领取成功4.png) no-repeat;
+  background-size: 100%;
+}
+#received>p{
+  position: absolute;
+  /* top: 1.7rem; */
+  top: 1.36rem;
+  width: 100%;
+  text-align: center;
+  color: #fcf5a7;
+  /* font-size: 0.24rem; */
+  font-size: 0.2rem;
+}
+#received>p .kouhong{
+  font-size: 0.2rem;
+}
+.received-main{
+  position: absolute;
+  /* top: 3rem;
+  left: 1.45rem;
+  width: 4.55rem;
+  height: 2.82rem; */
+  top: 2.4rem;
+  left: 1.16rem;
+  width: 3.64rem;
+  height: 2.26rem;
+}
+.received-img{
+  /* width: 4rem;
+  height: 2rem; */
+  width: 3.2rem;
+  height: 1.6rem;
+  background-color: #ffeee6;
+  background: url(./image/聊天气泡.png) no-repeat;
+  background-size: 100% 100%;
+}
+.received-main span{
+  font-size: 0.2rem;
+  color: #f2642e;
+}
+.look-alive{
+  position: absolute;
+  top: 66%;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  color: #ffedd8;
+}
+#received .dialog-ok{
+  /* width: 4.3rem;
+  height: 1rem; */
+  width: 3.44rem;
+  height: 0.8rem;
+  bottom: 17%;
+  left: 21%;
+  background-color: #fff;
+}
+/* 10-20优惠券 */
+#discount10-2{
+  background: url(./image/领取成功3.png) no-repeat;
+  background-size: 100%;
+}
+#discount10-2 p{
+  position: absolute;
+  bottom: 2.96rem;
+  /* bottom: 3.7rem; */
+  width: 100%;
+  text-align: center;
+  font-size: 0.22rem;
+  /* font-size: 0.28rem; */
+  color: #f37241;
+  font-weight: 700;
+}
+#discount10-2 .dialog-ok,
+#discount85 .dialog-ok{
+  bottom: 18%;
+  left: 33%;
+  width: 2.3rem;
+  height: 0.82rem;
+  opacity: 1;
+  background: linear-gradient(#f5f15a,#fec410);
+  border-radius: 0.82rem;
+  color: #623d0e;
+  font-size: 0.3rem;
+  font-weight: 700;
+}
+#discount10-2 .dialog-charge,
+#discount85 .dialog-charge{
+  left: 56%;
+}
+/* 85折优惠券 */
+#discount85{
+  background: url(./image/领取成功2.png) no-repeat;
+  background-size: 100%;
+}
+#discount85 span{
+  position: absolute;
+  /* top: 1.7rem;
+  right: 1.7rem; */
+  top: 1.36rem;
+  right: 1.36rem;
+  color: #fcf5a7;
+  font-size: 0.2rem;
+}
+#discount85 .vip-img{
+  position: absolute;
+  /* top: 3.2rem;
+  right: 1.5rem;
+  width: 2.1rem;
+  height: 0.85rem; */
+  top: 2.56rem;
+  right: 1.2rem;
+  width: 1.68rem;
+  height: 0.68rem;
+  background: url(./image/goldVip.png) no-repeat;
+  background-size: 100%;
+}
+#discount85 p{
+  position: absolute;
+  /* bottom: 1.7rem;
+  left: 1rem;
+  font-size: 0.24rem; */
+  bottom: 1.36rem;
+  left: 0.8rem;
+  font-size: 0.2rem;
+  color: #fffbd3;
+  line-height: 1.7;
+}
+#discount85 .dialog-ok{
+  bottom:33%;
+}
+.img-title .appGoldVip{
+  font-size: 0.16rem;
+}
+.item-title .appUnit{
+  font-size: 0.16rem;
+}
+#discount85 .appGoldVip,
+#discount85 .appSliverVip{
+  position: static;
+}
+#discount85 p .appGoldVip,
+#discount85 p .appSliverVip{
+  color: #fffbd3;
+}
+.page-live .award-btn .appUnit{
+  font-size: 0.26rem;
+}

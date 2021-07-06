@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        padding: 0;
+        margin: 0;
+        list-style: none;
+    }
+
+    html,
+    body {
+        width: 100%;
+        height: 100%;
+    }
+
+    #app {
+        width: 100%;
+        height: 100%;
+        margin: 0 auto;
+        min-width: 650px;
+        overflow: hidden;
+    }
+
+    .content {
+        width: 100%;
+        border: 1px solid #00a383;
+        height: calc(100% - 35px);
+        overflow: hidden;
+        box-sizing: border-box;
+        display: flex;
+    }
+
+    .nav {
+
+        height: 40px;
+        padding-left: 15px;
+        line-height: 40px;
+        font-weight: bold;
+        color: #00a383;
+        border-bottom: 3px solid #00a383;
+
+    }
+
+    .search {
+        float: right;
+        width: 300px;
+        height: 25px;
+        margin-top: 5px;
+
+    }
+
+    .btn {
+        float: right;
+        margin-left: 30px;
+        margin-right: 40px;
+        margin-top: 5px;
+        width: 80px;
+        height: 29px;
+    }
+
+    .list {
+        height: calc(100%-45px);
+        overflow: auto;
+        flex: 0 0 200px;
+    }
+
+    .item {
+        padding-left: 15px;
+        line-height: 30px;
+        cursor: pointer;
+        transition: all .5s;
+    }
+
+    .active,
+    .item:hover {
+        color: #fff;
+        background: #00a383 !important;
+    }
+
+    .item:nth-child(odd) {
+        background: rgba(0, 0, 0, .1);
+    }
+
+    .info {
+        display: inline-block;
+        flex: 1 1 auto;
+        height: 100%;
+        overflow-y: auto;
+    }
+
+    .name {
+        text-align: center;
+        line-height: 30px;
+        border-bottom: 1px solid #ccc;
+        font-weight: bold;
+        margin-top: 15px;
+    }
+
+    .tags,
+    .story {
+        padding: 30px;
+    }
+
+    .tags>span {
+        margin-right: 30px;
+    }
+
+    .img {
+        margin: 15px 0;
+        text-align: center;
+        max-height: 45%;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+    }
+
+    .imgChangeBtn {
+        display: inline-block;
+        vertical-align: top;
+        width: 50px;
+        height: 30px;
+        cursor: pointer;
+        opacity: 0.7;
+        transition: all .5s;
+    }
+
+    .imgChangeBtn:hover {
+        opacity: 1
+    }
+
+    .btnLeft {
+        background: no-repeat center center url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAAqtJREFUSA29l0+IEnEUx3faiiWKhaXDFkQsdok6eRHCP9AiQRgWe9Lw4qVLhw7iqU2i0qOCR4kFO3nzIgjCnjoZiBFlyFq3MKh1a6ViYdneZ3JsnMTmN6v7hS8zv5n3ft/f+/ne/J7anD1oYrYkXBYuChcGlMvcrwG/ybUr3BYeCCeCCSdhXl6uCF3Ck5MMTe/25L4j/CjcNz0fuZ0kfF4srwiJzgnYibfCT+OcicgKFnNZeFV43PpSYYwvi0fjq9XPKoyoW3jRaniIMblxWsjvP4RVmEinKWoInZGbY8IvxgOzMNvC9s4KRN4X7iLAKgALIJFmDTT0YA1hSsZp9qosFg209IhJKBcDJ9jY2LhWqVRuKviipRExe2/34zAyf6lUuh6LxR602+2xtTpi/HeA1hK1xmdQGeVy+UYoFIrncrlniUTiteIEywjz7VVCtVq9tbq6ejeTyTxeX19/p+T8x3gRYaWk2tzcXPP5fGupVOpROp1uOxDFZUFJuFar3fZ6vXeSyeTDbDb7waGoLmyUk605+v3+D03T5gVUwqFAMV8Q2spqyeJOIBDYj8fj93u9XqNer+84VP+J8DnhKbsTFIvF98Fg8ISI3+t2u68ajcZ3u74mu122ms5BCX6/v9RsNmv5fP5JNBpl4arYQXjkuLI7g8fjedFqtV4WCoWn4XD4rF2/gd1nhOmR9hQddXO32/0c8UgkonKqobVtZOclGXAWHwVaIrJllBONGT3SrIEGWsPzmG6QxmzWQEPvPCknA3QGjDmtZoEtmVSPlsnNwozpBmnM6JGmCY7NN+YJrcK8o7z47acVOZEieiAcYpwwL+kGacwQ5yBxAhKJc3q4veZJjHIyPzPfs7AVoUto63sudtRpR4ignkhy/Qf/EzYcsCN6upWp/Gn7DXh2ngUQoOWfAAAAAElFTkSuQmCC)
+    }
+
+    .btnRight {
+        background: no-repeat center center url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAAsFJREFUSA29V8+LUlEY1V5GRBkNLaYo+mEtolkJbhIEw1UuXCu4UVdhMP0LUQSCezdhooTOaghcKISgBe7CohSZoZ1N1AzESE0TTzvHvG9eT0fvc7QDh3ffvd+9536f373v02qRgxVmS+AyeBY8OSQelr0hv+O5Be6AfXAiuOAkKBi8BjrAE5MMdWP7aG+Cn0BV1/9Pc5LwRVjeBundLGAkPoCdcZPpkRHczC1wBTxuHDTxzrncPDW2jfOMwhR1gleMhkd4Z26cBvn7azAK09N5igqhM2gcA7+JDr0ww8LwLgr0vAvuUoC7ILgBJtKiQY2Bs0KYR2bW7DWzWWpQa+AxE8rBFxkUi8V76XT6joztITbUstJjxl72crC02+1OOBxeLRQKdw9ZeFo3tZYY7+vguWnWYrxUKm3Z7fZ2JBJ56HQ6d/P5PG8ps/hN4ZvgKTMzy+XyF5vN9hHiq263+1cul2ubmQ/bnhCWDrUQqFQqX1VVfQfxB16v15LJZJpiTOLZpzAvDZHdEnMOTGq12na3230bjUbvezyeXjabbR2MTmwpMwnql1QUxQoo2MAPff+0Nj2+DJoONReOx+NXE4nE42q1uub3+4vsk8RPeszPl2nEYrFLyWTyUb1ef+nz+dZNLrBHj+2g9HGiQCgUupBKpZ40Go1XyOoX7DOJzxTugQy3FAKBwHlk8NNWq/XG5XI9l5o0atRiqFkj7Y+Oje8JBoMrzWbzNS6PZ+MtpvZSa4f3NHED5LH6H+B53xDHiYXZTElmcqfUoJZ2cahoszBbNKhBrb8f5aEaKwMmG79Wi8AGFh14y8UppAerQRZmrJHmiQ4We69f0CjMMVaD/O3n5Tk9pWgf1DBOmIOsBlmYUXzW2pqJ1AC18KKtQRwnrcPQ4MZYIzlA2fuc53QTpOAgkfAcwTRhMYF29H4ZnMuftj877aWOeNF+QwAAAABJRU5ErkJggg==)
+    }
+
+    .img>img {
+        width: 50%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .noData {
+        margin-top: 30px;
+        text-align: center;
+    }
+
+    h5 {
+        font-size: 14px;
+    }
+</style>
+<!-- 分析
+1：完成左边列表部分
+    a:进入页面进行接口请求获取列表数据
+        a1:在created里面调用axios获取列表数据并存储
+        a2:列表渲染
+            li   v-for
+            li  @click="存储当前击项下标"
+            li  :class="{active:当前点击项==当前下标}"
+2:完成中间详情部分
+   a:进入页面就要获取详情，详情依赖进入页面获取英雄列表的接口数据，所以进入页面要在获取列表数据完成后进行调用详情（第一个英雄详情）
+      a1:在created里面在英雄列表调用完成后调用详情获取数据并保存
+   b:渲染详情数据
+       名字：{{}}
+        图片  v-bind
+        特征  v-for
+        故事   v-html
+   c:点击英雄列表获取不同人物详情
+        需要在点击 时调用详情接口获取详情数据替换前面的详情数据
+3：完成搜索功能
+  a:  input   v-model="值"  @keyup.enter="搜索事件"
+  b:button    @click="搜索事件"
+  c:搜索事件
+     1：遍历英雄列表数据
+     2：找到name值包含input框的值的第一项
+        name.includes(input框的值)
+        true     让当前点击项=当前下标
+        调用详情接口
+        找到了就不用再找了  return
+4:优化
+   a:暂无数据处理(搜索时没搜索到数据就显示暂无数据)
+   如果heroIndex=-1就表示没搜索到数据，显示暂无数据，不显示英雄列表与详情
+   b：列表处理（列表名字中只有包含input框的值 的项才显示出来）
+      v-if="名字.includes(input框的值)"
+      input框的值因为是实时响应的，所以要做一个中转处理，在搜索事件里面中转一下该值
+
+ -->
+
+<body>
+    <div id="app">
+        <div class="nav">
+            <span>英雄列表</span>
+            <button class="btn" @click="search">搜 索</button>
+            <input class="search" type="text" placeholder="请输入英雄名称进行搜索" v-model="inputValue" @keyup.enter="search">
+        </div>
+        <div class="content" v-if="heroIndex!=-1">
+            <!-- 人物列表 -->
+            <ul class="list">
+                <li class="item " :class="{active:heroIndex==index}" @click="liClick(index)"
+                    v-for="(item, index) in hero" :key="index" v-if="item.name.includes(searchValue)">
+                    {{item.name}}</li>
+            </ul>
+            <!-- 人物详情 -->
+            <div class="info">
+                <div class="name">英雄姓名:{{heroInfo.name}}</div>
+                <div class='img'>
+                    <!-- <span class="imgChangeBtn btnLeft" @click="leftBtnEvent"></span> -->
+                    <img :src="heroInfo.img" alt="">
+                    <!-- <span class="imgChangeBtn btnRight" @click="rightBtnEvent"></span> -->
+                </div>
+                <div class="tags">
+                    <h5>英雄特征：</h5>
+                    <span v-for="(item, index) in heroInfo.roles" :key="index">{{item}}</span>
+                </div>
+                <div class="story" v-html="heroInfo.story">英雄故事</div>
+            </div>
+        </div>
+        <div class="noData" v-else>暂无数据</div>
+    </div>
+    <script src="vue.js"></script>
+    <script src="./axios.js"></script>
+    <script>
+        new Vue({
+            el: "#app",
+            data: {
+                // input框的值中转
+                searchValue: "",
+                // input框的值
+                inputValue: "",
+                // 所有英雄人物数据
+                hero: [],
+                //当前点击项下标
+                heroIndex: 0,
+                // 英雄详情
+                heroInfo: ""
+            },
+            methods: {
+                // 列表点击事件
+                liClick(index) {
+                    this.heroIndex = index
+                    // 点击 时调用详情
+                    this.getInfo()
+
+                },
+                // 获取详情
+                getInfo() {
+                    axios({
+                        url: "https://autumnfish.cn/api/lol/info",
+                        method: "get",
+                        params: {
+                            id: this.hero[this.heroIndex].id
+                        }
+                    }).then(res => {
+                        this.heroInfo = res.data.data
+                        window.console.log(res)
+                    })
+                },
+                // 搜索事件
+                search() {
+                    // for (let i = 0; i < this.hero.length; i++) {
+                    //     if (this.hero[i].name.includes(this.inputValue)) {
+                    //         this.heroIndex = i
+                    //         this.getInfo()
+                    //         return
+                    //     }
+                    // }
+                    // findIndex   数组遍历   同时找到符合条件的第一项
+                    //用法   返回值=数组.findIndex((item,index)=>{   return  boolean值})
+                    //true   返回值=当前index  中止循环 
+                    //false   继续往下找，
+                    //如果全是false   返回值=-1
+                    this.searchValue = this.inputValue
+                    this.heroIndex = this.hero.findIndex((item, index) => {
+                        return item.name.includes(this.inputValue)
+                    })
+                    if (this.heroIndex != -1) {
+                        this.getInfo()
+                    }
+
+                }
+            },
+            created() {
+                // axios({url:"",method:"get",parame:{}}).then(res=>{成功返回处理}).catch(err=>{错误返回处理})
+                axios({
+                    url: "https://autumnfish.cn/api/lol/search",
+                    method: "get"
+                }).then(res => {
+                    this.hero = res.data.data
+                    this.getInfo()
+                    window.console.log(res.data.data)
+                })
+
+            },
+
+        })
+
+
+
+
+    </script>
+</body>
+
+</html>

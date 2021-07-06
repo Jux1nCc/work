@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0, viewport-fit=cover">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="msapplication-tap-highlight" content="no">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Cache-Control" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <title>帮助与反馈</title>
+  <link rel="stylesheet" href="http://activity.folkcam.cn/common/comm.css">
+  <style type="text/css">
+    @font-face {
+      font-family: "PingFang";
+      src: url("./datail.ttf");
+      font-weight: normal;
+      font-style: normal;
+      color: #333;
+    }
+
+    .font {
+      font-family: 'PingFang';
+    }
+
+    .wrap {
+      width: 100%;
+      height: 100vh;
+      overflow: auto;
+    }
+
+    li {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: .32rem;
+      color: #333;
+      padding: .25rem;
+      border-top: 1px solid #C8C7CC;
+    }
+
+    li:last-child {
+      border-bottom: 1px solid #C8C7CC;
+    }
+
+    .footer {
+      width: 100%;
+      height: 1rem;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      justify-content: space-between;
+    }
+
+    .feedback {
+      width: 49.5%;
+      height: 100%;
+      background-color: #000;
+      color: #fff;
+      font-size: .32rem;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap font">
+    <div class="wrap-content">
+      <ul>
+        <li onclick="opendatail(0)">1、如何才能与心仪的人聊天？<img src="images/arrow.png"></li>
+        <li onclick="opendatail(1)">2、为什么每天“推荐”的人很少？<img src="images/arrow.png"></li>
+        <li onclick="opendatail(2)">3、如何获得铢铢币？<img src="images/arrow.png"></li>
+        <li onclick="opendatail(3)">4、如何提高自己的魅力？<img src="images/arrow.png"></li>
+        <li onclick="opendatail(4)">5、如何不错过缘分？<img src="images/arrow.png"></li>
+        <li onclick="opendatail(5)">6、如何避免骚扰？<img src="images/arrow.png"></li>
+        <li onclick="opendatail(6)">7、如何注销账号？<img src="images/arrow.png"></li>
+      </ul>
+      <footer class="flexbox footer">
+        <div onclick="openFeedback()" class="feedback flexbox">意见反馈</div>
+        <div onclick="openService()" class="feedback flexbox">联系客服</div>
+      </footer>
+    </div>
+  </div>
+</body>
+<script src="http://activity.folkcam.cn/common/rem.js"></script>
+<script src="http://activity.folkcam.cn/common/config.js"></script>
+<script src="http://activity.folkcam.cn/common/createBar.js"></script>
+<script>
+  var customerId = $config.getQueryStringByName('customerId'), env = $config.getQueryStringByName('env');
+  function openFeedback() {
+    window.location.href = './feedback.html?customerId=' + customerId + '&env=' + env
+  }
+  function opendatail(type) {
+    window.location.href = './datail.html?type=' + type
+  }
+  function openService() {
+    if ($config.browser.versions.android) {
+      client.jumpToEchat()
+    } else {
+      window.webkit.messageHandlers.jumpToEchat.postMessage({})
+    }
+  }
+</script>
+
+</html>

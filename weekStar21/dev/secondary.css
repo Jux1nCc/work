@@ -1,0 +1,187 @@
+.page{
+  position: relative;
+  width: 100vw;
+  background: linear-gradient(#703efd,#e562ce);
+  padding-bottom: .7rem;
+}
+.page.init{
+  height: 100vh;
+}
+header{
+  width: 95%;
+  height: 6.65rem;
+  background-image: url(images/head.png);
+  background-size: 100% 100%;
+  margin-bottom: .5rem;
+}
+.back-home-btn{
+  position: absolute;
+  right: 0;
+  top: 5rem;
+  width: 1.38rem;
+  height: .66rem;
+  background-size: 100% 100%;
+  z-index: 99;
+  background-image: url(images/back_homepage.png);
+}
+.rank-wrap{
+  width: 6.78rem;
+  background-color: #ba77f4;
+  border: 0.04rem solid #ffd5fb;
+  border-radius: .18rem;
+  margin: 0 auto;
+}
+.rank-nav{
+  width: 100%;
+  height: .9rem;
+}
+.rank-nav-item{
+  width: 100%;
+  height: 100%;
+  font-size: .32rem;
+  color: #ffe9f3;
+  text-align: center;
+  line-height: .9rem;
+}
+.rank-nav-1{
+  color: #ffe179;
+  background-image: url("images/rank1_nav_1.png");
+  background-size: 100% 100%;
+}
+.rank-nav-2{
+  border-bottom: 0.04rem solid #ffe37f;
+}
+.rank-main.init{
+  height: 3rem;
+  text-align: center;
+  line-height: 3rem;
+}
+.rank-main .init-text{
+  font-size: .36rem;
+  color: #ffe179;
+  font-weight: 700;
+  height: 2rem;
+  text-align: center;
+  line-height: 2rem;
+}
+.init-text i{
+  display: inline-block;
+  width: .66rem;
+  height: .41rem;
+  background-image: url(images/crown.png);
+  background-size: 100% 100%;
+  margin-right: .3rem;
+}
+.rank-main ul{
+  margin-top: .4rem;
+  padding: 0.1rem .3rem;
+}
+.rank-main ul.full{
+  height: 12.4rem;
+  overflow: hidden;
+  overflow-y: auto;
+}
+.rank-main li{
+  position: relative;
+  width: 6.27rem;
+  height: 1.75rem;
+  background-color: #7828e6;
+  border-radius: .1rem;
+  margin-bottom: .15rem;
+  justify-content: space-around;
+  padding-right: 1.5rem;
+}
+.rank-main li.look-more{
+  background-color: rgba(0,0,0,0);
+  border: none;
+  box-shadow: none;
+  justify-content: center;
+  height: .5rem;
+  margin: 0;
+  color: #fff;
+  font-size: .3rem;
+}
+.li-title{
+  position: absolute;
+  top: -3%;
+  left: 34%;
+  width: 2.68rem;
+  height: .5rem;
+  background-image: url(images/homepage_rankitem_title.png);
+  background-size: 100% 100%;
+  font-size: .24rem;
+  color: #ffe179;
+  text-align: center;
+  line-height: .5rem;
+}
+.li-num{
+  width: .38rem;
+  height: .46rem;
+  font-size: .26rem;
+  color: #fff;
+  font-weight: 700;
+  text-align: center;
+  line-height: .46rem;
+}
+.li-num img{
+  width: 100%;
+  height: 100%;
+}
+.li-pic{
+  position: relative;
+}
+.li-pic img{
+  width: 1.25rem;
+  height: 1.25rem;
+  border: 0.06rem solid #f781ff;
+  border-radius: 50%;
+  box-shadow: 0 0 .2rem #7a50bf;
+}
+.li-pic .crown{
+  position: absolute;
+  top: -10%;
+  left: -10%;
+  width: .66rem;
+  height: .41rem;
+  background-image: url(images/crown.png);
+  background-size: 100% 100%;
+  transform: rotate(-30deg);
+}
+.li-pic .live-icon{
+  left: 20%;
+}
+.li-info{
+  height: .7rem;
+}
+.li-info div{
+  font-size: .24rem;
+  color: #7bd0fe;
+}
+.li-info span{
+  font-size: .24rem;
+  color: #ffd258;
+}
+.live-icon{
+  position: absolute;
+  bottom: 0;
+  left: 32%;
+  width: .8rem;
+  height: .32rem;
+  background-color: #52c0f5;
+  border-radius: .2rem;
+  font-size: .22rem;
+  color: #fff;
+  z-index: 3;
+}
+#openOutApp{
+  width: 5.46rem;
+  height: 8.54rem;
+  background-image: url(images/miyi.png);
+  background-size: 100% 100%;
+  margin: 0 auto;
+}
+.to-download{
+  width: 2rem;
+  height: .64rem;
+  bottom: 40%;
+}

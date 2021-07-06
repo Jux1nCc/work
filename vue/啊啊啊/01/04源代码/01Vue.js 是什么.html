@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- 分析
+    1：获取input框dom
+    2:给input框dom绑定一个事件（能实时响应获取input框的值）
+       oninput
+    3:事件里面：将input框的值实时给p标签 
+       获取p标签dom      
+    -->
+    <input type="text" id="input" />
+    <p id="p">您输入了：</p>
+    <script>
+      let _input = document.getElementById("input");
+      _input.oninput = function () {
+        document.getElementById("p").innerHTML = "您输入了：" + _input.value;
+      };
+    </script>
+    <!-- vue.js:它是一个js框架，它只关心数据，无须进行dom操作 -->
+    <div id="app">
+      <input type="text" v-model="msg" />
+      <p>您输入了:{{msg}}</p>
+    </div>
+    <script src="./vue.js"></script>
+    <script>
+      new Vue({
+        el: "#app",
+        data: {
+          msg: "",
+        },
+      });
+    </script>
+  </body>
+</html>

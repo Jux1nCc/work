@@ -1,0 +1,225 @@
+@import "reset.css";
+
+@font-face {
+    font-family: ztySz;
+/*     src: url('../01.ttc'); */
+}
+
+*{
+    font-family: ztySz;
+}
+
+html{
+    box-sizing: border-box;
+    margin: 0;
+}
+section{
+    width: 7.5rem;
+    height: 13.34rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    background: #bc0715;
+}
+.g-logdingtext{
+    margin-top: 4rem;
+    font-size: 0.24rem;
+    color: #ffffff;
+    text-align: center;
+    letter-spacing: 0.01rem;
+}
+
+
+.g-page1-bg{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+}
+.g-page1-bgxd{
+    width: 100%;
+    height: 8.07rem;
+    background-size: 100% 100%;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+.g-page1-titleImg{
+    display: block;
+    width: 5.62rem;
+    height: 2.41rem;
+    background-size: 100% 100%;
+    position: absolute;
+    top: 0.3rem;
+    left: calc((100% - 5.62rem)/2);
+}
+.g-page1-time1{
+    height: 0.3rem;
+    width: 100%;
+    line-height: 0.3rem;
+    font-size: 0.24rem;
+    color: #fcfcfc;
+    text-align: center;
+    letter-spacing: 0.01rem;
+    position: absolute;
+    top:3.56rem;
+}
+.g-page1-text1{
+    width: 5.18rem;
+    height: 0.44rem;
+    line-height: 0.43rem;
+    text-align: center;
+    letter-spacing: 0.01rem;
+    border-radius: 0.12rem;
+    background-color: #167723;
+    font-size: 0.20rem;
+    color: #fcfcfc;
+    position: absolute;
+    top: 4.04rem;
+    left: calc((100% - 5.18rem)/2);
+}
+.g-popBox{
+    width: 6.42rem;
+    height: 5.93rem;
+    overflow: hidden;
+    position: absolute;
+    top: 2.28rem;
+    left: calc((100% - 6.42rem)/2);
+    background-size: 100% 100%;
+    transform: scale(1,1);
+}
+.popElemenImg{
+    display: block;
+    width: calc((100%)/2.59);
+    height: calc((100%)/2.6);
+    background-size: 100% 100%;
+    background-position: center;
+    background-image: url("../images/jp7.png");
+    background-repeat: no-repeat;
+    transform:translate(80%,95%);
+    margin-top: .3rem;
+}
+.popElemenImg img {
+	width: 100%;
+}
+.g-qdinput{
+    display: block;
+    width: 2.15rem;
+    height: 0.72rem;
+    background-size: 100% 100%;
+    background-position: center;
+    background-image: url("../images/qd.png");
+    position: absolute;
+    bottom: 0.33rem;
+    left: 50%;
+    margin-left: -1.125rem;
+}
+.g-hdgz{
+    display: block;
+    width: 1.8rem;
+    height: 0.59rem;
+    padding-left: 0.15rem;
+    text-align: center;
+    line-height: 0.51rem;
+    font-size: 0.18rem;
+    letter-spacing: 0.02rem;
+    color: rgba(255,255,255,0.8);
+    background-size: 100% 100%;
+    background-image: url("../images/hdgz.png");
+    position: absolute;
+    top: 9.47rem;
+    left: 1.05rem;
+}
+.g-wzan{
+    display: block;
+    width: 2.55rem;
+    text-indent: 2.1em;
+    height: 0.59rem;
+    line-height: 0.51rem;
+    font-size: 0.18rem;
+    letter-spacing: 0.02rem;
+    color: rgba(255,255,255,0.8);
+    background-size: 100% 100%;
+    background-image: url("../images/wzan.png");
+    position: absolute;
+    top: 9.47rem;
+    left: 4.6rem;
+}
+.g-page1-ydNumber{
+    display: block;
+    width: 1.52rem;
+    height: 0.38rem;
+    font-size: 0.2rem;
+    line-height: 0.37rem;
+    letter-spacing:0.02rem;
+    text-align: center;
+    color: #ffffff;
+    background-color: #1c7423;
+    border-radius: 0.17rem;
+    overflow: hidden;
+    position: absolute;
+    top: 8rem;
+    left: 5.4rem;
+}
+.g-page1-jdNumber{
+    display: block;
+    width: 1.52rem;
+    height: 0.38rem;
+    font-size: 0.2rem;
+    line-height: 0.37rem;
+    letter-spacing:0.02rem;
+    text-align: center;
+    color: #ffffff;
+    background-color: #1c7423;
+    border-radius: 0.17rem;
+    overflow: hidden;
+    position: absolute;
+    top: 8rem;
+    left: .5rem;
+}
+.g-page1-zsdNumber{
+    display: block;
+    width: 1.52rem;
+    height: 0.38rem;
+    font-size: 0.2rem;
+    line-height: 0.37rem;
+    letter-spacing:0.02rem;
+    text-align: center;
+    color: #ffffff;
+    background-color: #1c7423;
+    border-radius: 0.17rem;
+    overflow: hidden;
+    position: absolute;
+    top: 9rem;
+    left: 2.9rem;
+}
+
+.g-sjcs{
+    width: 3.10rem;
+    height: 1rem;
+    position: absolute;
+    top: 11.4rem;
+    left: 2.35rem;
+    zoom: 0.5;
+    overflow: hidden;
+}
+.g-hdgzbox{
+    width: 6.98rem;
+    height: 10.71rem;
+    background-size: 100% 100%;
+    background-image: url("../images/hqgzxq.png");
+    position: absolute;
+    top: 14%;
+    left: calc((100% - 6.98rem)/2);
+    overflow: hidden;
+}
+.myCanvasbox{
+    width: 7.5rem;
+    height: 13.34rem;
+    overflow: hidden;
+    zoom: 0.5;
+}

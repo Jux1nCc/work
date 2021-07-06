@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- v-if用法：
+    v-if="boolean值"
+    true:渲染它所在标签
+    false:不渲染它所在标签
+    控制它所在标签是否渲染    
+    v-else-if与v-if一回事
+    v-else无须条件，就是前面的v-if与v-else-if都不成立时才执行
+    注意点：v-if与v-else-if和v-else一起使用时一定要是相连的兄弟标签
+    -->
+    <div id="app">
+      <div v-if="false">今天很热</div>
+      <input type="text" v-model="money" />
+      <div v-if="money>=20000">马上就可以过去上班</div>
+      <p v-else-if="money>9000">最近刚好有点忙，能不能晚点再过去</p>
+      <p v-else-if="money>6000">工资太低了，我不想考虑</p>
+      <p v-else>我还不如去搬砖</p>
+    </div>
+    <script src="./vue.js"></script>
+    <script>
+      new Vue({
+        el: "#app",
+        data: {
+          money: 20000,
+        },
+      });
+    </script>
+  </body>
+</html>

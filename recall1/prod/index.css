@@ -1,0 +1,585 @@
+@font-face {
+  font-family: "pingfang";
+  src: url("./PingFangMedium.ttf");
+  font-weight: normal;
+  font-style: normal;
+  color: #333;
+}
+@font-face {
+  font-family: 'iconfont'; 
+  src: url('./iconfont/iconfont.eot');
+  src: url('./iconfont/iconfont.eot?#iefix') format('embedded-opentype'),
+  url('./iconfont/iconfont.woff2') format('woff2'),
+  url('./iconfont/iconfont.woff') format('woff'),
+  url('./iconfont/iconfont.ttf') format('truetype'),
+  url('./iconfont/iconfont.svg#iconfont') format('svg');
+}
+.iconfont {
+  font-family:"iconfont" !important;      
+  font-size:0.28rem;
+  font-style:normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  }
+.fontfamily{
+  font-family: 'pingfang';
+}
+.homepage{
+  position: relative;
+  width: 100vw;
+  height: 100vh; 
+}
+.notice {
+  position: absolute;
+  width: 100% !important;
+  height: 0.46rem;
+  top: 0;
+  left: 0;
+  color: #eb4329;
+  background-color: rgba(255,255,255,.5);
+  overflow: hidden;
+  z-index: 99;
+}
+.notice ul li {
+  text-align: center;
+  line-height: 0.46rem;
+  overflow: hidden;
+  font-size: 0.28rem;
+}
+.recharge{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: url(./page_bg.png) no-repeat;
+  background-size: 100% 100%;
+}
+.give-btn,
+.rule-btn{
+  position: absolute;
+  top: 0.62rem;
+  height: 0.54rem;
+  width: 1.58rem;
+  color: #ff6970;
+  border: none;
+  font-size: 0.24rem;
+  background-color: #fff;
+}
+.give-btn{
+  border-top-right-radius: 0.08rem;
+  border-bottom-right-radius: 0.08rem;
+  left: 0;
+  -moz-box-shadow: inset -0.08rem -0.05rem 0.08rem #fdbcbd;
+  -webkit-box-shadow: inset -0.08rem -0.05rem 0.08rem #fdbcbd;
+  box-shadow: inset -0.08rem -0.05rem 0.08rem #fdbcbd;
+}
+.rule-btn{
+  border-top-left-radius: 0.08rem;
+  border-bottom-left-radius: 0.08rem;
+  right: 0;
+  -moz-box-shadow: inset 0 -0.05rem 0.08rem #fdbcbd;
+  -webkit-box-shadow: inset 0 -0.05rem 0.08rem #fdbcbd;
+  box-shadow: inset 0 -0.05rem 0.08rem #fdbcbd;
+}
+.recharge-main{
+  position: absolute;
+  top: 34%;
+  left: 7%;
+  width: 6.5rem;
+  padding: 1rem 0.4rem 0.3rem;
+  border-radius: 0.18rem;
+  background-color: #fff;
+}
+.main-btn{
+  position: absolute;
+  top: 0.1rem;
+  left: -0.33rem;
+  width: 2.11rem;
+  height: 0.87rem;
+  background: url(./image/充值即送.png) no-repeat;
+  background-size: 100%;
+}
+.recharge-main>span{
+  position: absolute;
+  top: 0.55rem;
+  left: 1.65rem;
+  color: #f15e2d;
+  font-size: 0.16rem;
+  font-weight: 700;
+}
+.time-down{
+  position: absolute;
+  top: 0.24rem;
+  right: 0.28rem;
+  text-align: center;
+  line-height: 0.29rem;
+  height: 0.29rem;
+  color: #ff6872;
+}
+#day,#hour,#min,#sec{
+  background-color: #ffd5c0;
+  border-radius: 0.04rem;
+  padding: 0 0.05rem;
+  margin: 0 0.05rem;
+}
+.main-item{
+  position: relative;
+  width: 5.7rem;
+  height: 1.2rem;
+  background: linear-gradient(#f37c2d,#ee522c);
+  margin-bottom: 0.25rem;
+  border-radius: 0.06rem;
+  color: #fff;
+  text-align: center;
+  line-height: 1.2rem;
+  font-size: 0.35rem;
+}
+.main-item:last-child{
+  margin: 0;
+}
+.cover{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 0.06rem;
+  background: rgba(255,255,255,.7);
+}
+.item-left{
+  width: 80%;
+  height: 100%;
+  font-size: 0.35rem;
+}
+.item-text{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 2.7rem;
+  font-size: 0.35rem;
+}
+.item-song{
+  position: absolute;
+  top: 0.3rem;
+  left: 2.7rem;
+  width: 0.64rem;
+  height: 0.64rem;
+  border-radius: 0.64rem;
+  background-color: #fff7dd;
+  font-size: 0.34rem;
+  color: #ee522c;
+  font-weight: 700;
+}
+.item-vip{
+  position: absolute;
+  top: 0;
+  right: 1.1rem;
+  width: 1.3rem;
+  height: 100%;
+}
+.vip-days{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 0.36rem;
+  margin-bottom: 0.1rem;
+  font-size: 0.22rem;
+}
+.vip-days span{
+  font-size: 0.36rem;
+}
+.vip-type{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 0.22rem;
+  font-size: 0.22rem;
+}
+.pendant{
+  position: absolute;
+  width: 0.62rem;
+  height: 0.62rem;
+  left: 0;
+  top: 0;
+  background: url(./image/充值券.png) no-repeat;
+  background-size: 100%;
+}
+.pendant-mon{
+  position: absolute;
+  width: 1.3rem;
+  height: 0.3rem;
+  left: 0;
+  top: 0;
+  border-top-left-radius: 0.08rem;
+  border-bottom-right-radius: 0.08rem;
+  background: linear-gradient(#fdfef6,#fee38f);
+  box-shadow: 1px 1px 3px #e1481f;
+  color: #f2632a;
+  font-size: 0.22rem;
+}
+.gorecharge{
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 1.1rem;
+  height: 1.2rem;
+  padding: 0.3rem 0.3rem 0.25rem 0.2rem;
+  background: url(./image/isRecharge.png) no-repeat;
+  background-size: 100%;
+  color: #e9422a;
+  font-weight: 700;
+  text-align: left;
+}
+.gorecharge span{
+  display: inline-block;
+  height: 0.26rem;
+  width: 0.54rem;
+  margin-bottom: 0.1rem;
+  font-size: 0.26rem;
+  text-align: center;
+  line-height: 1;
+
+}
+.recharge-foot{
+  position: absolute;
+  left: 0;
+  bottom: 0.1rem;
+  width: 100%;
+  text-align: center;
+  font-size: 0.24rem;
+  color: #ee7776;
+}
+.give-record{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(#f1eadf,#e6d0bc);
+  overflow: hidden;
+}
+.remain{
+  position: relative;
+  width: 6.97rem;
+  height: 2.79rem;
+  margin: 0.7rem auto 0.1rem;
+  color: #fff;
+  background: url(./image/金币.png) no-repeat;
+  background-size: 100%;
+  line-height: 2.79rem;
+  text-align: center;
+}
+.my-remain-btn{
+  position: absolute;
+  top: 0.58rem;
+  left: -0.27rem;
+  width: 2.11rem;
+  height: 0.87rem;
+  background: url(./image/我的余额.png) no-repeat;
+  background-size: 100%;
+}
+.my-remain span{
+  font-size: 0.48rem;
+}
+.my-remain .remain-count{
+  font-size: 0.7rem;
+}
+.wallet-icon{
+  font-size: 0.5rem;
+  vertical-align: -0.07rem;
+}
+.remain-state{
+  position: relative;
+  width: 7rem;
+  height: 7rem;
+  margin: 0 auto;
+  padding: 2rem 0 0;
+  background: url(./image/背景.png) no-repeat;
+  background-size: 100%;
+}
+.remain-state ul{
+  width: 4.56rem;
+  margin-left: 1.68rem;
+}
+.remain-state li{
+  position: relative;
+  list-style: disc;
+  color: #c4a07b;
+  margin-bottom: 0.15rem;
+}
+.remain-state li span{
+  color: #535051;
+}
+.remain-state li .unit{
+  position: absolute;
+  right: 0.6rem;
+}
+.remain-state .to-index{
+  position: absolute;
+  bottom: 0.8rem;
+  width: 100%;
+  text-align: center;
+  color: #fc5a22;
+  text-decoration: underline;
+}
+.remain-state button {
+  position: absolute;
+  bottom: 0.7rem;
+  left: 2rem;
+  width: 3.04rem;
+  height: 0.78rem;
+  border-radius: 0.78rem;
+  border: none;
+  color: #fff;
+  background: linear-gradient(#ffa042,#fb5321);
+}
+.give-record-page footer{
+  position: absolute;
+  left: 0;
+  bottom: 0.1rem;
+  width: 100%;
+  text-align: center;
+  color: #a36f43;
+}
+.layui-layer.layui-layer-page{
+  top: 31% !important;
+}
+.rule{
+  position: relative;
+  width: 6.73rem;
+  background-color: #fff;
+  border-radius: 0.08rem;
+  margin: 0 auto;
+  padding: 0.67rem 0.54rem 0.63rem 0.6rem;
+}
+.layui-layer-page .layui-layer-content{
+  overflow: unset !important;
+}
+.rule-title{
+  position: absolute;
+  top: -0.36rem;
+  left: 2.05rem;
+  width: 2.68rem;
+  height: 0.72rem;
+  border-top-left-radius: 0.6rem;
+  border-bottom-right-radius: 0.6rem;
+  color: #fff;
+  text-align: center;
+  line-height: 0.72rem;
+  background: linear-gradient(#ff9f3e,#fe6f26);
+}
+.rule-wrap{
+  width: 5.56rem;
+}
+#month-rule .rule-wrap{
+  height: 4.56rem;
+}
+.rule-box1{
+  position: absolute;
+  width: 5.5rem;
+  height: 7rem;
+  border: 1px solid #fea03e;
+  border-radius: 0.08rem;
+}
+.week-box1{
+  top: 0.53rem;
+  left: 0.46rem;
+}
+.rule-box2{
+  position: absolute;
+  width: 5.69rem;
+  height: 4.7rem;
+  border: 1px solid #fea03e;
+  border-radius: 0.08rem;
+}
+.month-box1{
+  top: 0.53rem;
+  left: 0.46rem;
+}
+.month-box2{
+  top: 0.67rem;
+  left: 0.6rem;
+}
+.rule button{
+  width: 3.04rem;
+  height: 0.8rem;
+  border-radius: 0.8rem;
+  text-align: center;
+  line-height: 0.8rem;
+  color: #fff;
+  font-size: 0.35rem;
+  margin: 0.66rem 1.4rem 0;
+  background: linear-gradient(#ffa042,#fb5321);
+}
+.rule ul{
+  margin: 0 0.4rem;
+}
+#week-rule ul{
+  margin: 0.6rem 0 0 0.4rem;
+}
+.rule li{
+  list-style-type: disc;
+  color: gray;
+  font-size: 0.22rem;
+}
+.layui-layer.layui-layer-page.week-rule{
+  top: 9% !important;
+}
+.layui-layer.layui-layer-page.month-rule{
+  top: 20% !important;
+}
+.black-font{
+  font-size: 0.24rem;
+  margin: 0.2rem 0.2rem;
+}
+.gray-font{
+  color: gray;
+  font-size: 0.22rem;
+  margin-top: 0.05rem;
+}
+#month-rule p{
+  font-size: 0.24rem;
+  margin: 0.3rem 0.2rem;
+}
+#month-rule .rule-wrap{
+  padding-bottom: 0.3rem;
+}
+#payway{
+  position: relative;
+  width: 6.45rem;
+  height: 4.5rem;
+  margin: 0 auto;
+  background-color: #fff;
+  border-radius: 0.1rem;
+}
+.pay-head{
+  width: 100%;
+  height: 0.95rem;
+  border-bottom: 0.03rem solid #f8f8f8;
+  font-size: 0.4rem;
+  text-align: center;
+  line-height: 0.92rem;
+  color: #606060;
+}
+.pay-way{
+  position: relative;
+  width: 100%;
+  height: 1.18rem;
+  padding-left: 1.9rem;
+  line-height: 1.18rem;
+}
+.pay-way i{
+  font-size: 0.6rem;
+  color: #23d76f;
+  position: absolute;
+  left: 1rem;
+  top: 0;
+}
+.pay-way .alipay{
+  color: #58ace1;
+  font-size: 0.78rem;
+}
+.pay-way>span{
+  font-size: 0.32rem;
+  color: #4b4b4b;
+}
+.pay-way>input{
+  position: absolute;
+  top: 0.25rem;
+  right: 0.9rem;
+  -webkit-appearance: none;
+  width: 0.52rem;
+  height: 0.52rem;
+  background-color: #fff;
+  border: 1px solid #c9c9c9;
+  border-radius: 50%;
+}
+.pay-way>input:checked{
+  background-color: #fa7930;
+}
+.pay-way .check{
+  position: absolute;
+  top: 0.36rem;
+  right: 1.13rem;
+  width: 0.15rem;
+  height: 0.3rem;
+  border-right: 1px solid #fff;
+  border-bottom: 1px solid #fff;
+  transform: rotate(45deg);
+}
+.line{
+  width: 4.5rem;
+  height: 0.01rem;
+  background-color: #d7d7d7;
+  margin: 0 auto;
+}
+.submit{
+  width: 3.04rem;
+  height: 0.74rem;
+  margin: 0.12rem 1.72rem;
+  background-color: #fa7930;
+  text-align: center;
+  line-height: 0.74rem;
+  font-size: 0.32rem;
+  color: #fff;
+  border-radius: 0.74rem;
+}
+.close{
+  position: absolute;
+  width: 0.73rem;
+  height: 0.73rem;
+  bottom: -1.2rem;
+  left: 2.8rem;
+  background: url(./image/close.png) no-repeat;
+  background-size: 100%;
+}
+#rechargeok{
+  position: relative;
+  width: 5.93rem;
+  height: 7.31rem;
+  margin: 0 auto;
+  background: url(./image/recharge.png) no-repeat;
+  background-size: 100%;
+}
+.layui-layer.layui-layer-page.rechargeok{
+  top: 25% !important;
+}
+#rechargeok span,
+#rechargeok a{
+  position: absolute;
+  width: 100%;
+  left: 0;
+  text-align: center;
+}
+#rechargeok .title{
+  top: 1.2rem;
+  font-size: 0.38rem;
+  color: #e65722;
+  font-weight: 700;
+}
+#rechargeok .isOK{
+  top: 2rem;
+  font-size: 0.68rem;
+  color: #c93b26;
+  font-weight: 700;
+}
+#rechargeok .to-record{
+  bottom: 3rem;
+  font-size: 0.28rem;
+  color: #f9e7b6;
+  text-decoration: underline;
+}
+.recharge-btn{
+  position: absolute;
+  left: 50%;
+  bottom: 1.6rem;
+  width: 3.04rem;
+  height: 0.8rem;
+  margin-left: -1.52rem;
+  color: #e5571e;
+  font-size: 0.36rem;
+  border-radius: 0.8rem;
+  line-height: 0.8rem;
+  background: linear-gradient(#fee296,#f6ad38);
+}
+#rechargeok .dialog-close{
+  bottom: 0.5%;
+  left: 44.5%;
+}

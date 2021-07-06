@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- axios配制模式
+    用法:  axios(
+     {
+         url:"请求接口地址",
+         method:"get/post默认get",
+         params:{
+             //get请求参数
+         },
+         data:{
+             //post请求参数
+         }
+    }).then(res=>{
+        //成功处理
+    }).catch(err=>{
+        //错误处理
+    })
+    
+    -->
+    <div id="app">
+      <button @click="getData">get请求</button>
+      <button @click="postData">post请求</button>
+    </div>
+    <script src="./vue.js"></script>
+    <script src="./axios.js"></script>
+    <script>
+      new Vue({
+        el: "#app",
+        data: {},
+        methods: {
+          getData() {
+            axios({
+              url: "https://autumnfish.cn/api/joke/list",
+              params: {
+                num: 20,
+              },
+            }).then((res) => {
+              window.console.log(res);
+            });
+          },
+          postData() {
+            axios({
+              url: "https://autumnfish.cn/api/user/reg",
+              method: "post",
+              data: {
+                username: "xxxxxcdcvd",
+              },
+            })
+              .then((res) => {
+                window.console.log(res);
+              })
+              .catch((err) => {
+                window.console.log(err);
+              });
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

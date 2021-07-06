@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <title>分享话题</title>
+    <script language="javascript" type="text/javascript" src="../js/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="http://web.cdn.openinstall.io/api/javascripts/sdk.min.js"></script>
+</head>
+<body>
+    <div id="themeCover" class="themeCover" style="padding-top: 5px;">
+        <img src="" width="100%" height="100%" style="border-radius:5px;">
+    </div>
+    <div class="themeCover" style="margin-bottom: 5px;">
+        <p id="theme"></p>
+    </div>
+    <div class="themeCover" style="margin-bottom: 5px;">
+        <p id="activityRules"></p>
+    </div>
+    <div class="themeCover" style="margin-bottom: 10px;clear: right;">
+        <p style="margin: 0px;padding: 0px;">
+            <img style="float: left;border-radius:25px;" src="../img/ico1.png" width="24px" height="24px">
+            <label style="vertical-align: super;float: left;">视频精选</label>
+        </p>
+        <p style="text-align: right;vertical-align: super;margin: 0px;">
+            <label id="number"></label>参与
+        </p>
+    </div>
+    <div id="vedio" class="vedios">
+
+    </div>
+    <a href="../shareMobileWap.html" class="bottom-banner" id="downLoad" data-app-download-position="hsvideo_bottom">
+        <span class="text">打开「兔聊」看更多吧</span>
+        <span class="icon"></span>
+    </a>
+</body>
+</html>
+<script>
+    var param = location.search;
+    var width = window.screen.width;
+    $(function(){
+        $.ajax({
+            type: "GET",
+            url: "/api/share/topicShare" + param,
+            dataType: "json",
+            success: function(obj){
+                //alert(obj.data.themeId);
+                $("#themeCover>img").attr("src", obj.data.themeCover);
+                $("#theme").text("#" + obj.data.themeName + "#   " + obj.data.detailDesc);
+                $("#activityRules").text(obj.data.activityRules);
+                $("#number").text(obj.data.number);
+                for (var i = 0; i < obj.data.actionLists.length; i++) {
+                    $("#vedio").append("<div style=\"width: "+(width/2)+"px;height: 290px;\"><video id='video_"+i+"' width='"+(width/2)+"' height='290' style='object-fit: fill' onclick='playvideo("+i+")' poster='"+obj.data.actionLists[i].videoIcon+"' src=\""+obj.data.actionLists[i].videoUrl+"\"></video></div>");
+                }
+            },
+            error: function (obj) {
+
+            }
+        });
+
+        var str = "";
+        str = getUrlParam(param,'code');
+        if (str && str.indexOf('*') > -1) {
+            str = str.substring(str.indexOf('*') + 1, str.lastIndexOf('*'));
+        } else if (str && str.indexOf('%2A') > -1) {
+            str = str.substring(str.indexOf('%2A') + 1, str
+                .lastIndexOf('%2A'));
+        }
+        var config = {
+            //必填，创建应用时分配的唯一ID，用于标识你的APP应用
+            appKey : 'bmhy9f'
+        };
+        var params = {
+            "shareId" : str
+        };
+        //初始化，向服务器异步获取应用配置信息，应尽早运行完成初始化;如有特殊需求，也创建多个OpenInstall对象
+        var openInstall = new OpenInstall(config, params);
+        var fallbackHandler = null;
+        //调用wakeupOrInstall方法后，将根据应用配置进入启动/安装的流程。
+        openInstall.wakeupOrInstall(fallbackHandler);
+    });
+
+    function playvideo(index) {
+        var Media = document.getElementById("video_"+index);
+        if (Media.paused) {
+            Media.play();
+        } else {
+            Media.pause();
+        }
+    }
+
+    //获取Url的参数
+    function getUrlParam(url, name) {
+        var pattern = new RegExp("[?&]" + name + "\=([^&]+)", "g");
+        var matcher = pattern.exec(url);
+        var items = null;
+        if (matcher != null) {
+            try {
+                items = decodeURIComponent(decodeURIComponent(matcher[1]));
+            } catch (e) {
+                try {
+                    items = decodeURIComponent(matcher[1]);
+                } catch (e) {
+                    items = matcher[1];
+                }
+            }
+        }
+        return items;
+    }
+</script>
+<style type="text/css">
+    body {
+        margin: 0px;
+        padding: 0px;
+        font-family:"微软雅黑,宋体";font-weight:bold
+    }
+    .themeCover {
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+    .themeCover>p {
+        margin: 0px;
+    }
+    .vedios>div {
+        display: inline-block;
+        vertical-align: top;
+        border: 0px solid red;
+        background: black;
+    }
+    .bottom-banner {
+        display: block;
+        margin: .32rem .2rem;
+        padding: .26rem 0;
+        border-radius: .08rem;
+        text-decoration: none;
+        text-align: center;
+        color: #fff;
+        -webkit-animation: bottomshow 800ms ease;
+        animation: bottomshow 800ms ease;
+        background-color: #ff2526;
+        background-image: linear-gradient(to right,#ff6700 0,#ff003b 100%);
+    }
+</style>

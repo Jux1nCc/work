@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0, viewport-fit=cover">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="msapplication-tap-highlight" content="no">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Cache-Control" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <title>网络设置</title>
+  <style type="text/css">
+    * {
+      border: 0;
+      outline: 0;
+      vertical-align: baseline;
+      background: 0 0;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      padding: .32rem;
+    }
+
+    h4 {
+      font-size: 0.32rem;
+      font-weight: bold;
+      color: #000000;
+      margin-bottom: .16rem;
+    }
+
+    .title-02 {
+      margin-top: .8rem;
+    }
+
+    .title-03 {
+      margin-top: .62rem;
+    }
+
+    p {
+      font-size: 0.32rem;
+      line-height: 0.48rem;
+      color: #000000;
+      margin: .16rem 0;
+    }
+
+    img {
+      display: block;
+      margin: 0 auto;
+    }
+
+    .img-01 {
+      width: 5.72rem;
+      height: 3.16rem;
+    }
+
+    .img-02 {
+      width: 6.82rem;
+      height: 8.54rem;
+    }
+
+    .img-03 {
+      width: 6.46rem;
+      height: 3.14rem;
+    }
+
+    .img-04 {
+      width: 6..46rem;
+      height: 5.18rem;
+    }
+
+    .img-05,
+    .img-06 {
+      width: 6.82rem;
+      height: 2.48rem;
+    }
+
+    .arrow {
+      position: relative;
+      width: .1rem;
+      height: 1rem;
+      background-color: #AA1CC5;
+      margin: .5rem auto;
+      border-radius: .1rem;
+    }
+
+    .arrow i {
+      position: absolute;
+      bottom: -10%;
+      left: -250%;
+      border-radius: .1rem;
+      width: 0;
+      height: 0;
+      border-left: .3rem solid transparent;
+      border-right: .3rem solid transparent;
+      border-top: .4rem solid #AA1CC5;
+    }
+  </style>
+</head>
+
+<body>
+  <h4 class="title-01">1、检查网络权限是否打开</h4>
+  <p>苹果系统，需要开启App使用网络权限。如果你第一次打开铢铢App，弹窗下面的对话框，轻点“允许”。</p>
+  <img class="img-01" src="./images/01.png">
+  <p>如果你未遇到上述对话框，或已经选择了“不允许”；</p>
+  <p>解决方法：打开手机【设置】-【蜂窝网络】，找到“铢铢”，勾选【WLAN与蜂窝网络】即可。</p>
+  <img class="img-02" src="./images/02.png">
+  <div class="arrow">
+    <i></i>
+  </div>
+  <img class="img-03" src="./images/03.png">
+  <div class="arrow">
+    <i></i>
+  </div>
+  <img class="img-04" src="./images/04.png">
+  <p>如果在【蜂窝网络】中未找到“铢铢”，请重启手机，再进入【设置】中尝试。</p>
+  <p>如果你的手机不是中国大陆版，则：打开【设置】-【蜂窝网络】，找到“铢铢”启动开关。</p>
+  <h4 class="title-02">2、“铢铢”不在权限列表中</h4>
+  <p>如果列表中找不到“铢铢”，请选择列表中任意一款应用，将其互联网权限设置为【关闭】后，再重设为【WLAN与蜂窝网络】。</p>
+  <img class="img-05" src="./images/05.png">
+  <div class="arrow">
+    <i></i>
+  </div>
+  <img class="img-06" src="./images/06.png">
+  <p>关闭“铢铢”后台进程，然后重新进入应用，在弹出提示框上点击“允许”即可。</p>
+  <img class="img-01" src="./images/01.png">
+  <h4 class="title-03">3、检查本地网络状况</h4>
+  <p>请检查本地的无线网络或手机信号情况，信号差的时候也无法正常获取数据。</p>
+</body>
+<script>
+  new function () {
+    var _self = this;
+    _self.width = 750;
+    _self.fontSize = 100;
+    _self.widthProportion = function () {
+      var p =
+        ((document.body && document.body.clientWidth) ||
+          document.getElementsByTagName("html")[0]
+            .offsetWidth) / _self.width;
+      return p > 1 ? 1 : p < 0.2 ? 0.2 : p;
+    };
+    _self.changePage = function () {
+      var a = _self.widthProportion() * _self.fontSize;
+      document
+        .getElementsByTagName("html")[0]
+        .setAttribute(
+          "style",
+          "font-size:" + a + "px !important"
+        );
+      if (
+        a !=
+        parseFloat(
+          window.getComputedStyle(document.documentElement)[
+          "fontSize"
+          ]
+        )
+      ) {
+        document
+          .getElementsByTagName("html")[0]
+          .setAttribute(
+            "style",
+            "font-size:" +
+            a /
+            (parseFloat(
+              window.getComputedStyle(
+                document.documentElement
+              )["fontSize"]
+            ) /
+              a) +
+            "px !important"
+          );
+      }
+    };
+    _self.changePage();
+    window.addEventListener(
+      "resize",
+      function () {
+        _self.changePage();
+      },
+      false
+    );
+  }();
+</script>
+
+</html>

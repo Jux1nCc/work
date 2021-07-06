@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- 插值语法
+    用法：{{一句话表达式}}  1：变量2：基本运算  3：三元表达式
+    功能：用于部分文本内容替换
+    它与v-text区别：1：v-text是在标签上  插值语法用在文本区域
+                   2：v-text是全部替换文本内容，插值语法是部分替换  
+
+    -->
+    <div id="app">
+      {{msg}},下着伤心的雨
+    </div>
+    <script src="./vue.js"></script>
+    <script>
+      new Vue({
+        el: "#app",
+        data: {
+          msg: "这是一个寂寞的天",
+        },
+      });
+    </script>
+  </body>
+</html>

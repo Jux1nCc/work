@@ -1,0 +1,183 @@
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0, viewport-fit=cover">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="msapplication-tap-highlight" content="no">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Cache-Control" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <title>礼物周星榜</title>
+  <link rel="stylesheet" href="http://activity.folkcam.cn/common/comm.css">
+  <style>
+    .wrap {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      background: rgba(255, 255, 255, 0);
+    }
+
+    .wrap div {
+      position: absolute;
+      left: 25%;
+      color: #fff;
+      width: 70%;
+      height: 6.5%;
+      font-size: .4rem;
+    }
+
+    span {
+      font-size: .4rem;
+    }
+
+    .rank-num {
+      top: 55%;
+    }
+
+    .value {
+      top: 65.6%;
+    }
+
+    .pre-value {
+      top: 79.1%;
+    }
+
+    .text,
+    .text span {
+      font-size: .45rem;
+      font-weight: 700;
+      -webkit-text-fill-color: #fff;
+      -webkit-text-stroke: 0.03rem #ff4bfd;
+    }
+
+    .wrap .text {
+      width: 100%;
+      position: absolute;
+      bottom: 1.7%;
+      left: 0;
+      text-align: center;
+      padding-right: 5%;
+    }
+
+    img {
+      width: 100%;
+    }
+
+    .day-value.smallSize,
+    .week-value.smallSize {
+      font-size: .24rem;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap flexbox" onclick="openHang()">
+    <img src="images/hang.png" alt="">
+    <div class="rank-num flexbox">
+      <span class="day-value">暂无</span>
+      /
+      <span class="week-value">暂无</span>
+    </div>
+    <div class="value flexbox">
+      <span class="day-value">0</span>
+      /
+      <span class="week-value">0</span>
+    </div>
+    <div class="pre-value flexbox">
+      <span class="day-value">无</span>
+      /
+      <span class="week-value">无</span>
+    </div>
+    <p class="text">周星榜活动第<span>1</span>天</p>
+  </div>
+</body>
+<script src="http://activity.folkcam.cn/common/config.js"></script>
+<script src="http://activity.folkcam.cn/common/app.js"></script>
+<script src="http://activity.folkcam.cn/common/jquery.min.js"></script>
+<script src="http://activity.folkcam.cn/common/layer/layer.js"></script>
+<script src="http://activity.folkcam.cn/common/rem.js"></script>
+<script>
+  var week = {
+    env: 'prod',
+    liveCustomerId: getQueryStr("liveCustomerId"),
+    customerId: getQueryStr("customerId"),
+    token: getQueryStr("token"),
+    created: function () {
+      var parmas = {
+        liveCustomerId: week.liveCustomerId,
+        customerId: week.customerId,
+        token: week.token,
+      }
+      $.ajax({
+        type: 'GET',
+        url: $config.toUrl(week.env, '/act/weekstar/authApi/v2/getLiveWeekstarInfo'),
+        data: parmas,
+        dataType: 'json',
+        success: function (res) {
+          if (res.result) {
+            week.mounted(res.data)
+          }
+        }
+      })
+    },
+    mounted: function (data) {
+      $('.text span').text(data.week)
+      if (data.dayRank > 0) {
+        if (data.dayRank > 20) {
+          $('.rank-num .day-value').text('20+')
+        } else {
+          $('.rank-num .day-value').text(data.dayRank)
+        }
+        $('.pre-value .day-value').text(data.dayPreAmt)
+        if (data.dayPreAmt > 999999) {
+          $('.pre-value .day-value').addClass('smallSize')
+        } else {
+          $('.pre-value .day-value').removeClass('smallSize')
+        }
+      }
+      if (data.weekRank > 0) {
+        if (data.weekRank > 20) {
+          $('.rank-num .week-value').text('20+')
+        } else {
+          $('.rank-num .week-value').text(data.weekRank)
+        }
+        $('.pre-value .week-value').text(data.weekPreAmt)
+        if (data.weekPreAmt > 999999) {
+          $('.pre-value .day-value').addClass('smallSize')
+        } else {
+          $('.pre-value .day-value').removeClass('smallSize')
+        }
+      }
+      $('.value .day-value').text(data.dayGiftAmt)
+      $('.value .week-value').text(data.weekGiftAmt)
+      if (data.dayGiftAmt > 999999) {
+        $('.value .day-value').addClass('smallSize')
+      } else {
+        $('.value .day-value').removeClass('smallSize')
+      }
+      if (data.weekGiftAmt > 999999) {
+        $('.value .week-value').addClass('smallSize')
+      } else {
+        $('.value .week-value').removeClass('smallSize')
+      }
+    }
+  }
+  function getQueryStr(name) {
+    var strArr = window.location.href.split('?')[1].split('&')
+    for (var i = 0; i < strArr.length; i++) {
+      if (strArr[i].indexOf(name) != -1) {
+        return strArr[i].split(name)[1].slice(1)
+      }
+    }
+  }
+  week.created()
+  setInterval(function () {
+    week.created()
+  }, 30000);
+</script>
+
+</html>

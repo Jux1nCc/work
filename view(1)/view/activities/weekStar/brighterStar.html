@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="x5-orientation" content="portrait" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="format-detection" content="telphone=no, email=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <script type="text/javascript" src="js/jquery.min.js" ></script>
+    <script type="text/javascript" src="js/main.js" ></script>
+    <script type="text/javascript" src="js/common.js" ></script>
+    <title>周星榜最亮周星</title>
+    <style>
+        html,body{
+            margin: 0;
+            padding: 0;
+            font-size: 14px;
+        }
+        .wrap{
+            width: 100%;
+            height: 100vh;
+            background:url('http://jw-version.oss-cn-shenzhen.aliyuncs.com/android/t_picture_new1567061210404.png');
+            background-size: 100% 100%;
+            position: relative;
+        }
+        .star-info{
+            text-align: center;
+        }
+        .star-info img{
+            position:absolute;
+            left: 33.5%;
+            bottom: 26%;
+            display: block;
+            background: #fff;
+            box-shadow: 0 0 25px #ab9cf9;
+            width: 2.5rem;
+            height: 2.5rem;
+            border-radius: 50%;
+        }
+        .star-p{
+            position:absolute;
+            position:absolute;
+            left: 38%;
+            bottom: 19%;
+        }
+        .star-p p{
+            color:#fae8ff;
+            font-size: 12px;
+            margin-block-start: 0;
+            margin-block-end: 0;
+            line-height: 1.6;
+        }
+        button{
+            position: absolute;
+            left: 28%;
+            bottom: 10.5%;
+            padding: 6px 1.35rem;
+            opacity: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="star-info">
+            <img id="star-img" src="" alt="">
+            <div class="star-p">
+                <p>昵称: <span class="star-name">xxxxx</span></p>
+                <p>兔聊号: <span class="star-id">xxxxx</span></p>
+            </div>
+        </div>
+        <button onClick="getFocus()">关注</button>
+    </div>
+</body>
+<script>
+        (function (doc, win) {
+            getStarInfo()
+
+            let docEl = doc.documentElement,
+            resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+            recalc = function () {
+                let clientWidth = docEl.clientWidth
+                if (!clientWidth) return;
+                sessionStorage.setItem('width',clientWidth);
+        
+                if(clientWidth>=750){
+                docEl.style.fontSize = '100px'
+                }else{
+                docEl.style.fontSize = 100 * (clientWidth / 750) + 'px'
+                }
+            }
+            if (!doc.addEventListener) return;
+            win.addEventListener(resizeEvt, recalc, false)
+            doc.addEventListener('DOMContentLoaded', recalc, false)
+        })(document, window)
+
+        function getStarInfo(){
+
+            $.ajax({
+                type: "GET",
+                url: server+"view/activityWeekStar/getInfoCust",
+                dataType: "json",
+                data: {'customerId' : customerId},
+                success: function(obj){
+
+                    if(obj.code && obj.code != 0){
+
+                    }else{
+                        // 获取最亮周星信息
+                        document.getElementById('star-img').src = obj.data.photo;
+                        document.getElementsByClassName('star-name')[0].innerHTML = obj.data.nickName ;
+                        document.getElementsByClassName('star-id')[0].innerHTML = obj.data.customerId;
+                    }
+                },
+                error: function (obj) {
+
+                }
+            });
+
+        }
+
+        function getFocus(){
+            var id = document.getElementsByClassName('star-id')[0].innerHTML;
+            // 调用获得关注按钮
+            console.log('关注周星');
+            openHomePage(id);
+        }
+    </script>
+</html>

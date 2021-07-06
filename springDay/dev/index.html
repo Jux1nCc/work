@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0, viewport-fit=cover">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="msapplication-tap-highlight" content="no">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Cache-Control" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <title>欢天喜地闹双节</title>
+  <link rel="stylesheet" href="http://activity.folkcam.cn/common/layer/theme/default/layer.css">
+  <link rel="stylesheet" href="http://activity.folkcam.cn/common/comm.css">
+  <link rel="stylesheet" href="index.css?v=033" as="style">
+</head>
+
+<body>
+  <div class="page PingFang">
+    <header class="lazy-img" data-src="./images/header3.png"></header>
+    <div class="join-btn animation lazy-img" data-src="./images/join_btn.png" onclick="joinAct(this)"></div>
+    <div class="nav-title flexbox">
+      <div class="nav1 nav-wish" onclick="changeNav(1,this)">新年许愿墙</div>
+      <div class="nav2 nav-pack" onclick="changeNav(2,this)">红包彩蛋</div>
+      <div class="nav2 nav-rank" onclick="changeNav(3,this)">每日榜单</div>
+    </div>
+    <div class="wish-wrap">
+      <div class="wish-title lazy-img" data-src="./images/coping.png">
+        <div class="wt-text lazy-img" data-src="./images/wish_title.png"></div>
+      </div>
+      <div class="wish">
+        <div class="wish-text column">
+          <span>送走过往，迎接新开始，写下心中的愿望</span>
+          <span>与祝福吧！珍贵的愿望统统都会实现的。</span>
+        </div>
+        <div class="wish-main" id="wishMain">
+        </div>
+        <div class="wish-input lazy-img" data-src="./images/wish_border.png">
+          <div class="input-text" onclick="openKeyUp()">有什么心愿吗? 快留言送出你的愿望祝福吧!</div>
+          <input type="text" onclick="openKey()" onblur="closeKey()"  class="popup" placeholder="有什么心愿吗? 快留言送出你的愿望祝福吧!">
+        </div>
+        <div class="send-btn disable" onclick="sendMsg(this)"></div>
+        <div class="wish-num">许愿留言剩余条数: <span class="wn-num">0</span></div>
+        <div class="wish-all-num">我已累计留言: <span class="wan-num">0条</span></div>
+        <div class="wish-foot lazy-img" data-src="./images/bottom.png"></div>
+      </div>
+      <div class="wish-guide column lazy-img" data-src="./images/wish_rule1.png">
+        <div class="wg-title lazy-img" data-src="./images/wish_rule_itle.png"></div>
+        <div class="wg-award">
+          <div class="wga-title lazy-img" data-src="./images/wish_award.png"></div>
+          <p>1、每天可免费许愿留言一条；</p>
+          <p>2、每送出或收到「1000新年旺旺值」即可获得「1条许愿留言条数」，送出和收到分开计算；</p>
+          <p>3、累计留言达「15条」即可获得【花开富贵-文字气泡（30天）、花开富贵-头像框（30天）】。</p>
+          <div class="preview flexbox">
+            <div class="pre-photo"></div>
+            <div class="pre-qipao"></div>
+          </div>
+          <div class="wga-rule lazy-img" data-src="./images/rule.png"></div>
+          <p>1、每人可留言条数无上限；</p>
+          <p>2、单条留言内容最多30字；</p>
+          <p>3、留言条数仅限活动结束前使用，活动结束后失效。</p>
+          <p>4、如果因违规被平台冻结了账号、私信、发动态功能，那么无法留言。且被冻结前发出的所有留言，都将会被删除。取消冻结后，可继续留言。</p>
+        </div>
+        <div class="wg-rule">
+          <div class="wgr-title wgr-get lazy-img" data-src="./images/get_Type.png"></div>
+          <p>1. 每收到<span class="red">1<span class="appUnit">钻石</span>礼物</span>，等于<span class="red">收到1新年旺旺值。</span></p>
+          <p>2. 每累计接听<span class="red">有效通话1分钟</span>，等于<span class="red">收到100新年旺旺值。</span></p>
+          <div class="wgr-title wgr-send lazy-img" data-src="./images/send_type.png"></div>
+          <p>1. 每送出<span class="red">1<span class="appUnit">钻石</span>礼物</span>，等于<span class="red">送出1新年旺旺值。</span></p>
+          <p>2. 每累计拨打<span class="red">有效通话1分钟</span>，等于<span class="red">送出100新年旺旺值。</span></p>
+          <p>备注:</p>
+          <p>（1）有效通话指的是：“收费设置≥100<span class="appUnit">钻石</span>/分钟”的视频通话和语音通话</p>
+          <p>（2）送出或收到的礼物，如果是平台免费包裹礼物，则不算新年旺旺值</p>
+        </div>
+      </div>
+    </div>
+    <div class="cloud cloud-r popup lazy-img" data-src="./images/cloud_r.png"></div>
+    <div class="cloud cloud-l popup lazy-img" data-src="./images/cloud_l.png"></div>
+    <div class="redpack-wrap popup">
+      <div class="redpack-title column">
+        <span>2021年情人节撞上春节，就会有幸运事！</span>
+        <span>去直播间捕捉红包，感受这喜庆~</span>
+      </div>
+      <div class="red-pack lazy-img" data-src="./images/pack_bg1.png">
+        <p>1、活动期间，<span class="white">在直播间每发出一次红包、和每抢到一个红包，</span>均能获得系统赠送的<span
+            class="white">【装扮奖励（精美头像框、聊天气泡、进场特效）】，</span>每天最多可得10次赠送</p>
+        <p>2、发出的直播间红包单次大于等于2021<span class="appUnit">钻石</span>，将有全平台直播间飘屏公告，如“财神爷奥特曼在小玉的直播间发出了吉祥红包，祝大家牛运无边！”</p>
+        <p>3、每累计发满21次红包，可获得1个免费抽盲盒次数。（免费盲盒次数可在直播间抽盲盒哦，盲盒功能需更新至最新版本）</p>
+      </div>
+      <div class="get-award">
+        <div class="blind column lazy-img" data-src="./images/bg.png">
+          <span>我已累计获得免费盲盒: <span class="box-num">0</span>个</span>
+          <span>距获下一个盲盒还差: <span class="next-box-num">0</span>个红包</span>
+        </div>
+        <div class="connect lazy-img" data-src="./images/connect.png"></div>
+        <div class="ga-title lazy-img" data-src="./images/title.png"></div>
+        <div class="award-wrap">
+          <!-- <div class="award-item">
+            <div class="award-photo">
+              <img src="images/user.png" alt="">
+            </div>
+            <div class="award-type">头像框</div>
+            <div class="award-name">黄金头像边框</div>
+          </div> -->
+          <div class="empty lazy-img" data-src="./images/empty.png">
+            <span>还什么都没有获得, 快快参加吧~</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="rule-btn popup lazy-img" data-src="./images/rule_btn.png" onclick="openRuleDig()"></div>
+    <div class="rank-wrap popup">
+      <div class="rank-rule lazy-img" data-src="./images/rank_bg1.png">
+        <div class="wgr-title wgr-get lazy-img" data-src="./images/get_Type.png"></div>
+        <p>1. 每收到<span class="red">1<span class="appUnit">钻石</span>礼物</span>，等于<span class="red">收到1新年旺旺值。</span></p>
+        <p>2. 每累计接听<span class="red">有效通话1分钟</span>，等于<span class="red">收到100新年旺旺值。</span></p>
+        <div class="wgr-title wgr-send lazy-img" data-src="./images/send_type.png"></div>
+        <p>1. 每送出<span class="red">1<span class="appUnit">钻石</span>礼物</span>，等于<span class="red">送出1新年旺旺值。</span></p>
+        <p>2. 每累计拨打<span class="red">有效通话1分钟</span>，等于<span class="red">送出100新年旺旺值。</span></p>
+      </div>
+      <div class="rank-nav flexbox">
+        <div class="rn-item" onclick="changeRankNav(2,this)">今日红运榜</div>
+        <div class="rn-item rn-nav" onclick="changeRankNav(1,this)">今日牛气榜</div>
+      </div>
+      <div class="rank-item">
+        <div class="corner tl lazy-img" data-src="./images/lt.png"></div>
+        <div class="corner tr lazy-img" data-src="./images/rt.png"></div>
+        <div class="corner bl lazy-img" data-src="./images/lb.png"></div>
+        <div class="corner br lazy-img" data-src="./images/rb.png"></div>
+        <div class="ri-text column">
+          <span>按照用户当日<span class="white">收到的</span>新年旺旺值进行排列</span>
+          <span>每日榜单前10名，可获大奖！</span>
+        </div>
+        <div class="ri-title flexbox">
+          <span>名次</span>
+          <span>头像</span>
+          <span>昵称</span>
+          <span>新年旺旺值</span>
+        </div>
+        <ul>
+          <li class="li-item flexbox">
+            <div class="li-num">
+              <img src="images/1.png" alt="第一名">
+            </div>
+            <div class="li-photo">
+              <div class="photo-item">
+                <img src="images/user.png" alt="头像">
+              </div>
+              <div class="head-pic1 lazy-img" data-src="./images/no1.png"></div>
+            </div>
+            <div class="li-name">虚位以待</div>
+            <div class="li-value">暂无</div>
+          </li>
+          <li class="li-item flexbox">
+            <div class="li-num">
+              <img src="images/2.png" alt="第二名">
+            </div>
+            <div class="li-photo">
+              <div class="photo-item">
+                <img src="images/user.png" alt="头像">
+              </div>
+              <div class="head-pic2 lazy-img" data-src="./images/no2.png"></div>
+            </div>
+            <div class="li-name">虚位以待</div>
+            <div class="li-value">暂无</div>
+          </li>
+          <li class="li-item flexbox">
+            <div class="li-num">
+              <img src="images/3.png" alt="第三名">
+            </div>
+            <div class="li-photo">
+              <div class="photo-item">
+                <img src="images/user.png" alt="头像">
+              </div>
+              <div class="head-pic3 lazy-img" data-src="./images/no3.png"></div>
+            </div>
+            <div class="li-name">虚位以待</div>
+            <div class="li-value">暂无</div>
+          </li>
+          <li class="li-item flexbox">
+            <div class="li-num">4</div>
+            <div class="li-photo">
+              <div class="photo-item">
+                <img src="images/user.png" alt="头像">
+              </div>
+            </div>
+            <div class="li-name">虚位以待</div>
+            <div class="li-value">暂无</div>
+          </li>
+          <li class="li-item flexbox">
+            <div class="li-num">5</div>
+            <div class="li-photo">
+              <div class="photo-item">
+                <img src="images/user.png" alt="头像">
+              </div>
+            </div>
+            <div class="li-name">虚位以待</div>
+            <div class="li-value">暂无</div>
+          </li>
+          <!-- <li class="look-more flexbox" onclick="lookMore(this)">点击查看更多<img src="./images/arrow.png"></li> -->
+          <!-- <li class="look-more flexbox">你已经看到我的底线了~</li> -->
+        </ul>
+      </div>
+      <div class="mine-rank">
+        <div class="mr-main flexbox">
+          <div class="mr-num">暂未上榜</div>
+          <div class="mr-photo">
+            <img src="images/user.png" alt="">
+          </div>
+          <div class="mr-name">此处展示我的昵称</div>
+          <div class="mr-value">
+            <div class="mrv-title">新年旺旺值</div>
+            <div class="mrv-value">暂无</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="foot1 column">
+      <span class="isApple">本活动奖励由觅伊平台提供, 与苹果公司无关</span>
+      <span>一本活动最终解释权归<span class="appName">觅伊</span>所有一</span>
+    </footer>
+    <footer class="foot2 popup"></footer>
+  </div>
+  <div class="dialog PingFang">
+    <!-- 是否在app内打开 -->
+    <div id="openOutApp" class="popup">
+      <div class="open-text">活动需要在<br /><span class="appName">觅伊</span>APP内打开</div>
+      <span class="dir-text"><span class="appName">觅伊</span>，一款视频交友软件。1000万用户<br />在觅伊成功搭讪找到心仪的伴侣!</span>
+      <button class="dialog-ok" onclick="download()"></button>
+      <button class="dialog-close"></button>
+    </div>
+    <!-- 是否登录 -->
+    <div id="isLogin" class="popup">
+      <button class="dialog-ok isLogin-login" onclick="jumpToMe()"></button>
+      <button class="dialog-close isLogin-close"></button>
+    </div>
+    <!-- 参与活动 -->
+    <div id="joinAct" class="popup">
+      <span>点击参加即可获得春节限定专属头像框、气泡！</span>
+      <span class="join-act-span">参与活动还有机会享受“直播间红包雨、免费抽盲盒、免费礼物…”海量奖励！</span>
+      <button class="dialog-ok animation" onclick="joinAct()"></button>
+      <button class="dialog-close isLogin-close"></button>
+    </div>
+    <!-- 参与奖励 -->
+    <div id="joinAward" class="popup PingFang">
+      <div class="dig-join-award flexbox">
+        <div class="dja dja-fir column">
+          <div class="dja-pic flexbox">
+            <img src="images/user.png" alt="">
+          </div>
+          <div class="dja-name">新春福到</div>
+          <div class="dja-type">头像框x15天</div>
+        </div>
+        <div class="dja dja-sec column">
+          <div class="dja-pic flexbox">
+            <img src="images/user.png" alt="">
+          </div>
+          <div class="dja-name">新春福到</div>
+          <div class="dja-type">文字气泡x15天</div>
+        </div>
+      </div>
+      <button class="dialog-ok" onclick="layer.closeAll()"></button>
+      <button class="dialog-close isLogin-close"></button>
+      <span class="tip-text">提示: 装扮已发放至“<span class="appDress">我-个性装扮</span>”中, 记得点击去使用!</span>
+    </div>
+    <!-- 留言奖励 -->
+    <div id="msgAward" class="popup">
+      <div class="dig-join-award flexbox">
+        <div class="dja dja-fir column">
+          <div class="dja-pic flexbox">
+            <img src="images/user.png" alt="">
+          </div>
+          <div class="dja-name">花开富贵</div>
+          <div class="dja-type">头像框x30天</div>
+        </div>
+        <div class="dja dja-sec column">
+          <div class="dja-pic flexbox">
+            <img src="images/user.png" alt="">
+          </div>
+          <div class="dja-name">花开富贵</div>
+          <div class="dja-type">文字气泡x30天</div>
+          <!-- <div class="dja-type dig-small-font">气泡、直播评论边框、直播弹幕边框x30天</div> -->
+        </div>
+      </div>
+      <button class="dialog-ok" onclick="layer.closeAll()"></button>
+      <button class="dialog-close isLogin-close"></button>
+      <span class="tip-text">提示: 装扮已发放至“<span class="appDress">我-个性装扮</span>”中, 记得点击去使用!</span>
+    </div>
+    <!-- 活动规则 -->
+    <div id="awardRule" class="popup PingFang">
+      <button class="dialog-close isLogin-close"></button>
+      <div class="ar-main">
+        <div class="arm-item">
+          <div class="arm-title"></div>
+          <div class="arm-award-day flexbox">
+            <div class="award-day-left-line"></div>
+            <div class="award-day-title">每日榜单奖励</div>
+            <div class="award-day-right-line"></div>
+          </div>
+          <div class="award-day-main">
+            <div class="award-main-title flexbox">
+              <span>日榜<br />排名</span>
+              <span>红运榜奖励</span>
+              <span>牛气榜奖励</span>
+            </div>
+            <ul class="award-main-ul">
+              <li class="award-main-li flexbox li-fir">
+                <div class="aml-rank">1名</div>
+                <div class="aml-get">
+                  <div class="amt-get-item flexbox">
+                    <div class="amt-get-item-pic">
+                      <img src="images/user.png" alt="">
+                    </div>
+                    <div class="amt-get-item-name column">
+                      招财进宝<span>-头像框x30天</span>
+                    </div>
+                  </div>
+                  <div class="amt-get-item flexbox">
+                    <div class="amt-get-item-pic">
+                      <img src="images/user.png" alt="">
+                    </div>
+                    <div class="amt-get-item-name column">
+                      招财进宝<span>-气泡x30天</span>
+                    </div>
+                  </div>
+                  <div class="amt-get-item flexbox">
+                    <div class="amt-get-item-pic">
+                      <img src="images/blind.png" alt="">
+                    </div>
+                    <div class="amt-get-item-name column">
+                      免费抽盲盒<span>x10次</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="aml-send">
+                  <div class="amt-get-item flexbox">
+                    <div class="amt-get-item-pic">
+                      <img src="images/user.png" alt="">
+                    </div>
+                    <div class="amt-get-item-name column">
+                      牛转钱坤<span>-头像框x30天</span>
+                    </div>
+                  </div>
+                  <div class="amt-get-item flexbox">
+                    <div class="amt-get-item-pic">
+                      <img src="images/user.png" alt="">
+                    </div>
+                    <div class="amt-get-item-name column">
+                      牛转钱坤<span>-气泡x30天</span>
+                    </div>
+                  </div>
+                  <div class="amt-get-item flexbox">
+                    <div class="amt-get-item-pic">
+                      <img src="images/user.png" alt="">
+                    </div>
+                    <div class="amt-get-item-name column">
+                      舞狮咚咚锵<span>-进场特效x5天</span>
+                    </div>
+                  </div>
+                  <div class="amt-get-item flexbox">
+                    <div class="amt-get-item-pic">
+                      <img class="miyiUnit" src="images/zuanshi.png" alt="">
+                      <img class="tuliaoUnit popup" src="images/liaobi.png" alt="">
+                    </div>
+                    <div class="amt-get-item-name column">
+                      12000<span class="appUnit">钻石</span>
+                    </div>
+                  </div>
+                  <div class="amt-get-item flexbox">
+                    <div class="amt-get-item-pic">
+                      <img src="images/blind.png" alt="">
+                    </div>
+                    <div class="amt-get-item-name column">
+                      免费抽盲盒<span>x10次</span>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li class="award-main-li flexbox li-sec">
+                <div class="aml-rank">2名</div>
+                <div class="aml-get">
+                  <div class="amt-get-item flexbox">
+                    <div class="amt-get-item-pic">
+                      <img src="images/user.png" alt="">
+                    </div>
+                    <div class="amt-get-item-name column">
+                      有钱花<span>-头像框x30天</span>
+                    </div>
+                  </div>
+                  <div class="amt-get-item flexbox">
+                    <div class="amt-get-item-pic">
+                      <img src="images/user.png" alt="">
+                    </div>
+                    <div class="amt-get-item-name column">
+                      有钱花<span>-气泡x30天</span>
+                    </div>
+                  </div>
+                  <div class="amt-get-item flexbox">
+                    <div class="amt-get-item-pic">
+                      <img src="images/blind.png" alt="">
+                    </div>
+                    <div class="amt-get-item-name column">
+                      免费抽盲盒<span>x5次</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="aml-send">
+                  <div class="amt-get-item flexbox">
+                    <div class="amt-get-item-pic">
+                      <img src="images/user.png" alt="">
+                    </div>
+                    <div class="amt-get-item-name column">
+                      我要发财<span>-头像框x15天</span>
+                    </div>
+                  </div>
+                  <div class="amt-get-item flexbox">
+                    <div class="amt-get-item-pic">
+                      <img src="images/user.png" alt="">
+                    </div>
+                    <div class="amt-get-item-name column">
+                      我要发财<span>-气泡x15天</span>
+                    </div>
+                  </div>
+                  <div class="amt-get-item flexbox">
+                    <div class="amt-get-item-pic">
+                      <img src="images/user.png" alt="">
+                    </div>
+                    <div class="amt-get-item-name column">
+                      舞狮咚咚锵<span>-进场特效x3天</span>
+                    </div>
+                  </div>
+                  <div class="amt-get-item flexbox">
+                    <div class="amt-get-item-pic">
+                      <img class="miyiUnit" src="images/zuanshi.png" alt="">
+                      <img class="tuliaoUnit popup" src="images/liaobi.png" alt="">
+                    </div>
+                    <div class="amt-get-item-name column">
+                      3000<span class="appUnit">钻石</span>
+                    </div>
+                  </div>
+                  <div class="amt-get-item flexbox">
+                    <div class="amt-get-item-pic">
+                      <img src="images/blind.png" alt="">
+                    </div>
+                    <div class="amt-get-item-name column">
+                      免费抽盲盒<span>x5次</span>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li class="award-main-li flexbox li-thi">
+                <div class="aml-rank">3名</div>
+                <div class="aml-get">
+                  <div class="amt-get-item flexbox">
+                    <div class="amt-get-item-pic">
+                      <img src="images/user.png" alt="">
+                    </div>
+                    <div class="amt-get-item-name column">
+                      响亮过新年<span>-头像框x30天</span>
+                    </div>
+                  </div>
+                  <div class="amt-get-item flexbox">
+                    <div class="amt-get-item-pic">
+                      <img src="images/user.png" alt="">
+                    </div>
+                    <div class="amt-get-item-name column">
+                      响亮过新年<span>-气泡x30天</span>
+                    </div>
+                  </div>
+                  <div class="amt-get-item flexbox">
+                    <div class="amt-get-item-pic">
+                      <img src="images/blind.png" alt="">
+                    </div>
+                    <div class="amt-get-item-name column">
+                      免费抽盲盒<span>x1次</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="aml-send">
+                  <div class="amt-get-item flexbox">
+                    <div class="amt-get-item-pic">
+                      <img src="images/user.png" alt="">
+                    </div>
+                    <div class="amt-get-item-name column">
+                      牛劲十足<span>-头像框x13天</span>
+                    </div>
+                  </div>
+                  <div class="amt-get-item flexbox">
+                    <div class="amt-get-item-pic">
+                      <img src="images/user.png" alt="">
+                    </div>
+                    <div class="amt-get-item-name column">
+                      牛劲十足<span>-气泡x13天</span>
+                    </div>
+                  </div>
+                  <div class="amt-get-item flexbox">
+                    <div class="amt-get-item-pic">
+                      <img class="miyiUnit" src="images/zuanshi.png" alt="">
+                      <img class="tuliaoUnit popup" src="images/liaobi.png" alt="">
+                    </div>
+                    <div class="amt-get-item-name column">
+                      1000<span class="appUnit">钻石</span>
+                    </div>
+                  </div>
+                  <div class="amt-get-item flexbox">
+                    <div class="amt-get-item-pic">
+                      <img src="images/blind.png" alt="">
+                    </div>
+                    <div class="amt-get-item-name column">
+                      免费抽盲盒<span>x1次</span>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li class="award-main-li flexbox li-fou">
+                <div class="aml-rank">4-10<span>名</span></div>
+                <div class="aml-get">
+                  <div class="amt-get-item flexbox">
+                    <div class="amt-get-item-pic">
+                      <img src="images/user.png" alt="">
+                    </div>
+                    <div class="amt-get-item-name column">
+                      新春幸运星<span>-头像框x7天</span>
+                    </div>
+                  </div>
+                  <div class="amt-get-item flexbox">
+                    <div class="amt-get-item-pic">
+                      <img src="images/user.png" alt="">
+                    </div>
+                    <div class="amt-get-item-name column">
+                      新春幸运星<span>-气泡x7天</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="aml-send">
+                  <div class="amt-get-item flexbox">
+                    <div class="amt-get-item-pic">
+                      <img src="images/user.png" alt="">
+                    </div>
+                    <div class="amt-get-item-name column">
+                      小财迷<span>-头像框x7天</span>
+                    </div>
+                  </div>
+                  <div class="amt-get-item flexbox">
+                    <div class="amt-get-item-pic">
+                      <img src="images/user.png" alt="">
+                    </div>
+                    <div class="amt-get-item-name column">
+                      小财迷<span>-气泡x7天</span>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li class="award-main-li flexbox li-fif">
+                <div class="aml-rank">11-30<span>名</span></div>
+                <div class="aml-get">
+                  <div class="amt-get-item flexbox">
+                    <div class="amt-get-item-pic">
+                      <img src="images/user.png" alt="">
+                    </div>
+                    <div class="amt-get-item-name column">
+                      过年啦<span>-头像框x3天</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="aml-send">
+                  <div class="amt-get-item flexbox">
+                    <div class="amt-get-item-pic">
+                      <img src="images/user.png" alt="">
+                    </div>
+                    <div class="amt-get-item-name column">
+                      过年啦<span>-头像框x3天</span>
+                    </div>
+                  </div>
+                </div>
+              </li>
+            </ul>
+            <p class="send-award">奖励发放：榜单所有奖励将在次日00:00发放。</p>
+            <div class="send-type">
+              <p>发放方式：</p>
+              <p>1、头像框、气泡、进场特效奖励将发放至“<span class="appDress">我-个性装扮</span>”中，需手动点击使用；</p>
+              <p>2、奖金发放到用户购买的账户余额里；</p>
+              <p>3、免费抽盲盒奖励发放后，可在直播间免费抽盲盒。（盲盒功能需更新至最新版本）</p>
+            </div>
+          </div>
+          <div class="arm-award-day flexbox">
+            <div class="award-day-left-line"></div>
+            <div class="award-day-title">榜单规则</div>
+            <div class="award-day-right-line"></div>
+          </div>
+          <div class="rank-rule-main">
+            <p>1、榜单活动时间：2月8日-2月18日</p>
+            <p>2、今日红运榜：按照当天收到的新年旺旺值进行排榜<br />
+              今日牛气榜：按照当天送出的新年旺旺值进行排榜榜单值相同的，按照达到先后顺序排列<br /><br />
+              送出或收到的礼物，如果是平台免费包裹礼物，则不算新年旺旺值
+            </p>
+            <p>3、有效通话指的是：“收费设置≥100<span class="appUnit">钻石</span>/分钟”的视频通话和语音通话</p>
+            <p>4、每天榜单前30名都可获得日榜奖励。</p>
+          </div>
+          <footer class="column">
+            <span class="isApple">本活动奖励由觅伊平台提供, 与苹果公司无关</span>
+            <span>一本活动最终解释权归<span class="appName">觅伊</span>所有一</span>
+          </footer>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+<script src="http://activity.folkcam.cn/common/jquery.min.js"></script>
+<script src="http://activity.folkcam.cn/common/layer/layer.js"></script>
+<script src="http://activity.folkcam.cn/common/app.js"></script>
+<script src="http://activity.folkcam.cn/common/rem.js"></script>
+<script src="http://res.cdn.openinstall.io/openinstall.js"></script>
+<script src="http://activity.folkcam.cn/common/config.js"></script>
+<script src="index.js?v=085"></script>
+<script src="http://activity.folkcam.cn/common/vconsole.min.js"></script>
+<!-- <script>
+  var vConsole = new VConsole();
+  console.log(window.location.href);
+  // $config.dialogComm($('#msgAward'), 'msgAward')
+</script> -->
+</html>

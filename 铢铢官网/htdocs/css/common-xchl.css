@@ -1,0 +1,10 @@
+/*========================默认样式=========================*/
+@charset "UTF-8";
+body,h1,h2,h3,h4,h5,h6,p,dd{margin:0;}
+ul,li,ol,dl{margin:0;padding:0;list-style:none;}
+img{border:none;vertical-align:middle;}
+a{text-decoration:none;color:inherit;outline:none;}
+body{font:14px 'Microsoft Yahei',sans-serif;/*sans-serif 是手机默认字体*/color: #656565;}
+.clearfix{content: '';display: block; clear: both;}
+input,button,select,option,textarea{border:none;outline:none;cursor:pointer;}
+.clearfix::after{content: '';display: block;clear: both;}

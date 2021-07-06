@@ -1,0 +1,419 @@
+.page{
+  position: relative;
+  width: 100vw;
+  background: linear-gradient(#703efd,#e562ce);
+  padding-bottom: 1.7rem;
+}
+header{
+  width: 95%;
+  height: 6.65rem;
+  background-image: url(images/head.png);
+  background-size: 100% 100%;
+}
+.lastweek-btn,
+.rule-btn{
+  position: absolute;
+  right: 0;
+  width: 1.38rem;
+  height: .66rem;
+  background-size: 100% 100%;
+  z-index: 99;
+}
+.lastweek-btn{
+  top: 4.7rem;
+  background-image: url(images/last_week_btn.png);
+}
+.rule-btn{
+  top: 5.6rem;
+  background-image: url(images/rule_btn.png);
+}
+.champion-page{
+  position: relative;
+  width: 6.2rem;
+  height: 3.24rem;
+  background-image: url(images/champion_page.png);
+  background-size: 100% 100%;
+  margin: -10% auto .9rem;
+  padding-top: .55rem;
+}
+.champion-title{
+  position: absolute;
+  top: 5%;
+  left: 35%;
+  width: 2.2rem;
+  height: .45rem;
+  font-size: .3rem;
+  color: #d35400;
+  font-weight: 700;
+  text-align: center;
+  line-height: .45rem;
+}
+.champion-wrap{
+  position: relative;
+  width: 6rem;
+  height: 2.5rem;
+  margin: 0 auto;
+}
+.champion-wrap span{
+  font-size: .24rem;
+  color: #ffe6c4;
+}
+.champion-wrap .champion-text.init{
+  top: 10%;
+  position: absolute;
+  font-size: .28rem;
+  font-weight: 700;
+}
+.champion-wrap .init-text{
+  font-size: .28rem;
+  color: #ffe179;
+}
+.champion-info{
+  height: 1.4rem;
+}
+.champion-pic{
+  position: relative;
+  width: 2.13rem;
+  height: 100%;
+}
+.champion-wing{
+  position: absolute;
+  top: 10%;
+  left: 0;
+  width: 2.13rem;
+  height: .85rem;
+  background-image: url(images/wing.png);
+  background-size: 100% 100%;
+}
+.champion-img{
+  width: 1.25rem;
+  height: 1.25rem;
+  border: 0.01rem solid #fcbdd3;
+  border-radius: 50%;
+  z-index: 2;
+}
+.live-icon{
+  position: absolute;
+  bottom: 0;
+  left: 32%;
+  width: .8rem;
+  height: .32rem;
+  background: linear-gradient(#ff4aff, #fec24f);
+  border-radius: .2rem;
+  font-size: .2rem;
+  color: #fff;
+  z-index: 3;
+  text-align: center;
+  line-height: .32rem;
+}
+.champion-item{
+  align-items: flex-start;
+}
+.champion-award,
+.champion-award span{
+  color: #ffc531 !important;
+}
+.rank-page{
+  position: relative;
+  width: 6.95rem;
+  /* height: 8.18rem; */
+  background-color: #511cb7;
+  border: 0.04rem solid #fede58;
+  border-top-left-radius: .26rem;
+  border-top-right-radius: .26rem;
+  margin: 0 auto .5rem;
+  padding-top: .56rem;
+  padding-bottom: .65rem;
+}
+.rank-page-title{
+  position: absolute;
+  top: -.5rem;
+  left: -0.4%;
+  width: 6.93rem;
+  height: .85rem;
+  background-image: url(images/rank_homepage_title.png);
+  background-size: 100% 100%;
+  font-size: .3rem;
+  color: #d35400;
+  font-weight: 700;
+  text-align: center;
+  line-height: .68rem;
+}
+.gift-wrap{
+  width: 100%;
+  height: 1.6rem;
+  padding: 0 .74rem;
+  justify-content: space-between;
+}
+.gift-wrap li{
+  text-align: center;
+}
+.gift-wrap .gift-img{
+  width: 1.55rem;
+  height: 1.25rem;
+  /* background-color: #fff; */
+  border-radius: .2rem;
+}
+.gift-wrap .gift-img img{
+  width: 100%;
+  height: 100%;
+}
+.gift-wrap .gift-name{
+  font-size: .22rem;
+  color: #fff;
+}
+.rank-nav-wrap{
+  height: .95rem;
+  margin: .55rem 0 .3rem;
+}
+.rank-nav-item{
+  width: 3.45rem;
+  height: .93rem;
+  font-size: .32rem;
+  color: #ffe179;
+  font-weight: 700;
+  text-align: center;
+  line-height: .93rem;
+}
+.rank-nav-1{
+  background-image: url(images/homepage_nav1.png);
+  background-size: 100% 100%;
+}
+.rank-nav-2{
+  background-image: url(images/homepage_nav2.png);
+  background-size: 100% 100%;
+}
+.rank-nav-3{
+  background-image: url(images/homepage_nav3.png);
+  background-size: 100% 100%;
+}
+.rank-nav-4{
+  background-image: url(images/homepage_nav4.png);
+  background-size: 100% 100%;
+}
+.rank-page>p{
+  font-size: .24rem;
+  color: #ffe179;
+  text-align: center;
+}
+.rank-wrap.init{
+  height: 3rem;
+  text-align: center;
+  line-height: 3rem;
+}
+.rank-wrap .init-text{
+  font-size: .36rem;
+  color: #ffe179;
+  font-weight: 700;
+  text-align: center;
+  height: 2rem;
+  line-height: 2.5rem;
+}
+.init-text i{
+  display: inline-block;
+  width: .66rem;
+  height: .41rem;
+  background-image: url(images/crown.png);
+  background-size: 100% 100%;
+  margin-right: .3rem;
+}
+.rank-wrap ul{
+  margin-top: .4rem;
+  padding: 0.1rem .3rem;
+}
+.rank-wrap ul.full{
+  height: 11.8rem;
+  overflow: hidden;
+  overflow-y: auto;
+}
+.rank-wrap li{
+  position: relative;
+  width: 6.27rem;
+  height: 1.66rem;
+  background-color: #511cb7;
+  border: 0.01rem solid #f8d9d2;
+  border-radius: .1rem;
+  box-shadow: inset 0 0 .6rem #8743e9;
+  margin-bottom: .15rem;
+  justify-content: space-around;
+}
+.rank-wrap li.look-more{
+  background-color: rgba(0,0,0,0);
+  border: none;
+  box-shadow: none;
+  justify-content: center;
+  height: .5rem;
+  margin: 0;
+  color: #fff;
+  font-size: .3rem;
+}
+.rank-wrap li.look-more i{
+  width: .22rem;
+  height: .23rem;
+  background-image: url("images/rank_more_icon.png");
+  background-size: 100% 100%;
+  margin-left: .15rem;
+  margin-top: .05rem;
+}
+.li-title{
+  position: absolute;
+  top: -3%;
+  left: 34%;
+  width: 2.68rem;
+  height: .5rem;
+  background-image: url(images/homepage_rankitem_title.png);
+  background-size: 100% 100%;
+  font-size: .24rem;
+  color: #ffe179;
+  text-align: center;
+  line-height: .5rem;
+}
+.li-num{
+  width: .38rem;
+  height: .46rem;
+  font-size: .26rem;
+  color: #fff;
+  font-weight: 700;
+  text-align: center;
+  line-height: .46rem;
+}
+.li-num img{
+  width: 100%;
+  height: 100%;
+}
+.li-pic{
+  position: relative;
+}
+.li-pic img{
+  width: 1.25rem;
+  height: 1.25rem;
+  border: 0.06rem solid #f781ff;
+  border-radius: 50%;
+  box-shadow: 0 0 .2rem #7a50bf;
+}
+.li-pic .crown{
+  position: absolute;
+  top: -10%;
+  left: -10%;
+  width: .66rem;
+  height: .41rem;
+  background-image: url(images/crown.png);
+  background-size: 100% 100%;
+  transform: rotate(-30deg);
+}
+.li-pic .live-icon{
+  left: 20%;
+}
+.li-info{
+  width: 2.2rem;
+  height: .7rem;
+}
+.li-info div{
+  font-size: .24rem;
+  color: #ffe179;
+}
+.li-info span{
+  font-size: .24rem;
+  color: #ff4aea;
+}
+.li-star{
+  position: relative;
+}
+.li-star img{
+  width: 1.25rem;
+  height: 1.25rem;
+  border-radius: 50%;
+  border: .06rem solid #ffe073;
+  box-shadow: 0 0 .2rem #774cbe;
+}
+.star-icon{
+  position: absolute;
+  bottom: 0;
+  left: 22%;
+  width: .75rem;
+  height: .3rem;
+  background-color: #e1baff;
+  font-size: .22rem;
+  color: #fff;
+  border-radius: .3rem;
+  text-align: center;
+  line-height: .3rem;
+}
+.mine-wrap{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1.45rem;
+  background-color: #703efd;
+  z-index: 10;
+  justify-content: space-around;
+}
+.mine-wrap div{
+  color: #ffe179;
+  font-size: .24rem;
+}
+.mine-value span{
+  font-size: .24rem;
+  color: #ff4aea;
+}
+.mine-pic img{
+  width: 1.1rem;
+  height: 1.1rem;
+  border-radius: 50%;
+  border: 0.05rem solid #f67eff;
+}
+.mine-star{
+  position: relative;
+}
+.mine-star img{
+  width: 1.1rem;
+  height: 1.1rem;
+  border-radius: 50%;
+  border: 0.05rem solid #ffdd65;
+}
+.mine-star .star-icon{
+  width: 1.06rem;
+  height: .42rem;
+  color: #fff;
+  font-size: .22rem;
+  left: 2%;
+}
+.arrow{
+  width: .22rem;
+  height: .33rem;
+  background-image: url(images/arrow.png);
+  background-size: 100% 100%;
+}
+#isLogin{
+  width: 4.72rem;
+  height: 7.68rem;
+  background-image: url(images/login.png);
+  background-size: 100% 100%;
+  margin: 0 auto;
+}
+.isLogin-login{
+  position: absolute;
+  bottom: 43%;
+  left: 37%;
+  width: 1.9rem;
+  height: .7rem;
+  opacity: 0;
+}
+.login-close{
+  width: .8rem;
+  height: .8rem;
+  left: 45%;
+}
+#openOutApp{
+  width: 5.46rem;
+  height: 8.54rem;
+  background-image: url(images/miyi.png);
+  background-size: 100% 100%;
+  margin: 0 auto;
+}
+.to-download{
+  width: 2rem;
+  height: .64rem;
+  bottom: 40%;
+}

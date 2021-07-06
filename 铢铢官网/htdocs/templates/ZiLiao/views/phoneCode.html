@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>手机号验证</title>
+	<link rel="stylesheet" href="../public/css/style.css">
+	<link rel="stylesheet" href="../package/layui/css/layui.css" />
+
+	<script type="text/javascript" src="../package/layui/layui.js"></script>
+	<script src="../public/js/public/jquery.min.js"></script>
+	<script src="../public/js/index.js"></script>
+</head>
+
+<body>
+	<div id="phone_Code">
+		<div class="phone_title">
+			<a href="javascript:history.go(-1)" class="cert_return_btn"><img src="../img/backoff.png">返回</a>
+			<h3>手机号验证</h3>
+		</div>
+		<div class="user_update_info">
+			<p style="color: #999;">为了保障你的账户安全，请输入手机号以验证身份。我们不会在未经你的批准下，将你的手机号告知第三方。如果长时间未能获得验证码，请查看手机是否开启了短信拦截功能。</p>
+			<div class="user_update_iPhone">
+				<label class="lable_title">联系方式：</label>
+				<div class="update_verification">
+					<input type="text" id="iphonenum" onkeyup="value=value.replace(/[^\d]/g,'')" maxlength="11" />
+					<label class="prompt-hint" id="iphonenumhint"></label>
+					<br />
+					<input type="text" id="btnverification" class="mui-input-clear" placeholder="请输入验证码">
+					<input type="button" id="btninfo" value="获取验证码" />
+				</div>
+				<p style="margin-top: 10px;margin-left: 100px;color: #999;">为保证我们能更好的服务您，请填写用于联系的手机号。</p>
+			</div>
+
+			<div class="user_update_submit">
+				<input type="submit" id="phone_submit" value="下一步" />
+			</div>
+
+
+		</div>
+	</div>
+</body>
+<script>
+	$(document).ready(function () {
+		//获取用户绑定手机号
+		var customerId = sessionStorage.getItem('customerId');
+		$("#phone_Code").on("click", "#btninfo", function () {
+			var account = $("#iphonenum").val();
+
+			if (account == '') {
+				var str = "手机号不能为空";
+				fun.promptmsg(str)
+				return;
+			} else if (!(/^1[3|4|5|6|7|8][0-9]\d{4,8}$/.test(account))) {
+				var str = "手机号不正确,请重新输入";
+				fun.promptmsg(str);
+				return;
+			} else if (account.length != 11) {
+				var str = "手机号不正确,请重新输入";
+				fun.promptmsg(str);
+				return;
+			} else {
+
+				$.post(base_url + "/api/validateCode/sendCode", {
+						"customerId": customerId,
+						"account": account,
+						"specifier": 8
+					},
+					function (data) {
+						console.log(data);
+						if (data.result == true && data.code == 0) {
+							var str = data.message;
+							fun.promptmsg(str)
+						} else {
+							var str = data.message;
+							fun.promptmsg(str)
+						}
+					})
+				var id = document.getElementById('btninfo')
+
+				settime(id, $(this));
+			}
+		})
+
+		//确认绑定
+		$("#phone_Code").on("click", "#phone_submit", function () {
+			var code = $("#btnverification").val();
+			var account = $("#iphonenum").val();
+			$.post(base_url + "/api/validateCode/check", {
+				"customerId": customerId,
+				"specifier": 8,
+				"account": account,
+				"code": code
+			}, function (data) {
+				console.log(data)
+				if (data.result == false) {
+					var str = data.message
+					fun.promptmsg(str);
+				} else {
+					$.post(base_url + "/api/customer/addOrUudatePnone",{
+						"customerId" : customerId,
+						"phone": account,
+						"code": code,
+						"specifier": 8,
+					}, function(data){
+						console.log(data)
+						if (data.result == true) {
+							sessionStorage.setItem('account', account);
+							window.location.href = "Setting/application.html";
+						}
+					})
+					
+				}
+			})
+		})
+	})
+</script>
+
+</html>

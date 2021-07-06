@@ -1,0 +1,542 @@
+.page-man{
+  width: 100%;
+  position: relative;
+  background-size: 100% 100%;
+}
+header{
+  width: 100%;
+  height: 5.4rem;
+  background-size: 100% 100%;
+}
+.places-btn{
+  position: absolute;
+  top: 0.7rem;
+  left: 0;
+  width: 2.72rem;
+  height: 0.5rem;
+  padding-right: 0.1rem;
+  color: #fff;
+  background-position: 0 -1rem;
+}
+.places-btn span{
+  font-size: 0.22rem;
+}
+.animation{
+  -webkit-animation: free_download 1s linear alternate infinite;
+  animation: free_download 1s linear alternate infinite;
+}
+@-webkit-keyframes free_download {
+  0% {
+    -webkit-transform: scale(0.9);
+  }
+
+  100% {
+    -webkit-transform: scale(1);
+  }
+}
+
+@keyframes free_download {
+  0% {
+    transform: scale(0.9);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+.record-btn{
+  position: absolute;
+  top: 0.7rem;
+  right: 0;
+  width: 1.8rem;
+  height: 0.54rem;
+  border-top-left-radius: 0.54rem;
+  border-bottom-left-radius: 0.54rem;
+  background-color: #fff;
+  box-shadow: inset 0 -0.08rem 0.1rem #dfa5f5;
+  font-size: 0.22rem;
+  color: #ff6872;
+}
+.lottery-wrap{
+  position: relative;
+  width: 100%;
+  height: 6rem;
+  padding: 0.6rem 0.22rem 0.3rem;
+  background-size: 100% 100%;
+}
+.lottery-notice{
+  width: 5.75rem;
+  height: 0.59rem;
+  margin: 0 auto 0.3rem;
+  padding: 0.15rem 0 0 0.5rem;
+  background-size: 100% 100%;
+  color: #fed558;
+  text-align: center;
+}
+.notice{
+  overflow: hidden;
+  width: 100%;
+  height: 0.35rem;
+}
+.notice ul li {
+  text-align: center;
+  line-height: 0.33rem;
+  font-size: 0.23rem;
+}
+.notice-name{
+  font-size: 0.23rem;
+}
+.notice-award,
+.notice-award .appUnit{
+  font-size: 0.23rem;
+}
+.lottery-chance{
+  width: 100%;
+  margin-top: 0.3rem;
+  text-align: center;
+  color: #fff;
+}
+.gray{
+  color: gray;
+}
+.lottery-pack{
+  position: relative;
+  width: 6.7rem;
+  height: 2.86rem;
+  margin: 0 auto;
+  border: 0.06rem solid #d83eff;
+  border-radius: 0.18rem;
+  background-color: rgba(255,255,255,0.5);
+}
+.pack-light{
+  position: absolute;
+  top: 0.16rem;
+  width: 0.3rem;
+  height: 2.4rem;
+  background-position-x: -3.48rem;
+}
+.pack-left{
+  left: 0.05rem;
+}
+.pack-right{
+  right: 0.05rem;
+}
+.pack-item{
+  width: 1.76rem;
+  height: 2.28rem;
+  background-size: 100% 100%;
+  margin: 0 0.12rem;
+}
+.rotate{
+  -webkit-animation: rotate 2s linear alternate 1;
+  animation: rotate 2s linear alternate 1;
+  opacity: 0;
+}
+@-webkit-keyframes rotate {
+  0% {
+    -webkit-transform: scale(1) rotateY(0deg);
+    -webkit-opacity: 0;
+  }
+  50%{
+    -webkit-transform: scale(1.1) rotateY(0deg);
+    -webkit-opacity: 1;
+  }
+  100% {
+    -webkit-transform: scale(1.1) rotateY(180deg);
+    -webkit-opacity: 0;
+  }
+}
+
+@keyframes rotate {
+  0% {
+    transform: scale(1) rotateY(0deg);
+    opacity: 0;
+  }
+  50%{
+    transform: scale(1.1) rotateY(0deg);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(1.1) rotateY(180deg);
+    opacity: 0;
+  }
+}
+.chance-icon{
+  position: absolute;
+  bottom: 1.1rem;
+  left: 2.3rem;
+  width: 0.06rem;
+  height: 0.06rem;
+  border-radius: 0.06rem;
+  background-color: #fff;
+}
+.to-look{
+  width: 100%;
+  margin-bottom: 0.4rem;
+  text-align: center;
+  text-decoration: underline;
+  color: #ebe7ee;
+  font-size: 0.38rem;
+}
+.act-rule{
+  width: 6.68rem;
+  height: 5.5rem;
+  margin: 0 auto;
+  padding: 0 0.5rem;
+  border-radius: 0.18rem;
+  background-color: #e8d5f0;
+  overflow: hidden;
+  color: #706873;
+}
+.act-rule p{
+  font-size: 0.22rem;
+  line-height: 0.4rem;
+}
+.act-rule p span{
+  font-size: 0.3rem;
+}
+.rule-title{
+  width: 3.83rem;
+  height: 0.45rem;
+  margin: 0.5rem auto 0.4rem;
+  background-position-y: -3.35rem;
+}
+footer{
+  width: 100%;
+  height: 1.38rem;
+  color: #fff;
+  font-size: 0.2rem;
+}
+/* 弹窗 */
+.layui-layer.layui-layer-page.toLogin,
+.layui-layer.layui-layer-page.openApp{
+  top: 20% !important;
+}
+#toLogin,
+#openApp{
+  position: relative;
+  width: 6.55rem;
+  height: 8.81rem;
+  margin: 0 0.7rem;
+  background-size: 100% 100%;
+}
+.toLogin-btn,
+.openApp-btn{
+  position: absolute;
+  bottom: 19%;
+  left: 19%;
+  width: 3.76rem;
+  height: 1rem;
+  border-radius: 1rem;
+  opacity: 0;
+}
+#toLogin .dialog-close,
+#openApp .dialog-close{
+  left: 43%;
+}
+#openApp{
+  background-size: 100% 100%;
+}
+#openApp .openApp-btn{
+  bottom: 16%;
+}
+#winRecord{
+  position: relative;
+  width: 6.75rem;
+  height: 8.01rem;
+  margin: 0 0.7rem;
+  background-size: 100% 100%;
+}
+.record-main{
+  position: absolute;
+  top: 2.9rem;
+  left: 0.31rem;
+  width: 5.3rem;
+  height: 3.4rem;
+  padding: 0rem 0.4rem;
+  border-radius: 0.24rem;
+  overflow: auto;
+}
+.record-main::-webkit-scrollbar {
+  width: 5px;
+  height: 1px;
+}
+
+/*滚动条里面小方块*/
+.record-main::-webkit-scrollbar-thumb {
+  background-color:#fff;
+  border-radius: 5px;
+}
+.record-main ul{
+  width: 100%;
+  height: 100%;
+}
+.record-main li{
+  width: 100%;
+  justify-content: space-between;
+  color: #ff4c4c;
+  font-weight: 700;
+  margin-bottom: 0.2rem;
+}
+.record-main .record-name,
+.record-main .record-name .appUnit,
+.record-main .record-name div{
+  font-size: 0.24rem;
+}
+.record-main .record-time{
+  font-size: 0.2rem;
+}
+#winRecord button{
+  position: absolute;
+  bottom: 0;
+  left: 1.2rem;
+  width: 3.6rem;
+  height: 1rem;
+  border-radius: 1rem;
+  background-color: rgba(0,0,0,0);
+}
+#rechargeHint{
+  position: relative;
+  width: 6.6rem;
+  height: 7.2rem;
+  margin: 0 0.7rem;
+}
+#rechargeHint .recharge-main{
+  width: 100%;
+  height: 5.2rem;
+  background-size: 100% 100%;
+}
+#rechargeHint .recharge-btn{
+  position: absolute;
+  bottom: 27.6%;
+  left: 18.2%;
+  width: 3.54rem;
+  height: 1rem;
+  border-radius: 1rem;
+  background-color: rgba(0,0,0,0);
+}
+#rechargeHint .dialog-close{
+  left: 40%;
+  bottom: 15%;
+  opacity: 1;
+  background: url(../image/close.png) no-repeat;
+  background-size: 100% 100%;
+}
+#winning{
+  position: relative;
+  width: 7.5rem;
+  height: 9.79rem;
+  background-size: 100% 100%;
+}
+.layui-layer.layui-layer-page.winning{
+  top: 15% !important;
+}
+.allValue{
+  position: relative;
+  top: 3rem;
+  left: 0;
+  width: 100%;  
+  text-align: center;
+  color: #fcf5a7;
+  font-size: 0.22rem;
+}
+.allValue span{
+  font-size: 0.22rem;
+}
+.win-main1,
+.win-main2,
+.win-main3{
+  position: absolute;
+  top: 3.62rem;
+  left: 0.96rem;
+  width: 5.56rem;
+  height: 2.9rem;
+  justify-content: space-around;
+}
+.win-item1{
+  width: 2.9rem;
+  height: 2.2rem;
+}
+.win-item1 img{
+  width: 2.9rem;
+  height: 1.9rem;
+}
+.win-item1 span {
+  font-size: 0.33rem;
+  font-weight: 700;
+  color: #4b4a4a;
+}
+.win-item2{
+  width: 3.8rem;
+  height: 100%;
+}
+.win-item2 .win-image{
+  width: 2rem;
+  height: 1.8rem;
+  margin: 0 auto;
+}
+.win-item2 span{
+  font-size: 0.32rem;
+  font-weight: 700;
+  color: #4b4a4a;
+}
+.win-item2 .aValue{
+  font-size: 0.22rem;
+  font-weight: normal;
+}
+.win-item2 .aValue span{
+  font-size: 0.22rem;
+  font-weight: normal;
+}
+.win-main3>div{
+  width: 1.25rem;
+  height: 100%;
+}
+.win-main3 .win-image{
+  width: 1.2rem;
+  height: 1rem;
+  margin-bottom: 0.3rem;
+}
+.win-image img{
+  width: 100%;
+  height: 100%;
+}
+.win-main3>div span{
+  margin-bottom: 0.1rem;
+  font-size: 0.22rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+.dress{
+  position: absolute;
+  color: #ffe466;
+  font-size: 0.22rem;
+  width: 100%;
+  bottom: 1.5rem;
+  left: 0;
+  text-align: center;
+}
+.look-diamond{
+  position: absolute;
+  bottom: 1.4rem;
+  left: 1rem;
+  width: 5.62rem;
+  color: #ffe466;
+  font-size: 0.22rem;
+}
+#winning .share-btn{
+  position: absolute;
+  bottom: 21%;
+  left: 35%;
+  width: 2.3rem;
+  height: 0.8rem;
+  border-radius: 0.8rem;
+  opacity: 0;
+}
+#winning .dialog-close{
+  left: 45%;
+  bottom: 1%;
+}
+.layui-layer.layui-layer-page.lookAward{
+  top: 20% !important;
+}
+#lookAward{
+  position: relative;
+  width: 7.5rem;
+  height: 9rem;
+  padding: 0 0.4rem 1rem;
+}
+.look-award-main{
+  position: relative;
+  width: 6.79rem;
+  height: 100%;
+  overflow: auto;
+}
+.look-award-main img{
+  width: 6.79rem;
+}
+#lookAward .flexbox{
+  position: absolute;
+  top: 2.53rem;
+  left: 2.4rem;
+  width: 2.75rem;
+  height: 0.5rem;
+  font-size: 0.32rem;
+  color: #f00;
+}
+#lookAward .flexbox:nth-child(3){
+  top: 4.55rem;
+}
+#lookAward .close-btn{
+  position: absolute;
+  top: 0;
+  right: 4%;
+  width: 0.55rem;
+  height: 0.55rem;
+  border-radius: 50%;
+  background: url(../image/close.png) no-repeat;
+  background-size: 100% 100%;
+}
+.layui-layer.layui-layer-page.placesRob,
+.layui-layer.layui-layer-page.placesAwait,
+.layui-layer.layui-layer-page.placesOpen,
+.layui-layer.layui-layer-page.placesNo{
+  top: 10% !important;
+}
+#placesRob,
+#placesAwait,
+#placesOpen,
+#placesNo{
+  position: relative;
+  width: 7.5rem;
+  height: 10.72rem;
+}
+
+#placesRob{
+  background-size: 100% 100%;
+}
+#placesAwait{
+  background-size: 100% 100%;
+}
+#placesOpen{
+  background-size: 100% 100%;
+}
+#placesNo{
+  background-size: 100% 100%;
+}
+.sure-btn{
+  position: absolute;
+  bottom: 25%;
+  left: 22%;
+  width: 4.3rem;
+  height: 1.05rem;
+  border-radius: 1.05rem;
+  opacity: 0;
+}
+#placesNo .sure-btn{
+  width: 3.7rem;
+  bottom: 18%;
+  left: 26%;
+}
+#placesAwait .sure-btn{
+  width: 3.18rem;
+  bottom: 20%;
+  left: 29%;
+}
+#chargeTip {
+  width: 6.59rem;
+  height: 5.24rem;
+  margin: 0 0.8rem;
+  background-size: 100% 100%;
+  position: relative;
+}
+.chargeTip-ok {
+  bottom: 0;
+  padding: 0.5rem 1.8rem;
+  border-radius: 0.4rem;
+  left: 18%;
+}
+div.csImg{
+  background-size: 3.83rem 3.8rem;
+}

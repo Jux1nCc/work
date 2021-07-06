@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" charset="UTF-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,initial-scale=1.0" />
+    <meta name="format-detection" content="telephone=no,email=no" />
+    <script src="jquery-1.7.2.min.js"></script>
+    <style>
+        html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {
+            border: 0;
+            outline: 0;
+            vertical-align: baseline;
+            background: transparent;
+            margin: 0;
+            padding: 0;
+        }
+        html,body{
+            background: rgba(255,255,255,0);
+        }
+        .flexbox{
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: nowrap
+        }
+        .column{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: nowrap
+        }
+        .start{
+            justify-content: flex-start
+        }
+        .around{
+            justify-content: space-around
+        }
+        .between{
+            justify-content: space-between;
+        }
+        .end{
+            justify-content: flex-end;
+        }
+        .wrap{
+            width: 100%;
+            height: 100vh;
+            background: url('挂件.png');
+            background-size: 100% 100%;
+            position: relative;
+        }
+        .segre{
+            font-size: .4rem;
+            color: #FE5865;
+            margin: 0 5px;
+            font-weight: 600;
+            transform: scale(1)
+        }
+        .wrap h2{
+            font-weight: 600;
+            font-size: .42rem;
+            margin-block-start: 0;
+            margin-block-end: 0;
+        }
+        .realPec{
+            color: #FEA904;
+            width: 48%;
+            text-align:right;
+            transform: scale(1)
+        }
+        .totalPec{
+            color: #FE5865;
+            width: 48%;
+            transform: scale(1)
+        }
+        .complete{
+            font-size: .4rem !important;
+            color: #FEA904;
+        }
+        .fans, .task{
+            position: absolute;
+            bottom: 37.5%;
+            right: 18.4%
+        }
+        .task{
+            bottom: 27.5%;
+            right: 18.4%
+        }
+        .stars{
+            position: absolute;
+            bottom: 11.5%;
+            left: 42.2%;
+        }
+        .wrap-progress{
+            font-size: .45rem;
+            position: absolute;
+            right: 32.5%;
+            bottom: 1%;
+            color: #FEA904;
+        }
+    </style>
+</head>
+<body>
+<div class="wrap">
+    <div class="fans flexbox"></div>
+    <div class="task flexbox"></div>
+    <div class="stars flexbox"></div>
+    <h1 class="wrap-progress flexbox"></h1>
+</div>
+</body>
+<script src="jscript.js"></script>
+</html>

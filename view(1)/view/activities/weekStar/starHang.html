@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="x5-orientation" content="portrait" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="format-detection" content="telphone=no, email=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <title>活动挂件</title>
+    <script src="js/jquery.min.js"></script>
+    <style>
+        html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {
+            border: 0;
+            outline: 0;
+            vertical-align: baseline;
+            background: transparent;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-size: 14px;
+        }
+        body,html{
+            background: rgba(255,255,255,0);
+        }
+        a{
+            text-decoration: none;
+            color: #000;
+        }
+        li{
+            list-style-type: none;
+        }
+        .flexbox{
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: nowrap;
+        }
+        .column{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: nowrap;
+        }
+        .start{
+            justify-content: flex-start
+        }
+        .around{
+            justify-content: space-around
+        }
+        .between{
+            justify-content: space-between;
+        }
+        .end{
+            justify-content: flex-end;
+        }
+        .wrap{
+            width: 100%;
+            height: 100vh;
+            background: url('http://jw-version.oss-cn-shenzhen.aliyuncs.com/android/t_picture_new1567060289663.png');
+            background-size: 100% 100%;
+            position:relative;
+        }
+        .rank, .integrate, .diff{
+            width: 2.79rem;
+            height: 0.52rem;
+            border-radius: 2px;
+            background: #fff;
+            color: #d400ff;
+            position: absolute;
+        }
+        .rank{
+            right: 4.9%;
+            bottom: 34.9%;
+        }
+        .integrate{
+            right: 4.9%;
+            bottom: 25.6%;
+        }
+        .diff{
+            right: 4.9%;
+            bottom: 15.9%;
+        }
+        h2{
+            font-size: .32rem;
+        }
+        .separat{
+            font-size: .36rem;
+        }
+        .textOverflow{
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .taskDay{
+            color:#fff ;
+            position: absolute;
+            right: 31.1%;
+            bottom: 2%;
+            font-size: .42rem;
+        }
+        .day{
+            width: 48%;
+            text-align: right;
+        }
+        .week{
+            width: 48%;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="rank flexbox between"></div>
+        <div class="integrate flexbox between"></div>
+        <div class="diff flexbox between"></div>
+        <h2 class="taskDay">1</h2>
+    </div>
+</body>
+<script>
+(function (doc, win) {
+    init()
+    //setHtml({})
+    let docEl = doc.documentElement,
+    resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+    recalc = function () {
+        let clientWidth = docEl.clientWidth
+        if (!clientWidth) return;
+        sessionStorage.setItem('width',clientWidth);
+
+        if(clientWidth>=450){
+        docEl.style.fontSize = '100px'
+        }else{
+        docEl.style.fontSize = 100 * (clientWidth / 450) + 'px'
+        }
+    }
+    if (!doc.addEventListener) return;
+    win.addEventListener(resizeEvt, recalc, false)
+    doc.addEventListener('DOMContentLoaded', recalc, false)
+})(document, window)
+
+function init(){
+    // 拿取路径中传递过来的参数
+    var streamId = getQueryStringByName("streamId");
+    var customerId = getQueryStringByName("customerId");
+    var result = {}
+    if(streamId && customerId) {
+        try{
+            $.get(
+                "/view/activityWeekStar/getInfoForCust",
+                {streamId: streamId, customerId: customerId},  function(res){
+                if(res.result){
+                    var data = res.data
+                    result =  data
+                    setHtml(result)  //渲染数据到dom结构
+                } else if (errorCount < 3){
+                    errorCount ++;
+                    init();
+                }
+            })
+        } catch (e) {
+            console.log(e)
+        }
+        setTimeout(init, 30000); //实时拉取榜单数据
+    }
+}
+function setHtml(result){
+    $('.rank').html(`
+        <h2 class="day textOverflow">${result['dayRank'] | 0}</h2>
+        <span class="separat">/</span>
+        <h2 class="week textOverflow">${result['weekRank'] | 0}</h2>
+    `)
+    $('.integrate').html(`
+        <h2 class="day textOverflow">${result['dayAmt'] | 0}</h2>
+        <span class="separat">/</span>
+        <h2 class="week textOverflow">${result['weekAmt'] | 0}</h2>
+    `)
+    $('.diff').html(`
+        <h2 class="day textOverflow">${result['dayTop'] | 0}</h2>
+        <span class="separat">/</span>
+        <h2 class="week textOverflow">${result['weekTop'] | 0}</h2>
+    `)
+    $('.taskDay').html(result.WeekStarDay | 0)
+}
+
+function getQueryStringByName(name){
+    var result = location.search.match(new RegExp("[\?\&]" + name + "=([^\&]+)", "i"));
+    if (result == null || result.length < 1) {
+        return "";
+    }
+    return result[1];
+}
+</script>
+</html>

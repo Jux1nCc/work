@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- 计算属性
+    使用场景：依赖一个值或者多个值产生一个新的值(就是计算属性return的值)，而且该值是实时响应(只要依赖的值变了，它的结果也会实时改变)
+    使用：
+      它要放在computed:{}
+      它本质就是一个function
+      它需要return一个值，它return的值就是它产生的新值，而且它可以当属性使用
+    -->
+    <div id="app">
+      <button @click="btnClick">点我修改str</button>
+      <p>{{str}}</p>
+      <p>{{str}}</p>
+      <p>{{str}}</p>
+      <!-- 需求反转使用 -->
+      <p>{{str.split("").reverse().join("")+"!!"}}</p>
+      <p>{{str.split("").reverse().join("")+"!"}}</p>
+      <p>{{str.split("").reverse().join("")+"!"}}</p>
+      <p>{{str.split("").reverse().join("")+"!"}}</p>
+      <p>{{str.split("").reverse().join("")+"!"}}</p>
+      <p>{{str.split("").reverse().join("")+"!"}}</p>
+      <h3>计算属性</h3>
+      <p>{{setStr.length}}</p>
+      <p>{{setStr}}</p>
+      <p>{{setStr}}</p>
+      <p>{{setStr}}</p>
+      <p>{{setStr}}</p>
+      <p>{{setStr}}</p>
+    </div>
+    <script src="./vue.js"></script>
+    <script>
+      new Vue({
+        data: {
+          str: "abcdef",
+        },
+        computed: {
+          setStr() {
+            return this.str.split("").reverse().join("") + "!xxxx";
+          },
+        },
+        methods: {
+          btnClick() {
+            this.str = Math.round(Math.random() * 999) + "";
+          },
+        },
+        el: "#app",
+      });
+    </script>
+    \
+  </body>
+</html>

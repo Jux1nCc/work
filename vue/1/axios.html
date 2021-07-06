@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <!-- get请求 -->
+    <!-- <button @click='getJokers'>获取笑话</button>
+    <ul>
+      <li v-for="(item, index) in res" :key="index">{{index+1}} : {{item}}</li>
+    </ul> -->
+
+    <!-- post请求 -->
+    <!-- <input type="text" v-model="username" placeholder="输入账号">
+    <button @click='toSend'>注册</button>
+    <div>{{msg}}</div> -->
+
+    <!-- config配制模式 -->
+    <button @click='getJoker'>获取笑话</button>
+    <ul>
+      <li v-for="(item, index) in res" :key="index">{{index+1}} : {{item}}</li>
+    </ul>
+    <input type="text" v-model="username" placeholder="输入账号">
+    <button @click='toSent'>注册</button>
+    <div>{{msg}}</div>
+  </div>
+  <script src="../js/vue.js"></script>
+  <script src="../js/axios.js"></script>
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        res: '',
+        msg: '',
+        username: ''
+      },
+      methods: {
+        getJokers() {
+          axios.get('https://autumnfish.cn/api/joke/list', {
+            params: {
+              num: 10
+            }
+          })
+            .then(res => {
+              console.log(res);
+              this.res = res.data.jokes
+            })
+            .catch(error => {
+              console.log(error);
+            });
+        },
+        toSend() {
+          axios.post('https://autumnfish.cn/api/user/reg', { username: this.username })
+          .then(res => {
+              console.log(res);
+              this.msg = res.data
+            })
+            .catch(error => {
+              console.log(error);
+            });
+        },
+        getJoker(){
+          axios({
+            method:'get',
+            url:'https://autumnfish.cn/api/joke/list',
+            params: {
+              num: 10
+            }
+          }).then(res => {
+              console.log(res);
+              this.res = res.data.jokes
+            })
+            .catch(error => {
+              console.log(error);
+            });
+        },
+        toSent(){
+          axios({
+            method:'post',
+            url:'https://autumnfish.cn/api/user/reg',
+            data:{
+              username: this.username
+            }
+          }).then(res => {
+              console.log(res);
+              this.msg = res.data
+            })
+            .catch(error => {
+              console.log(error);
+            });
+        }
+      },
+    })
+  </script>
+</body>
+
+</html>

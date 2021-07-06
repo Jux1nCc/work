@@ -1,0 +1,148 @@
+@font-face {
+  font-family: 'pingfang';
+  src: url('./advice.ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+body{
+  font-family: 'pingfang';
+}
+.wrap{
+  width: 100vw;
+  height: 27rem;
+  background-image: url(images/suggest.png);
+  background-size: 100% 100%;
+  padding-top: 8.53rem;
+}
+.main{
+  width: 6.78rem;
+  height: 17.34rem;
+  background: #FFFFFF;
+  border-radius: .1rem;
+  margin: 0 auto;
+  padding: .6rem 0;
+}
+.dec{
+  width: 6.12rem;
+  height: 5.11rem;
+  margin: 0 auto;
+}
+.dec p{
+  font-size: .28rem;
+  color: #000;
+  font-weight: 700;
+  line-height: .4rem;
+  letter-spacing: 0.02rem;
+}
+.dec .apple{
+  color: #FA236F;
+  margin-top: .4rem;
+}
+.middle{
+  margin: .4rem 0;
+}
+.input-main{
+  padding: 0 .2rem;
+}
+.input-main h1{
+  text-indent: .5em;
+  font-size: 0.32rem;
+}
+.input-main h1 span{
+  font-size: .28rem;
+  color: #666666;
+  font-weight: 400;
+}
+.input-main>div>input{
+  height: 0.8rem;
+}
+textarea,
+.input-main>div>input{
+  width: 97%;
+  background: #EEEEEE;
+  border-radius: .1rem;
+  border: none;
+  font-size: 0.28rem;
+  margin: .1rem 0 .3rem;
+  text-indent: .5em;
+}
+.photo-wrap{
+  /* width: 6.32rem; */
+  height: 1.5rem;
+  white-space: nowrap;
+  overflow: hidden;
+  overflow-x: auto;
+  margin-top: .6rem;
+}
+.uploading{
+  position: relative;
+  display: inline-block;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: .1rem;
+  background: #EEEEEE;
+  margin-right: .1rem;
+}
+.uploading img{
+  position: absolute;
+  width: .4rem;
+  height: .4rem;
+  top: 30%;
+  left: 35%;
+}
+.uploading input{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  top: 0;
+  left: 0;
+}
+.uploading span{
+  position: absolute;
+  bottom: 20%;
+  left: 25%;
+  font-size: .2rem;
+  color: #919093;
+}
+.photo-item{
+  position: relative;
+  height: 2.5rem;
+  width: 100%;
+  overflow: auto;
+  white-space: nowrap;
+}
+.photo-item .up-photo {
+  position: relative;
+  display: inline-block;
+  width: 1.5rem;
+  height: 1.5rem;
+  margin-right: .1rem;
+  /* margin-top: .6rem; */
+}
+.up-photo img {
+  width: 100%;
+  height: 100%;
+}
+.up-photo i {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: .36rem;
+  height: .36rem;
+  background: url(images/close.png) no-repeat;
+  background-size: 100%;
+}
+.btn-item{
+  width: 6.33rem;
+  height: 0.93rem;
+  background: #961FB7;
+  border-radius: .93rem;
+  color: #fff;
+  font-size: 0.32rem;
+  font-weight: 500;
+  margin-top: 1rem;
+}
+.btn-item.gray{
+  background-color: gray;
+}

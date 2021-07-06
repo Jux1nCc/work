@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div{
+            float: left;
+            width: 300px;
+            height: 150px;
+            background-color: pink;
+            /* border: 20px solid green; */
+            margin-left: 50px;
+        }
+
+        .box1{
+            /* border-image : 复合属性 */
+            border-image: url(./images/border.jpg) 167/20px stretch;
+
+            /* 1.图片资源 */
+            /* border-image-source: url(./images/border.jpg); */
+            /* 2.图片裁剪 ：  上 右 下 左    (四刀会把图片切割成九宫格)
+            ***  注意点：这里不能加px    原因： 默认就加了px，如果你自己再加就会多余
+            */
+            /* border-image-slice: 167 167 167 167; */
+            /* 3.边框背景图的宽度 ： 默认就是border (一般不要改) */
+            /* border-image-width: 20px; */
+            /* 4.填充方式  默认值是 ：stretch
+            stretch : 拉伸铺满  中间图片会拉伸铺满盒子边框
+            */
+            /* border-image-repeat: stretch; */
+        }
+
+        .box2{
+            /* repeat : 平铺   中间切割图片以中心点位置开始平铺，但是会导致图片显示不全 */
+            border-image: url(./images/border.jpg) 167 repeat;
+        }
+
+        .box3{
+            /* round : 环绕    完整的以切割的图片来铺满边框，但是图片会变形 */
+            border-image: url(./images/border.jpg) 167 round;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="box1">stretch : 拉伸铺满  中间裁切图片会拉伸铺满盒子边框</div>
+    <div class="box2">repeat : 平铺铺满   中间切割图片以中心点位置开始平铺，但是会导致图片显示不全</div>
+    <div class="box3">round : 环绕    完整的以切割的图片来铺满边框，但是图片会变形</div>
+</body>
+</html>

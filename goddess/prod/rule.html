@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0, viewport-fit=cover">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="msapplication-tap-highlight" content="no">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Cache-Control" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <title>活动规则</title>
+  <link rel="stylesheet" href="http://activity.folkcam.cn/common/comm.css">
+  <style>
+    @font-face {
+      font-family: "PingFang";
+      src: url("./PingFangMedium1.ttf");
+      font-weight: normal;
+      font-style: normal;
+      color: #333;
+    }
+    @font-face {
+      font-family: "ys-font";
+      src: url("./YSHaoShenTi-2.ttf");
+      font-weight: normal;
+      font-style: normal;
+      color: #333;
+    }
+
+    .PingFang {
+      font-family: 'PingFang';
+    }
+    .ys-font {
+      font-family: 'ys-font';
+    }
+
+    .page {
+      width: 100vw;
+      background-color: #f8cccc;
+    }
+
+    header {
+      width: 100%;
+      height: 9.4rem;
+      background-image: url(images/rank_head.png);
+      background-size: 100% 100%;
+      margin-bottom: 1rem;
+    }
+
+    .rule-wrap {
+      position: relative;
+      width: 6.96rem;
+      height: 12.03rem;
+      margin: 0 auto;
+      background-image: url(images/rule1_bg.png);
+      background-size: 100% 100%;
+      padding: .5rem .3rem 0;
+    }
+
+    .nav {
+      position: absolute;
+      top: -8%;
+      left: 0;
+      align-items: flex-start;
+      justify-content: space-around;
+      width: 100%;
+      height: 1.5rem;
+    }
+
+    .rule-nav {
+      font-size: .4rem;
+      color: #fff;
+    }
+
+    .nav1 {
+      width: 1.94rem;
+      height: 1.25rem;
+      background-image: url(images/page2_nav1.png);
+      background-size: 100% 100%;
+      padding-bottom: .5rem;
+    }
+
+    .nav2 {
+      width: 1.86rem;
+      height: .87rem;
+      background-image: url(images/page2_nav2.png);
+      background-size: 100% 100%;
+      padding-bottom: .1rem;
+    }
+
+    .blue {
+      color: #404fa1;
+    }
+
+    .red {
+      color: #d71e15;
+    }
+
+    .rule-wrap p {
+      margin-bottom: .1rem;
+    }
+
+    .rule-wrap-2 b {
+      display: block;
+      font-size: .28rem;
+    }
+
+    table {
+      width: 6.42rem;
+      height: 3.04rem;
+      border-radius: .12rem;
+      border: 0.04rem solid #981f23;
+      margin-bottom: .45rem;
+    }
+
+    td,
+    th {
+      font-size: .22rem;
+      text-align: center;
+      border: 0.02rem solid #991f1d;
+      line-height: 200%;
+    }
+
+    tr th {
+      height: .51rem;
+      background-color: #f9d8e3;
+      line-height: 240%;
+    }
+
+    tr td {
+      height: .46rem;
+      background-color: #fff;
+    }
+
+    tr td:nth-child(1),
+    tr th:nth-child(1) {
+      width: 1.15rem;
+    }
+
+    tr td:nth-child(2),
+    tr th:nth-child(2) {
+      width: 3.51rem;
+    }
+
+    tr td:nth-child(3),
+    tr th:nth-child(3) {
+      width: 1.6rem;
+    }
+
+    .rule-award {
+      width: 6.96rem;
+      height: 4.95rem;
+      margin: 0 auto;
+      background-image: url(images/rule2_bg.png);
+      background-size: 100% 100%;
+      margin-top: 1rem;
+      padding: .8rem .5rem 0;
+    }
+
+    .rule-award b {
+      display: block;
+      margin-top: .2rem;
+    }
+
+    b,
+    p,
+    span {
+      font-size: .24rem;
+      color: black;
+    }
+
+    td span{
+      font-size: .22rem;
+    }
+    footer {
+      width: 100%;
+      height: 1.2rem;
+      font-size: .24rem;
+      color: #7b7e7d;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page PingFang">
+    <header></header>
+    <div class="rule-wrap">
+      <div class="nav flexbox">
+        <div class="flexbox rule-nav nav1 ys-font" onclick="changeNav(this,1)">活动奖励</div>
+        <div class="flexbox rule-nav nav2 ys-font" onclick="changeNav(this,2)">活动说明</div>
+      </div>
+      <div class="rule-wrap-1">
+        <p>1、活动结束时，甜蜜宠爱榜和珍爱守护榜的前10名用户可领取以下奖励：</p>
+        <table cellspacing="0">
+          <thead>
+            <tr>
+              <th style="border-top-left-radius: 0.06rem;"></th>
+              <th>甜蜜宠爱榜奖励</th>
+              <th style="border-top-right-radius: 0.06rem;">领取条件</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>第1名</td>
+              <td>18888<span class="appUnit">钻石</span>,"受宠女神"头像框*30天</td>
+              <td>甜蜜值≥30W</td>
+            </tr>
+            <tr>
+              <td>第2名</td>
+              <td>13140<span class="appUnit">钻石</span>,"等你宠幸"头像框*21天</td>
+              <td>甜蜜值≥30W</td>
+            </tr>
+            <tr>
+              <td>第3名</td>
+              <td>8888<span class="appUnit">钻石</span>,"爱的回应"头像框*15天</td>
+              <td>甜蜜值≥30W</td>
+            </tr>
+            <tr>
+              <td>第4-6名</td>
+              <td>6666<span class="appUnit">钻石</span>,"命中注定"头像框*15天</td>
+              <td>甜蜜值≥15W</td>
+            </tr>
+            <tr>
+              <td style="border-bottom-left-radius: 0.06rem;">第7-10名</td>
+              <td>5666<span class="appUnit">钻石</span>,"红宝石热恋"头像框*7天</td>
+              <td style="border-bottom-right-radius: 0.06rem;">甜蜜值≥15W</td>
+            </tr>
+          </tbody>
+        </table>
+        <table cellspacing="0">
+          <thead>
+            <tr>
+              <th style="border-top-left-radius: 0.06rem;"></th>
+              <th>珍爱守护榜奖励</th>
+              <th style="border-top-right-radius: 0.06rem;">领取条件</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>第1名</td>
+              <td>66666<span class="appUnit">钻石</span>,"最佳绅士"头像框*30天</td>
+              <td>甜蜜值≥30W</td>
+            </tr>
+            <tr>
+              <td>第2名</td>
+              <td>49999<span class="appUnit">钻石</span>,"众里寻她"头像框*21天</td>
+              <td>甜蜜值≥30W</td>
+            </tr>
+            <tr>
+              <td>第3名</td>
+              <td>21400<span class="appUnit">钻石</span>,"爱的执着"头像框*15天</td>
+              <td>甜蜜值≥30W</td>
+            </tr>
+            <tr>
+              <td>第4-6名</td>
+              <td>9888<span class="appUnit">钻石</span>,"不想单身"头像框*15天</td>
+              <td>甜蜜值≥15W</td>
+            </tr>
+            <tr>
+              <td style="border-bottom-left-radius: 0.06rem;">第7-10名</td>
+              <td>6666<span class="appUnit">钻石</span>,"同心锁"头像框*7天</td>
+              <td style="border-bottom-right-radius: 0.06rem;">甜蜜值≥15W</td>
+            </tr>
+          </tbody>
+        </table>
+        <p>2、用户榜单值达到<span class="blue">13140甜蜜值</span>时，可以获得平台赠送的<span class="blue">私信礼物“不渝兰花草”1个</span>；榜单值达到<span
+            class="red">131400甜蜜值</span>时，可以获得平台赠送的<span class="red">私信礼物“真爱小皮鞭”20个 +“爱的小房车”进场特效*7天</span>。两个榜单各可获得一次。
+        </p>
+        <p>（赠送礼物发放方式：甜蜜宠爱榜的用户将发放至非直播收益；珍爱守护榜的用户发放给至私信背包礼物，可在私信聊天的时候切换到“背包礼物”，选中礼物送出，从发出当日起7日有效。进场特效发放后，需在个性商城手动选择使用。）
+        </p>
+      </div>
+      <div class="rule-wrap-2 popup">
+        <b>活动时间：</b>
+        <p>3月6日00:00:00- 3月8日23:59:59</p>
+        <b>活动门槛：</b>
+        <p>无需报名，收集或送出指定礼物即可参加</p>
+        <b>活动指定礼物：（统计全平台）</b>
+        <p>超甜妹儿、我在等你、哄你入睡、甜甜糖果车、烈焰红唇</p>
+        <b>活动规则：</b>
+        <p>1、活动期间，每小时全平台第一个收到“哄你入睡”礼物的用户可以和送出方一起霸占“高调示爱墙”~单笔送出≥19900<span class="appUnit">钻石</span>价值的礼物，可替换已上墙用户直接上墙！
+        </p>
+        <p>2、每天收到“我在等你”礼物的用户可以和送出方一起登上“幸福宠爱墙”，每天展示前10对用户，根据送出时间顺序排序；</p>
+        <p>3、用户收到的活动指定礼物可以获得甜蜜值，1<span
+            class="appUnit">钻石</span>=1甜蜜值。甜蜜宠爱榜根据用户收到的甜蜜值进行排列，珍爱守护榜根据用户送出的甜蜜值排列。获得相同甜蜜值的，按照达到甜蜜值的先后顺序排列；</p>
+        <p>4、用户赠送活动指定礼物，可触发活动页里的喇叭滚动公告。</p>
+        <p>注：①大于等于19900<span class="appUnit">钻石</span>的上墙礼物不限制是此次活动<br />
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;指定礼物；自己送自己礼物是无法上墙的哦<br />
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;②礼物收到方在同一时间内只能上1次“幸福宠爱墙”</p>
+        <b style="margin-top: .5rem;">注意事项：</b>
+        <p>本活动起止时间、奖励发放时间、奖励有效时间均为北京时间（GMT + 8: 00）</p>
+      </div>
+    </div>
+    <div class="rule-award">
+      <b>发放时间：</b>
+      <p>所有奖励将在活动结束后，3月9日 00:00开始发放</p>
+      <b>发放方式：</b>
+      <p><span class="appUnit">钻石</span>奖励：甜蜜宠爱榜的将发放至非直播收益、珍爱守护榜的将放入购买的余额。</p>
+      <p>头像框奖励：发放至个性商城，发放后需手动使用。</p>
+      <b>特别说明：</b>
+      <p>如果1-3名达不到领奖要求，将占用下一级领奖名额。</p>
+      <p>例如：第2名甜蜜值= 29W，领取的是第4名的奖励。</p>
+    </div>
+    <footer class="column">
+      <span class="isApple">本活动奖励由<span class="appName">觅伊</span>平台提供, 与苹果公司无关</span>
+      <span>一本活动最终解释权归<span class="appName">觅伊</span>所有一</span>
+    </footer>
+  </div>
+</body>
+<script src="http://activity.folkcam.cn/common/jquery.min.js"></script>
+<script src="http://activity.folkcam.cn/common/rem.js"></script>
+<script src="http://activity.folkcam.cn/common/config.js"></script>
+<script>
+  var rule = {
+    appType: $config.getQueryStringByName("appType") || 1,
+    init: function () {
+      if ($config.browser.versions.android) {
+        $('.isApple').addClass('popup')
+      }
+      if (rule.appType == 1) {
+        $('.appUnit').text('聊币')
+        $('.appName').text('兔聊')
+      } else {
+        $('.appUnit').text('钻石')
+        $('.appName').text('觅伊')
+      }
+    }
+  }
+  function changeNav(that, type) {
+    $(that).addClass('nav1').removeClass('nav2').siblings('.rule-nav').addClass('nav2').removeClass('nav1')
+    if (type == 1) {
+      $('.rule-wrap-1').removeClass('popup').siblings('.rule-wrap-2').addClass('popup')
+      $('.rule-award').removeClass('popup')
+    } else {
+      $('.rule-wrap-1').addClass('popup').siblings('.rule-wrap-2').removeClass('popup')
+      $('.rule-award').addClass('popup')
+    }
+  }
+  function shareTc() {
+    var img = "http://miyiurl.rklive888.com/activities/goddess/dev/images/rank_head.png",
+      title = '女神宠爱节',
+      subtitle = '爱意大比拼正式开战，快去为喜爱的女神支持助力吧~',
+      url = window.location.href,
+      sharingState = 4;
+    if ($config.browser.versions.android) {
+      client.jumpToShare(img, title, url, subtitle, sharingState);
+    } else {
+      window.webkit.messageHandlers.jumpToShare.postMessage({
+        img: img,
+        title: title,
+        url: url,
+        subtitle: subtitle,
+        type: sharingState,
+        shareLink: 0
+      });
+    }
+  }
+  rule.init()
+</script>
+
+</html>

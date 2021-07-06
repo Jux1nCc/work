@@ -1,0 +1,59 @@
+
+.c_blue {
+	color: #1dbbfe
+}
+.fl {
+	float: left
+}
+.fr {
+	float: right
+}
+
+.space{
+    height: 20px;
+	background: #e6e6e6;
+}
+.balance {
+	background: #fafafa;
+	color: #000;
+	font-size: 15px
+}
+.balance .bor_btm {
+	border-bottom: 1px solid #eee
+}
+.balance .hj_account {
+	padding: 15px 0 20px;
+	color: #a5a7aa;
+	background: #fff;
+	text-align: center;
+	font-size: 14px
+}
+.balance .hj_account p {
+	line-height: 18px;
+	padding: 2px 0
+}
+.balance .hj_account .user {
+	color: #000;
+	line-height: 22px;
+	font-size: 20px;
+	padding: 5px 0 15px
+}
+.balance .hj_account .c_blue {
+	display: inline-block;
+	padding: 0 20px
+}
+.balance .hj_account .c_blue:nth-child(1) {
+	border-right: 1px solid #eee
+}
+.balance header {
+	padding: 15px 0 0;
+	text-align: center;
+	background: #fff;
+	height: 70px;
+	color: #a5a7aa
+}
+.balance header h2 {
+	font-size: 32px;
+	padding-top: 10px;
+	color: #000
+}

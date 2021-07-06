@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>深圳市镜玩科技有限公司</title>
+	<link rel="icon" href="img/favicon.ico" type="image/x-icon">
+	<meta name="viewport"
+		content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,initial-scale=1.0" />
+	<meta name="format-detection" content="telephone=no,email=no" />
+	<link rel="stylesheet" type="text/css" href="css/common.css" />
+	<link rel="stylesheet" type="text/css" href="css/style.css" />
+	<link rel="stylesheet" type="text/css" href="css/owl.carousel.css" />
+	<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+	<script type="text/javascript" src="js/slider.js"></script>
+
+</head>
+
+<body>
+	<div style="background: url(img/back.png); width: 100%; background-size: contain;">
+		<div class="header dh">
+			<div class="baoo">
+				<h1 class="logo"><a href="index.html"><img src="img/logo.png" alt="logo"></a></h1>
+				<div class="dh_close">
+					<a id="close_btn">
+						<img src="img/menu.png" alt="close" id="header_menu" style="border-radius: 0;">
+					</a>
+				</div>
+			</div>
+
+		</div>
+		<div class="nav full">
+			<ul id="nav_list">
+				<li>
+					<a id="introduction">公司简介</a>
+				</li>
+				<li>
+					<a id="about_me">联系我们</a>
+				</li>
+
+			</ul>
+		</div>
+
+		<div class="wrap">
+			<div class="boxs" id="box">
+				<div class="inner">
+					<!--轮播图-->
+					<ul>
+					
+
+						<li>
+							<p>牵守</p>
+							<div class="flexslider" id="banner_tabs">
+								<ul class="slides">
+									<li>
+										<a title="" target="_blank" href="#">
+											<img src="../images/03.png">
+										</a>
+									</li>
+									<li>
+										<a title="" href="#">
+											<img src="../images/02.png">
+										</a>
+									</li>
+									<li>
+										<a title="" href="#">
+											<img src="../images/01.png">
+										</a>
+									</li>
+								</ul>
+
+							</div>
+							<!-- <a class="down_app" href="http://app.mi.com/details?id=com.expertol.pptdaka">立即下载</a> -->
+						</li>
+
+					</ul>
+					<ol class="bar" style="display: none;">小按钮数量无法确定，由js动态生成</ol>
+					<!--左右焦点-->
+					<div id="arr" style="display: none;">
+						<span id="left"><</span> 
+						<span id="right">></span>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="new-status">
+			<p style="color: #fff;font-size: 16px;">最新动态</p>
+			<ul class="news_list">
+				<li>
+					<a>
+						<p>镜玩科技首届校招应届生工作交流...<span>08-03</span></p>
+					</a>
+				</li>
+				<li>
+					<a>
+						<p>团结创新，续我辉煌——镜玩科技团建活动<span>07-29</span></p>
+					</a>
+				</li>
+				<li>
+					<a>
+						<p>互利共赢，融合发展————滨海金...<span>03-17</span></p>
+					</a>
+				</li>
+				<li>
+					<a>
+						<p>镜玩科技春季校园招聘，寻求志同...<span>03-06</span></p>
+					</a>
+				</li>
+				<li>
+					<a>
+						<p>不忘初心 砥砺前行——仁凯网络科技20...<span>01-19</span></p>
+					</a>
+				</li>
+				<li>
+					<a>
+						<p>这一站，地球肺叶西双版纳——镜...<span>11-22</span></p>
+					</a>
+				</li>
+
+			</ul>
+		</div>
+	</div>
+	<!--底部-->
+	<script type="text/javascript" src="js/swiper.min.js"></script>
+	<script type="text/javascript" src="js/owl.carousel.js"></script>
+	<script type="text/javascript" src="js/index.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
+</body>
+<script>
+	$(document).ready(function () {
+		$(".full").on("click", "#introduction", function () {
+			$(".nav").empty();
+			var str = "<div class='into_box'>"
+			str += "<p class='dou_into'>公司简介</p>"
+			str += "<p style='text-indent:50px;'>深圳市镜玩科技有限公司成立于2015年11月，由中组部海归人才“千人计划”和深圳市人才引进“孔雀计划”高级专家创立，核心团队拥有丰富的行业经验，具有前瞻性的战略眼光及国际视野，致力于满足移动互联网时代用户严肃婚恋的需求，打造创新型科技公司。深圳市镜玩科技有限公司位于 “国家高新技术产业标准化示范区”、“国家海外高层次人才创新创业基地”的深圳南山高新产业园。公司是中国政府认定的“国家规划布局内重点软件企业”和“国家级高新技术企业”。公司自成立以来，逐年高速发展，营业收入和年产值逐年递增。目前在严肃婚恋社交行业拥有领先的产品，服务于千万适婚用户，让更多的用户享受移动互联网化的生活。</p>"
+			str += "</div>"
+			$(".nav").append(str)
+		})
+
+		$(".full").on("click", "#project_center", function () {
+			$(".nav").empty();
+			var str = "<ul>"
+			str += "<li><a href='https://www.expertol.cn'>牵守</a></li>"
+			/* str += "<li><a href='https://pptdaka.com'>P咖</a></li>"
+			/* str += "<li><a href='https://www.jernal.com'>jernal</a></li>"
+			/*str += "<li><a href='http://www.laxii.com'>laxii</a></li>"*/
+			$(".nav").append(str)
+		})
+
+		$(".full").on("click", "#about_me", function () {
+			$(".nav").empty();
+			var str = "<ul class='about_li'>"
+			str += "<li><a>联系我们</a></li>"
+			str += "<li><a>深圳市镜玩科技有限公司</a></li>"
+			str += "<li><a>邮箱：dev@folkcam.cn</a></li>"
+			str += "<li><a>地址：深圳市南山区科技南八路工勘大厦1904</a></li>"
+			$(".nav").append(str)
+		})
+
+
+	})
+	function change_pic() {
+		var picts = document.getElementById("header_menu");
+
+		var buttons = document.getElementById("close_btn");
+
+		buttons.onclick = function () {
+			if (picts.getAttribute("src", 2) == "img/menu.png") {
+
+				picts.setAttribute("src", "img/h5_close.png");
+
+
+			} else {
+
+				picts.setAttribute("src", "img/menu.png");
+
+
+			};
+		}
+	}
+	change_pic();
+</script>
+<script>
+	(function (doc, win) {
+		let docEl = doc.documentElement,
+			resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+			recalc = function () {
+				let clientWidth = docEl.clientWidth;
+				if (!clientWidth) return;
+				if (clientWidth > 1200) {
+					window.location.href = "../index.html";
+				}
+			};
+		if (!doc.addEventListener) return;
+		win.addEventListener(resizeEvt, recalc, false);
+		doc.addEventListener('DOMContentLoaded', recalc, false);
+	})(document, window);
+</script>
+
+</html>

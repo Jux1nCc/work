@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- axios.post
+    用法:  axios.post(url,{参数名:参数值}).then(res=>{
+        //res成功返回结果
+        //成功处理
+    }).catch(err=>{
+        //err就是失败返回错误信息
+        //失败处理
+    })
+    -->
+    <div id="app">
+      <input type="text" v-model="inputValue" />
+      <button @click="postData">点我啊</button>
+    </div>
+    <script src="./vue.js"></script>
+    <script src="./axios.js"></script>
+    <script>
+      new Vue({
+        el: "#app",
+        data: {
+          inputValue: "",
+        },
+        methods: {
+          postData() {
+            axios
+              .post("https://autumnfish.cn/api/user/reg", {
+                username: this.inputValue,
+              })
+              .then((res) => {
+                window.console.log(res);
+              })
+              .catch((err) => {
+                window.console.log(err);
+              });
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

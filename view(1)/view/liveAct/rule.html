@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="x5-orientation" content="portrait" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta http-equiv="Access-Control-Allow-Origin" content="*.ttlsa.com">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="format-detection" content="telphone=no, email=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <title>新主播7日活动主页</title>
+    <script>
+        (function (doc, win) {
+            let docEl = doc.documentElement,
+            resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+            recalc = function () {
+                let clientWidth = docEl.clientWidth
+                if (!clientWidth) return;
+                sessionStorage.setItem('width',clientWidth);
+                if(clientWidth>=750){
+                docEl.style.fontSize = '100px'
+                }else{
+                docEl.style.fontSize = 100 * (clientWidth / 750) + 'px'
+                }
+            }
+            if (!doc.addEventListener) return;
+            win.addEventListener(resizeEvt, recalc, false)
+            doc.addEventListener('DOMContentLoaded', recalc, false)
+        })(document, window)
+    </script>
+    <style>
+    html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {
+        border: 0;
+        outline: 0;
+        vertical-align: baseline;
+        background: transparent;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-size: 14px;
+    }
+        .wrap{
+            width: 100%;
+            height: 100vh;
+            background: #ff54bd;
+        }
+        header{
+            width: 100%;
+            height: 2.24rem;
+            background: url('image/header.png');
+            background-size: 100% 100%;
+        }
+        .contain{
+            width: 100%;
+            height: 3.85rem;
+            background: url('image/contain.png');
+            background-size: 100% 100%;
+        }
+        .detail{
+            width: 100%;
+            height: 2.77rem;
+            background: url('image/detail.png');
+            background-size: 100% 100%;
+        }
+        footer{
+            width: 100%;
+            height: 7.12rem;
+            background: url('image/footer.png');
+            background-size: 100% 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <header></header>
+        <div class="contain"></div>
+        <div class="detail"></div>
+        <footer></footer>
+    </div>
+</body>
+</html>

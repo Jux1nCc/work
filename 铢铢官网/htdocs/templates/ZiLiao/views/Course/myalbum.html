@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>我的专辑</title>
+		<link rel="stylesheet" href="../../public/css/style.css">
+		<link rel="stylesheet" href="../../package/layui/css/layui.css" />
+
+		<script type="text/javascript" src="../../package/layui/layui.js"></script>
+		<script src="../../public/js/public/jquery.min.js"></script>
+		<script src="../../public/js/index.js"></script>
+	</head>
+	
+	<body>
+		<div id="album_mine">
+			<div class="course_video">
+				<h3>我的专辑</h3>
+				<input type="text" placeholder="请输入专辑名称" id="albun_text"/>
+				<button id="album_search"></button>
+			</div>
+			<div class="coures_video_table">
+				<table class="layui-table">
+					<colgroup>
+					    <col width="200">
+					    <col width="150">
+					    <col width="150">
+					</colgroup>
+					<thead>
+					    <tr>
+					    	<th>专辑</th>
+					      	<th>创建时间</th>
+					     	<th>操作</th>
+					    </tr> 
+				  	</thead>
+					<tbody id="Album_table">
+					    <!--<tr class="Video_list">
+					    	<td>
+					    		<img src="../../img/icon_02.png" id="table_list_img">
+					    		<p id="table_list_title">30天手把手教你做运营</p>
+					    		<p class="list_info">
+					    			<img src="../../img/played_small.png">
+					    			<span id="table_list_play">99</span>
+					    			<img src="../../img/played_small.png">
+					    			<span id="table_list_episode">99集</span>
+					    			<span id="table_list_piece">500</span>
+					    		</p>
+					    		<p>ID:<span id="table_list_id"></span></p>
+					    	</td>
+					     	<td>1989-10-14</td>
+					      	<td>
+					      		<ul class="table_operating">
+					      			<li><a>分享</a></li>
+					      			<li><a>课程管理</a></li>
+					      			<li><a>编辑</a></li>
+					      			<li><a>删除</a></li>
+					      		</ul>
+					      	</td>
+					    </tr>-->
+					  </tbody>
+				</table>
+			</div>
+			<!--分页-->
+			<div class="coures_video_listpage">
+				<div id="aldum_viode_page" class="coures_viode_page"></div>
+			</div>
+		</div>
+	
+	</body>
+
+</html>

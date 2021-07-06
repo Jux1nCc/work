@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- 计算属性
+    使用场景：依赖一个或者多个值产生一个新的值，而且该值是实时响应
+    用法：放在computed:{}
+         本质就是一个function
+         它必须return一个值，该值就是它产生的新值，而且它可以当属性使用
+    -->
+    <div id="app">
+      <ul>
+        <li v-for="(item, index) in list" :key="index">
+          <span>{{item.name}}</span>
+          <button @click="reduce(item)">-</button>
+          <input type="text" v-model="item.num" />
+          <button @click="item.num++">+</button>
+        </li>
+      </ul>
+      <div>总价：{{getAllPrice}}元</div>
+    </div>
+    <script src="./vue.js"></script>
+    <script>
+      new Vue({
+        el: "#app",
+        computed: {
+          getAllPrice() {
+            let _total = 0;
+            // for (let i = 0; i < this.list.length; i++) {
+            //   _total += this.list[i].num * this.list[i].price;
+            // }
+            this.list.forEach((item) => {
+              _total += item.num * item.price;
+            });
+            return _total;
+          },
+        },
+        data: {
+          all: 0,
+          list: [
+            {
+              name: "苹果",
+              price: 3,
+              num: 0,
+            },
+            {
+              name: "西瓜",
+              price: 1,
+              num: 0,
+            },
+            {
+              name: "雪梨",
+              price: 2,
+              num: 0,
+            },
+          ],
+        },
+        methods: {
+          reduce(item) {
+            if (item.num > 0) {
+              item.num--;
+            }
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

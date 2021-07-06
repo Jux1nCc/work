@@ -1,0 +1,8 @@
+<view>
+  <open-data type="userAvatarUrl"></open-data>
+  <open-data type="userNickName"></open-data>
+  <text>hello {{name}}</text>
+  <button open-type="getUserInfo" bind:getuserinfo="buttonHandler">获取用户信息</button>
+  <navigator url="../home/home">前往个人中心</navigator>
+  <button bind:tap="buttonHandler1">前往个人中心</button>
+</view>

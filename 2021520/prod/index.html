@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0, viewport-fit=cover">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="msapplication-tap-highlight" content="no">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Cache-Control" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <title>抽盲盒 觅真爱</title>
+  <link rel="stylesheet" href="http://activity.folkcam.cn/common/comm.css">
+  <link rel="stylesheet" href="http://activity.folkcam.cn/common/layer/theme/default/layer.css">
+  <link rel="stylesheet" href="index.css?v=202005141535">
+</head>
+
+<body>
+  <div class="page">
+    <header></header>
+    <div class="rule-btn column" onclick="toRulePage()">活动奖励及说明</div>
+    <div class="page-title-girl flexbox popup">通话领免费盲盒</div>
+    <div class="page-title-boy flexbox popup">充值领免费盲盒</div>
+    <div class="page-text-girl popup">
+      <span class="yellow">每累计</span>有效通话10分钟
+      <span class="yellow">，奖励</span>免费抽盲盒次数+1
+      <span class="yellow">。</span>
+    </div>
+    <div class="page-text-boy popup">
+      <span class="yellow">规则：单笔</span>充值达298元
+      <span class="yellow">，奖励</span>免费抽盲盒次数+3
+      <span class="yellow">。</span>
+    </div>
+    <div class="main-wrap">
+      <div class="main-bgc-mine">
+        <div class="main-mine">
+          <div class="mine-wrap flexbox">
+            <div class="mine-info column">
+              <div class="mine-photo">
+                <img src="images/miao.png">
+              </div>
+              <div class="mine-name">昵称五个字...</div>
+            </div>
+            <div class="mine-progress column">
+              <div class="progress-a">
+                累计有效通话时长: <span class="progress-girl">0分钟</span>
+              </div>
+              <div class="progress-b">
+                我已累计获得免费盲盒: <span class="progress-blind">0个</span>
+              </div>
+              <div class="progress-c">
+                距获下一个盲盒还差: <span class="progress-value">10分钟</span>通话
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="main-nav flexbox">
+        <div class="main-nav-item flexbox main-nav-a" onclick="changePageNav(1,this)">盲盒礼物爆彩蛋</div>
+        <div class="main-nav-item flexbox main-nav-b" onclick="changePageNav(2,this)">盲盒中奖榜</div>
+      </div>
+      <div class="main-bgc-rule">
+        <div class="main-rule">
+          <p>送出盲盒礼物<img class="gift-01" src="images/gift01.png"><span class="keyword">珍爱旋转木马</span>将会触发<span
+              class="keyword">神秘大彩蛋</span>，随机获得大彩蛋中的任一奖励;<i></i></p>
+          <p>送出盲盒礼物<img class="gift-02" src="images/gift02.png"><span class="keyword">告白鲜花</span>将会触发<span
+              class="keyword">神秘小彩蛋</span>，随机获得小彩蛋中的任一奖励;<i></i></p>
+          <p>主播<img class="gift-pk" src="images/PK.png"><span class="keyword">PK胜利</span>，可触发<span
+              class="keyword">神秘小彩蛋</span>，随机获得小彩蛋中的任一奖励。<i style="top: 25%;"></i></p>
+        </div>
+        <div class="main-award">
+          <div class="main-award-list">
+            <div class="title">>>神秘大彩蛋·奖励列表<img src="images/page_heart.png"></div>
+            <ul class="flexbox">
+              <li>
+                <div class="gift-pic flexbox">
+                  <img src="images/01.png">
+                </div>
+                <p>
+                  <span>为爱起航x1个</span>
+                  <span>(29900<span class="appUnit">钻石</span>)</span>
+                </p>
+              </li>
+              <li>
+                <div class="gift-pic flexbox">
+                  <img src="images/02.png">
+                </div>
+                <p>
+                  <span>许愿婚纱x1个</span>
+                  <span>(11900<span class="appUnit">钻石</span>)</span>
+                </p>
+              </li>
+              <li>
+                <div class="gift-pic flexbox">
+                  <img src="images/03.png">
+                </div>
+                <p>
+                  <span>水晶鞋x1个</span>
+                  <span>(199<span class="appUnit">钻石</span>)</span>
+                </p>
+              </li>
+              <li>
+                <div class="gift-pic flexbox">
+                  <img src="images/04.png">
+                </div>
+                <p>
+                  <span>免费抽盲盒</span>
+                  <span>+10次</span>
+                </p>
+              </li>
+            </ul>
+          </div>
+          <div class="main-award-list">
+            <div class="title">>>神秘小彩蛋·奖励列表<img src="images/page_heart.png"></div>
+            <ul class="flexbox">
+              <li>
+                <div class="gift-pic flexbox">
+                  <img src="images/05.png">
+                </div>
+                <p>
+                  <span>爱你520</span>
+                  <span>头像框x1天</span>
+                </p>
+              </li>
+              <li>
+                <div class="gift-pic flexbox">
+                  <img src="images/06.png">
+                </div>
+                <p>
+                  <span>爱你520</span>
+                  <span>气泡x1天</span>
+                </p>
+              </li>
+              <li>
+                <div class="gift-pic flexbox">
+                  <img src="images/07.png">
+                </div>
+                <p>
+                  <span>娶亲小毛驴</span>
+                  <span>进场特效x1天</span>
+                </p>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="rank-wrap popup">
+      <i></i>
+      <i></i>
+      <i></i>
+      <i></i>
+      <div class="rank-wrap-item">
+        <div class="rank-wrap-title column">
+          <span>每日排名前5名用户</span>
+          <span>有机会获【必中盲盒银奖】、专属头像框等...丰富奖励!</span>
+        </div>
+        <div class="rank-item-date">
+          <ul class="flexbox">
+            <li class="later" id="0" onclick="lookRanksData(this,0)">5月17日</li>
+            <li class="later" id="1" onclick="lookRanksData(this,1)">5月18日</li>
+            <li class="later" id="2" onclick="lookRanksData(this,2)">5月19日</li>
+            <li class="later" id="3" onclick="lookRanksData(this,3)">5月20日</li>
+            <li class="later" id="4" onclick="lookRanksData(this,4)">5月21日</li>
+          </ul>
+        </div>
+        <div class="rank-item-title flexbox">
+          <div class="title-num">名次</div>
+          <div class="title-photo">头像</div>
+          <div class="title-name">昵称</div>
+          <div class="title-value">中奖总价值</div>
+        </div>
+        <ul class="rank-item">
+          <li class="flexbox">
+            <div class="rank-num flexbox">
+              <img src="images/rank_icon_0.png">
+            </div>
+            <div class="rank-photo">
+              <img src="images/miao.png">
+              <div class="photo-wrap photo-wrap-0"></div>
+            </div>
+            <div class="rank-name flexbox">虚位以待</div>
+            <div class="rank-value flexbox">暂无</div>
+          </li>
+          <li class="flexbox">
+            <div class="rank-num flexbox">
+              <img src="images/rank_icon_1.png">
+            </div>
+            <div class="rank-photo">
+              <img src="images/miao.png">
+              <div class="photo-wrap photo-wrap-1"></div>
+            </div>
+            <div class="rank-name flexbox">虚位以待</div>
+            <div class="rank-value flexbox">暂无</div>
+          </li>
+          <li class="flexbox">
+            <div class="rank-num flexbox">
+              <img src="images/rank_icon_2.png">
+            </div>
+            <div class="rank-photo">
+              <img src="images/miao.png">
+              <div class="photo-wrap photo-wrap-2"></div>
+            </div>
+            <div class="rank-name flexbox">虚位以待</div>
+            <div class="rank-value flexbox">暂无</div>
+          </li>
+          <li class="flexbox">
+            <div class="rank-num flexbox">4</div>
+            <div class="rank-photo">
+              <img src="images/miao.png">
+            </div>
+            <div class="rank-name flexbox">虚位以待</div>
+            <div class="rank-value flexbox">暂无</div>
+          </li>
+          <li class="flexbox">
+            <div class="rank-num flexbox">5</div>
+            <div class="rank-photo">
+              <img src="images/miao.png">
+            </div>
+            <div class="rank-name flexbox">虚位以待</div>
+            <div class="rank-value flexbox">暂无</div>
+          </li>
+          <li class="flexbox look-more" onclick="lookMore(this)">点击查看更多<i class="look-more-icon"></i></li>
+        </ul>
+      </div>
+    </div>
+    <div class="rank-info-item popup">
+      <div class="info-wrap-item flexbox">
+        <div class="info-rank">暂未上榜</div>
+        <div class="info-photo">
+          <img src="images/miao.png" alt="">
+        </div>
+        <div class="info-name">我的昵称</div>
+        <div class="info-value column">
+          <span>抽中奖励价值</span>
+          <span class="info-value-num">0</span>
+        </div>
+      </div>
+    </div>
+    <footer class="column">
+      <span class="apple">本活动奖励由<span class="appName">觅伊</span>平台提供，与苹果公司无关。</span>
+      <span>一本活动最终解释权归<span class="appName">觅伊</span>所有一</span>
+    </footer>
+  </div>
+  <div class="dialog">
+    <div id="isLogin" class="popup">
+      <button class="isLogin-login" onclick="jumpToMe()">立即登录</button>
+      <button class="dialog-close login-close"></button>
+    </div>
+    <div id="openOutApp" class="popup">
+      <button class="dialog-ok to-download" onclick="download()"></button>
+      <button class="dialog-close download-close"></button>
+    </div>
+  </div>
+</body>
+<script src="http://activity.folkcam.cn/common/rem.js"></script>
+<script src="http://activity.folkcam.cn/common/app.js"></script>
+<script src="http://activity.folkcam.cn/common/moment.js"></script>
+<script src="http://activity.folkcam.cn/common/config.js"></script>
+<script src="http://activity.folkcam.cn/common/jquery.min.js"></script>
+<script src="http://activity.folkcam.cn/common/layer/layer.js"></script>
+<script src="http://res.cdn.openinstall.io/openinstall.js"></script>
+<script src="index.js?v=20210518"></script>
+
+</html>

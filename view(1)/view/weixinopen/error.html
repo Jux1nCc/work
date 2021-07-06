@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<head lang="zh-CN">
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="renderer" content="webkit">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style"
+	content="black-translucent">
+<meta name="format-detection" content="telephone=no" />
+<meta name="screen-orientation" content="portrait">
+<meta name="x5-orientation" content="portrait">
+<title>请登录</title>
+<link rel="stylesheet" type="text/css" href="../../view/assets/css/login.css" />
+<link rel="stylesheet" type="text/css" href="../../view/assets/css/publice.css" />
+<script type="text/javascript" language="javascript" src="../../view/assets/js/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" language="javascript" src="../../view/assets/js/md5.js"></script>
+<script>
+	//判断屏幕宽度计算字号大小
+	(function(doc, win) {
+		var docEl = doc.documentElement, resizeEvt = 'orientationchange' in window ? 'orientationchange'
+				: 'resize', recalc = function() {
+			var clientWidth = docEl.clientWidth;
+			if (!clientWidth) {
+				return;
+			}
+			docEl.style.fontSize = 100 * (clientWidth / 375) + 'px';
+		};
+		if (!doc.addEventListener) {
+			return;
+		}
+		win.addEventListener(resizeEvt, recalc, false);
+		doc.addEventListener('DOMContentLoaded', recalc, false);
+		recalc();
+	})(document, window);
+</script>
+
+<style type="text/css">
+.form-sent {
+	margin-bottom: 0;
+}
+</style>
+</head>
+<body>
+	<div class="send-code">
+		<div class="form-hd">
+			<h2 class="form-tit">系统错误,请稍后再试...</h2>
+		</div>
+	</div>
+</body>
+</html>

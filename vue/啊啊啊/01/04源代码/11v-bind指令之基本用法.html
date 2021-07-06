@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- v-bind绑定属性
+    用法:  v-bind:属性名="一句话表达式"
+    作用：绑定属性，控制属性的值
+    简写：   :属性名="一句话表达式"
+    -->
+    <div id="app">
+      <button @click="btnClick">点我啊</button>
+      <br />
+      <!-- <img
+        v-bind:src="imgSrc"
+        v-bind:title="tit"
+        v-bind:xxx="xxxvalue"
+        alt=""
+      /> -->
+      <img :src="imgSrc" :title="tit" :xxx="xxxvalue" alt="" />
+    </div>
+    <script src="./vue.js"></script>
+    <script>
+      new Vue({
+        el: "#app",
+        data: {
+          tit: "我是英雄",
+          xxxvalue: "123",
+          imgSrc:
+            "http://ossweb-img.qq.com/images/lol/web201310/skin/big517000.jpg",
+        },
+        methods: {
+          btnClick() {
+            this.xxxvalue = "456";
+            this.tit = "我是美女";
+            this.imgSrc =
+              "http://ossweb-img.qq.com/images/lol/web201310/skin/big518000.jpg";
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

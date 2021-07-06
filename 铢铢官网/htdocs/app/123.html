@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<head lang="zh-CN">
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="format-detection" content="telephone=no" />
+<meta name="screen-orientation" content="portrait">
+<meta name="x5-orientation" content="portrait">
+<title>聊币充值</title>
+
+<link rel="stylesheet" type="text/css" href="recharge.css" />
+<link rel="stylesheet" type="text/css" href="publice.css" />
+<script type="text/javascript" language="javascript" src="../../view/assets/js/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" language="javascript" src="../../view/js/common.js"></script>
+</head>
+<body class="balance">
+	<section class="hj_account bor_btm">
+<!-- 		<p>兔聊账户</p> -->
+<!-- 		<p class="user"> -->
+<!-- 			<span class="js_name"></span>(<span class="js_uid"></span>) -->
+<!-- 		</p> -->
+<!-- 		<p> -->
+<!-- 			<a href="javascript:void(0);" onclick="changeUser();" class="c_blue js_changAccount">更换账户</a> <a -->
+<!-- 				href="rechargeRecord.html" class="c_blue">充值记录</a> -->
+<!-- 		</p> -->
+	</section>
+	<header class="bor_btm">
+<!-- 		<p>兔聊币余额</p> -->
+<!-- 		<h2 class="js_balance"></h2> -->
+	</header>
+	<div class="re_options js_options">
+		<li class="js_pack_li" data-id="1" onclick="dataSelect(this);">
+			<h2>420聊币</h2>
+			<p>&yen; 6</p> <span class="icon_selected"></span>
+		</li>
+		<li class="js_pack_li" data-id="2" onclick="dataSelect(this);">
+			<h2>1260聊币</h2>
+			<p>&yen; 18</p> <span class="icon_selected"></span>
+		</li>
+		<li class="js_pack_li" data-id="3" onclick="dataSelect(this);">
+			<h2>2100聊币</h2>
+			<p>&yen; 30</p> <span class="icon_selected"></span>
+		</li>
+		<li class="js_pack_li" data-id="9" onclick="dataSelect(this);">
+			<h2>3500聊币</h2>
+			<p>&yen; 50</p> <span class="icon_selected"></span>
+		</li>
+		<li class="js_pack_li" data-id="4" onclick="dataSelect(this);">
+			<h2>6860聊币</h2>
+			<p>&yen; 98</p> <span class="icon_selected"></span>
+		</li>
+		<li class="js_pack_li" data-id="5" onclick="dataSelect(this);">
+			<h2>20860聊币</h2>
+			<p>&yen; 298</p> <span class="icon_selected"></span>
+		</li>
+		<li class="js_pack_li" data-id="6" onclick="dataSelect(this);">
+			<h2>34160聊币</h2>
+			<p>&yen; 488</p> <span class="icon_selected"></span>
+		</li>
+		<li class="js_pack_li" data-id="7" onclick="dataSelect(this);">
+			<h2>69860聊币</h2>
+			<p>&yen; 998</p> <span class="icon_selected"></span>
+		</li>
+		<li class="js_pack_li" data-id="8" onclick="dataSelect(this);">
+			<h2>104860聊币</h2>
+			<p>&yen; 1498</p> <span class="icon_selected"></span>
+		</li>
+
+	</div>
+	<div class="btn_wrap">
+		<a href="javascript:submitMoney(realMoney);" class="btn_tx js_submit"
+			id="btn_submit" onclick="return false;">立即充值</a>
+	</div>
+	
+	 <script type="text/javascript">
+    </script>
+	
+	<script type="text/javascript">
+		var cid;
+		function changeUser(){
+			$.ajax({
+				url : "../../view/account/changeUser/",  
+				type : "POST",
+				data : {},
+				dataType : "json",
+				success : function(data) {
+					location.href = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxd7555f83fe7e0627&redirect_uri=http%3a%2f%2fp2pcluster.folkcam.cn%2fview%2faccount%2flogin&response_type=code&scope=snsapi_base&state=123#wechat_redirect";
+				},
+				error : function(x, h, e) {
+					alert("error");
+				}
+			});
+		}
+	
+		var mycode;
+		var realMoney ;
+		function dataSelect(e) {
+			moneyType = 0;
+			
+			var liArray = document.getElementsByTagName('li');
+			for (var i = liArray.length - 1; i >= 0; i--) {
+				var tmpLi = liArray[i];
+				if (tmpLi === e) {
+					e.style.background = "#fd8d29";
+					e.style.boder = "1px solid #fd8d29";
+					moneyType = e.attributes["data-id"].value;
+					realMoney = $(e).children("p").html();
+				} else {
+					tmpLi.style.background = "#ffffff";
+					e.style.boder = "1px solid #fafafa";
+
+				}
+			}
+			// window.alert(e.attributes["data-id"].value);
+			document.getElementById("btn_submit").style.background = "#fd8d29";
+			document.getElementById("btn_submit").onclick = function() {
+				return true;
+			}
+		}
+		var money = 0;
+		var money_T = 6;
+		function submitMoney(obj) {
+			switch (moneyType) {
+			case "1":
+				money = 6;
+				break;
+			case "2":
+				money = 18;
+				break;
+			case "3":
+				money = 30;
+				break;
+			case "4":
+				money = 98;
+				break;
+			case "5":
+				money = 298;
+				break;
+			case "6":
+				money = 498;
+				break;
+			case "7":
+				money = 998;
+				break;
+			case "8":
+				money = 1498;
+				break;
+			case "9":
+				money = 50;
+				break;	
+			default:
+				break;
+			}
+		}
+		
+		function mutiParams(){
+			return money;
+		}
+
+		var cname;
+		$(function() {
+			var e = document.getElementsByTagName('li')[0];
+			dataSelect(e);
+		});
+		
+		function getURLParameter(param) {
+			var url = "";
+			try {
+				url = window.location.href;
+			} catch (e) {
+				url = document.URL;
+			}
+			for (;;) {
+				if (url.endWith && url.endWith('#')) {
+					url = url.substring(0, url.length - 1);
+				} else {
+					break;
+				}
+			}
+
+			var params = (url.substr(url.indexOf("?") + 1)).split("&");
+
+			if (params != null) {
+				for (var i = 0; i < params.length; i++) {
+					var strsName = params[i].substr(0, params[i].indexOf("="));
+					var strsValue = params[i]
+							.substr(params[i].indexOf("=") + 1);
+					if (strsName == param) {
+						return strsValue;
+					}
+				}
+			}
+			return "";
+		}
+	</script>
+</body>
+</html>

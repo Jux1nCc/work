@@ -1,0 +1,409 @@
+@font-face {
+    font-family: "HYNuoMiTuanW";
+    src: url("./HYNuoMiTuanW.ttf");
+    font-weight: normal;
+    font-style: normal;
+    color: #333;
+    }
+.page{
+    position: relative;
+    width: 100%;
+    height: 25.17rem;
+    background: linear-gradient(#ed7d90,#f0bae4);
+}
+header{
+    position: relative;
+    width: 100%;
+    height: 6.28rem;
+    background: url(./image/head_1.png) no-repeat;
+    background-size: 100%;
+}
+.act-periods{
+    position: absolute;
+    top: 60%;
+    left: 0;
+    width: 100%;
+    height: 0.55rem;
+}
+.act-periods span{
+    display: block;
+    width: 1.78rem;
+    height: 100%;
+    margin: 0 auto;
+    border: 0.04rem solid #fff;
+    border-radius: 0.55rem;
+    background: linear-gradient(90deg,#fea6ba,#9344e6);
+    color: #fff;
+    font-size: 0.4rem;
+    font-family: 'HYNuoMiTuanW';
+    text-align: center;
+    line-height: 0.4rem;
+}
+.act-time{
+    position: absolute;
+    top: 75%;
+    left: 0;
+    width: 100%;
+    height: 0.5rem;
+}
+.act-time span{
+    display: block;
+    width:5.56rem;
+    height: 100%;
+    margin: 0 auto;
+    border-radius: 0.5rem;
+    background-color: #fff;
+    color: #c772d4;
+    font-size: 0.25rem;
+    line-height: 0.5rem;
+    text-align: center; 
+    box-shadow: #ea7189 1px 1px 10px;
+}
+.task-wrap{
+    position: relative;
+    width: 6.73rem;
+    height: 7rem;
+    border: 0.06rem solid #fff;
+    border-radius: 0.24rem;
+    background: linear-gradient(#db9adc,#b06fc8);
+    margin: -0.4rem auto 1rem;
+}
+.task-title{
+    position: absolute;
+    top: -0.7rem;
+    left: 21%;
+    width: 3.74rem;
+    height: 1.15rem;
+    background: url(./image/dask_title.png) no-repeat;
+    background-size: 100%;
+}
+.task-explain{
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    width: 5.2rem;
+    height: 0.25rem;
+    background: url(./image/dask_icon.png) no-repeat;
+    background-size: 100%;
+}
+.task-item{
+    position: relative;
+    margin-top: 1.2rem;
+    color: #fff;
+}
+.task-item div{
+    font-size: 0.25rem;
+}
+.item-li,
+.li-title{
+    justify-content: space-between;
+    padding: 0 0.3rem;
+}
+.item-li{
+    height: 1rem;
+    align-items: center;
+    margin-top: 0.1rem;
+}
+.item-time{
+    width: 1.1rem;
+    text-align: center;
+}
+.item-count{
+    width: 1.96rem;
+    text-align: center;
+}
+.count-item{
+    position: relative;
+    width: 100%;
+    height: 0.35rem;
+    border-radius: 0.35rem;
+    border: 0.04rem solid #fff;
+    overflow: hidden;
+}
+.progress{
+    width: 0%;
+    height: 100%;
+    border-radius: 0.35rem;
+    background-color: #a3fffa;
+    box-shadow: inset -10px -5px 10px #8cadbc;
+}
+.count-item .isfinish{
+    position: absolute;
+    top: 5%;
+    right: 5%;
+    font-size: 0.18rem;
+}
+.isfinish span{
+    font-size: 0.18rem;
+}
+.count-item .finished{
+    right: 35%;
+    top: 0;
+}
+.item-award{
+    width: 1.86rem;
+    text-align: center;
+    justify-content: space-around;
+}
+.award-item{
+    position: relative;
+    width: 1.36rem;
+    height: 0.72rem;
+    border-radius: 0.08rem;
+    border: 0.04rem solid #fff;
+}
+.award-item.high{
+    height: 0.87rem;
+}
+.award-main{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 0.05rem;
+    justify-content: space-around;
+    background-color: #b7b4b5;
+    box-shadow: inset -10px -5px 10px gray;
+}
+.earning,
+.video{
+    width: 100%;
+    justify-content: space-around;
+    /* padding: 0 0.1rem; */
+}
+.earning{
+    padding: 0 0.1rem;
+}
+.video{
+    padding-left: 0.15rem;
+}
+.earning span{
+    font-size: 0.18rem;
+}
+.small span,
+.video span{
+    font-size: 0.12rem;
+}
+/* .video .toll{
+    margin-left: 0.04rem;
+} */
+.video .limit{
+    margin-left: 0.05rem;
+}
+.small .video-add{
+    font-size: 0.16rem;
+    /* font-weight: 700; */
+}
+.small .earning .video-add{
+    font-size: 0.2rem;
+}
+.small .earning .award-num{
+    font-size: 0.16rem;
+}
+.small .video .award-num{
+    font-size: 0.12rem;
+    margin-right: 0.05rem;
+}
+.small .video .appUnit{
+    font-size: 0.12rem;
+}
+.small .earning-span,
+.small .toll,
+.small .limit{
+    line-height: 1.2;
+}
+.dashed{
+    position: absolute;
+    top: 50%;
+    left: 5%;
+    width: 90%;
+    height: 0;
+    border-top: 1px dashed #fff;
+}
+.award-time{
+    font-size: 0.18rem;
+}
+.line{
+    position: absolute;
+    top: 30%;
+    left: 10%;
+    width: 5.1rem;
+    height: 0.02rem;
+    background-color: #e7abff;
+}
+.line:nth-child(2){
+    top: 55%;
+}
+.line:nth-child(3){
+    top: 78%;
+}
+.full{
+    width: 100%;
+    background-color: #f689bb;
+    box-shadow: inset -10px -5px 10px #d8729c;
+}
+.award-full{
+    background-color: #f689bb;
+    box-shadow: inset -10px -5px 10px #e76095;
+}
+.speed-dating{
+    position: absolute;
+    bottom: -0.5rem;
+    left: 25%;
+    width: 3.36rem;
+    height: 1rem;
+    background: url(./image/speed_dating.png) no-repeat;
+    background-size: 100%;
+}
+.explain-wrap{
+    position: relative;
+    width: 6.7rem;
+    height: 9.84rem;
+    border: 0.06rem solid #d5a0f3;
+    border-radius: 0.24rem;
+    margin: 0 auto;
+    background-color: #fff;
+    box-shadow: inset 1px 1px 20px #f3cbe0;
+}
+.explain-wrap div,
+.explain-wrap p,
+.explain-wrap span{
+    color: #7d6b74;
+    font-size: 0.23rem;
+    line-height: 0.45rem;
+}
+.explain-wrap span.red{
+    color: red;
+}
+.rule-title,
+.award-title{
+    position: absolute;
+    left: 20%;
+    width: 4.09rem;
+    height: 0.39rem;
+}
+.rule-title{
+    top: 0.5rem;
+    background: url(./image/rule_title.png) no-repeat;
+    background-size: 100%;
+}
+.award-title{
+    bottom: 53%;
+    background: url(./image/award_title.png) no-repeat;
+    background-size: 100%;
+}
+.rule{
+    width: 5.5rem;
+    position: absolute;
+    top: 1.34rem;
+    left: 0.54rem;
+}
+.award{
+    width: 5.5rem;
+    position: absolute;
+    top: 5rem;
+    left: 0.54rem;
+}
+footer{
+    width: 100%;
+    height: 1.3rem;
+    color: #fd607e;
+    font-size: 0.2rem;
+}
+#awardTip{
+    width: 6.1rem;
+    height: 8rem;
+    margin: 0 auto;
+    background: url(./image/dialog_1.png) no-repeat;
+    background-size: 100%;
+}
+.get-award-box{
+    position: absolute;
+    top: 40%;
+    left: 19.5%;
+    width: 4.6rem;
+    height: 0.8rem;
+    border: 0.06rem solid #ffd9f1;
+    border-radius: 10rem;
+    box-shadow: inset 1px 1px 10px #c4b2fd;
+}
+.get-award{
+    width: 100%;
+    border-radius: 0.7rem;
+    padding: 0 0.6rem;
+    justify-content: space-around;
+    font-weight: 700;
+}
+.awardTip-earning{
+    font-size: 0.23rem;
+    color: #ff9000;
+}
+.awardTip-earning .appUnit{
+    font-size: 0.23rem;
+}
+.awardTip-precent{
+    font-size: 0.19rem;
+    color: #7e531c;
+}
+.awardTip-day{
+    font-size: 0.23rem;
+    color: #7e531c;
+}
+.awardTip-title{
+    position: absolute;
+    top: 8%;
+    left: 0;
+    width: 100%;
+    justify-content: space-around;
+    padding: 0 1.3rem;
+}
+.awardTip-title span{
+    font-size: 0.56rem;
+    color: #fff;
+    text-shadow: 0px 3px #874bec;
+}
+.awardTip-title span:first-child,
+.awardTip-title span:last-child{
+    width: 0.95rem;
+    height: 0.06rem;
+    background-color: #fff;
+    margin-top: 0.15rem;
+    box-shadow: 0px 2px #874bec;
+}
+.congratulation{
+    position: absolute;
+    top: 30%;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    font-size: 0.28rem;
+    color: #7e531c;
+    font-weight: 700;
+}
+.go-on{
+    position: absolute;
+    top: 56%;
+    left: 0;
+    width: 100%;
+    padding-left: 0.2rem;
+    font-size: 0.25rem;
+    color: #979797;
+    text-align: center;
+    font-weight: 700;
+}
+.close-btn{
+    left: 46%;
+}
+.sure-btn{
+    width: 2.54rem;
+    height: 0.72rem;
+    bottom: 24%;
+    left: 33%;
+    padding-top: 0.15rem;
+    background: none;
+    opacity: 1;
+    font-size: 0.32rem;
+    color: #68400b;
+    font-weight: 700;
+}

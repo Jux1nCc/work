@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- v-for用于对象
+    v-for="(value,key,index(从0开始序号)) in 对象"   
+    
+    -->
+    <div id="app">
+      <div v-for="(value,key,index) in obj">
+        <p>{{value}}</p>
+        <p>{{key}}</p>
+        <p>{{index}}</p>
+      </div>
+    </div>
+    <script src="./vue.js"></script>
+    <script>
+      new Vue({
+        el: "#app",
+        data: {
+          obj: {
+            address: "广东深圳",
+            time: "2020-07-03",
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

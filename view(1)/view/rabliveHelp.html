@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<head lang="en">
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="renderer" content="webkit">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style"
+	content="black-translucent">
+<meta name="format-detection" content="telephone=no" />
+<meta name="screen-orientation" content="portrait">
+<meta name="x5-orientation" content="portrait">
+<title>联系客服</title>
+<script type="text/javascript" language="javascript" src="js/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" language="javascript" src="js/common.js"></script>
+<link href="css/withdraw.css" rel="stylesheet">
+<link href="css/publice.css" rel="stylesheet">
+<style>
+.div_tip {
+	padding-left: 10px;
+	padding-top: 20px;
+	font-size: 16px;
+	color: #ff2222
+}
+
+.bottom_p {
+	padding-left: 10px;
+	font-size: 14px;
+}
+
+.balance h1, .balance header p, .btn {
+	text-align: center
+}
+
+.btn, a {
+	text-decoration: none
+}
+
+body {
+	background: #fafafa
+}
+
+header {
+	background: #fff
+}
+
+.balance h1 {
+	margin: 0 15px;
+	padding-top: 10px;
+	height: 33px;
+	font-size: 15px;
+	line-height: 33px
+}
+
+.balance h2 {
+	padding-top: 12px;
+	height: 30px;
+	color: #a5a7aa;
+	line-height: 30px
+}
+
+.balance h3 {
+	height: 46px;
+	line-height: 46px;
+	font-size: 18px;
+	color: #a5a7aa
+}
+
+.balance header p {
+	padding-bottom: 10px;
+	font-size: 30px; 
+	color:#000000;
+}
+
+.bor-top {
+	border-top: 1px solid #e6e6e6
+}
+
+.bor_btm {
+	border-bottom: 1px solid #e6e6e6
+}
+
+.pb-20 {
+	padding-bottom: 20px
+}
+
+.box {
+	display: -webkit-box
+}
+
+.box-flex {
+	-webkit-box-flex: 1;
+	box-flex: 1
+}
+
+.form-item {
+	margin-bottom: 10px
+}
+
+.form-item input {
+	width: 100%;
+	border-radius: 5px;
+	outline: 0;
+	border: none;
+	padding: 0;
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	background: #fff
+}
+
+.btn {
+	display: block;
+	border-radius: 5px;
+	font-size: 16px
+}
+
+select {
+	-webkit-appearance: none
+}
+
+.btn-grey {
+	color: #fff;
+	background-color: rgb(0, 0, 172);
+}
+
+.balance .btn-active {
+	color: #fff;
+	background-color: #000
+}
+</style>
+<style>
+.form-item, .form-item input {
+	font-size: 15px;
+	height: 45px
+}
+
+.form-item {
+	margin-bottom: 0;
+	line-height: 45px;
+	color: #555;
+	overflow: hidden
+}
+
+.form-item label {
+	display: block;
+	width: 102px;
+	text-indent: 15px
+}
+
+.form-item .class_getCode {
+	width: 100px;
+	border-radius: 5px;
+	margin: 4px 10px;
+	display: block;
+	height: 37px;
+	line-height: 37px;
+	color: #fff;
+	background: #fd8d29;
+	text-align: center;
+}
+
+.box-flex {
+	-webkit-box-flex: 1;
+	box-flex: 1
+}
+
+.btn-next {
+	margin: 20px 10px 30px;
+	height: 42px;
+	line-height: 42px
+}
+
+.select-account {
+	position: relative
+}
+
+.select-account select {
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 50px;
+	height: 100%;
+	opacity: 0;
+	z-index: 10
+}
+
+.select-account:after {
+	content: '';
+	position: absolute;
+	top: 50%;
+	right: 16px;
+	margin-top: -7px;
+	width: 9px;
+	height: 9px;
+	border-left: 1px solid #000;
+	border-bottom: 1px solid #000;
+	-webkit-transform: rotate(-45deg);
+	transform: rotate(-45deg)
+}
+</style>
+</head>
+<body class="balance" style="margin-top: 10px; margin-left: 5%; width: 90%">
+	<div style="background: #f0f0f0; height: 36px; line-height: 36px; padding-left: 10px;">
+		<div style="margin-left: 2%">
+		<font style="color: #787878;"><B>常见问题</B></font>
+		</div>
+	</div>
+	<div style="padding-left: 15px;">
+		<font style="color: #424242;">
+			<div style="margin-top: 8px">
+				<p>
+					<b> Q：如何邀请好友,邀请成功后有什么奖励?</b>
+				</p>
+			</div>
+			<div style="margin-top: 5px">
+				<p style="line-height: 23px">1，打开兔聊,点击"我"-"推荐有奖"，通过微信朋友圈、微信好友、QQ空间、QQ好友、新浪微博、短信、二维码、链接分享，当别人下载注册成功会通过系统自动绑定在您的账号下。您的兔聊"我"-"推荐有奖"-"我推荐的人"里面有对方的账号就算成功推荐啦。【<span style>如果"我推荐的人"里面没有对方的账号，就表示没有推荐成功。只要对方下载注册24小时内，在他的兔聊的"设置"-"我的推荐人"输入您的推荐码即可完成绑定。</span>】</p>
+				<p style="line-height: 23px">2，推荐男性注册成功后，他每一笔消费您都有5%的提成，她每一笔收益您都有5%的收益。</p>
+			</div>
+			<div style="margin-top: 8px">
+				<p>
+					<b> Q：为什么我的视频/语音价格只能设置0~30聊币?</b>
+				</p>
+			</div>
+			<div style="margin-top: 5px">
+			<p style="line-height: 25px">升级到兔聊3.3版本即可修改0～500聊币/分钟之间的任意价格。</p>
+			</div>
+		</font>
+	</div>
+	<!-- more -->
+	<div style="padding-left: 8px;">
+		<span style="line-height: 30px; margin-left: 1rem"><a href="#"
+			onclick="jumpToMoreHelp()" style="font-color: red"><font
+				color="blue">更多问题>></font></a></span>
+	</div>
+
+	<div
+		style="background: #f0f0f0; height: 36px; line-height: 36px; padding-left: 10px; margin-top: 10px">
+		<div style="margin-left: 2%">
+		<font style="color: #787878;"><B>联系我们</B></font>
+		</div>
+	</div>
+	<div style="padding-left: 15px;">
+		<font style="color: #424242;">
+			<div style="margin-top: 8px">
+			<!-- 邮箱地址:service@rablive.cn  官方客服号（兔聊号）:10019 -->
+				<p style="line-height: 25px">
+					<b>邮箱地址：</b>service@rablive.cn
+				</p>
+				<p style="line-height: 25px">
+					<b>官方客服号（兔聊号）：</b>10019
+				</p>
+				<p style="line-height: 25px">
+					<b>官方微信公众号：</b><a style="color: #0c8ce9;" href="javascript:copyTuliaoservice();">Tuliaoservice</a>
+				</p>
+			</div>
+		</font>
+	</div>
+	<a class="btn btn-next btn-grey" id="applyAlipay"
+		href="javascript:jumpToMeiqia();">联系客服 >></a>
+	<!-- <div
+		style="background: #f0f0f0; height: 36px; line-height: 36px; padding-left: 10px; margin-top: 10px">
+		<div style="margin-left: 2%">
+		<font style="color: #787878;"><B>赚钱秘籍</B></font>
+		</div>
+	</div>
+	<div style="padding-left: 15px;">
+		<font style="color: #424242;">
+			<div style="margin-top: 8px">
+				<p style="line-height: 25px">
+					<b></b>1、"本人"认证；
+				</p>
+				<p style="line-height: 25px">
+					<b></b>2、上传3-5张本人生活照，艺术照，自拍。只有通过官方认证的"本人"，才能进行提现，更有机会上热门噢！
+				</p>
+				<p style="line-height: 25px"><b>方法：【我】—【编辑资料】—【本人认证】</b></p>
+			</div>
+		</font>
+	</div>
+	<div style="padding-left: 8px;"> -->
+		<!-- TODO 改变宽度 -->
+		<!-- <span style="line-height: 30px; margin-left: 1rem"><a href="#"
+			onclick="jumpToEarningSkill()" style="font-color: red"><font
+				color="blue">更多赚钱秘籍>></font></a></span>
+	</div> -->
+
+
+
+	<!-- <div class="div_tip" id="withdraw_tip" style="margin-top:0px"></div> -->
+
+	<!-- rgb(0,0,172);加箭头 >>-->
+</body>
+<script>
+    (function (para) {
+        var p = para.sdk_url, n = para.name, w = window, d = document, s = 'script', x = null, y = null;
+        w['sensorsDataAnalytic201505'] = n;
+        w[n] = w[n] || function (a) {
+            return function () {
+                (w[n]._q = w[n]._q || []).push([a, arguments]);
+            }
+        };
+        var ifs = ['track', 'quick', 'register', 'registerPage', 'registerOnce', 'clearAllRegister', 'trackSignup', 'trackAbtest', 'setProfile', 'setOnceProfile', 'appendProfile', 'incrementProfile', 'deleteProfile', 'unsetProfile', 'identify', 'login', 'logout', 'trackLink', 'clearAllRegister'];
+        for (var i = 0; i < ifs.length; i++) {
+            w[n][ifs[i]] = w[n].call(null, ifs[i]);
+        }
+        if (!w[n]._t) {
+            x = d.createElement(s), y = d.getElementsByTagName(s)[0];
+            x.async = 1;
+            x.src = p;
+            y.parentNode.insertBefore(x, y);
+            w[n].para = para;
+        }
+    })({
+        sdk_url: 'https://static.sensorsdata.cn/sdk/1.7.1.1/sensorsdata.min.js',
+        name: 'sa',
+        server_url: 'https://sensorsdata.expertol.cn/sa?project=default',
+        debug_mode: false,
+        //是否开启 debug 模式，true 开启，false 关闭，开启 debug 模式，每发送一条数据会在页面弹出一次。
+        debug_mode_upload: false,
+        //当开启 debug 模式时，true 表示数据不入库，在神策分析导入实时查看 Debug 数据查看数据，false 表示数据会入库，在神策分析导入实时查看，导入中数据查看数据。
+        heatmap: {
+            //是否开启点击图，默认 default 表示开启，自动采集 $WebClick 事件，可以设置 'not_collect' 表示关闭
+            clickmap: 'not_collect',
+            //是否开启触达注意力图，默认 default 表示开启，自动采集 $WebStay 事件，可以设置 'not_collect' 表示关闭
+            scroll_notice_map: 'not_collect'
+        }
+    });
+</script>
+<script type="text/javascript">
+	var browser;
+	$(document)
+			.ready(
+					function() {
+						browser = {
+							versions : function() {
+								var u = navigator.userAgent, app = navigator.appVersion;
+								return {
+									android : u.indexOf('Android') > -1
+											|| u.indexOf('Linux') > -1,
+									iPhone : u.indexOf('iPhone') > -1,
+									iPad : u.indexOf('iPad') > -1,
+									iPod : u.indexOf('iPod') > -1,
+								};
+							}(),
+							language : (navigator.browserLanguage || navigator.language)
+									.toLowerCase()
+						}
+					});
+	function jumpToMoreHelp() {
+		window.location.href = "help/faq.html";
+	}
+	function jumpToEarningSkill() {
+		window.location.href = "help/earningSkill.html";
+	}
+
+	function jumpToMeiqia() {
+		if (browser.versions.android) {
+			client.jumpToMeiqia();
+		} else {
+			window.webkit.messageHandlers.jumpToMeiqia.postMessage(null);
+		}
+	}
+
+	function copyTuliaoservice() {
+        // sa.track('KeyButtonClicked', {
+        //     button_name: '复制微信公众号',
+        //     page_name: '联系客服'
+        // });
+        if (browser.versions.android) {
+            client.copyTuliaoservice("Tuliaoservice");
+        } else {
+            window.webkit.messageHandlers.jumpToMeiqia.copyTuliaoservice("Tuliaoservice");
+        }
+    }
+
+</script>
+</html>

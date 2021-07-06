@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    .sliderModel {
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      display: none;
+    }
+  
+    .title {
+      width: 100%;
+      height: 60px;
+      font-size: 18px;
+      color: #333;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  
+    .cont {
+      position: relative;
+      background: #fff;
+      width: 300px;
+      border-radius: 8px;
+      overflow: hidden;
+      padding-bottom: 20px;
+    }
+  
+    .imgWrap {
+      position: relative;
+      width: 280px;
+      height: 150px;
+      border-radius: 8px;
+      margin: 0 auto;
+      overflow: hidden;
+    }
+  
+    #sliderRefresh {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      cursor: pointer;
+      color: green;
+    }
+  
+    .img {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+  
+    .sliderOver {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 50px;
+      height: 50px;
+      background: #ddd;
+      box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.3);
+    }
+  
+    .smartImg {
+      position: absolute;
+      z-index: 2;
+      left: 0;
+      top: 0;
+      width: 50px;
+      height: 50px;
+      overflow: hidden;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    }
+  
+    .simg {
+      position: absolute;
+      display: block;
+      width: 280px;
+      height: 150px;
+    }
+  
+    .sliderBox {
+      width: 280px;
+      margin: 10px auto 0;
+      height: 36px;
+      position: relative;
+    }
+  
+    .sliderF {
+      width: 100%;
+      height: 100%;
+      z-index: 3;
+    }
+  
+    .sliderS {
+      cursor: pointer;
+      position: absolute;
+      left: 0;
+      top: 0;
+      z-index: 2;
+      height: 36px;
+      width: 36px;
+      background: #007cff;
+      border-radius: 36px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  
+    .icon {
+      width: 20px;
+      height: 20px;
+  
+    }
+  
+    .bgC {
+      position: absolute;
+      z-index: 1;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 100%;
+      height: 30px;
+      border-radius: 30px;
+      line-height: 30px;
+      font-size: 14px;
+      color: #999999;
+      box-shadow: inset 0 0 4px #ccc;
+      text-align: center;
+      overflow: hidden;
+    }
+  
+    .bgC_left {
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 0;
+      height: 28px;
+      border-top-left-radius: 28px;
+      border-bottom-left-radius: 28px;
+      line-height: 28px;
+      font-size: 14px;
+      background-color: #eee;
+      box-shadow: inset 0 0 4px #ccc;
+      text-align: center;
+    }
+  
+    .showMessage {
+      text-align: center;
+      font-size: 14px;
+      height: 30px;
+      line-height: 30px;
+    }
+  
+    #closeBtn {
+      position: fixed;
+      z-index: 10;
+      bottom: 10px;
+      left: 50%;
+    }
+  </style>
+</head>
+  
+<body>
+  <div id="clickBtn">点击</div>
+  <div class="sliderModel">
+    <div class="cont">
+      <div class="title">图形验证</div>
+      <div id="sliderRefresh">刷新</div>
+      <div class="imgWrap" id="imgWrap">
+        <img class="img" src="" />
+        <div class="sliderOver" id="sliderOver"></div>
+        <div class="smartImg" id="smartImg">
+          <img class="simg" src="" />
+        </div>
+      </div>
+      <div class="sliderBox">
+        <div class="sliderF" id="slider">
+          <div class="sliderS" id="sliderBtn">
+            <img class="icon" src="images/1.jpg" />
+          </div>
+        </div>
+        <div class="bgC">
+          拖动左边滑块完成上方拼图
+          <div class="bgC_left" id="bgC_left"></div>
+        </div>
+      </div>
+      <div class="showMessage">
+  
+      </div>
+    </div>
+  </div>
+  <div id="closeBtn">关闭</div>
+  
+</body>
+<script src="slider.js"></script>
+<script>
+  var object = {
+    bImg: 'imgWrap',
+    sImg: 'smartImg',
+    sImgOver: 'sliderOver',
+    sliderF: 'slider',
+    sliderBtn: 'sliderBtn',
+    sliderBg: 'bgC_left',
+    refreshBtn: 'sliderRefresh',
+    range: 5,
+    imgArr: ['images/1.jpg', 'images/2.jpg', 'images/3.jpg', 'images/4.jpg',
+      'images/5.jpg'
+    ],
+    refreshCallback: function (e) {
+      var showMessage = document.getElementsByClassName('showMessage')[0];
+      showMessage.innerHTML = "";
+      showMessage.style.color = "#333";
+    },
+    callback: function (e) {
+      var showMessage = document.getElementsByClassName('showMessage')[0];
+      if (!e) {
+        showMessage.innerHTML = "验证失败，请重新验证";
+        showMessage.style.color = "red";
+      } else {
+        showMessage.innerHTML = "验证成功！";
+        showMessage.style.color = "green";
+      }
+    },
+  }
+  var mSlider = null;
+  document.getElementById('clickBtn').onclick = function () {
+    document.getElementsByClassName('sliderModel')[0].style.display = "flex";
+    mSlider = new window.mobileSlider(object)
+  }
+  document.getElementById('closeBtn').onclick = function () {
+    document.getElementsByClassName('sliderModel')[0].style.display = "none";
+  }
+</script>
+  
+</html>

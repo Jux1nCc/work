@@ -1,0 +1,251 @@
+.layui-layout-body{
+	background: #f3f3f3;
+}
+.layui-layout-admin .layui-header {
+	background-color: #fff !important;
+	box-shadow: 0px 0px 12px #6d6c6c;
+	min-width: 1200px;
+}
+
+.layui-header {
+	height: 97px !important;
+}
+
+.layui-layout-admin .layui-logo {
+	height: 80px !important;
+	padding: 10px 25px;
+	margin-left: 11%;
+}
+
+.layui-nav {
+	color: #000 !important;
+	background-color: #fff !important;
+}
+
+
+
+.layui-nav-itemed>.layui-nav-child {
+	background-color: #eee !important;
+}
+
+.layui-layout-admin .layui-side {
+	top: 100px !important;
+	width: 300px !important;
+}
+
+.layui-bg-black {
+	background-color: #fff !important;
+}
+
+.layui-side-scroll {
+	width: 300px !important;
+	background-color: #f3f3f3;
+	text-align: center;
+}
+
+.layui-nav-tree {
+	width: 280px !important;
+}
+
+.layui-nav-tree .layui-nav-child dd.layui-this,
+.layui-nav-tree .layui-nav-child dd.layui-this a,
+.layui-nav-tree .layui-this,
+.layui-nav-tree .layui-this>a,
+.layui-nav-tree .layui-this>a:hover {
+	background-color: #eee !important;
+	color: #1da0f2 !important
+}
+
+
+.layui-body {
+    position: absolute;
+    left: 0 !important;
+    right: 0;
+    top: 100px !important;
+	bottom: 0 !important;
+    z-index: 998;
+    width: 100%;
+    min-width: 1200px;
+    overflow: hidden;
+    overflow-y: auto;
+    box-sizing: border-box;
+}
+
+.layui-layout-right{
+	position: fixed !important;
+}
+
+#index_left .layui-nav-item a {
+	font-size: 16px;
+}
+
+#index_left .layui-nav-item dl a {
+	font-size: 14px;
+}
+
+#top_title_nav {
+	padding: 20px 20px 0px 20px;
+	margin-right: 11%;
+	
+}
+
+#top_title_nav .layui-nav-item a {
+	font-size: 16px;
+	text-decoration: none;
+}
+
+#top_title_nav .layui-nav-item a:hover{
+	color: #1DA0F2 !important;
+}
+
+
+#top_title_nav .layui-nav-child a {
+	font-size: 12px;
+	text-align: center;
+}
+
+.layui-upload-list{
+	margin: 10px 0 0 0 !important;
+}
+.layui-table tbody tr:hover, .layui-table thead tr, .layui-table-click, .layui-table-header, .layui-table-hover, .layui-table-mend, .layui-table-patch, .layui-table-tool, .layui-table-total, .layui-table-total tr, .layui-table[lay-even] tr:nth-child(even){
+	background-color:#fff !important;
+	border-bottom: 1px solid #eee;	
+}
+.layui-table td, .layui-table th, .layui-table-col-set, .layui-table-fixed-r, .layui-table-grid-down, .layui-table-header, .layui-table-page, .layui-table-tips-main, .layui-table-tool, .layui-table-total, .layui-table-view, .layui-table[lay-skin=line], .layui-table[lay-skin=row]{
+	
+	border-style: none !important;
+}
+.layui-table tr{
+	border-bottom: 1px solid #eee;
+}
+
+.layui-nav .layui-this:after, .layui-nav-bar, .layui-nav-tree .layui-nav-itemed:after{
+	background-color:#fff !important;
+}
+
+
+
+
+
+
+
+
+
+/*底部*/
+.footer {
+    background: #3d474d;
+    padding: 3em 0;
+    color: #E3E3E3;
+    height: 150px;
+}
+
+.footer .container{
+	width: 1200px;
+	margin: 1em auto;
+	height: 100px;
+}
+
+.footer .container li{
+	line-height: 1.7;
+}
+
+.footer .container .about_info{
+	float: left;
+	margin-right: 50px;
+}
+
+.footer .container .about_info a{
+	color: #eee;
+}
+
+.footer .container .about_info a:hover{
+	color: #1DA0F2;
+}
+
+.footer .container .xz_eq{
+	float: right;
+	margin-right: 50px;
+}
+
+.ios_xzeq{
+	width: 80px;
+	height: 80px;
+}
+
+.ablout_web{
+	width: 80px;
+	height: 80px;
+}
+
+.copy-right{
+	width: 80%;
+    margin: 0 auto;
+    text-align: center;
+    margin-top: 5px;
+    color: #999;
+}
+
+.copy-right-top{
+	    top: 25px;
+    position: relative;
+    border-top: 1px solid #666;
+}
+
+.ios_xzeq{
+	float: left;
+}
+
+.iosxz{
+	padding: 5px;
+    margin-top: 20px;
+
+}
+
+
+.l_protocol {
+	background: #fff;
+	color: #333333;
+	padding-bottom: 80px
+}
+
+.l_protocol .l_protocol_con {
+	padding: 35px 80px 0 40px;
+}
+
+.l_protocol_con h1 {
+	font-size: 28px;
+	text-align: center
+}
+
+.l_protocol_con .l_protocol_con_total {
+	margin-top: 30px;
+}
+
+.l_protocol_con .l_protocol_con_total h2 {
+	font-size: 24px;
+	margin-bottom: 20px;
+	margin-top: 20px;
+	color: #1DA0F2;
+}
+
+.l_protocol_con_total p {
+	font-size: 20px;
+	line-height: 25px;
+}
+
+.l_header_ym{
+	float: right;
+	margin-top: 40px;
+    margin-right: 36px;
+}
+
+.l_header_ym a{
+font-size: 16px;
+margin-left: 15px
+}
+
+.W1200 {
+	width: 1200px;
+	margin: 0 auto;
+	/*height: 100%;*/
+}

@@ -1,0 +1,22 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.footer a, .footer a{
+    text-decoration: none;
+    color: rgba(255,255,255,0.5);
+}
+
+.footer a:hover{
+    color: rgba(255,255,255,0.5);
+    text-decoration: none;
+}
+
+.agreeCont a:hover{
+    text-decoration: none;
+    color:rgba(0,16,48,1);
+}
+
+

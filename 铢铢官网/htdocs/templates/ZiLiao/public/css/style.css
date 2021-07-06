@@ -1,0 +1,3284 @@
+/*layui部分样式重写*/
+.layui-layout-body{
+	background: #f3f3f3;
+}
+.layui-layout-admin .layui-header {
+	background-color: #fff !important;
+	box-shadow: 0px 0px 12px #6d6c6c;
+}
+
+.layui-header {
+	height: 97px !important;
+}
+
+.layui-layout-admin .layui-logo {
+	height: 80px !important;
+	padding: 10px 25px;
+}
+
+.layui-nav {
+	color: #000 !important;
+	background-color: #fff !important;
+}
+
+.layui-nav .layui-nav-item a {
+	color: #000 ;
+}
+
+.layui-nav .layui-nav-item a:hover {
+	color: #1DA0F2 ;
+}
+
+.layui-nav-itemed>.layui-nav-child {
+	background-color: #eee !important;
+}
+
+.layui-layout-admin .layui-side {
+	top: 100px !important;
+	width: 300px !important;
+}
+
+.layui-bg-black {
+	background-color: #fff !important;
+}
+
+.layui-side-scroll {
+	width: 300px !important;
+	background-color: #f3f3f3;
+	text-align: center;
+}
+
+.layui-nav-tree {
+	width: 280px !important;
+}
+
+.layui-nav-tree .layui-nav-child dd.layui-this,
+.layui-nav-tree .layui-nav-child dd.layui-this a,
+.layui-nav-tree .layui-this,
+.layui-nav-tree .layui-this>a,
+.layui-nav-tree .layui-this>a:hover {
+	background-color: #eee !important;
+	color: #1da0f2 !important
+}
+
+.layui-layout-admin .layui-body {
+	top: 100px !important;
+	bottom: 0 !important;
+}
+
+.layui-body {
+	left: 300px !important;
+}
+
+#index_left .layui-nav-item a {
+	font-size: 16px;
+}
+
+#index_left .layui-nav-item dl a {
+	font-size: 14px;
+}
+
+#top_title_nav {
+	padding: 20px 20px 0px 20px;
+}
+
+#top_title_nav .layui-nav-item a {
+	font-size: 16px;
+}
+#top_title_nav .layui-nav-item a:hover{
+	color: #1DA0F2 !important;
+}
+#top_title_nav .layui-nav-child a {
+	font-size: 12px;
+	text-align: center;
+}
+
+.layui-upload-list{
+	margin: 10px 0 0 0 !important;
+}
+.layui-table tbody tr:hover, .layui-table thead tr, .layui-table-click, .layui-table-header, .layui-table-hover, .layui-table-mend, .layui-table-patch, .layui-table-tool, .layui-table-total, .layui-table-total tr, .layui-table[lay-even] tr:nth-child(even){
+	background-color:#fff !important;
+	border-bottom: 1px solid #eee;	
+}
+.layui-table td, .layui-table th, .layui-table-col-set, .layui-table-fixed-r, .layui-table-grid-down, .layui-table-header, .layui-table-page, .layui-table-tips-main, .layui-table-tool, .layui-table-total, .layui-table-view, .layui-table[lay-skin=line], .layui-table[lay-skin=row]{
+	
+	border-style: none !important;
+}
+.layui-table tr{
+	border-bottom: 1px solid #eee;
+}
+
+.layui-nav .layui-this:after, .layui-nav-bar, .layui-nav-tree .layui-nav-itemed:after{
+	background-color: #fff !important;
+}
+
+.layui-nav-tree .layui-nav-item a{
+	color: #000 !important;
+}
+
+.layui-laydate .layui-this{
+	background-color:#1DA0F2 !important;
+}
+
+
+
+
+
+/*layui部分样式重写 end*/
+
+
+/*弹框样式*/
+.delect_box{
+	 border: solid 2px #eee;
+}
+
+/*按钮1*/
+.layui-layer-btn .layui-layer-btn0{
+	float: left;
+	border: 1px solid #dedede !important;
+    background-color: #fff !important;
+    color: #333 !important;
+       
+}
+
+.layui-layer-btn-c a{
+	 position: relative;
+    bottom: 26px;
+    left: 100px;
+}
+
+.layui-layer-setwin .layui-layer-close2{
+	display: none;
+}
+
+
+
+.prism-player a:nth-child(2){
+	display: none !important;
+}
+.prism-player a:nth-child(3){
+	display: none !important;
+}
+/*弹框样式end*/
+
+/*公共样式*/
+
+.color_slect{
+	color: #1DA0F2 !important;
+}
+
+.cert_return_btn{
+	font-size: 16px;
+    float: left;
+    margin: 12px 30px 0 0;
+}
+
+.cert_return_btn img{
+	margin-right: 10px;
+}
+
+.lable_title{
+	float: left;
+	position: relative;
+	width: 100px;
+	height: 20px;
+	top: 5px;
+}
+
+.input_w340 input{
+	width: 340px;
+	height: 30px;
+	border-radius: 5px;
+	background-color: #eee;
+	border: 1px solid #ccc;
+	color: #666;
+	padding-left: 10px;
+	float: left;
+}
+
+.checked_select input{
+	 appearance: none;
+    -webkit-appearance: none;
+    outline: none;
+    margin: 0;
+    position: relative;
+    top: 5px;
+    right: 5px;
+}
+
+.checked_select input:nth-child(2){
+	margin-left: 20px;
+}
+
+.checked_select input[type="checkbox"]:after {
+    display: block;
+    content: "";
+    width: 18px;
+    height: 18px;
+    background: #fff;
+    border-radius: 50%;
+    border: 1px solid #9e9e9e;
+}
+
+.checked_select input[type="checkbox"]:checked:after {      
+   	background: url(../../img/select.png);
+   	border: 0;
+    width: 20px;
+    height: 20px;
+}
+
+.checked_select input[type="radio"]:after {
+    display: block;
+    content: "";
+    width: 18px;
+    height: 18px;
+    background: #fff;
+    border-radius: 50%;
+    border: 1px solid #9e9e9e;
+}
+
+.checked_select input[type="radio"]:checked:after {      
+   	background: url(../../img/select.png);
+   	border: 0;
+    width: 20px;
+    height: 20px;
+}
+
+.activebtn{
+	border: 1px solid #1da1f2;
+	background-color: #d2ecfc;
+	color: #1DA0F2;
+}
+
+.prompt-hint{
+	color: red;
+	margin-left: 10px;
+}
+
+#J_prismPlayer_play{
+	position: absolute !important;
+    float: left;
+    z-index: 9999;
+    top: 30%;
+    left: 30%;
+    width: 550px !important;
+    height: 350px !important;
+    display: none;
+  
+}
+
+#J_prismPlayer_play a{
+	position: absolute;
+    right: 10px;
+    color: #fff;
+    top: 5px;
+    z-index: 999;
+}
+
+
+.province{
+	width: 100px;
+	height: 30px;
+	    border-radius: 5px;
+    background-color: #eee;
+    border: 1px solid #ccc;
+    color: #666;
+    padding-left: 10px;
+}
+.userpermanent{
+	width: 100px;
+	height: 30px;
+	border-radius: 5px;
+    background-color: #eee;
+    border: 1px solid #ccc;
+    color: #666;
+    padding-left: 10px;
+}
+
+.enterworking{
+	width: 340px;
+    height: 30px;
+    border-radius: 5px;
+    background-color: #eee;
+    border: 1px solid #ccc;
+    color: #666;
+    padding-left: 10px;
+}
+
+.wordCheck{
+	position: relative;
+    right: 175px;
+    bottom: 10px;
+}
+/*公共样式end*/
+
+/*登录*/
+#login{
+	/*background: #1DA0F2;
+	height: 100%;*/
+}
+
+#login .l_login_con{
+	width: 350px;
+	height: 150px;
+	margin: 15% auto;
+	text-align: center;
+}
+
+#login .l_public_return{
+	position: relative;
+	top: 15px;
+	color: #fff;
+}
+
+#login .l_login_con h1{
+	font-size: 30px;
+	color: #fff;
+	font-family: "微软雅黑";
+}
+
+#login .l_login_con_writ input{
+	width: 300px;
+	height: 35px;
+	border: 1px solid #fff;
+	background: #fff;
+	color: #1DA0F2;
+	border-radius: 25px;
+	margin-top: 10px;
+	padding-left: 15px;
+}
+
+#login .l_login_cue{
+	margin-top: 10px;
+	color:red;
+}
+
+#login .l_public_btn button{
+	width: 310px;
+	height: 35px;
+	border: 1px solid #fff;
+	background: #1DA0F2;
+	color: #fff;
+	border-radius: 25px;
+	margin-top: 15px;
+	cursor: pointer;
+}
+
+/*登录end*/
+
+/**************专家工作台*****************/
+/*概述*/
+#Overview_info{
+	margin: 20px;
+    height: 100%;
+    width: 80%;
+    background: #fff;
+}
+
+#Overview_info .user_info {
+	height: 100px;
+	padding: 30px;
+}
+
+#Overview_info .personal_ID {
+	font-size: 14px;
+}
+
+#Overview_info .info_Avatar {
+	width: 120px;
+	height: 120px;
+	float: left;
+}
+
+#Overview_info .info_Avatar img{
+	width: 100%;
+	height: 100%;
+	border-radius: 50%;
+}
+
+#Overview_info .info_personal {
+	float: left;
+	padding: 20px 15px;
+	width: calc(80% - 120px);
+}
+
+#Overview_info .info_personal p {
+	line-height: 1.7
+}
+
+#Overview_info .personal_name {
+	font-size: 14px;
+	color: #666;
+	display: none;
+}
+
+#Overview_info .personal_join a {
+	color: #1DA1F2;
+	font-size: 12px;
+	margin-left: 3px
+}
+
+#Overview_info .personal_join img {
+	height: 18px;
+	width: 18px;
+}
+
+#Overview_info .content_more_info {
+	width: 80%;
+	height: 200px;
+	background-color: #e8f5fe;
+	margin-left: 5%;
+	border-radius: 10px;
+	margin-top: 40px;
+}
+
+#Overview_info .content_more_info .f1 {
+	width: 33%;
+	float: left;
+	text-align: center;
+	padding-top: 25px
+}
+
+#Overview_info .content_more_info .f1 p {
+	line-height: 3.0
+}
+
+#Overview_info .content_more_info .f1 img {
+	width: 20px;
+	height: 20px;
+}
+
+#Overview_info .content_more_info .f1 span {
+	margin-left: 5px;
+}
+
+#Overview_info .content_more_info .f1 strong {
+	margin-left: 15px;
+}
+
+#Overview_info .Views_yesterday {
+	margin-top: 10px;
+}
+
+#Overview_info .personal_Application{
+	float: left;;
+	width: 600px;
+	padding: 5px 10px 5px 10px;
+	background-color: #fde3da;
+	border: 1px solid #f57145;
+	color: #f57145;
+	margin-top: 15px;
+	border-radius: 5px;
+	display: none;
+}
+
+#Overview_info .personal_Application a{
+	float: right;
+	color: #f57145;
+	text-decoration:underline
+}
+
+
+/*概述end*/
+
+/*课程*/
+/*上传视频*/
+
+#Upload_course {
+	padding: 20px;
+}
+
+#Upload_course .content_Uploadvideo {
+	float: left;
+	width: calc(100% - 350px);
+}
+
+#Upload_course .content_Tutorial {
+	width: 300px;
+	float: right;
+	border-top: 3px solid #1DA1F2;
+	padding: 15px;
+	background-color: #fff;
+}
+
+#Upload_course .content_Tutorial h3 {
+	font-size: 16px
+}
+
+#Upload_course .content_Tutorial p {
+	font-size: 14px;
+	color: #999;
+	margin-top: 15px
+}
+
+#Upload_course .content_Tutorial p a {
+	color: #1DA1F2
+}
+
+#Upload_course .content_Tutorial p em span {
+	color: red;
+}
+
+#Upload_course .All_albums{
+	margin-top: 85px;
+}
+#Upload_course .All_albums,.content_sunbtn{
+	text-align: center;
+	height: 100px;
+}
+
+#Upload_course .All_albums select{
+	width: 420px;
+	height: 30px;
+	border-radius: 5px;
+	border: 1px solid #CCCCCC;
+	background-color: #eee;
+}
+
+
+#Upload_course #albumType{
+	color: orange;
+}
+#Upload_course .content_sunbtn input{
+	width: 160px;
+	height: 30px;
+	border-radius:5px;
+	border:0
+}
+
+#Upload_course #filesVideo{
+	opacity: 0;
+	float: left;
+	width: 150px;
+    position: relative;
+    right: 150px;
+    height: 40px;
+    cursor: pointer;
+}
+
+#Upload_course #filesimg{
+	background-size: 100% 100%;
+    width: 150px;
+    height: 40px;
+    float: left;
+}
+
+#Upload_course .content_sunbtn p{
+	margin-bottom: 25px;
+}
+
+#Upload_course .content_sunbtn p a{
+	color: #1DA0F2;
+}
+
+
+#Upload_course #content_subvideo{
+	background: #1DA0F2;
+	color: #fff;
+}
+#Upload_course #content_recharge{
+	background: #eee;
+	color: #000;
+	margin-left: 50px;
+}
+
+
+#Upload_course #progress-bar {
+    animation-duration: 3s;
+    animation-name: width;
+    background-image: linear-gradient(to right, #4cd964, #5ac8fa, #007aff, #34aadc, #5856d6, #ff2d55);
+    background-image: -webkit-linear-gradient(to right, #4cd964, #5ac8fa, #007aff, #34aadc, #5856d6, #ff2d55);
+    background-size: 24em 0.25em;
+    height: 100%;
+    position: relative;
+}
+
+
+#Upload_course .container {    
+	width: 70%;
+	height: 15px;
+	background: #eee;
+	margin-top: 10px;
+	min-width: 400px;
+}
+
+#Upload_course .container div {
+	background: #1DA0F2;
+	float: left;
+	height: 100%;
+	text-align: center;
+	line-height: 150%;
+}
+#Upload_course #video_list_li li {
+	height: 61px;
+    border: 1px solid #eee;
+    margin-top: 10px;
+    padding: 10px 15px;
+    cursor: move;
+}
+
+#Upload_course #video_list_li span{
+	float: right;
+	color: #1DA0F2;
+	position: relative;
+	bottom:20px;
+	right: 35px;
+}
+
+#Upload_course #video_list_li input{
+	position: relative;
+    float: right;
+    border: 0;
+    background: #fff;
+    color: #1DA0F2;
+    left: 40px;
+}
+
+#Upload_course #video_list_li a{
+	position: relative;
+    float: right;
+    cursor: pointer;
+    color: #1DA0F2;
+    left: 15px;
+}
+
+#Upload_course .list_paixu{
+	float: left;
+	width: 30px;
+}
+
+#Upload_course .all_albums_show{
+	float: right;
+	display: none;
+	position: relative;
+	bottom: 30px;
+	width: 100%;
+}
+
+#Upload_course .all_albums_show span{
+	float: left;
+}
+
+#Upload_course .all_albums_show label{
+	float: right;
+}
+
+#Upload_course .Video_list{
+	margin-top: 45px;
+	min-width: 720px;
+}
+
+/*#Upload_course .upload_video_select{
+	display: none;
+}*/
+
+#Upload_course .video_Description{
+	height: 30px;
+	min-width: 720px;
+}
+
+#Upload_course .video_Description p{
+	float: left;
+    position: relative;
+    right: 60px;
+}
+
+#Upload_course .updata_video_title{
+	height: 30px;
+	border-bottom: 1px solid #eee;
+}
+#Upload_course .updata_video_title span{
+	font-size: 20px;
+}
+
+
+/*上传课程end*/
+
+
+/*创建专辑*/
+#creat_edit {
+	padding: 15px;
+	
+}
+
+#creat_edit .creat_eait_info{
+	width: 70%;
+	float: left;
+	background: #fff;
+	padding: 35px;
+}
+
+
+#creat_edit .creat_edit_title {
+	border-bottom: 1px solid #c1c1c1;
+	height: 35px;
+	font-size: 20px;
+}
+
+#creat_edit .creat_edit_name {
+	height: 80px;
+	margin-top: 15px;
+}
+
+
+#creat_edit .creat_edit_input input {
+	width: 65%;
+	height: 30px;
+	border-radius: 5px;
+	background-color: #eee;
+	border: 1px solid #ccc;
+	color: #666;
+	padding-left: 10px;
+}
+
+#creat_edit .creat_edit_prompt {
+	color: #666;
+	position: relative;
+	left: 100px;
+	top: 10px;
+	float: left;
+}
+
+#creat_edit .creat_edit_cover{
+	height: 180px;
+}
+
+#creat_edit .creat_edit_upload{
+	height: 130px;
+}
+
+#creat_edit #creat_edit_uploadimg{
+	width: 120px;
+	height: 120px;
+	float: left;
+	background-image: url(../../img/add.png);
+	background-size: 100% 100%;
+}
+
+#creat_edit #creat_edit_uploadimg input{
+	width: 120px;
+	height: 120px;
+	float: left;
+	opacity: 0;
+}
+
+
+#creat_edit .creat_edit_introd{
+	height: 240px;
+}
+
+#creat_edit .creat_edit_input textarea{
+	height: 200px;
+	width: 65%;
+	resize:none;
+	border-radius: 5px;
+	background-color: #eee;
+	border: 1px solid #ccc;
+	color: #666;
+	padding: 10px;
+}
+
+#creat_edit .creat_edit_price{
+	height: 80px;
+}
+
+#creat_edit .creat_edit_price input{
+	height: 30px;
+	width: 120px;
+	border-radius: 5px;
+	background-color: #eee;
+	border: 1px solid #ccc;
+	color: #666;
+}
+
+#creat_edit .creat_edit_classification{
+	height: 150px;
+}
+
+#creat_edit .creat_edit_input span{
+	margin-left: 10px;
+}
+
+#creat_edit .creat_edit_input button{
+	width: 120px;
+	height: 30px;
+	border-radius: 5px;
+	margin-left: 5px;
+	border: 1px;
+}
+#creat_edit .creat_edit_input button:first-child{
+	margin-left: 0;
+}
+
+#creat_edit .promotion_btn{
+	margin-left: 100px !important;
+	margin-top: 10px;
+}
+
+
+#creat_edit .creat_edit_submit input{
+	width: 400px;
+	height: 40px;
+	border: 0;
+	background: #1DA0F2;
+	color: #fff;
+	border-radius: 5px;
+	margin-left: 110px;
+}
+
+#creat_edit .creat_eait_prompt{
+	float: right;
+	width: 20%;
+	height: 280px;
+	background: #fff;
+	border-top: 3px solid #1DA0F2;
+}
+
+#creat_edit .creat_eait_prompt h3{
+	padding: 20px 10px 10px 10px;
+}
+
+#creat_edit .creat_eait_prompt p{
+	line-height: 1.7;
+	padding: 10px;
+}
+
+#creat_edit .creat_eait_prompt p a{
+	color: #1DA0F2;
+	text-decoration: underline;
+}
+
+#creat_edit #creat_edit_remind{
+	margin-top: 100px;
+}
+
+#creat_edit #creat_edit_remind p{
+	margin-left: 150px;
+	margin-top: 20px;
+}
+
+#creat_edit .edit_jump_applic{
+    float: right;
+    position: relative;
+    top: 6px;
+    width: 350px;
+  	border: 1px solid #f57145;
+  	background: #fde3da;
+  	color: #f57145;
+  	padding: 0 10px;
+}
+#creat_edit .edit_jump_applic a{
+	color: #f57145;
+	float: right;
+	margin-right: 5px;
+	cursor: pointer;
+}
+/*创建专辑*/
+
+/*我的课程*/
+#course_mine{
+	background: #fff;
+	margin: 20px;
+	padding: 40px;
+}
+
+#course_mine .course_video{
+	height: 45px;
+	border-bottom:1px solid #ccc ;
+}
+
+#course_mine .course_video h3{
+	float: left;
+	font-size: 20px;
+	font-weight: 500;
+}
+
+#course_mine .course_video input{
+	float: right;
+	
+	width: 230px;
+	height: 30px;
+	border: 1px solid #cdcdcd;
+	padding-left: 20px;
+	border-radius:20px ;
+	color: #999;
+}
+
+#course_mine #course_search{
+	background: url(../../img/search_small.png)no-repeat;
+    height: 25px;
+    width: 25px;
+    border: 0;
+    position: relative;
+    z-index: 999;
+    top: 10px;
+    right: 20px;
+    float: right;
+    left: 250px;
+    cursor: pointer;
+}
+
+#course_mine #table_list_img{
+	width: 90px;
+	height: 90px;
+	float: left;
+}
+
+#course_mine .coures_video_table{
+	height: 600px;
+	overflow: auto;
+}
+
+#course_mine .Video_list td p{
+	padding-left: 100px;
+    margin-top: 7px;
+}
+
+.video_curriculumPhoto{
+	width: 110px;
+	height: 90px;
+	float: left;
+	margin-right: 20px;
+	background: url(../../img/played_small.png) no-repeat 50%;
+}
+
+#course_mine .list_info span{
+	margin-right: 8px;
+	margin-left: 5px;
+}
+
+#course_mine .layui-table th:nth-child(3){
+	text-align: center;
+}
+
+/*#course_mine .layui-table td:nth-child(3){
+	text-align: center;
+}*/
+
+#course_mine .table_operating li{
+	line-height: 2.0;
+	text-align: center;
+}
+.layui-table th:nth-child(4){
+	text-align: center;
+}
+#course_mine .table_operating li a{
+	color: #1DA0F2;
+	cursor: pointer;
+}
+
+
+
+ .coures_video_listpage{
+	height: 50px;
+	padding: 20px;
+}
+
+ .coures_viode_page{
+	float: right;
+}
+
+#course_mine .courese_list{
+	width: 100px;
+    height: 100px;
+    float: left;
+    z-index: 999;
+    position: absolute;
+    text-align: center;
+        top: 162px;
+        background: #fff;
+    right: 345px;
+    display: none;
+    cursor: pointer;
+}
+
+#course_mine .courese_list li{
+	line-height: 1.5;
+	border-bottom: 1px solid #eee;
+	cursor: pointer;
+}
+
+#course_mine #Courses_sort{
+	cursor: pointer;
+}
+/*我的课程end*/
+/*编辑我的课程*/
+#Mycourse_edit{
+	padding: 35px;
+}
+
+#Mycourse_edit .Mycourse_edit_content{
+	width: 70%;
+	float: left;
+	background: #fff;
+	min-width: 720px;
+	
+}
+
+#Mycourse_edit .Mycourse_edit_title{
+	height: 50px;
+	border-bottom:1px solid #ccc ;
+}
+
+#Mycourse_edit .Mycourse_edit_title h3{
+	float: left;
+	font-size: 20px;
+	font-weight: 500;
+	line-height: 2.5;
+}
+
+#Mycourse_edit #coures_return_btn{
+	font-size: 16px;
+    float: left;
+    margin: 12px 30px 0 0;
+}
+
+#Mycourse_edit #coures_return_btn img{
+	margin-right: 10px;
+}
+
+#Mycourse_edit .Mycourse_edit_name{
+	height: 80px;
+	margin-top: 15px;
+}
+
+#Mycourse_edit .edit_info_input input {
+	width: 540px;
+	height: 30px;
+	border-radius: 5px;
+	background-color: #eee;
+	border: 1px solid #ccc;
+	color: #666;
+	padding-left: 10px;
+}
+
+#Mycourse_edit .edit_info_prompt {
+	color: #666;
+	position: relative;
+	left: 100px;
+	top: 10px;
+	float: left;
+}
+
+#Mycourse_edit .Mycourse_edit_cover{
+	height: 180px;
+}
+
+#Mycourse_edit .edit_info_upload{
+	height: 130px;
+}
+
+#Mycourse_edit .edit_info_uploadimg{
+	width: 120px;
+	height: 120px;
+	float: left;
+	background-size: 100% 100%;
+}
+
+
+#Mycourse_edit .Mycourse_edit_own{
+	height: 60px;
+}
+
+#Mycourse_edit .edit_info_input select {
+	width: 540px;
+	height: 30px;
+	border-radius: 5px;
+	background-color: #eee;
+	border: 1px solid #ccc;
+	color: #666;
+	padding-left: 10px;
+}
+
+#Mycourse_edit .edit_info_select input{
+	 appearance: none;
+    -webkit-appearance: none;
+    outline: none;
+    margin: 0;
+    position: relative;
+    top: 5px;
+    right: 5px;
+}
+
+#Mycourse_edit .edit_info_select input:nth-child(2){
+	margin-left: 20px;
+}
+
+#Mycourse_edit .edit_info_select input[type="checkbox"]:after {
+    display: block;
+    content: "";
+    width: 18px;
+    height: 18px;
+    background: #fff;
+    border-radius: 50%;
+    border: 1px solid #9e9e9e;
+}
+
+
+
+#Mycourse_edit .edit_info_select input[type="checkbox"]:checked:after {      
+   	background: url(../../img/select.png);
+   	border: 0;
+    width: 20px;
+    height: 20px;
+}
+#Mycourse_edit .Mycourse_edit_protocol{
+	position: relative;
+	left: 200px;
+	bottom: 10px;
+}
+
+#Mycourse_edit .Mycourse_edit_protocol a{
+	color: #1DA0F2;
+}
+
+
+#Mycourse_edit .Mycourse_edit_submit input{
+	width: 400px;
+	height: 40px;
+	border: 0;
+	background: #1DA0F2;
+	color: #fff;
+	border-radius: 5px;
+	margin-left: 110px;
+}
+
+
+#Mycourse_edit .Mycourse_edit_prompt{
+	float: right;
+	width: 20%;
+	height: 280px;
+	background: #fff;
+	border-top: 3px solid #1DA0F2;
+}
+
+#Mycourse_edit .Mycourse_edit_prompt h3{
+	padding: 20px 10px 10px 10px;
+}
+
+#Mycourse_edit .Mycourse_edit_prompt p{
+	line-height: 1.7;
+	padding: 10px;
+}
+
+#Mycourse_edit .Mycourse_edit_prompt p a{
+	color: #1DA0F2;
+	text-decoration: underline;
+}
+
+#Mycourse_edit .edit_info_uploadimg{
+	width: 120px;
+	height: 120px;
+	float: left;
+	background: url(../../img/add.png);
+	background-size:100% 100%;
+}
+
+#Mycourse_edit .edit_info_uploadimg input{
+	width: 120px;
+	height: 120px;
+	float: left;
+	opacity: 0;
+}
+
+
+
+/*编辑我的课程end*/
+
+/*编辑我的专辑*/
+#Modify_album{
+	padding: 35px;
+}
+
+#Modify_album .Myalbum_edit_content{
+	width: 70%;
+	float: left;
+	background: #fff;
+	min-width: 720px;
+}
+
+#Modify_album .Myalbum_edit_title{
+	height: 50px;
+	border-bottom:1px solid #ccc ;
+}
+
+#Modify_album .Myalbum_edit_title h3{
+	float: left;
+	font-size: 20px;
+	font-weight: 500;
+	line-height: 2.5;
+}
+
+#Modify_album #coures_return_btn img{
+	margin-right: 10px;
+}
+
+#Modify_album .Myalbum_edit_name{
+	height: 80px;
+	margin-top: 15px;
+}
+
+#Modify_album .edit_info_input input {
+	width: 540px;
+	height: 30px;
+	border-radius: 5px;
+	background-color: #eee;
+	border: 1px solid #ccc;
+	color: #666;
+	padding-left: 10px;
+}
+
+
+#Modify_album .edit_info_prompt {
+	color: #666;
+	position: relative;
+	left: 100px;
+	top: 10px;
+	float: left;
+}
+
+#Modify_album .Myalbum_edit_cover{
+	height: 180px;
+}
+
+#Modify_album .edit_info_upload{
+	height: 130px;
+}
+
+#Modify_album .edit_info_uploadimg{
+	width: 120px;
+	height: 120px;
+	float: left;
+}
+
+
+#Modify_album .Myalbun_edit_introd{
+	height: 240px;
+}
+
+#Modify_album .creat_edit_input textarea{
+	height: 200px;
+	width: 65%;
+	resize:none;
+	border-radius: 5px;
+	background-color: #eee;
+	border: 1px solid #ccc;
+	color: #666;
+	padding: 10px;
+}
+
+#Modify_album .Myalbun_edit_price{
+	height: 80px;
+}
+
+#Modify_album .Myalbun_edit_price input{
+	height: 30px;
+	width: 120px;
+	border-radius: 5px;
+	background-color: #eee;
+	border: 1px solid #ccc;
+	color: #666;
+	margin-right: 15px;
+}
+
+#Modify_album .creat_edit_input span{
+	margin-left: 10px;
+}
+
+#Modify_album .creat_edit_input button{
+	width: 120px;
+	height: 30px;
+	border-radius: 5px;
+	margin-left: 5px;
+	border: 1px;
+}
+#Modify_album .creat_edit_input button:first-child{
+	margin-left: 0;
+}
+
+
+
+#Modify_album .Myalbun_edit_price{
+	height: 100px;
+}
+
+#Modify_album .Mycourse_edit_prompt{
+	float: right;
+	width: 20%;
+	height: 280px;
+	background: #fff;
+	border-top: 3px solid #1DA0F2;
+}
+
+#Modify_album .Mycourse_edit_submit{
+	margin: 35px 125px;
+}
+
+#Modify_album .Mycourse_edit_submit input{
+	width: 160px;
+    height: 30px;
+    border-radius: 5px;
+    border: 0;
+    background: #1DA0F2;
+    color: #fff;
+    float: left;
+}
+
+
+#Modify_album #Myalbum_recharge{
+	width: 160px;
+    height: 30px;
+    border-radius: 5px;
+    border: 0;
+    display: block;
+    background: #eee;
+    color: #000;
+    margin-left: 50px;
+    float: left;
+    position: relative;
+   /* right: 145px;*/
+    text-align: center;
+    line-height: 2.3;
+}
+
+
+#Modify_album .Mycourse_edit_prompt h3{
+	padding: 20px 10px 10px 10px;
+}
+
+#Modify_album .Mycourse_edit_prompt p{
+	line-height: 1.7;
+	padding: 10px;
+}
+
+#Modify_album .Mycourse_edit_prompt p a{
+	color: #1DA0F2;
+	text-decoration: underline;
+}
+
+#Modify_album #Album_update{
+	width: 120px;
+	height: 120px;
+	float: left;
+	background-image: url(../../img/add.png);
+	background-size: 100% 100%;
+}
+
+#Modify_album #Album_update input{
+	width: 120px;
+	height: 120px;
+	float: left;
+	opacity: 0;
+
+}
+/*编辑我的专辑end*/
+
+/*课程管理*/
+#operating_ablum{
+	background: #fff;
+	margin: 20px;
+	padding: 40px;
+}
+
+#operating_ablum .operating_ablum_title{
+	height: 45px;
+	border-bottom:1px solid #ccc ;
+}
+
+#operating_ablum .operating_ablum_title h3{
+	float: left;
+	font-size: 20px;
+	font-weight: 500;
+	line-height: 2.3;
+}
+
+#operating_ablum .operating_modify{
+	height: 140px;
+}
+
+#operating_ablum .operating_courses{
+	float: left;
+	width: 60%;
+	height: 140px;
+}
+
+#operating_ablum .operating_courses p{
+	line-height: 2.0;
+}
+
+#operating_ablum #table_list_title{
+	margin-top: 26px;
+}
+
+#operating_ablum .operating_buts{
+	float: right;
+}
+
+#operating_ablum .operating_list_table{
+	margin-top: 25px;
+	min-width: 720px !important;
+}
+
+#operating_ablum #operating_table{
+	min-width: 720px !important;
+}
+#operating_ablum .layui-table{
+	min-width: 720px !important;
+}
+#operating_ablum .operating_table_title{
+	height: 50px;
+	border-bottom:1px solid #ccc ;
+}
+
+#operating_ablum #table_list_img{
+	width: 90px;
+	height: 90px;
+	margin: 25px;
+	float: left;
+	
+}
+
+#operating_ablum .operating_buts a{
+	margin: 25px;
+	height: 30px;
+    width: 120px;
+    border: 1px solid #1DA0F2;
+    color: #1DA0F2;
+    background: #fff;
+    display: block;
+    text-align: center;
+    line-height: 2.2;
+}
+
+#operating_ablum .operating_buts input:first-child{
+	margin-top: 42px;
+	
+}
+
+#operating_ablum #coures_video_name{
+	width: 90px;
+	height: 90px;
+	
+	float: left;
+	margin: 15px;
+}
+#operating_ablum .coures_list{
+	width: 50%;
+}
+#operating_ablum .coures_list p{
+	line-height: 3.0;
+	margin-left: 20px;
+}
+#operating_ablum #coures_video_title{
+	margin-top: 15px;
+}
+#operating_table td, #operating_table th{
+	padding: 0 !important;
+}
+
+/*.coures_list_time{
+	border: 0;
+	background: #FFF;
+	text-align: center;
+}*/
+
+#operating_ablum .operating_input_sort{
+	width: 170px;
+	z-index: 999;
+	position: absolute;
+	float: left;
+	display: none;
+}
+#operating_ablum .operating_input_sort input{
+	width: 30px;
+}
+
+#operating_ablum input[type=button]{
+	width: 30px;
+	height: 25px;
+	font-size: 12px;
+	background: #eee;
+	border: 1px solid #c1c1c1;
+	margin-left: 10px;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+.coures_list_stata{
+	width: 170px;
+	text-align: center;
+}
+#operating_ablum .operating_table_operating{
+	min-width: 300px;
+}
+
+.operating_table_operating a{
+    color: #1DA0F2;
+    margin-right: 30px;
+    float: right;
+}
+#operating_ablum .list_info span{
+	margin-right: 8px;
+	margin-left: 5px;
+}
+
+/*课程管理end*/
+
+/*我的专辑*/
+#album_mine{
+	background: #fff;
+	margin: 20px;
+	padding: 40px;
+}
+
+#album_mine .course_video{
+	height: 45px;
+	border-bottom:1px solid #ccc ;
+}
+
+#album_mine .course_video h3{
+	float: left;
+	font-size: 20px;
+	font-weight: 500;
+}
+
+#album_mine .course_video input{
+	float: right;
+	
+	width: 230px;
+	height: 30px;
+	border: 1px solid #cdcdcd;
+	padding-left: 20px;
+	border-radius:20px ;
+	color: #999;
+}
+
+#album_mine #album_search{
+	background: url(../../img/search_small.png)no-repeat;
+    height: 25px;
+    width: 25px;
+    border: 0;
+    position: relative;
+    z-index: 999;
+    top: 10px;
+    right: 20px;
+    float: right;
+    left: 250px;
+    cursor: pointer;
+}
+#album_mine #table_list_img{
+	width: 90px;
+	height: 90px;
+	float: left;
+}
+
+#album_mine .coures_video_table{
+	height: 600px;
+	overflow: auto;
+}
+
+#album_mine .Video_list td p{
+	padding-left: 100px;
+    margin-top: 7px;
+}
+
+#album_mine .list_info span{
+	margin-right: 8px;
+	margin-left: 5px;
+}
+
+#album_mine .layui-table th:nth-child(3){
+	text-align: center;
+}
+
+#album_mine .layui-table td:nth-child(3){
+	text-align: center;
+}
+
+#album_mine .table_operating li{
+	line-height: 2.0;
+}
+
+#album_mine .table_operating li a{
+	color: #1DA0F2;
+	cursor: pointer;
+}
+
+/*我的专辑end*/
+
+/*设置*/
+/*主页*/
+#home_page{
+	background: #fff;
+	margin: 20px;
+	padding: 40px;
+}
+
+#home_page .home_page_title{
+	height: 50px;
+	border-bottom:1px solid #ccc ;
+}
+
+
+#home_page .home_page_title h3{
+	float: left;
+	font-size: 20px;
+	font-weight: 500;
+}
+
+#home_page .home_page_title p{
+	float: left;;
+	width: 600px;
+	padding: 5px 10px 5px 10px;
+	background-color: #fde3da;
+	border: 1px solid #f57145;
+	color: #f57145;
+	margin-left: 15px;
+	border-radius: 5px
+}
+
+#home_page .home_page_title p a{
+	float: right;
+	color: #f57145;
+	text-decoration:underline
+}
+
+#home_page .home_page_album{
+	height: 270px;
+}
+
+#home_page .album_title{
+	padding: 15px 0;
+}
+
+#home_page .album_title strong{
+	font-size: 16px;
+	float: left;
+	margin-right: 15px;
+}
+
+
+#home_page .album_modify_a{
+	
+    margin-left: 10px;
+    float: left;
+    position: relative;
+    left: 15px;
+}
+#home_page .album_title a{
+	color: #1DA0F2;
+	font-size: 16px;
+	
+}
+
+#home_page .album_hide{
+	display: none;
+	float: left;
+	margin-left: 15px;
+}
+
+#home_page .album_hide a {
+	margin-right: 15px;
+	cursor: pointer;
+}
+#home_page .album_name{
+	font-size: 16px;
+	font-weight: 600;
+}
+
+#home_page .album_upload_picture{
+	margin-top: 10px;
+}
+
+#home_page .picture_edit_uploadimg{
+	float: left;
+	width: 180px;
+	height: 180px;
+}
+#home_page .picture_edit_uploadimg img{
+	width: 100%;
+	height: 100%;
+	border-radius: 10px;
+}
+#home_page .picture_edit_uploadimg input{
+	width: 180px;
+	height: 180px;
+	float: left;
+	opacity: 0;
+	position: relative;
+	bottom: 360px;
+	display: none;
+}
+#home_page #album_install_images{
+	margin: 10px 0;
+	float: left;
+	display: none;
+	margin-right: 10px;
+}
+#home_page #album_install_images img{
+	height: 80px;
+	width: 80px;
+	float: left;
+	position: absolute;
+	 margin-top: -11px;
+}
+#home_page #album_install_images input{
+	width: 80px;
+	height: 80px;
+	z-index: 999;
+	float: left;
+	/*position: absolute;*/
+	/*right: 80px;*/
+	opacity: 0;
+}
+
+#home_page .imgUpdate{
+	float: left;
+	margin-left: 15px;
+	margin-top: 10px;
+}
+
+
+#home_page .imgUpdate label{
+	width: 80px;
+	height: 80px;
+	margin-right: 15px;
+	margin-bottom: 20px;
+	float: left;
+}
+
+#home_page .imgUpdate img{
+	width: 80px;
+	height: 80px;
+	margin-right: 15px;
+}
+
+
+/*#home_page #install_homeimg{
+	width: 120px;
+	height: 120px;
+	float: left;
+}*/
+
+
+
+#home_page .home_page_Introduction p{
+	line-height: 2.0;
+}
+
+#home_page .home_page_Introduction p span{
+	margin-right: 10px;
+}
+
+
+#home_page .album_self{
+	margin-top: 15px;
+	width: 70%;
+}
+
+#home_page .album_self span{
+	font-size: 16px;
+	font-weight: 600;
+}
+
+#home_page .Home_Entering p{
+	line-height: 2.0;
+}
+
+#home_page .updata_imgs{
+	background: url(../../img/delect.png) no-repeat;
+    width: 20px;
+    height: 20px;
+    border: 0;
+    bottom: 80px;
+    left: 5px;
+    position: relative;
+    float: right;
+	display: none;
+}
+
+#home_page #img_show{
+	float: left;
+    position: relative;
+    bottom: 180px;
+    opacity: 0.8;
+    display: none;
+}
+/*主页end*/
+
+/*主页资料修改*/
+#Userinfo_update{
+	padding: 35px;
+}
+
+#Userinfo_update .user_update_title{
+	height: 50px;
+	border-bottom:1px solid #ccc ;
+}
+
+#Userinfo_update .user_update_title h3{
+	float: left;
+	font-size: 20px;
+	font-weight: 500;
+	line-height: 2.5;
+}
+
+#Userinfo_update .user_update_info{
+	padding: 25px;
+}
+
+#Userinfo_update .user_update_info div{
+	margin-top: 25px;
+}
+
+#Userinfo_update .update_self_introduction textarea{
+	height: 200px;
+	width: 340px;
+	resize:none;
+	border-radius: 5px;
+	background-color: #eee;
+	border: 1px solid #ccc;
+	color: #666;
+	padding: 10px;
+}
+#Userinfo_update .user_update_submit input{
+	width: 200px;
+	height: 40px;
+	border: 0;
+	background: #1DA0F2;
+	color: #fff;
+	border-radius: 5px;
+	margin-left: 130px;
+	cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+#userinfo #iphonenum{
+	width: 340px;
+    height: 30px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background: #eee;
+    color: #666;
+    padding-left: 10px;
+}
+
+#userinfo #btnverification{
+	margin: 10px 0 0 100px;
+    width: 195px;
+    height: 30px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background: #eee;
+    padding-left: 10px;
+}
+
+#userinfo #btninfo{
+	width: 140px;
+    height: 30px;
+    border-radius: 5px;
+    border: 1px solid #1DA0F2;
+    background: #fff;
+    color: #1DA0F2;
+    cursor: pointer;
+}
+
+
+
+/*主页资料修改end*/
+
+
+
+/*专家资料修改*/
+#Expert_info{
+	padding: 35px;
+}
+
+#Expert_info .Expert_update_title{
+	height: 50px;
+	border-bottom:1px solid #ccc ;
+}
+
+#Expert_info .Expert_update_title h3{
+	float: left;
+	font-size: 20px;
+	font-weight: 500;
+	line-height: 2.5;
+}
+
+
+#Expert_info .Expert_update_info{
+	padding: 25px;
+}
+
+#Expert_info .Expert_update_info div{
+	margin-top: 30px;
+}
+
+#Expert_info .Expert_add_input span{
+	margin-left: 10px;
+}
+
+#Expert_info .Expert_add_input button{
+	width: 120px;
+	height: 30px;
+	border-radius: 5px;
+	margin-left: 5px;
+	border: 1px;
+}
+#Expert_info .Expert_add_input button:first-child{
+	margin-left: 0;
+}
+
+#Expert_info .Expert_self_introduction textarea{
+	height: 200px;
+	width: 340px;
+	resize:none;
+	border-radius: 5px;
+	background-color: #eee;
+	border: 1px solid #ccc;
+	color: #666;
+	padding: 10px;
+}
+
+#Expert_info .add_button{
+	margin-left: 100px !important;
+    margin-top: 10px;
+}
+
+#Expert_info .Expert_add_submit input{
+	width: 200px;
+	height: 40px;
+	border: 0;
+	background: #1DA0F2;
+	color: #fff;
+	border-radius: 5px;
+	margin-left: 110px;
+}
+
+#Expert_info .Expert_add_submit p{
+	margin:10px 105px;
+	color: #999;
+}
+
+/*专家资料修改end*/
+
+/*企业资料修改*/
+#enterprise_info{
+	padding: 35px;
+}
+
+#enterprise_info .Expert_update_title{
+	height: 50px;
+	border-bottom:1px solid #ccc ;
+}
+
+#enterprise_info .Expert_update_title h3{
+	float: left;
+	font-size: 20px;
+	font-weight: 500;
+	line-height: 2.5;
+}
+
+
+#enterprise_info .Expert_update_info{
+	padding: 25px;
+}
+
+#enterprise_info .Expert_update_info div{
+	margin-top: 35px;
+}
+
+#enterprise_info .Expert_add_input span{
+	margin-left: 10px;
+}
+
+#enterprise_info .Expert_add_input button{
+	width: 120px;
+	height: 30px;
+	border-radius: 5px;
+	margin-left: 5px;
+	border: 1px;
+}
+#enterprise_info .Expert_add_input button:first-child{
+	margin-left: 0;
+}
+
+#enterprise_info .Expert_self_introduction textarea{
+	height: 200px;
+	width: 340px;
+	resize:none;
+	border-radius: 5px;
+	background-color: #eee;
+	border: 1px solid #ccc;
+	color: #666;
+	padding: 10px;
+}
+
+#enterprise_info .add_button{
+	margin-left: 100px !important;
+    margin-top: 10px;
+}
+
+#enterprise_info .Expert_add_submit input{
+	width: 200px;
+	height: 40px;
+	border: 0;
+	background: #1DA0F2;
+	color: #fff;
+	border-radius: 5px;
+	margin-left: 110px;
+}
+
+#enterprise_info .Expert_add_submit p{
+	margin:10px 105px;
+	color: #999;
+}
+
+#enterprise_info .Enterprise_add_input button{
+	width: 120px;
+	height: 30px;
+	border-radius: 5px;
+	margin-left: 5px;
+	border: 1px;
+}
+#enterprise_info .Enterprise_add_input button:first-child{
+	margin-left: 0;
+}
+/*企业资料修改end*/
+/*申请入驻*/
+#Application_join{
+	padding: 35px;
+	text-align: center;
+}
+#Application_join .Application_join_title{
+	height: 50px;
+	border-bottom:1px solid #ccc ;
+}
+
+#Application_join .Application_join_title h3{
+	float: left;
+	font-size: 20px;
+	font-weight: 500;
+	line-height: 2.5;
+}
+
+
+#Application_join .Account_binding_Description{
+	width: 33%;
+	float: left;
+}
+
+#Application_join .Account_binding_Description span{
+	color: #1DA0F2;
+}
+
+#Application_join .Application_join_info{
+    height: 200px;
+    padding-top: 20px;
+}
+
+
+#Application_join .Application_join_type{
+	height: 220px;
+    margin-top: 80px;
+}
+#Application_join .Application_title{
+    padding: 0 0 25px 0;
+    font-size: 16px;
+}
+
+#Application_join .Application_join_user{
+    float: left;
+    width: 16%;
+    margin-top: 20px;
+    margin-left: 10%;
+}
+
+#Application_join .Application_join_user a{
+	color: #1DA0F2;
+}
+
+#Application_join .Application_join_user p{
+	color: #999999;
+	margin-top: 10px;
+}
+
+/*申请入驻end*/
+
+
+
+/*芝麻信用入驻*/
+#Sesamecertif_User{
+	padding: 35px;
+}
+
+#Sesamecertif_User .Sesamecertif_title{
+	height: 50px;
+	border-bottom:1px solid #ccc ;
+}
+
+#Sesamecertif_User .Sesamecertif_title h3{
+	float: left;
+	font-size: 20px;
+	font-weight: 500;
+	line-height: 2.5;
+}
+
+#Sesamecertif_User .Sesamecertif_content{
+	margin-left: 25%;
+}
+
+#Sesamecertif_User .Sesamecertif_content_pream{
+	margin: 60px 0 30px 0;
+}
+
+#Sesamecertif_User .Sesamecertif_info_name{
+	height: 50px;
+    margin-top: 15px;
+}
+
+#Sesamecertif_User #Get_address{
+	width: 200px;
+    height: 40px;
+    background: #1DA0F2;
+    color: #fff;
+    display: block;
+    line-height: 3;
+    text-align: center;
+    border-radius: 5px;
+    margin: 20px 135px;
+}
+
+#Sesamecertif_User #Sesamecertif_QRcode{
+	    width: 350px;
+    text-align: center;
+    height: 300px;
+    border: 1px solid #eee;
+    border-radius: 5px;
+    background: #fff;
+    position: absolute;
+    top: 20%;
+    left: 33%;
+    display: none;
+}
+
+#Sesamecertif_User #Sesam_codeclose{
+	float: right;
+	color: #999;
+	    margin-top: 5px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+
+/*芝麻信用入驻end*/
+
+/*个人入驻*/
+#User_application{
+	padding: 35px;
+}
+
+#User_application .user_content{
+	width: 70%;
+	float: left;
+	
+}
+
+#User_application .user_content_info{
+	margin: 80px auto;
+	width: 310px;
+}
+
+#User_application .user_content_title{
+	height: 50px;
+	border-bottom:1px solid #ccc ;
+}
+
+#User_application .user_content_title h3{
+	float: left;
+	font-size: 20px;
+	font-weight: 500;
+	line-height: 2.5;
+}
+
+
+#User_application .user_description{
+	color: #999;
+	font-size: 12px;
+}
+
+#User_application .user_description a{
+	color: #1DA0F2;
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+#User_application  .user_info_way{
+	margin: 15px 0;
+}
+
+#User_application  .user_info_way span{
+	color: #fa4b4b;
+	padding: 3px;
+	border-radius: 5px;
+	border: 1px solid #fa4b4b;
+}
+
+#User_application .user_btn{
+	margin: 20px 0;
+}
+
+#User_application .user_btn a{
+	background: #1DA0F2;
+    color: #fff;
+    width: 300px;
+    height: 40px;
+    display: block;
+    text-align: center;
+    line-height: 3.0;
+    border-radius: 5px;
+}
+
+#User_application .user_prompt{
+	float: right;
+	width: 20%;
+	height: 280px;
+	background: #fff;
+	border-top: 3px solid #1DA0F2;
+}
+
+#User_application .user_prompt h3{
+	padding: 20px 10px 10px 10px;
+}
+
+#User_application .user_prompt p{
+	line-height: 1.7;
+	padding: 10px;
+}
+
+#User_application .user_prompt p a{
+	color: #1DA0F2;
+	text-decoration: underline;
+}
+/*个人入驻end*/
+
+/*个人入驻申请*/
+#certification_Alipay{
+	padding: 35px;
+}
+
+#certification_Alipay .certification_content{
+	margin-left: 25%;
+}
+
+#certification_Alipay .certifi_content_pream{
+	margin: 60px 0 30px 0;
+}
+
+#certification_Alipay .certifi_content_pream a{
+	color: #1DA0F2;
+	text-decoration: underline;
+}
+#certification_Alipay .certification_title{
+	height: 50px;
+	border-bottom:1px solid #ccc ;
+}
+
+#certification_Alipay .certification_title h3{
+	float: left;
+	font-size: 20px;
+	font-weight: 500;
+	line-height: 2.5;
+}
+
+#certification_Alipay .certification_info_name{
+	height: 50px;
+	margin-top: 15px;
+}
+
+
+
+#certification_Alipay .certification_Upload_idcard{
+	height: 230px;
+	background: #FFF9EC;
+}
+
+#certification_Alipay  #Next_step{
+	width: 200px;
+	height: 40px;
+	background: #1DA0F2;
+	color: #fff;
+	display: block;
+    line-height: 3;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.l_identification_just span,
+.l_identification_back span {
+	display: block;
+	color: #333333;
+	font-size: 20px;
+	margin-top: 30px;
+	height: 40px;
+	line-height: 50px;
+	margin-bottom: 25px;
+}
+
+.l_identification_just_img,
+.l_identification_back_img{
+	height: 250px;
+}
+
+
+
+.l_identification_just_img .l_identification_public,
+.l_identification_back_img .l_identification_public {
+	width: 280px;
+	height: 200px;
+	position: relative;
+}
+
+.l_identification_just_img .l_identification_just_input,
+.l_identification_back_img .l_identification_back_input {
+	background: url(../../img/add.png) no-repeat center center #eeeeee;
+	background-size: 120px 120px;
+	float: left;
+}
+
+.l_identification_just_img .l_identification_just_input input,
+.l_identification_back_img .l_identification_back_input input {
+	width: 100%;
+	height: 100%;
+	opacity: 0;
+	cursor: pointer;
+}
+
+.l_identification_just_img .l_identification_just_shil {
+	background: url(../../img/11.png) no-repeat center center;
+	background-size: 100% 100%;
+	float: left;
+}
+
+.l_identification_just>h6,
+.l_identification_back>h6 {
+	font-size: 14px;
+	color: #999999;
+	margin-top: 15px;
+}
+
+.l_identification_back_img .l_identification_back_shil {
+	background: url(../../img/img_12.jpg) no-repeat center center;
+	background-size: 100% 100%;
+	float: left;
+}
+/*入驻申请end*/
+
+
+/*手机号验证*/
+#phone_Code{
+	padding: 35px;
+}
+
+#phone_Code .phone_title{
+	height: 50px;
+	border-bottom:1px solid #ccc ;
+}
+
+#phone_Code .phone_title h3{
+	float: left;
+	font-size: 20px;
+	font-weight: 500;
+	line-height: 2.5;
+}
+
+#phone_Code #iphonenum{
+	width: 340px;
+    height: 30px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background: #eee;
+    color: #666;
+    padding-left: 10px;
+}
+
+#phone_Code #btnverification{
+	margin: 10px 0 0 100px;
+    width: 195px;
+    height: 30px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background: #eee;
+    padding-left: 10px;
+}
+
+#phone_Code #btninfo {
+    width: 140px;
+    height: 30px;
+    border-radius: 5px;
+    border: 1px solid #1DA0F2;
+    background: #fff;
+    color: #1DA0F2;
+    cursor: pointer;
+}
+
+#phone_Code .user_update_info{
+	padding: 25px;
+}
+
+#phone_Code .user_update_info div{
+	margin-top: 20px;
+}
+
+#phone_Code .user_update_submit input{
+	width: 200px;
+	height: 40px;
+	border: 0;
+	background: #1DA0F2;
+	color: #fff;
+	border-radius: 5px;
+	margin-left: 130px;
+	cursor: pointer;
+}
+
+/*入住申请--->编辑资料*/
+#userinfo{
+	padding: 35px;
+}
+
+#userinfo .user_add_title{
+	height: 50px;
+	border-bottom:1px solid #ccc ;
+}
+
+#userinfo .user_add_title h3{
+	float: left;
+	font-size: 20px;
+	font-weight: 500;
+	line-height: 2.5;
+}
+
+#userinfo .user_add_info div{
+	margin-top: 25px
+}
+
+#userinfo .user_add_input span{
+	margin-left: 10px;
+}
+
+#userinfo #user_add_input button{
+	width: 120px;
+	height: 30px;
+	border-radius: 5px;
+	margin-left: 5px;
+	border: 1px;
+}
+#userinfo #user_add_input button:first-child{
+	margin-left: 0;
+}
+
+#userinfo #promotion_btn{
+	margin-left: 80px !important;
+	margin-top: 10px;
+}
+
+#userinfo .add_self_introduction textarea{
+	height: 200px;
+	width: 340px;
+	resize:none;
+	border-radius: 5px;
+	background-color: #eee;
+	border: 1px solid #ccc;
+	color: #666;
+	padding: 10px;
+}
+
+#userinfo .user_add_submit input{
+	width: 200px;
+	height: 40px;
+	border: 0;
+	background: #1DA0F2;
+	color: #fff;
+	border-radius: 5px;
+	margin-left: 110px;
+}
+
+#userinfo .add_button{
+	margin-left: 100px !important;
+    margin-top: 10px;
+}
+
+#userinfo .img_picture {
+	    width: 530px;
+    height: 250px;
+    margin-left: 100px;
+}
+
+
+#userinfo .img_picture label {
+	    width: 80px;
+    height: 80px;
+    float: left;
+    /* margin: 15px; */
+    position: relative;
+    bottom: 11px;
+    /*right: 15px;*/
+    margin-right: 15px;
+    margin-bottom: 15px;
+}
+
+
+#userinfo .img_picture label img{
+	width: 80px;
+	height: 80px;
+}
+
+#userinfo #user_instrImg{
+	height: 80px;
+    width: 80px;
+    float: left;
+    position: absolute;
+    margin-top: -11px;
+}
+
+#userinfo #userImg{
+	width: 80px;
+    height: 80px;
+    z-index: 999;
+    float: left;
+    opacity: 0;
+    margin-right: 15px;
+    margin-bottom: 15px;
+}
+
+#userinfo .upadta_imgUser{
+	background: url(../../img/delect.png) no-repeat;
+    width: 20px;
+    height: 20px;
+    border: 0;
+    bottom: 80px;
+    left: 5px;
+    position: relative;
+    float: right;
+}
+
+#userinfo .imgUpdate label{
+	width: 80px;
+	height: 80px;
+	margin-right: 15px;
+	margin-bottom: 20px;
+	float: left;
+}
+
+#userinfo .imgUpdate img{
+	width: 80px;
+	height: 80px;
+	margin-right: 15px;
+}
+
+
+
+
+
+
+/*入住申请--->编辑资料end*/
+
+/*入驻申请   ---->企业入驻*/
+#enterpriseinfo{
+	padding: 35px;
+}
+
+#enterpriseinfo .enter_add_title{
+	height: 50px;
+	border-bottom:1px solid #ccc ;
+}
+
+#enterpriseinfo .enter_add_title h3{
+	float: left;
+	font-size: 20px;
+	font-weight: 500;
+	line-height: 2.5;
+}
+
+#enterpriseinfo .enter_add_info div{
+	margin-top: 30px
+}
+
+#enterpriseinfo .add_self_introduction textarea{
+	height: 200px;
+	width: 340px;
+	resize:none;
+	border-radius: 5px;
+	background-color: #eee;
+	border: 1px solid #ccc;
+	color: #666;
+	padding: 10px;
+}
+
+#enterpriseinfo #enter_add_input button{
+	width: 120px;
+	height: 30px;
+	border-radius: 5px;
+	margin-left: 5px;
+	border: 1px;
+}
+#enterpriseinfo #enter_add_input button:first-child{
+	margin-left: 0;
+}
+#enterpriseinfo .add_button{
+	margin-left: 100px !important;
+    margin-top: 10px;
+}
+
+#enterpriseinfo #iphonenum{
+	width: 340px;
+    height: 30px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background: #eee;
+    color: #666;
+    padding-left: 10px;
+}
+
+#enterpriseinfo #btnverification{
+	margin: 10px 0 0 100px;
+    width: 195px;
+    height: 30px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background: #eee;
+    padding-left: 10px;
+}
+
+#enterpriseinfo #btninfo {
+    width: 140px;
+    height: 30px;
+    border-radius: 5px;
+    border: 1px solid #1DA0F2;
+    background: #fff;
+    color: #1DA0F2;
+    cursor: pointer;
+}
+#enterpriseinfo #enter_job{
+	float: left;
+	width: 80px;
+	height: 80px;
+} 
+#enterpriseinfo #entet_img{
+	float: left;
+	width: 80px !important;
+    height: 80px !important;
+    float: left;
+    z-index: 999;
+    position: relative;
+    right: 102px;
+    opacity: 0;
+}
+
+#enterpriseinfo #enter_submit{
+		width: 200px;
+	height: 40px;
+	border: 0;
+	background: #1DA0F2;
+	color: #fff;
+	border-radius: 5px;
+	margin-left: 110px;
+}
+
+
+#enterpriseinfo .enter_positive{
+	float: left;
+	width: 140px;
+	height: 100px;
+	margin-right: 20px;
+	position: relative;
+	bottom: 20px;
+}
+
+#enterpriseinfo .enter_positive img{
+	float: left;
+	width: 140px;
+	height: 100px;
+}
+
+#enterpriseinfo .enter_positive input{
+	float: left;
+	width: 140px !important;
+    height: 100px !important;
+    float: left;
+    z-index: 999;
+    position: relative;
+    bottom: 100px;
+    opacity: 0;
+}
+
+
+/*消息设置*/
+#setting_message{
+	height: 90%;
+	margin: 20px;
+}
+
+#setting_message .setting_message{
+	width: 64%;
+	float: left;
+	padding: 25px;
+	background: #fff;
+	height: 100%;
+}
+
+
+#setting_message .setting_message_title{
+	height: 50px;
+	border-bottom:1px solid #ccc ;
+}
+
+#setting_message .message_title{
+	border-bottom: 1px solid #c1c1c1;
+	height: 35px;
+	font-size: 20px;
+}
+
+#setting_message .message_notice{
+	lighting-color: 2.5;
+}
+
+#setting_message .message_notice p{
+	margin-top: 15px;
+}
+
+#setting_message .message_notice p:nth-child(2){
+	color: #999;
+}
+
+
+#setting_message .message_notice ul{
+	line-height: 2.0;
+    margin: 10px;
+}
+
+
+#setting_message .message_notice ul input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    outline: none;
+    margin: 0;
+    position: relative;
+    top: 5px;
+    right: 5px;
+}
+
+#setting_message .message_notice ul input[type="checkbox"]:after {
+    display: block;
+    content: "";
+    width: 18px;
+    height: 18px;
+    background: #fff;
+    border-radius: 50%;
+    border: 1px solid #9e9e9e;
+}
+
+#setting_message .message_notice ul input[type="checkbox"]:checked:after {      
+   	background: url(../../img/select.png);
+   	border: 0;
+    width: 20px;
+    height: 20px;
+}
+
+#setting_message .message_notic_save{
+	width: 160px;
+	height: 40px;
+	background-color: #1DA0F2;
+	border: 0px;
+	border-radius: 5px;
+	color: #fff;
+	margin: 20px 20px;
+}
+
+#setting_message .message_prompt{
+	float: right;
+	width: 26%;
+	height: 280px;
+	background: #fff;
+	padding: 15px;
+	border-top: 3px solid #1DA0F2;
+}
+
+#setting_message .message_prompt h3{
+	padding: 20px 10px 20px 10px;
+}
+
+/*消息设置end*/
+
+
+/*隐私设置*/
+#privacy_setting{
+	width:75%;
+	padding: 35px;
+	
+}
+
+#privacy_setting .privacy_title{
+	height: 50px;
+	border-bottom:1px solid #ccc ;
+}
+
+
+#privacy_setting .privacy_title h3{
+	float: left;
+	font-size: 20px;
+	font-weight: 500;
+}
+
+#privacy_setting .privacy_news p {
+	margin: 15px 0 10px 0;
+}
+
+#privacy_setting .privacy_news p strong{
+	font-size: 16px;
+	font-weight:500 ;
+}
+
+#privacy_setting .privacy_news p span{
+	margin-left: 15px;
+	font-size: 12px;
+	color: #999;
+}
+
+
+#privacy_setting .privacy_news ul{
+	line-height: 2.0;
+    margin: 10px;
+}
+
+
+#privacy_setting .privacy_news ul input[type="radio"] {
+    appearance: none;
+    -webkit-appearance: none;
+    outline: none;
+    margin: 0;
+    position: relative;
+    top: 5px;
+    right: 5px;
+}
+
+#privacy_setting .privacy_news ul input[type="radio"]:after {
+    display: block;
+    content: "";
+    width: 18px;
+    height: 18px;
+    background: #fff;
+    border-radius: 50%;
+    border: 1px solid #9e9e9e;
+}
+
+#privacy_setting .privacy_news ul input[type="radio"]:checked:after {      
+   	background: url(../../img/select.png);
+   	border: 0;
+    width: 20px;
+    height: 20px;
+}
+
+#privacy_setting .privacy_btn_save{
+	width: 160px;
+	height: 40px;
+	background-color: #1DA0F2;
+	border: 0px;
+	border-radius: 5px;
+	color: #fff;
+	margin: 20px 20px;
+}
+
+/*隐私设置end*/
+
+/*账号绑定*/
+#Account_binding{
+	padding: 35px;
+}
+
+#Account_binding .Account_binding_title{
+	height: 50px;
+	border-bottom:1px solid #ccc ;
+}
+
+#Account_binding .Account_binding_title h3{
+	float: left;
+	font-size: 20px;
+	font-weight: 500;
+}
+
+#Account_binding .account_third_party{
+	padding: 40px 0 0 0;
+}
+#Account_binding .accound_WeChat{
+	width: 28%;
+	height: 160px ;
+	background: #eee;
+	float: left;
+	margin-right: 5%;
+}
+
+#Account_binding .accound_WeChat img{
+	margin: 20px;
+	float: left;
+}
+#Account_binding .accound_webinding{
+    line-height: 3;
+    margin-top: 30px;
+}
+
+#Account_binding .accound_webinding a{
+	text-decoration: underline;
+	color: #1DA0F2;
+}
+/*账号绑定end*/
+
+/*设置end*/
+
+
+/*帮助*/
+#help{
+	padding: 35px;
+}
+
+#help .help_title{
+	height: 50px;
+	border-bottom:1px solid #ccc ;
+}
+
+#help .help_title h3{
+	float: left;
+	font-size: 20px;
+	font-weight: 500;
+}
+
+#help .help_problem_list{
+	height: 200px;
+	padding-top: 40px;
+}
+
+#help .help_problem_list ul{
+	width: 30%;
+	float: left;
+	line-height: 2.0;
+}
+/*帮助end*/
+
+
+
+/*****消息******/
+/*系统通知*/
+#system_info{
+	padding: 35px;
+}
+
+#system_info .system_info_title{
+	height: 50px;
+	border-bottom:1px solid #ccc ;
+}
+
+#system_info .info_list{
+		height: 120px;
+}
+
+#system_info .info_list img{
+	border: none;
+    float: left;
+    margin: 20px;
+    width: 80px;
+}
+#system_info .system_info_list{
+
+}
+
+#system_info .info_list_content{
+	float: left;
+    line-height: 2.0;
+    padding-top: 15px;
+    width: 75%;
+}
+
+#system_info .info_list_time{
+	    float: right;
+    font-size: 12px;
+    color: #999;
+}
+
+#system_info .info_list_prompt{
+	color: #999;
+}
+
+#system_info .info_list_prompt a{
+	color: #1DA0F2;
+	text-decoration: underline;
+}
+/*系统通知end*/
+
+/*专辑评价*/
+#pn {
+	width: 90%;
+	height: auto;
+	background: #fff;
+	padding: 20px;
+}
+
+.list0 {
+	padding: 20px 0;
+	position: relative;
+	border-top: 1px solid #eee;
+}
+
+.head {
+	width: 60px;
+	float: left;
+}
+
+.head img {
+	width: 60px;
+	height: 60px;
+	border-radius: 50%;
+}
+
+.close {
+	width: 20px;
+	height: 20px;
+	position: absolute;
+	top: 0;
+	right: 0;
+	color: #696e78;
+	font-size: 14px;
+	text-align: center;
+	line-height: 20px;
+}
+
+.close:hover {
+	color: #eb7350;
+}
+
+.content {
+	width: 100%;
+	line-height: 20px;
+	font-size: 14px;
+	margin-left: 70px;
+}
+
+.name {
+	color: #eb7350;
+}
+
+.pic {
+	margin: 5px 0;
+}
+
+/*.good:after {
+	clear: both;
+	content: '';
+	display: block;
+	width: 0;
+	height: 0;
+	visibility: hidden;
+}*/
+
+.good {
+	height: 150px;
+	margin-top: 30px;
+}
+
+.good p{
+	line-height: 2.0;
+	margin-top: 15px;
+}
+
+.date {
+	float: right;
+	color: #808080;
+	/*margin-top: -20px;*/
+}
+
+.good a {
+	float: right;
+	color: #808080;
+}
+
+.people {
+	background: #F7F7F7;
+	height: 28px;
+	line-height: 28px;
+	padding-left: 10px;
+	margin: 5px 0;
+}
+
+.comment:after {
+	clear: both;
+	content: '';
+	display: block;
+	width: 0;
+	height: 0;
+	visibility: hidden;
+}
+
+.comment {
+	*zoom: 1;
+	padding: 10px 0;
+	border-top: 1px solid #eee;
+}
+
+.comment-left {
+	width: 30px;
+	float: left;
+	display: inline;
+	margin-right: 10px;
+}
+
+.comment-left img {
+	width: 30px;
+	height: 30px;
+}
+
+.comment-right {
+	float: left;
+	width: 410px;
+}
+
+.comment-text {
+	line-height: 18px;
+}
+.text{
+	margin-top: 20px;
+}
+.comment-text span {
+	color: #eb7350;
+}
+
+.comment-date {
+	font-size: 12px;
+	line-height: 14px;
+	color: #ccc;
+	position: relative;
+}
+
+.comment-zan {
+	position: absolute;
+	right: 40px;
+	bottom: 0;
+	color: #808080;
+}
+
+.comment-dele {
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	color: #808080;
+}
+
+.hf:after {
+	clear: both;
+	content: '';
+	display: block;
+	width: 0;
+	height: 0;
+	visibility: hidden;
+}
+
+.hf {
+	/*display: none;*/
+}
+
+.hf-text {
+	border: 1px solid #eee;
+	display: block;
+	height: 15px;
+	width: 438px;
+	padding: 5px;
+	resize: none;
+	color: #ccc;
+	font-size: 12px;
+}
+
+.hf-on .hf-text {
+	height: 60px;
+	color: #333;
+	border: 1px solid #ff8140;
+}
+
+.hf-btn {
+	float: right;
+	width: 65px;
+	height: 26px;
+	background: #f7f7f7;
+	color: #ccc;
+	font-size: 12px;
+	display: none;
+}
+
+.hf-btn-on {
+	background: #ff8140;
+	color: #fff;
+}
+
+.hf-nub {
+	float: right;
+	padding: 3px 5px;
+	color: #666;
+	display: none;
+}
+
+.hf-on .hf-btn {
+	    display: inline;
+    position: absolute;
+    right: 419px;
+}
+
+.hf-on .hf-nub {
+	display: inline;
+    position: absolute;
+    float: left;
+    bottom: 20px;
+    /* right: 10px; */
+    left: 470px;
+}
+
+.album_label label{
+	width: 100px;
+    height: 30px;
+    border: 1px solid #f57145;
+    display: inline-block;
+    text-align: center;
+    margin-right: 15px;
+    border-radius: 5px;
+    color: #f57145;
+    background: #fde3da;
+}
+
+.album_info{
+	    width: 320px;
+    height: 80px;
+    float: left;
+    background: #eee;
+    border-radius: 10px;
+    margin-top: 15px;
+}
+
+.album_info img{
+	width: 60px;
+	height: 60px;
+	float: left;
+	margin: 10px;
+}
+
+.unoin_courseName{
+	padding:0 15px;
+}
+
+.comment_roger_table{
+	height: 600px;
+	overflow: auto;
+}

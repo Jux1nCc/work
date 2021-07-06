@@ -1,0 +1,132 @@
+<html lang="zh-cmn-Hans">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <title>积分问题</title>
+    <link rel="stylesheet" href="http://activity.folkcam.cn/common/comm.css">
+    <style>
+        .wrap {
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        b {
+            display: block;
+            width: 100%;
+            font-family: "NSimSun" !important;
+            background: #F5F5F5;
+            padding: 24px 5% 12px;
+        }
+
+        span {
+            color: #3A84FF;
+            text-decoration: underline;
+        }
+
+        p {
+            color: #333;
+            padding: 10px;
+        }
+
+        @media screen and (max-width: 1280px) {
+            .explite-wrap {
+                width: 100%;
+                margin-top: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <script src="http://activity.folkcam.cn/common/jquery.min.js"></script>
+        <script src="http://activity.folkcam.cn/common/rem.js"></script>
+        <script src="http://activity.folkcam.cn/common/createBar.js"></script>
+        <script>
+            $bar.setBar({ bg: '#fff', font: '#000' }, {
+                type: 1,
+                detail: ''
+            }, {})
+        </script>
+        <div class="explite-wrap wrap-content">
+            <div><b>1.如何兑换积分?</b></div>
+            <p>点击<span onclick="doExchange()">积分兑换</span>,积分兑换钻石或者积分兑换人民币即可择兑换钻石、人民币。<br>
+                温馨提示:兑换钻石是实时到账的;兑换人民币需要三个工作日(不包括周末和节假日)完成，请耐心等待。
+            </p>
+            <div><b>2.私聊回复信息为什么没有得到积分?</b></div>
+            <p>您收到私信即可获得相应积分，但是搭讪是在24小时内回复才可获得相应积分;<br>
+                可以在<span onclick="goList()">积分清单</span>核对一下是否收到积分，系统显示有可能延迟，如果有问题可以提供对方觅伊号给在线客服处理。</p>
+            <div><b>3.积分兑换人民币为什么还不到账? </b></div>
+            <p>您好，周一，周三，周五为到账日。即： 周五、周六、周日24点前提现，周一到账； 周一、周二24点前提现，周三到账； 周三、周四24点前提现，周五到账。 所有提现在到账日当天下午7点前到账，请对比您的提现账单以及上面的到账时间哦。您可以检查您的提现账户信息，进行核实。如有疑问，可以<span
+                    onclick="getConcact()">联系客服小姐姐></span>。
+            </p>
+            <div><b>4.私聊对方主动发消息，为什么回复后没积分?</b></div>
+            <p>可以在<span onclick="goList()">积分清单</span>核对一下是否收到积分，系统显示有可能延迟，如果有问题可以提供对方觅伊号给在线客服处理。(好友间私信是免费的)</p>
+
+            <div><b>5.兑换记录在哪里能查看到?</b></div>
+            <p>可以在“我的收益”>“积分兑换钻石”>“兑换记录”页面查看;<br>
+                在积分兑换过程中遇到问题，可以反馈给觅伊客服，或关注咨询觅伊微信公众号: 觅伊, 快速解决问题。</p>
+
+            <div><b>6.申请兑换的时候账号信息填错了怎么办?</b></div>
+            <p>账号填写错误而打款失败的账单，兑换对应的积分是直接退回到提现账号的，收到退回消息后，可以在<span
+                    onclick="goList()">积分清单</span>查看退回积分记录，您可以重新填写正确的提现账号信息后再申请提现。</p>
+            <p>账号填写错误而打款成功的账单，由用户自己承担对应的责任。有疑问请查看积分提现规则。</p>
+
+            <div><b>7.兑换提示需要认证?</b></div>
+            <p>“在申请积分兑换人民币前，女性用户的账号需通过头像认证后才能提交积分兑换人民币的申请”</p>
+
+            <div><b>8.积分兑换的钻石在哪里查看呢?</b></div>
+            <p>积分兑换成钻石是实时到账的，你可以“我的钱包”>“当前余额（钻石）”查看具体的<span onclick="goRecord()">钻石消费记录</span>。</p>
+        </div>
+    </div>
+</body>
+<script>
+    var browser = {
+        versions: function () {
+            var u = navigator.userAgent;
+            return {
+                android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1,
+                iPhone: u.indexOf('iPhone') > -1,
+                iPad: u.indexOf('iPad') > -1,
+                iPod: u.indexOf('iPod') > -1,
+            };
+        }(),
+        language: (navigator.browserLanguage || navigator.language).toLowerCase()
+    }
+    // 兑换
+    function doExchange() {
+        if (browser.versions.android) {
+            client.jumpToMyIncome();
+        } else {
+            // window.webkit.messageHandlers.jumpToMyIncome.postMessage({});
+            window.location.href = "earning.html?" + window.location.href.split('?')[1]
+        }
+    }
+    // 积分清单
+    function goList() {
+        if (browser.versions.android) {
+            client.jumpToIncomeDetails();
+        } else {
+            window.webkit.messageHandlers.jumpToIncomeDetails.postMessage({});
+        }
+    }
+    // 客服
+    function getConcact() {
+        if (browser.versions.android) {
+            client.jumpToService();
+        } else {
+            window.webkit.messageHandlers.jumpToService.postMessage({});
+        }
+    }
+    // 钻石消费记录
+    function goRecord() {
+        if (browser.versions.android) {
+            client.jumpToDiamondDetails();
+        } else {
+            window.webkit.messageHandlers.jumpToDiamondDetails.postMessage({});
+        }
+    }
+</script>
+
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>编辑课程信息</title>
+		<link rel="stylesheet" href="../../public/css/style.css">
+		<link rel="stylesheet" href="../../package/layui/css/layui.css" />
+
+		<script type="text/javascript" src="../../package/layui/layui.js"></script>
+		
+		<script src="../../public/js/public/jquery.min.js"></script>
+		<script src="../../public/js/course/coumodify.js"></script>
+		<script src="../../public/js/public/jquery.cookie.min.js"></script>
+		<script src="../../public/js/index.js"></script>
+	</head>
+	<body>
+		<div id="Mycourse_edit">
+			<div class="Mycourse_edit_content">
+				<div class="Mycourse_edit_title">
+					<a href="javascript:history.go(-1)" class="cert_return_btn" ><img src="../../img/backoff.png">返回</a>
+					<h3>编辑课程信息</h3>
+				</div>
+				<div class="Mycourse_edit_info">
+					<div class="Mycourse_edit_name">
+						<label class="lable_title">课程标题</label>
+						<div class="edit_info_input">
+							<input type="text" placeholder="请为你的课程起一个漂亮的名字吧，不超过20个字哦。" id="Mycoursename" maxlength="20" />
+							<label class="prompt-hint" id="Mycoursenamehint"></label>
+						</div>
+						<p class="edit_info_prompt">建议用品牌/内容主题为课程命名。如：30天手把手教你做运营</p>
+					</div>
+					
+					<div class="Mycourse_edit_cover">
+						<label class="lable_title">课程封面图</label>
+						<div class="edit_info_upload">
+							<div class="layui-upload-list edit_info_uploadimg" id="updateshowimg">
+								<input type="file" id="showImg" name="pptPic">
+								<div class="l_close"></div>
+							</div>
+							<!--<p id="demoText"></p>-->
+						</div>
+						<p class="edit_info_prompt">建议上传图片比例为16:10，图片尺寸为640*400px，图片格式为jpg或png，图片大小不大于3M/张；</p>
+					</div>
+					
+				
+					
+					<div class="Mycourse_edit_own">
+						<label class="lable_title">是否试学</label>
+						<div class="checked_select">
+							<input type="radio" value="1" name="on" id="staunchYes" checked/>是
+							<input type="radio" value="0" name="on" id="staunchNo"/>否
+						</div>
+					</div>
+					
+					<p class="Mycourse_edit_protocol">我已阅读并同意<a href="../Description/property.html" target="_blank">《知识产权承诺》</a></p>
+					<div class="Mycourse_edit_submit">
+						<input type="submit" id="Mycourse_submit" value="保存"/>
+					</div>
+					
+				</div>
+			</div>
+			<div class="Mycourse_edit_prompt">
+				<h3>温馨提示</h3>
+				<p>关于标题，真的非常重要，如果你不知道如何起标题，请<a href="../Description/editTitle.html" target="_blank">点击这里</a></p>
+				<p>在这个刷脸的时代，没有一张合适的封面怎么能行？封面光是好看的图片也是不够的，还需要体现你专辑的个性与亮点哦。关于封面的更多姿势，请<a href="../Description/editImg.html" target="_blank">点击这里</a></p>
+			</div>
+		</div>
+	</body>
+</html>

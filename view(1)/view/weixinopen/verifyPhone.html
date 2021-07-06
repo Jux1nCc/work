@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+<head lang="zh-CN">
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="format-detection" content="telephone=no"/>
+<meta name="screen-orientation" content="portrait">
+<meta name="x5-orientation" content="portrait">
+<title>验证手机号</title>
+<script>//判断屏幕宽度计算字号大小
+(function(doc, win) {var docEl = doc.documentElement,resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',recalc = function() {var clientWidth = docEl.clientWidth;if (!clientWidth){return;}docEl.style.fontSize = 100 * (clientWidth / 375) + 'px';};if (!doc.addEventListener){return;}win.addEventListener(resizeEvt, recalc, false);doc.addEventListener('DOMContentLoaded', recalc, false); recalc();})(document, window);
+</script>
+<link href="../../view/assets/css/publice.css" rel="stylesheet">
+<script type="text/javascript" language="javascript" src="../../view/assets/js/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" language="javascript" src="../../view/js/common.js"></script>
+<style type="text/css">
+.form-sent .sms-code {
+	font-size: 0.12rem;
+    display: block;
+    width: 0.95rem;
+    text-align: center;
+    border: 1px solid #e6e6e6;
+    margin: 0rem 0rem 0rem 0.05rem;
+    background: #f2f2f2;
+    border-radius: 0.04rem;
+    display: -webkit-box;
+    -webkit-box-align: center;
+    -webkit-box-pack: center;
+    height: 0.45rem;
+    background-color: #fd8d29;
+    color: white;
+}
+.form-sent .basic-ipt {
+    border: 1px solid #e6e6e6;
+}
+.form-sent .basic-ipt {
+    width: 100%;
+    height: 0.45rem;
+    padding: 0 0.05rem;
+    box-sizing: border-box;
+    border-radius: 0.04rem;
+}
+.basic-ipt {
+    border: none;
+    font-size: 0.14rem;
+    font-family: "Microsoft YaHei", arial, simsun, SimHei;
+}
+input {
+    outline: none;
+}
+
+.form .form-item {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    padding-top: 0.2rem;
+}
+.form .form-first{
+
+	padding-top: 0rem;
+}
+.form .form-item .txt {
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+    display: block;
+    
+}
+.form-btn {
+    padding: 0.1rem 0.15rem 0.1rem 0.15rem;
+}
+
+.form-hd {
+ 
+    padding: 0.05rem 0.1rem;
+
+}
+
+.form-hd .form-tit {
+    font-weight: normal;
+    font-size: 0.14rem;
+}
+
+.form-sent {
+    margin: 0rem 0.1rem 0;
+
+}
+
+.btn-primary {
+    display: block;
+    font-size: 0.25rem;
+    height: 0.45rem;
+    line-height: 0.45rem;
+    text-align: center;
+    color: #fff;
+    background: #e6e6e6;
+    border-radius: 0.04rem;
+    box-sizing: border-box;
+    outline: none;
+}
+.warring{
+   color: #ff0000;
+   padding-top: 0.1rem;
+   height: 0.2rem;
+   font-size: 0.14rem;
+}
+</style>
+</head>
+<body>
+
+<div class="send-code">
+	<div class="form-hd">
+		<p class="form-tit">验证手机号以保障你账户的安全</p>
+	</div>
+	<div class="form form-sent">
+		<div class="form-item form-first">
+			<div class="txt"><input type="text" id="phoneNum" class="basic-ipt js_phone js_login js_login_phone_input" placeholder="输入手机号" autofocus="autofocus" oninput="checkinput(event);"></div>
+			
+		</div>
+		<div class="form-item">
+			<div class="txt"><input type="text" id="codeNum" class="basic-ipt js_key js_login_code_input" placeholder="输入验证码" oninput="checkinput(event);"></div>
+		<span class="sms-code js_get_key js_login_getcode" id="codeSpan" onclick="getCode(this);">获取验证码</span>
+		</div>
+		<div class="warring" id="js_warring"></div>
+	</div>
+
+</div>
+<div class="form-btn">
+	<a href="javascript:submitCode();" onclick="return false;" class="btn btn-primary submit js_submit js_login_submit" id="binding_submit">确定</a>
+</div>
+<script type="text/javascript">
+	function checkinput(e){
+        var phone = document.getElementById("phoneNum");
+    var code = document.getElementById("codeNum");
+    // window.alert(un.value+"----"+pw.value);
+    if(phone.value == "" || code.value == "") {
+       document.getElementById("binding_submit").style.background= "#e6e6e6";
+       document.getElementById("binding_submit").onclick = function(){
+            return false;
+        }
+    }else{
+      document.getElementById("binding_submit").style.background= "#fd8329";
+       document.getElementById("binding_submit").onclick = function(){
+            return true;
+        }
+    }
+
+	}
+	function getCode(o){
+		$("#js_warring").text("");
+		var cmobile = $("#phoneNum").val();
+    	if(cmobile.length>0){
+    		$.ajax({
+    			url : "../../view/mobile/sendCodeBoundWeixin", // 新版JSAPI_ForVer3.X  
+    			type : "POST",
+    			data : {"customerId":cid,"specifier":7,"account":cmobile,"openid":openid,"status":js_status},
+    			dataType : "json",
+    			success : function(data) {
+    				if(data.code==0){
+    					countSecond();
+    				}else{
+    					$("#js_warring").text(data.message);
+    				}
+    			},
+    			error : function(x, h, e) {
+    				alert("验证码获取失败,请联系客服人员");
+    			}
+    		});
+    	}else{
+    		$("#js_warring").text("手机号不可为空");
+    	}
+    	
+	}
+    function submitCode(){
+    	$("#js_warring").text("");
+    	var cmobile = $("#phoneNum").val();
+    	var code = $("#codeNum").val();
+    	if(cmobile.length>0){
+    		$.ajax({
+    			url : "../../view/mobile/check_Mobile_", // 新版JSAPI_ForVer3.X  
+    			type : "POST",
+    			data : {"customerId":cid,"account":cmobile,"code":code,"specifier":7,"openid":openid,"status":js_status},
+    			dataType : "json",
+    			success : function(data) {
+    				if(data.status=="ok"){
+//     					alert(data.cid);
+    					window.location.href="../../view/weixinopen/withdraw.html?cid="+data.cid+"&cname="+data.cname+"&bal="+data.bal+"&code="+data.code+"&cmobile="+data.cmobile+"&key="+data.key+"&openid="+openid+"&js_status="+js_status;
+    				}else{
+    					$("#js_warring").text("验证码错误");
+    				}
+    			},
+    			error : function(x, h, e) {
+//     				alert("chuxian");
+    				$("#js_warring").text("出现未知错误,请联系我们！");
+    			}
+    		});
+    	}else{
+    		$("#js_warring").text("手机号不可为空");
+    	}
+    	
+    }
+    
+    var x = 60;
+    function countSecond()
+    {
+  	  if(x>0){
+  		  x = x-1;
+  		  $("#codeSpan").text(x+"s 重新获取");
+  		  $('#codeSpan').removeAttr('href');//去掉a标签中的href属性
+  		  $('#codeSpan').removeAttr('onclick');//去掉a标签中的onclick事件
+  		  document.getElementById("codeSpan").style.background= "#e6e6e6";
+  		  setTimeout("countSecond()", 1000);
+  	  }else{
+  		  x = 60;
+  		  $("#codeSpan").text("获取验证码");
+  		  $('#codeSpan').attr('href','javascript:getCode(this);');//去掉a标签中的href属性
+  		  document.getElementById("codeSpan").style.background= "#fd8d29";
+  	  }
+       
+    }
+    var cid;
+    var openid;
+    var js_status;
+   	$(function(){
+   		cid = getURLParameter("cid");
+   		openid = getURLParameter("openid"); 
+   		js_status = getURLParameter("js_status");
+   	});
+</script>
+</body>
+</html>

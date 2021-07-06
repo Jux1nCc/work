@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+      list-style: none;
+    }
+
+    html,
+    body {
+      width: 100%;
+      height: 100%;
+    }
+
+    #app {
+      width: 100%;
+      height: 100%;
+      margin: 0 auto;
+      min-width: 650px;
+      overflow: hidden;
+    }
+
+    .content {
+      width: 100%;
+      border: 1px solid #00a383;
+      height: calc(100% - 35px);
+      overflow: hidden;
+      box-sizing: border-box;
+      display: flex;
+    }
+
+    .nav {
+      height: 40px;
+      padding-left: 15px;
+      line-height: 40px;
+      font-weight: bold;
+      color: #00a383;
+      border-bottom: 3px solid #00a383;
+    }
+
+    .search {
+      float: right;
+      width: 300px;
+      height: 25px;
+      margin-top: 5px;
+    }
+
+    .btn {
+      float: right;
+      margin-left: 30px;
+      margin-right: 40px;
+      margin-top: 5px;
+      width: 80px;
+      height: 29px;
+    }
+
+    .list {
+      height: calc(100%-45px);
+      overflow: auto;
+      flex: 0 0 200px;
+    }
+
+    .item {
+      padding-left: 15px;
+      line-height: 30px;
+      cursor: pointer;
+      transition: all 0.5s;
+    }
+
+    .active,
+    .item:hover {
+      color: #fff;
+      background: #00a383 !important;
+    }
+
+    .item:nth-child(odd) {
+      background: rgba(0, 0, 0, 0.1);
+    }
+
+    .info {
+      display: inline-block;
+      flex: 1 1 auto;
+      height: 100%;
+      overflow-y: auto;
+    }
+
+    .name {
+      text-align: center;
+      line-height: 30px;
+      border-bottom: 1px solid #ccc;
+      font-weight: bold;
+      margin-top: 15px;
+    }
+
+    .tags,
+    .story {
+      padding: 30px;
+    }
+
+    .tags > span {
+      margin-right: 30px;
+    }
+
+    .img {
+      margin: 15px 0;
+      text-align: center;
+      max-height: 45%;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .imgChangeBtn {
+      display: inline-block;
+      vertical-align: top;
+      width: 50px;
+      height: 30px;
+      cursor: pointer;
+      opacity: 0.7;
+      transition: all 0.5s;
+    }
+
+    .imgChangeBtn:hover {
+      opacity: 1;
+    }
+
+    .btnLeft {
+      background: no-repeat center center
+        url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAAqtJREFUSA29l0+IEnEUx3faiiWKhaXDFkQsdok6eRHCP9AiQRgWe9Lw4qVLhw7iqU2i0qOCR4kFO3nzIgjCnjoZiBFlyFq3MKh1a6ViYdneZ3JsnMTmN6v7hS8zv5n3ft/f+/ne/J7anD1oYrYkXBYuChcGlMvcrwG/ybUr3BYeCCeCCSdhXl6uCF3Ck5MMTe/25L4j/CjcNz0fuZ0kfF4srwiJzgnYibfCT+OcicgKFnNZeFV43PpSYYwvi0fjq9XPKoyoW3jRaniIMblxWsjvP4RVmEinKWoInZGbY8IvxgOzMNvC9s4KRN4X7iLAKgALIJFmDTT0YA1hSsZp9qosFg209IhJKBcDJ9jY2LhWqVRuKviipRExe2/34zAyf6lUuh6LxR602+2xtTpi/HeA1hK1xmdQGeVy+UYoFIrncrlniUTiteIEywjz7VVCtVq9tbq6ejeTyTxeX19/p+T8x3gRYaWk2tzcXPP5fGupVOpROp1uOxDFZUFJuFar3fZ6vXeSyeTDbDb7waGoLmyUk605+v3+D03T5gVUwqFAMV8Q2spqyeJOIBDYj8fj93u9XqNer+84VP+J8DnhKbsTFIvF98Fg8ISI3+t2u68ajcZ3u74mu122ms5BCX6/v9RsNmv5fP5JNBpl4arYQXjkuLI7g8fjedFqtV4WCoWn4XD4rF2/gd1nhOmR9hQddXO32/0c8UgkonKqobVtZOclGXAWHwVaIrJllBONGT3SrIEGWsPzmG6QxmzWQEPvPCknA3QGjDmtZoEtmVSPlsnNwozpBmnM6JGmCY7NN+YJrcK8o7z47acVOZEieiAcYpwwL+kGacwQ5yBxAhKJc3q4veZJjHIyPzPfs7AVoUto63sudtRpR4ignkhy/Qf/EzYcsCN6upWp/Gn7DXh2ngUQoOWfAAAAAElFTkSuQmCC);
+    }
+
+    .btnRight {
+      background: no-repeat center center
+        url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAAsFJREFUSA29V8+LUlEY1V5GRBkNLaYo+mEtolkJbhIEw1UuXCu4UVdhMP0LUQSCezdhooTOaghcKISgBe7CohSZoZ1N1AzESE0TTzvHvG9eT0fvc7QDh3ffvd+9536f373v02qRgxVmS+AyeBY8OSQelr0hv+O5Be6AfXAiuOAkKBi8BjrAE5MMdWP7aG+Cn0BV1/9Pc5LwRVjeBundLGAkPoCdcZPpkRHczC1wBTxuHDTxzrncPDW2jfOMwhR1gleMhkd4Z26cBvn7azAK09N5igqhM2gcA7+JDr0ww8LwLgr0vAvuUoC7ILgBJtKiQY2Bs0KYR2bW7DWzWWpQa+AxE8rBFxkUi8V76XT6joztITbUstJjxl72crC02+1OOBxeLRQKdw9ZeFo3tZYY7+vguWnWYrxUKm3Z7fZ2JBJ56HQ6d/P5PG8ps/hN4ZvgKTMzy+XyF5vN9hHiq263+1cul2ubmQ/bnhCWDrUQqFQqX1VVfQfxB16v15LJZJpiTOLZpzAvDZHdEnMOTGq12na3230bjUbvezyeXjabbR2MTmwpMwnql1QUxQoo2MAPff+0Nj2+DJoONReOx+NXE4nE42q1uub3+4vsk8RPeszPl2nEYrFLyWTyUb1ef+nz+dZNLrBHj+2g9HGiQCgUupBKpZ40Go1XyOoX7DOJzxTugQy3FAKBwHlk8NNWq/XG5XI9l5o0atRiqFkj7Y+Oje8JBoMrzWbzNS6PZ+MtpvZSa4f3NHED5LH6H+B53xDHiYXZTElmcqfUoJZ2cahoszBbNKhBrb8f5aEaKwMmG79Wi8AGFh14y8UppAerQRZmrJHmiQ4We69f0CjMMVaD/O3n5Tk9pWgf1DBOmIOsBlmYUXzW2pqJ1AC18KKtQRwnrcPQ4MZYIzlA2fuc53QTpOAgkfAcwTRhMYF29H4ZnMuftj877aWOeNF+QwAAAABJRU5ErkJggg==);
+    }
+
+    .img > img {
+      width: 50%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .noData {
+      margin-top: 30px;
+      text-align: center;
+    }
+
+    h5 {
+      font-size: 14px;
+    }
+  </style>
+
+  <body>
+    <!-- 分析
+    1：进入页面获取列表数据 
+       created(){}
+       axios  导入axios  使用axios
+       获取数据，
+       渲染数据
+         a:li   v-for    {{名字显示}}  :class
+         b:li点击效果  heroIndex=当前index
+    2:详情处理
+      1:进入页面获取第一个英雄详情渲染到页面
+      2：优化以前点击，
+    3:搜索功能
+       遍历数组找到数组中name值包含input框的值的第一个的索引
+       
+    -->
+    <div id="app">
+      <div class="nav">
+        <span>英雄列表</span>
+        <button class="btn" @click="search">搜 索</button>
+        <input
+          class="search"
+          type="text"
+          v-model="inputValue"
+          @keyup.enter="search"
+          placeholder="请输入英雄名称进行搜索"
+        />
+      </div>
+      <div class="content" v-if="heroIndex!=-1">
+        <!-- 人物列表 -->
+        <ul class="list">
+          <li
+            class="item"
+            v-for="(item, index) in hero"
+            :key="index"
+            :class="{active:heroIndex==index}"
+            @click="liClick(index)"
+            v-if="item.name.includes(searchValue)"
+          >
+            {{item.name}}
+          </li>
+        </ul>
+        <!-- 人物详情 -->
+        <div class="info" v-if="hero.length>0">
+          <!-- <div class="name">英雄姓名:{{info.name}}</div> -->
+          <div class="name">
+            英雄姓名:{{hero[heroIndex].name}}
+          </div>
+          <div class="img">
+            <img :src="info.img" alt="" />
+          </div>
+          <div class="tags">
+            <h5>英雄特征：</h5>
+            <span v-for="(item, index) in info.roles" :key="index"
+              >{{item}}</span
+            >
+          </div>
+          <div class="story" v-html="info.story">英雄故事</div>
+        </div>
+      </div>
+      <div class="noData" v-else>暂无数据</div>
+    </div>
+    <script src="vue.js"></script>
+    <script src="./axios.js"></script>
+    <script>
+      new Vue({
+        el: "#app",
+        data: {
+          hero: [],
+          heroIndex: 0,
+          info: "",
+          inputValue: "",
+          searchValue: "",
+        },
+        methods: {
+          liClick(index) {
+            this.heroIndex = index;
+            this.getInfo();
+          },
+          getInfo() {
+            axios({
+              url: "https://autumnfish.cn/api/lol/info",
+              params: {
+                id: this.hero[this.heroIndex].id,
+              },
+            }).then((res2) => {
+              this.info = res2.data.data;
+              window.console.log(res2);
+            });
+          },
+          search() {
+            // 遍历数组找到数组中name值包含input框的值的第一个的索引
+            // findIndex
+            /*
+            返回值=数组.findIndex((item,index)=>{
+                return boolean值  true:返回值=index    中止循环
+                                  false:不停的找下去，如果全是false,返回值=-1
+            })            
+            */
+            this.searchValue = this.inputValue;
+            this.heroIndex = this.hero.findIndex((item, index) => {
+              return item.name.includes(this.inputValue);
+            });
+            if (this.heroIndex !== -1) {
+              this.getInfo();
+            }
+          },
+        },
+        created() {
+          axios({
+            url: "https://autumnfish.cn/api/lol/search",
+          }).then((res) => {
+            this.hero = res.data.data;
+            this.getInfo();
+            // axios({
+            //   url: "https://autumnfish.cn/api/lol/info",
+            //   params: {
+            //     id: this.hero[0].id,
+            //   },
+            // }).then((res2) => {
+            //   this.info = res2.data.data;
+            //   window.console.log(res2);
+            // });
+          });
+        },
+      });
+    </script>
+  </body>
+</html>

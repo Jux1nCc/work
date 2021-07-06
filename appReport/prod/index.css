@@ -1,0 +1,346 @@
+@font-face {
+  font-family: '优设';
+  src: url('./优设标题黑.ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+.body{
+  transform:translate3d(0,0,0);
+  overflow:hidden;
+}
+.swiper-slide{
+  transform:translate3d(0,0,0)
+}
+.youshe {
+  font-family: "优设"
+}
+.container{
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+.bg{
+  background-size: 100% 100%;
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  z-index: 1;
+}
+.wrap .contain{
+  background-image: url(images/contain_boy.png);
+  z-index: 2;
+}
+.wrap .contain.girl{
+  background-image: url(images/contain_girl.png);
+}
+.contain div{
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 3.6rem;
+}
+.contain p{
+  position: absolute;
+  right: 0.44rem;
+  width: 4.42rem;
+  height: 1.7rem;
+  background: #FFFFFF;
+  border-radius: 0.28rem;
+  padding: 0.4rem 0.3rem;
+  font-weight: 700;
+  font-size: 0.28rem;
+}
+.contain p span{
+  font-size: 0.28rem;
+}
+.contain p.later{
+  padding: 0.25rem 0.3rem;
+}
+.contain i{
+  display: block;
+  width: 0.44rem;
+  height: 0.44rem;
+  background-size: 100%;
+  margin: 0 auto;
+}
+.contain .arrow-1{
+  background-image: url(images/arrow_1.png);
+  margin-top: 2.05rem;
+}
+.contain .arrow-2{
+  background-image: url(images/arrow_2.png);
+  margin-top: -0.2rem;
+}
+.contain .start{
+  display: block;
+  margin-top: 0.1rem;
+  text-align: center;
+  font-size: 0.28rem;
+  color: #FFFFFF;
+  text-shadow: 0px 3px 4px rgba(0, 0, 0, 0.42);
+  opacity: 0.6;
+}
+.swiper-slide .youshe{
+  position: absolute;
+  color: #313F57;
+  justify-content: space-around;
+}
+.wrap .contain-1{
+  background-image: url('images/contain1_girl.png');
+  z-index: 2;
+}
+.wrap .contain-1.boy{
+  background-image: url('images/contain1_boy.png');
+}
+.contain-1 .youshe{
+  top: 1.32rem;
+  left: 0.54rem;
+  width: 6.68rem;
+  height: 2.88rem;
+}
+.youshe span{
+  font-size: 0.6rem;
+  text-align: center;
+  width: 100%;
+}
+.youshe-red{
+  color: #cb6558;
+}
+.wrap .contain-2{
+  background-image: url('images/contain2_girl.png');
+  z-index: 2;
+}
+.wrap .contain-2.boy{
+  background-image: url('images/contain2_boy.png');
+}
+.contain-2 .youshe{
+  top: 1.32rem;
+  left: 0.1rem;
+  width: 7.37rem;
+  height: 4.78rem;
+}
+.contain-2.boy .youshe{
+  top: 1.42rem;
+  left: 0.4rem;
+  width: 7.1rem;
+  height: 2.78rem;
+}
+.wrap .contain-3{
+  background-image: url('images/contain3_girl.png');
+  z-index: 2;
+}
+.wrap .contain-3.boy{
+  background-image: url('images/contain3_boy.png');
+}
+.contain-3 .youshe{
+  top: 1.15rem;
+  left: 0.05rem;
+  width: 7.45rem;
+  height: 6.38rem;
+}
+.contain-3.boy .youshe{
+  height: 4.78rem;
+}
+.wrap .contain-4{
+  background-image: url('images/contain4_girl.png');
+  z-index: 2;
+}
+.wrap .contain-4.boy{
+  background-image: url('images/contain4_boy.png');
+}
+.contain-4 .youshe{
+  top: 1.41rem;
+  left: 0.09rem;
+  width: 7.41rem;
+  height: 5.58rem;
+}
+.contain-4.boy .youshe{
+  width: 7rem;
+  height: 3.88rem;
+  top: 1.12rem;
+  left: 0.53rem;
+}
+.wrap .contain-5{
+  background-image: url('images/contain5_girl.png');
+  z-index: 2;
+}
+.wrap .contain-5.boy{
+  background-image: url('images/contain5_boy.png');
+}
+.contain-5 .youshe{
+  top: 1.3rem;
+  left: 0.35rem;
+  width: 7.05rem;
+  height: 4.5rem;
+}
+.wrap .contain-6{
+  background-image: url('images/contain6_girl.png');
+  z-index: 2;
+}
+.wrap .contain-6.boy{
+  background-image: url('images/contain6_boy.png');
+}
+.contain-6 .youshe{
+  top: 0.91rem;
+  left: 0.15rem;
+  width: 7.35rem;
+  height: 3.98rem;
+}
+.contain-6.boy .youshe{
+  height: 1.98rem;
+}
+.contain-6 .gift{
+  position: absolute;
+  top: 5.5rem;
+  width: 100%;
+  height: 2rem;
+  padding: 0 0.5rem;
+  justify-content: space-around;
+}
+.contain-6.boy .gift{
+  top: 3rem;
+}
+.gift-item{
+  display: block;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 10%;
+}
+.wrap .contain-7{
+  background-image: url('images/contain7_girl.png');
+  z-index: 2;
+}
+.wrap .contain-7.boy{
+  background-image: url('images/contain7_boy.png');
+}
+.contain-7 .youshe{
+  top: 0.91rem;
+  left: 0.33rem;
+  width: 7.1rem;
+  height: 3.98rem;
+}
+.wrap .contain-keyword{
+  background-image: url('images/keyword.png');
+  z-index: 2;
+}
+.white-bg{
+  position: absolute;
+  top: 1.33rem;
+  left: 0.33rem;
+  width: 6.84rem;
+  height: 9.63rem;
+  padding-top: 0.86rem;
+  background-image: url(images/white_bg.png);
+  background-size: 100%;
+  z-index: 3;
+}
+.white-bg .white-title{
+  position: absolute;
+  top: 0.86rem;
+  left: 0.36rem;
+  font-size: 0.56rem;
+  z-index: 4;
+  font-family: "优设";
+}
+.white-bg .qd-code{
+  font-size: 0.44rem;
+  top: 0.95rem;
+}
+.white-bg .qd-code span{
+  font-size: 0.44rem;
+}
+.white-bg .keyword{
+  position: absolute;
+  top: 2.01rem;
+  left: -0.2rem;
+  font-size: 1.1rem;
+  font-family: "优设";
+  color: #313F57;
+  width: 100%;
+  text-align: center;
+}
+.pink-pro{
+  position: absolute;
+  top: 1.31rem;
+  left: 0.36rem;
+  width: 5.82rem;
+  height: 0.21rem;
+  background: #FCD3C1;
+  z-index: 3;
+}
+.share-pro{
+  position: absolute;
+  top: 4.42rem;
+  left: 0.56rem;
+  width: 5.43rem;
+  height: 0.24rem;
+  background-image: url(images/share.png);
+  background-size: 100%;
+}
+.white-bg .youshe{
+  position: absolute;
+  top: 5.22rem;
+  left: 0.66rem;
+  width: 5.22rem;
+  height: 1.83rem;
+}
+.white-bg .youshe span{
+  font-size: 0.47rem;
+}
+.white-bg .youshe .qr-code{
+  font-size: 0.44rem;
+}
+.share-btn{
+  position: absolute;
+  top: 7.71rem;
+  left: 1.12rem;
+  width: 4.6rem;
+  height: 1.16rem;
+  background: #C5524A;
+  box-shadow: 1px 1px 5px rgba(175, 62, 54, 0.63);
+  border-radius: 1rem;
+  font-size: 0.48rem;
+  color: #fff;
+}
+.white-bg .img{
+  position: absolute;
+  top: 6.7rem;
+  left: 2.07rem;
+  width: 2.3rem;
+  height: 2.3rem;
+  border: 0.2rem solid #FCD3C1;
+  border-radius: 0.2rem;
+}
+#openOutApp {
+  position: relative;
+  width: 6.11rem;
+  margin: 0 auto;
+}
+#openOutApp.miyi{
+  background: url(images/dialog_miyi.png) no-repeat;
+  background-size: 100%;
+  height: 9.18rem;
+}
+#openOutApp.tuliao{
+  background: url(images/dialog_rabbit.png) no-repeat;
+  background-size: 100%;
+  height: 10.1rem;
+}
+.layui-layer.layui-layer-page{
+  top: 17% !important;
+}
+.dialog-close{
+  width: 0.75rem;
+  height: 0.75rem;
+  left: 45%;
+}
+.dialog-ok{
+  width: 2.5rem;
+  height: 0.7rem;
+  bottom: 24.5%;
+  left: 29%;
+}
+.miyi .dialog-ok{
+  bottom: 27.5%;
+}

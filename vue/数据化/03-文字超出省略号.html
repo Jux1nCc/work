@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: skyblue;
+            /* 超出部分省略号 */
+            /*
+                三步走
+                1. 强制一行
+                2.超出部分隐藏
+                3.隐藏部分省略号显示
+            */
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <span>阿苏底盖与欧式顶部为奥迪标速度你哦啊是滴哦帕金森掉</span>
+    </div>
+</body>
+</html>

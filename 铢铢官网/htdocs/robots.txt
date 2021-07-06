@@ -1,0 +1,14 @@
+User-agent: *
+Disallow: /Business/
+Disallow: /chatting/
+Disallow: /video/
+Disallow: /techimg/
+Disallow: /manualimg/
+Disallow: /logreport/
+Disallow: /listtech/
+Disallow: /download/
+Disallow: /conversion/
+Disallow: /contract/
+Disallow: /Business/
+Disallow: /app/
+Disallow: /contact.html

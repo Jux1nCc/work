@@ -1,0 +1,112 @@
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>美女一对一视频交友APP</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <meta http-equiv="Cache-Control" content="no-transform,no-siteapp">
+    <link rel="stylesheet" href="https://activity.folkcam.cn/common/comm.css">
+    <style>
+        img.bg {
+            width: 100%;
+            margin-bottom: 80px;
+        }
+
+        .footer {
+            position: fixed;
+            height: 85px;
+            width: 100%;
+            z-index: 2;
+            bottom: 0px;
+            background: #fff;
+            padding: 0 10px;
+        }
+
+        .footer img {
+            width: 50px;
+            height: 50px;
+
+        }
+
+        h1 {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 5px;
+        }
+
+        .download {
+            padding: 0 8px;
+            height: 50px;
+            border-radius: 10px;
+            background: #1890FF;
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="contain">
+        <img class="bg" id="bg" class="down1" src="images/bg.png">
+        <div class="footer flexbox between">
+            <div class="flexbox around" style="width: 50%">
+                <img src="images/logo.jpg" alt="">
+                <div>
+                    <h1>兔聊</h1>
+                    <p>发现身边每一刻</p>
+                </div>
+            </div>
+            <p class="download column down1" onclick="getCode()" id="down1d">立即下载</p>
+        </div>
+    </div>
+    <div id="mobile_top" style="display:none;position: absolute;z-index: 999;top: 0;width: 100%;height: 100%;">
+        <img src="" id="mobile_img" style="width: 100%; height: 100%;" />
+    </div>
+</body>
+<script src="https://activity.folkcam.cn/common/jquery.min.js"></script>
+<script>
+    (function () {
+        var ua = navigator.userAgent.toLowerCase();
+        var isAndroid = ua.indexOf('android') >= 0;
+        var isIOS = ua.indexOf('iphone') >= 0 || ua.indexOf('ipad') >= 0,
+            isWeixin = ua.indexOf('micromessenger') >= 0,
+            isQzone = ua.indexOf('qzone') >= 0,
+            isWeibo = ua.indexOf('weibo') >= 0,
+            isQQ = ua.match(/qq\/(\d+\.)+\d+/),
+            isMail = ua.match(/mail/),
+            isYixin = ua.match(/yixin/),
+            isUC = ua.match(/ucbrowser/);
+        if (is_weixin() || is_mobileQQ()) {
+            if (isIOS) {
+                $("#mobile_top").css("display", "block");
+                $("#mobile_img").attr("src", "img/iOS.png")
+                $(".down").css("display", "none")
+            } else if (isAndroid) {
+                $("#mobile_top").css("display", "block");
+                $("#mobile_img").attr("src", "img/android.png")
+                $(".down").css("display", "none")
+            }
+        }
+    })();
+    function is_weixin() {
+        var ua = navigator.userAgent.toLowerCase();
+        if (ua.match(/MicroMessenger/i) == "micromessenger") {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    function is_mobileQQ() {
+        var ua = navigator.userAgent.toLowerCase();
+        if (ua.indexOf('mobile') > -1 && ua.indexOf(' qq') > -1) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    function getCode() {
+        window.location = 'https://jw-version.oss-cn-shenzhen.aliyuncs.com/android/guangdiantong1.apk'
+    }
+</script>
+
+</html>

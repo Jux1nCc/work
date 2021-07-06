@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0, viewport-fit=cover">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="msapplication-tap-highlight" content="no">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Cache-Control" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <title>玩法须知</title>
+  <link rel="stylesheet" href="http://activity.folkcam.cn/common/comm.css">
+  <style>
+    @font-face {
+      font-family: 'pingfang';
+      src: url('./PingFangMedium.ttf');
+      font-weight: normal;
+      font-style: normal;
+    }
+
+    body {
+      font-family: 'pingfang';
+    }
+
+    p {
+      font-size: 0.28rem;
+      margin: .1rem 0.32rem;
+      color: #333333;
+    }
+
+    span {
+      font-size: 0.28rem;
+    }
+
+  </style>
+</head>
+
+<body>
+  <p>1.参与抽奖需消耗<span class="appUnit">钻石</span>，“单次抽”消耗200<span class="appUnit">钻石</span>，“十连抽”消耗2000<span class="appUnit">钻石</span>。</p>
+  <p>2.“十连抽”必出银级奖励。</p>
+  <p>3.奖品分为金级、银级、铜级三类。</p>
+  <p>4.抽中金级奖励时，中奖状态将会在直播间播报，并且以中奖者名义在直播间发出一个拼手气红包。（红包所需<span class="appUnit">钻石</span>由平台支出）</p>
+  <p>5.暴击值玩法介绍：
+    <p>（1）暴击值=玩家每抽一次奖，该直播间暴击值+1（十连抽+10）。</p>
+    <p>（2）当暴击值达到400时，开启180s的暴击时刻。</p>
+    <p>（3）暴击时刻期间，该直播间金级奖励的中奖概率会翻倍。</p>
+  </p>
+  <p>6. 抽奖获得的礼物会自动进入礼物背包，获得的<span class="appUnit">钻石</span>会自动进入钱包。</p>
+  <p class="apptuliao popup">
+    7.盲盒抽奖的扣费顺序为：直播收益-非直播收益-购买的聊币。
+  </p>
+  <p class="apptuliao popup">8.活动最终解释权归平台所有。</p>
+  <p class="appmiyi popup">7.活动最终解释权归平台所有。</p>
+</body>
+<script src="http://activity.folkcam.cn/common/rem.js"></script>
+<script src="http://activity.folkcam.cn/common/config.js"></script>
+<script src="http://activity.folkcam.cn/common/jquery.min.js"></script>
+<script>
+  var appType = $config.getQueryStringByName("appType") || 2
+  if(appType == 1){
+    $('.appUnit').text('聊币')
+    $('.apptuliao').removeClass('popup')
+  }else {
+    $('.appUnit').text('钻石')
+    $('.appmiyi').removeClass('popup')
+  }
+</script>
+</html>

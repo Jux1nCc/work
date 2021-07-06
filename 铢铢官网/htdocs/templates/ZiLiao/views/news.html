@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<link rel="icon" href="../img/favicon.ico" type="image/x-icon">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<title>消息</title>
+		<link rel="stylesheet" href="../public/css/style.css">
+		<link rel="stylesheet" href="../package/layui/css/layui.css" />
+		<script type="text/javascript" src="../public/js/public/jquery.min.js"></script>
+		<script type="text/javascript" src="../package/layui/layui.js"></script>
+		<script src="../public/js/news.js"></script>
+	</head>
+
+	<body class="layui-layout-body">
+		<!--页面隐藏值-->
+		<input type="hidden" id="hidden_customerId" value="<%= customerId %>" />
+		<div class="layui-layout layui-layout-admin">
+			<div class="layui-header">
+				<div class="layui-logo"><img src="../img/logo.png"></div>
+				<!-- 头部区域（可配合layui已有的水平导航） -->
+				<ul class="layui-nav layui-layout-right" id="top_title_nav">
+					<li class="layui-nav-item">
+						<a href="../../index.html">首页</a>
+					</li>
+					<li class="layui-nav-item">
+						<a href="index.html">专家工作台</a>
+					</li>
+					<li class="layui-nav-item">
+						<a href="javascript:;" class="color_slect">消息</a>
+						<dl class="layui-nav-child">
+							<dd>
+								<a href="">系统通知</a>
+							</dd>
+							<dd>
+								<a href="">专辑评论通知</a>
+							</dd>
+							<dd>
+								<a href="">课程评论通知</a>
+							</dd>
+							<dd>
+								<a href="">动态评论通知</a>
+							</dd>
+							<dd>
+								<a href="">账单通知</a>
+							</dd>
+						</dl>
+					</li>
+					<li class="layui-nav-item">
+						<a href="pay.html">充值</a>
+					</li>
+					<li class="layui-nav-item">
+						<a href="withdraw.html">提现</a>
+					</li>
+					<li class="layui-nav-item">
+						<a href="about.html">关于我们</a>
+					</li>
+					<li class="layui-nav-item">
+						<a  l_header_back>退出</a>
+					</li>
+				</ul>
+			</div>
+
+			<div class="layui-side layui-bg-black">
+				<div class="layui-side-scroll">
+					<!-- 左侧导航区域 -->
+					<ul class="layui-nav layui-nav-tree" lay-filter="test" id="index_left">
+						<li class="layui-nav-item layui-nav-itemed">
+							<a class="" href="javascript:;" id="system" _href="Information/system.html" onclick="newNotice('system')">系统消息</a>
+						</li>
+						<li class="layui-nav-item">
+							<a href="javascript:;" id="newsCoures"  >专辑评价</a>
+						</li>
+						<li class="layui-nav-item">
+							<a href="JavaScript:;" id="newsAlbum" _href="Information/newsAlbum.html" onclick="courseClick('newsAlbum')">课程评价</a>
+						</li>
+						<li class="layui-nav-item">
+							<a href="JavaScript:;" id="newsDynamic">动态评价</a>
+						</li>
+						<li class="layui-nav-item">
+							<a href="javascript:;" id="newsBilling" _href="" onclick="newNotice('billing_info')">账单通知</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+
+			<!--主题内容区-->
+			<!--概览-->
+			<div class="layui-body" id="">
+                <iframe  id="filling" src="Information/system.html" style="width:100%;height:99%;border:none;background: white;"></iframe>
+            </div>
+			
+		</div>
+		<script>
+			//JavaScript代码区域
+			layui.use(['layer', 'form', 'element'], function(){
+			    var layer = layui.layer
+			    ,form = layui.form
+			    ,element = layui.element
+			    ,laypage = layui.laypage
+			});
+			
+			
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,52 @@
+{
+  "pages": [
+    "pages/mine/mine",
+    "pages/home/home",
+    "pages/test/test",
+    "pages/test1/test1",
+    "pages/test2/test2"
+  ],
+  "sitemapLocation": "sitemap.json",
+  "window":{
+    "navigationBarBackgroundColor": "#f00",
+    "navigationBarTextStyle": "white",
+    "navigationBarTitleText": "demo"
+  },
+  "tabBar": {
+    "list": [
+      {
+      "pagePath": "pages/mine/mine",
+      "text": "首页",
+      "iconPath":"images/1.png",
+      "selectedIconPath":"images/1.png"
+      },
+      {
+      "pagePath": "pages/home/home",
+      "text": "个人中心",
+      "iconPath":"images/1.png",
+      "selectedIconPath":"images/1.png"
+      },
+      {
+      "pagePath": "pages/test/test",
+      "text": "测试",
+      "iconPath":"images/1.png",
+      "selectedIconPath":"images/1.png"
+      },
+      {
+      "pagePath": "pages/test1/test1",
+      "text": "测试1",
+      "iconPath":"images/1.png",
+      "selectedIconPath":"images/1.png"
+      },
+      {
+      "pagePath": "pages/test2/test2",
+      "text": "测试2",
+      "iconPath":"images/1.png",
+      "selectedIconPath":"images/1.png"
+      }
+    ],
+    "color": "#000",
+    "selectedColor": "#f00",
+    "backgroundColor" : "#fff"
+  }
+}

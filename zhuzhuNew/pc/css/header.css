@@ -1,0 +1,84 @@
+header{
+	width: 100%;
+	background: #000000;
+	/* opacity: 0.2; */
+	position: fixed;
+	top: 0;
+	z-index: 10;
+}
+header.index{
+	background-color: rgba(0,0,0,.5);
+}
+.header{
+	height: 64px;
+	margin: 0 auto;
+	color: white;
+	width: 90%;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+.nav>ul{
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+}
+.nav>ul>li{
+	text-align: center;
+	width: 100px;
+	position: relative;
+}
+.nav>ul>li:hover{
+	font-weight: bold;
+}
+.nav>ul>li>span{
+	position: absolute;
+	bottom: -0.625rem;
+	left: 38%;
+	width: 24px;
+	height: 4px;
+	background: #FFFFFF;
+	border-radius: 2px;
+	display: none;
+}
+.nav>ul>li:hover span{
+	display: block;
+}
+.com{
+	padding: 30px 0;
+}
+.comchild{
+	background: url(../index/image/矩形.png) no-repeat;
+	width: 136px;
+	height: 114px;
+	position: absolute;
+	left:-18px;
+	bottom: -110px;
+	padding-left: 0;
+	padding-top: 12px;
+	box-sizing: border-box;
+}
+.comchild li{
+	width: 64px;
+	height: 22px;
+	font-size: 16px;
+	font-family: PingFangSC-Regular, PingFang SC;
+	font-weight: 400;
+	color: #666666;
+	margin: 12px auto;
+}
+.comchild>li:hover{
+	color: #333333;
+	font-weight: bold;
+}
+/* body>footer{
+	padding: 80px 0 20px 0;
+}
+footer>p{
+	text-align: center;
+	font-size: 14px;
+	font-family: PingFangSC-Regular, PingFang SC;
+	font-weight: 400;
+	color: #000000;
+	line-height: 36px;
+} */

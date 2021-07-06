@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<title>我的课程</title>
+		<link rel="stylesheet" href="../../public/css/style.css">
+		<link rel="stylesheet" href="../../package/layui/css/layui.css" />
+		<script type="text/javascript" src="../../package/layui/layui.js"></script>
+		
+		<script src="../../public/js/public/jquery.min.js"></script>
+		<script src="../../public/js/index.js"></script>
+		<link rel="stylesheet" href="https://g.alicdn.com/de/prismplayer/2.7.2/skins/default/aliplayer-min.css" />
+		<!-- <link rel="stylesheet" href="../../public/css/aliplayer-min.css"> -->
+		 <script charset="utf-8" type="text/javascript" src="https://g.alicdn.com/de/prismplayer/2.7.2/aliplayer-min.js"></script>
+		 <script charset="utf-8" type="text/javascript" src="https://g.alicdn.com/de/prismplayer/2.8.1/aliplayer-h5-min.js"></script>
+     	<!-- <script charset="utf-8" type="text/javascript" src="https://g.alicdn.com/de/prismplayer/2.7.4/aliplayer-flash-min.js"></script> -->
+	</head>
+
+	<body>
+		<div id="course_mine">
+			<div class="course_video">
+				<h3>我的课程</h3>
+				<input type="text" placeholder="请输入课程名称" id="course_text" />
+				<button id="course_search"></button>
+			</div>
+			<div class="coures_video_table">
+				<table class="layui-table">
+					<colgroup>
+					    <col width="250">
+					    <col width="100">
+					    <col width="100">
+					    <col width="100">
+					</colgroup>
+					<thead>
+					    <tr>
+					    	<th>课程</th>
+					      	<th>所属专辑</th>
+					      	<th id="Courses_sort">发布时间/状态<img src="../../img/start.png"></th>
+					     	<div class="courese_list">
+					     		<ul style="border: 1px solid #eee;">
+					     			<li id="Courses_all">全部</li>
+					     			<li id="Courses_pass">已发布</li>
+					     			<li id="Courses_passing">审核中</li>
+					     			<li id="Courses_nopass">不通过</li>
+					     		</ul>
+					     	</div>
+					     	<th>操作</th>
+					    </tr> 
+				  	</thead>
+					<tbody id="Courses_table">
+					</tbody>  
+				</table>
+				
+			</div>
+			
+			<div  class="prism-player" id="J_prismPlayer_play">
+			  	<a href="#" id="viode_close" >关闭</a>
+			  	<div  id="J_prismPlayer"></div>
+			</div>
+			
+			<!--分页-->
+			<div class="coures_video_listpage">  
+				<div id="coures_viode_page" class="coures_viode_page"></div>
+			</div>
+		</div>
+	
+	</body>
+	
+
+</html>

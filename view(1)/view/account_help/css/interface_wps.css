@@ -1,0 +1,71 @@
+@CHARSET "UTF-8";
+.modelBody {
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 999999;
+	background:#fff;
+	display: none;
+}
+
+.ui_btn_model {
+	display: inline-block;
+	width: 40%;
+	height: 42px;
+	line-height: 42px;
+	border-radius: 5px;
+	font-size: 14px;
+	text-align: center;
+	cursor: pointer;
+	border:1px solid #fe7519;
+	background:#fe7519;
+	color: #fff;
+}
+
+.ui_btn_model_g {
+	display: inline-block;
+	width: 40%;
+	height: 42px;
+	line-height: 42px;
+	border-radius: 5px;
+	font-size: 14px;
+	text-align: center;
+	cursor: pointer;
+	border:1px solid #ccc;
+	color: #666;
+	background: url("../images/btn_bg.png") repeat 0 0;
+}
+
+.modelImg{
+	width: 150px;height: 130px;margin:0 auto;
+	/* background: url("../images/modelIcon.png") no-repeat 0 0;
+	background-size:contain; */
+}
+
+.tzzDiv {
+	width: 90px;
+    height: 90px;
+    margin-left: auto;
+    margin-right: auto;
+    color: #666;
+    text-align: center;
+    border-radius: 999px;
+    font-weight: bold;
+    border: 3px solid #C5ACCE;
+}
+
+.interDiv{
+	width:100%;text-align: center;
+	/* width: 60px;
+    text-align: center;
+    height: 60px;
+    border: 3px solid #7FBEF1;
+    line-height: 60px;
+    border-radius: 999px;
+    margin: 0 auto; 
+    background-color: #eef6ff;*/
+    text-align: center;
+    margin-bottom: 5px;
+}

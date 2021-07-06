@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0, viewport-fit=cover">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="msapplication-tap-highlight" content="no">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Cache-Control" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <title>劳动节合种爱情树</title>
+  <link rel="stylesheet" href="./css/comm.css">
+  <link rel="stylesheet" href="http://activity.folkcam.cn/common/swiper.min.css">
+  <link rel="stylesheet" href="http://activity.folkcam.cn/common/layer/theme/default/layer.css">
+  <link rel="stylesheet" href="css/index.css?v=037">
+</head>
+
+<body>
+  <div class="page">
+    <header>
+      <div class="rule-btn" onclick="toRulePage()"></div>
+    </header>
+    <div class="index-nav-wrap flexbox">
+      <div class="index-nav index-nav1 flexbox" onclick="changeIndexNav(1,this)">灌溉爱情树</div>
+      <div class="index-nav index-nav2 flexbox" onclick="changeIndexNav(2,this)">合种成就榜</div>
+    </div>
+    <div class="nav-page nav1-page">
+      <p class="invite-text invite-text-1">邀请心仪的男性，和他一起<br />种下属于你们的甜蜜记忆</p>
+      <p class="invite-text invite-text-2 popup">接受心仪的女性邀请，和她一起<br />种下属于你们的甜蜜记忆</p>
+      <p class="invite-text invite-text-3 popup">爱情树需要提供成长值才能长大升级<br />每升一级都可以爆出奖励</p>
+      <div class="grow-invite popup">
+        <div class="grow-invite-main column">
+          <div class="grow-invite-main-img"></div>
+          <div class="grow-invite-main-begin invite-girl flexbox" onclick="beginGrow()">发起合种<i></i></div>
+          <div class="grow-invite-main-begin invite-boy flexbox popup">等待邀请中</div>
+          <div class="finger"></div>
+        </div>
+        <div class="pending-invites popup" onclick="pendingInvite()">待处理邀请</div>
+      </div>
+      <div class="love-tree-page">
+        <div id="canvas" class="popup"></div>
+        <div class="tree-main-title column">
+          <p>树的昵称最多有十二个汉字</p>
+          <div class="tree-users-info flexbox">
+            <img class="tree-users-info-photo" src="./images/miao.png">
+            <div class="users-info-heart"></div>
+            <div class="tree-users-info-img">
+              <img class="tree-users-info-opPhoto" src="./images/miao.png">
+              <div class="tree-users-info-cover"></div>
+              <div class="tree-users-info-invite rank-img-btn do-invite flexbox">邀请</div>
+              <div class="tree-users-info-invite popup flexbox">待同意</div>
+            </div>
+          </div>
+        </div>
+        <div class="tree-main-tool" onclick="openToolDia(this)">
+          <img src="./images/set_tree_name.png">
+          <img src="./images/creat_new_tree.png">
+        </div>
+        <div class="love-tree-page-main">
+          <div class="tree-main-item flexbox" onclick="lookSVGAImg()">
+            <img src="images/tree_1.png">
+            <div class="tree-main-grade-show">1级<br />胚芽萌发</div>
+            <div class="look-svga popup" onclick="lookSVGAImg()"></div>
+          </div>
+          <div class="tree-main-progress-wrap">
+            <div class="tree-main-progress"></div>
+          </div>
+          <p class="tree-main-tips">爱情树再获得<span class="tips-value">1000</span>成长值就<span class="tips-name">破土而出</span>啦
+          </p>
+          <div class="tree-main-get-value flexbox" onclick="showTaskDia(this)">领取成长值</div>
+          <div class="trends-wrap">
+            <ul>
+            </ul>
+          </div>
+        </div>
+        <div class="tree-main-prop-btn popup" onclick="showPropDia()"></div>
+      </div>
+      <div class="all-the-tree popup">
+        <span class="flexbox">我合种的所有树</span>
+      </div>
+      <div class="all-the-tree-rank popup">
+        <p class="tree-rank-dec flexbox">点击爱情树名称，即可切换查看它的成长情况</p>
+        <div class="tree-rank-title flexbox">
+          <span style="margin-left: .2rem;">名次</span>
+          <span style="margin-left: .4rem;">合作伙伴</span>
+          <span style="margin-left: .3rem;" class="rank-title-name">爱情树名称</span>
+          <span>树的成长值</span>
+        </div>
+        <div class="tree-rank-main">
+          <ul>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="nav-page nav2-page">
+      <div class="rank-rule-wrap">
+        <div class="rank-rule-title"></div>
+        <p>
+          根据合种树的成长值进行排榜<br />
+          活动结束时，榜单前10名用户获得大奖<br />
+          （成长值相同则按照先后时间排行）<br />
+        </p>
+        <div class="award-preview-title flexbox">大奖预览如下</div>
+        <div class="award-preview">
+          <div class="swiper-container award-preview-wrap">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide column preview-item">
+                <div class="preview-item-img flexbox">
+                  <img src="./images/diamond.png">
+                </div>
+                <div class="preview-item-text">87666<span class="appUnit">钻石</span></div>
+              </div>
+              <div class="swiper-slide column preview-item">
+                <div class="preview-item-img flexbox">
+                  <img src="./images/diamond.png">
+                </div>
+                <div class="preview-item-text">38888<span class="appUnit">钻石</span></div>
+              </div>
+              <div class="swiper-slide column preview-item">
+                <div class="preview-item-img flexbox">
+                  <img src="./images/diamond.png">
+                </div>
+                <div class="preview-item-text">21400<span class="appUnit">钻石</span></div>
+              </div>
+              <div class="swiper-slide column preview-item">
+                <div class="preview-item-img flexbox">
+                  <img src="./images/diamond.png">
+                </div>
+                <div class="preview-item-text">21000<span class="appUnit">收益积分</span></div>
+              </div>
+              <div class="swiper-slide column preview-item">
+                <div class="preview-item-img flexbox">
+                  <img src="./images/diamond.png">
+                </div>
+                <div class="preview-item-text">18888<span class="appUnit">收益积分</span></div>
+              </div>
+              <div class="swiper-slide column preview-item">
+                <div class="preview-item-img flexbox">
+                  <img src="./images/diamond.png">
+                </div>
+                <div class="preview-item-text">8888<span class="appUnit">收益积分</span></div>
+              </div>
+              <div class="swiper-slide column preview-item">
+                <div class="preview-item-img flexbox">
+                  <img src="./images/blind_box.png">
+                </div>
+                <div class="preview-item-text">免费抽盲盒3次</div>
+              </div>
+            </div>
+          </div>
+          <div class="preview-prev-btn"></div>
+          <div class="preview-next-btn"></div>
+        </div>
+      </div>
+      <div class="rank-page">
+        <div class="rank-page-title-btn"></div>
+        <div class="rank-page-title flexbox">
+          <span>名次</span>
+          <span class="rank-title-name">爱情树名称</span>
+          <span>树的等级</span>
+          <span>树的成长值</span>
+        </div>
+        <div class="rank-page-main">
+          <ul>
+            <li class="rank-page-item flexbox">
+              <div class="rank-item-num rank-num-1"></div>
+              <div class="rank-item-name flexbox">虚位以待</div>
+              <div class="rank-item-grade">暂无</div>
+              <div class="rank-item-value flexbox"><i></i>暂无</div>
+              <i></i>
+            </li>
+            <li class="rank-page-item flexbox">
+              <div class="rank-item-num rank-num-2"></div>
+              <div class="rank-item-name flexbox">虚位以待</div>
+              <div class="rank-item-grade">暂无</div>
+              <div class="rank-item-value flexbox"><i></i>暂无</div>
+              <i></i>
+            </li>
+            <li class="rank-page-item flexbox">
+              <div class="rank-item-num rank-num-3"></div>
+              <div class="rank-item-name flexbox">虚位以待</div>
+              <div class="rank-item-grade">暂无</div>
+              <div class="rank-item-value flexbox"><i></i>暂无</div>
+              <i></i>
+            </li>
+            <li class="rank-page-item flexbox">
+              <div class="rank-item-num">4</div>
+              <div class="rank-item-name flexbox">虚位以待</div>
+              <div class="rank-item-grade">暂无</div>
+              <div class="rank-item-value flexbox"><i></i>暂无</div>
+              <i></i>
+            </li>
+            <li class="rank-page-item flexbox">
+              <div class="rank-item-num">5</div>
+              <div class="rank-item-name flexbox">虚位以待</div>
+              <div class="rank-item-grade">暂无</div>
+              <div class="rank-item-value flexbox"><i></i>暂无</div>
+              <i></i>
+            </li>
+            <!-- <li class="rank-page-item flexbox look-more popup">点击查看更多<i class="more-icon"></i></li> -->
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="dialog">
+    <!-- 未登录 -->
+    <div id="isLogin" class="popup">
+      <button class="dialog-ok isLogin-login" onclick="jumpToMe()"></button>
+      <button class="dialog-close login-close"></button>
+    </div>
+    <!-- App外打开 -->
+    <div id="openOutApp" class="popup">
+      <button class="dialog-ok to-download" onclick="download()"></button>
+      <button class="dialog-close download-close"></button>
+    </div>
+    <!-- 女方填写树名 -->
+    <div id="EnterName" class="popup">
+      <div class="dia_tree_icon"></div>
+      <div class="EnterNameMain">
+        <input class="enter-tree-name" type="text" placeholder="种下幸福" maxlength="12">
+        <button class="dialog-ok to-grow" onclick="doGrow(this)"></button>
+        <button class="dialog-close grow-close" onclick="clearInput(this)"></button>
+      </div>
+    </div>
+    <!-- 女方修改树名 -->
+    <div id="ChangeName" class="popup">
+      <div class="dia_tree_icon"></div>
+      <div class="ChangeNameMain">
+        <p>树的昵称最多有十二个汉字</p>
+        <input class="enter-tree-name" type="text" placeholder="种下幸福" maxlength="12">
+        <button class="dialog-ok to-grow" onclick="doChangeName(this)"></button>
+        <button class="dialog-close grow-close" onclick="clearInput(this)"></button>
+      </div>
+    </div>
+    <!-- 女方发起邀请 -->
+    <div id="DoInvite" class="popup init">
+      <div class="invite-title flexbox">合种树已发起</div>
+      <div class="invite-main">
+        <div class="cloud"></div>
+        <div class="invite-main-title">邀请心仪的他，一起养大这棵爱情树，<br />加油！</div>
+        <div class="invite-wrap">
+          <div class="invite-search-wrap">
+            <div class="invite-search-item flexbox">
+              <i class="invite-search-icon"></i>
+              <i class="invite-search-line"></i>
+              <input class="invite-search-input" onfocus="showRemoveBtn(this)" onblur="showSearchBtn(this)"
+                type="number" placeholder="输入搜索觅伊号" oninput="searchId(this)">
+              <div class="search-btn flexbox">搜索</div>
+              <i class="invite-search-close popup" onclick="emptyInput(this)"></i>
+            </div>
+            <div class="invite-search-result flexbox popup">
+              <img class="search-result-photo" src="images/miao.png">
+              <div class="search-result-name">我的昵称八个字</div>
+              <div class="search-result-btn flexbox" onclick="inviteUser(this)">邀请</div>
+            </div>
+          </div>
+          <div class="invite-recommend popup">
+            <div class="invite-recommend-title flexbox">为你推荐<i onclick="refreshRecommend(this)"></i></div>
+            <ul>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="invite-close" onclick="closeRefresh()"></div>
+    </div>
+    <!-- 男方接收单个邀请 -->
+    <div id="AcceptInviteOne" class="popup">
+      <div class="dia_tree_icon"></div>
+      <div class="AcceptInviteOneMain">
+        <p>树的昵称最多有十二个汉字</p>
+        <div class="accept-one-main">
+          <img src="./images/miao.png"><span
+            class="accept-one-userName">昵称最长有八个字</span>发起了<span>合种爱情树</span>的申请，是否接受她的邀请，一起种下你们的甜蜜记忆，收获奖励果实？
+        </div>
+        <button class="dialog-ok to-grow" onclick="doInviteOne(this,1)"></button>
+        <button class="dialog-close grow-close" onclick="layer.closeAll()"></button>
+      </div>
+    </div>
+    <!-- 男方接收多个邀请 -->
+    <div id="AcceptInviteMulti" class="popup">
+      <div class="dia_tree_icon"></div>
+      <div class="AcceptInviteMultiMain">
+        <div class="invite-users">
+          <ul>
+          </ul>
+        </div>
+        <button class="dialog-ok to-invite" onclick="doInviteMulti()"></button>
+        <button class="dialog-close grow-close" onclick="layer.closeAll()"></button>
+      </div>
+    </div>
+    <!-- 升级提示 -->
+    <div id="GradeTip" class="popup">
+      <div class="animate-bar">
+        <div class="animate-bar-item bar-01"></div>
+        <div class="animate-bar-item bar-02"></div>
+        <div class="animate-bar-item bar-03"></div>
+        <div class="animate-bar-item bar-04"></div>
+        <div class="animate-bar-item bar-05"></div>
+        <div class="animate-bar-item bar-06"></div>
+        <div class="animate-bar-item bar-07"></div>
+        <div class="animate-bar-item bar-08"></div>
+        <div class="animate-bar-item bar-09"></div>
+        <div class="animate-bar-item bar-10"></div>
+        <div class="animate-bar-item bar-11"></div>
+        <div class="animate-bar-item bar-12"></div>
+        <div class="animate-bar-item bar-13"></div>
+        <div class="animate-bar-item bar-14"></div>
+      </div>
+      <div class="oldTreeInfo column">
+        <div class="oldTreeImg flexbox">
+          <img src="./images/tree_1.png">
+        </div>
+        <div class="oldTreeGrade flexbox">1级</div>
+        <div class="oldTreeName">胚芽萌发</div>
+      </div>
+      <div class="newTreeInfo column">
+        <div class="newTreeImg flexbox">
+          <img src="./images/tree_2.png">
+        </div>
+        <div class="newTreeGrade flexbox">2级</div>
+        <div class="newTreeName">破土而出</div>
+      </div>
+      <div class="grade-arrow"></div>
+      <button class="dialog-ok grade-close" onclick="showSvgaImg()"></button>
+      <button class="dialog-close grow-close" onclick="showSvgaImg()"></button>
+    </div>
+    <!-- 道具 -->
+    <div id="propMan" class="popup">
+      <div class="slideDown-main">
+        <div class="prop-title"></div>
+        <div class="prop-close" onclick="dialogSlideDown()"></div>
+        <div class="prop-main-outside prop-border-radius">
+          <div class="prop-main-inside prop-border-radius flexbox">
+            <div class="prop-main column">
+              <h1 class="prop-main-title">成长值加速券</h1>
+              <div class="prop-item flexbox">
+                <div class="speed-icon"></div>
+                <p>X 0 张</p>
+                <div class="do-speed-ticket flexbox" onclick="useProp(this)">暂无</div>
+              </div>
+              <p class="not-have">连续签到5天，可获得【成长值加速券】</p>
+              <p>可让合种爱情树成长值+10000。</p>
+              <p class="youxiaoqi popup">券有效期：需在5月5日20:00前使用，<br />过期失效</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- 任务 -->
+    <div id="taskCenter" class="popup">
+      <div class="slideDown-main">
+        <div class="task-title"></div>
+        <div class="prop-close" onclick="dialogSlideDown()"></div>
+        <ul class="task-main prop-border-radius column">
+          <li class="task-main-item task-sign-in flexbox">
+            <div class="sign-in-show column">
+              <ul class="sign-in-value flexbox">
+                <li class="flexbox value1">100</li>
+                <li class="flexbox value2">200</li>
+                <li class="flexbox">300</li>
+                <li class="flexbox">400</li>
+                <li class="flexbox">
+                  500
+                  <div class="five-days column">
+                    500成长值<br />+1张成长加速道具
+                  </div>
+                </li>
+                <li class="flexbox value6" style="display: none;">500</li>
+                <li class="flexbox value7" style="display: none;">500</li>
+              </ul>
+              <div class="sign-in-progress">
+                <div class="sign-in-progress-item"></div>
+              </div>
+              <ul class="sign-in-days flexbox">
+                <!-- <img src="./images/dia_task_finish.png"> -->
+                <li class="flexbox day1" barWidth="20%">今天</li>
+                <li class="flexbox day2" barWidth="40%">第二天</li>
+                <li class="flexbox day3" barWidth="60%">第三天</li>
+                <li class="flexbox day4" barWidth="80%">第四天</li>
+                <li class="flexbox day5" barWidth="80%">第五天</li>
+                <li class="flexbox day6" style="display: none;" barWidth="80%">第六天</li>
+                <li class="flexbox day7" style="display: none;" barWidth="100%">第七天</li>
+              </ul>
+              <ul class="sign-in-water flexbox">
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+              </ul>
+            </div>
+            <div class="get-sign-value flexbox">
+              <div class="sign-rule-btn" onclick="showSignRule()"></div>
+              <div class="sign-get-btn isGetted flexbox" onclick="treeSignIn(this)">领取</div>
+            </div>
+          </li>
+          <li class="task-main-item flexbox">
+            <div class="task-item-icon icon-share"></div>
+            <div class="task-item-text column">
+              <h3>分享给好友（<span>0</span>/3）</h3>
+              <p>每分享成功1次的120成长值</p>
+            </div>
+            <div class="task-item-btn flexbox" onclick="toShare()">去完成</div>
+          </li>
+          <li class="task-main-item flexbox">
+            <div class="task-item-icon icon-chat"></div>
+            <div class="task-item-text column">
+              <h3>视频或语音聊天</h3>
+              <p>单次视频或语音每1分钟=100成长值,<br />音视频价格需≥100<span class="appUnit">钻石</span>/分钟</p>
+            </div>
+            <div class="task-item-btn flexbox" onclick="jumpToHome(this)">去聊天</div>
+          </li>
+          <li class="task-main-item flexbox">
+            <div class="task-item-icon icon-gift"></div>
+            <div class="task-item-text column">
+              <h3 class="sexGift">收礼物</h3>
+              <p>全平台任意礼物,1<span class="appUnit">钻石</span>礼物=1成长值。<br />免费的背包礼物除外。</p>
+            </div>
+            <div class="task-item-btn flexbox" onclick="jumpToHome(this)">去聊天</div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <!-- 任务规则 -->
+    <div id="signRulePage" class="popup">
+      <div class="slideDown-main">
+        <div class="sign-rule-page-main prop-border-radius">
+          <div class="sign-page-main column prop-border-radius">
+            <div class="sign-rule-page-close" onclick="closeSignRulePage()"></div>
+            <div class="sign-page-title">爱情树连续签到领成长值任务规则</div>
+            <p>1、签到成长值奖励：活动期间内，用户签到第1天，可获得100成长值；连续第2天，可获得200成长值；连续
+              第3天，可获得300成长值；连续第4天，可获得400成长值；连续5天及以上，每天500成长值。<br /><span>另外，【成长值加速券】：</span>连续5天签到，可获得。（<span>使用1张券可让合种树的成长值+10000。</span>需在5月5日20:00前获得和使用，过期失效）
+            </p>
+            <p>2、连续签到说明：任务有效期内，连续N天每天签到， 中间没有间断日，视为连续签到N天。</p>
+            <p>3、签到中断说明：如果任务有效期内，某一天没有进行签到，那么第二天重新按照第一天开始计算连续签到 天数和奖励。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- 工具 -->
+    <div id="toolDia" class="popup">
+      <div class="flexbox" onclick="changeTreeName(this)"><span>修改爱情树的名称</span><img src="./images/set_tree_name.png">
+      </div>
+      <div class="flexbox" onclick="dialogCommInit($('#EnterName'), 'EnterName')"><span>发起新的合种</span><img
+          src="./images/creat_new_tree.png"></div>
+    </div>
+  </div>
+</body>
+<script src="http://activity.folkcam.cn/common/rem.js"></script>
+<script src="http://activity.folkcam.cn/common/app.js"></script>
+<script src="http://activity.folkcam.cn/common/moment.js"></script>
+<script src="http://activity.folkcam.cn/common/config.js?v=001"></script>
+<script src="http://activity.folkcam.cn/common/jquery.min.js"></script>
+<script src="http://activity.folkcam.cn/common/swiper.min.js"></script>
+<script src="http://activity.folkcam.cn/common/layer/layer.js"></script>
+<script src="http://res.cdn.openinstall.io/openinstall.js"></script>
+<script src="js/svga.min.js"></script>
+<script src="js/index.js?v=153"></script>
+<script src="http://activity.folkcam.cn/common/vconsole.min.js"></script>
+<script>
+  var vConsole = new VConsole()
+  console.log(window.location.href);
+  setTimeout(() => {
+    $('.nav2-page').addClass('popup')
+  }, 1);
+  var mySwiper = new Swiper('.swiper-container', {
+    slidesPerView: 3,
+    loop: true,
+    navigation: {
+      nextEl: '.preview-next-btn',
+      prevEl: '.preview-prev-btn',
+    },
+  })
+</script>
+
+</html>

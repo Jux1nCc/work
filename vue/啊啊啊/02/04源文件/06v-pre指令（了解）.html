@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- v-pre保持原样输出（不使用vue语法） -->
+    <div id="app">
+      <!-- <pre>
+121212 4
+          
+        56789</pre
+      > -->
+
+      <div v-pre>{{msg}}</div>
+    </div>
+    <script src="./vue.js"></script>
+    <script>
+      new Vue({
+        el: "#app",
+        data: {
+          msg: "123456789",
+        },
+      });
+    </script>
+  </body>
+</html>

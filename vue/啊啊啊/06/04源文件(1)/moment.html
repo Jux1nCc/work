@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script src="http://cdn.staticfile.org/moment.js/2.24.0/moment.js"></script>
+    <script>
+      //  moment:
+      //获取当前时间转换成我们想要的格式(年（Y）-月(M)-日(D)  时(H:24小时制，h:12小时制):分(m)：秒(s))   ： moment().format("YY年MM月DD日 HH:mm:ss")
+      //给一个时间戳（1970 1 1到当前为止时间毫秒数）转换成时间格式   moment(时间戳).format("YY年MM月DD日 HH:mm:ss")
+      //给一个毫秒转换成相应时间格式   moment(毫秒).format("mm分ss秒")
+
+      //   alert(moment().format("YYYY-MM-DD HH:mm:ss"));
+      alert(moment(51241).format("mm:ss"));
+    </script>
+  </body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <ul id="ul"></ul>
+    <script>
+      let arr = [
+        "aaaaaaaaa",
+        "bbbbbbbbb",
+        "ccccccccc",
+        "ddddddddd",
+        "eeeeeeeee",
+        "fffffffff",
+        "ggggggggg",
+        "hhhhhhhhh",
+      ];
+      for (let i = 0; i < arr.length; i++) {
+        let _li = document.createElement("li");
+        _li.innerHTML = arr[i];
+        document.getElementById("ul").appendChild(_li);
+      }
+      //   window.console.log(arr[i]);
+    </script>
+    <!-- v-for
+用法: v-for="(item,index) in 数组"
+功能：用于列表渲染
+将它所在标签进行一个循环遍历 复制，数组长度有多长就循环多少次
+item 就代表数组每一项可以理解成arr[i]
+index就是代表数组索引项，可以理解成i
+item与index都是局部变量只能在它所在标签内使用
+-->
+    <ul id="app">
+      <!-- 
+      <div>{{arr2[0]}}</div>
+      <div>{{arr2[1]}}</div>
+      <div>{{arr2[2]}}</div>
+      <div>{{arr2[3]}}</div>
+      <div>{{arr2[4]}}</div>
+      <div>{{arr2[5]}}</div>
+      <div>{{arr2[6]}}</div>
+      <div>{{arr2[7]}}</div> -->
+      <li v-for="(item,index) in arr2">
+        {{item}}--------{{index}}
+        <span>{{item}}</span>
+      </li>
+    </ul>
+    <script src="./vue.js"></script>
+    <script>
+      new Vue({
+        el: "#app",
+        data: {
+          arr2: [
+            "aaaaaaaaa",
+            "bbbbbbbbb",
+            "ccccccccc",
+            "ddddddddd",
+            "eeeeeeeee",
+            "fffffffff",
+            "ggggggggg",
+            "hhhhhhhhh",
+          ],
+        },
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <!-- 引入样式 -->
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <!-- 引入组件库 -->
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <el-form :model="ruleForm" status-icon :rules="rules" ref="ruleForm" label-width="100px" class="demo-ruleForm">
+            <el-form-item label="年龄" prop="age">
+                <el-input v-model.number="ruleForm.age"></el-input>
+            </el-form-item>
+            <el-form-item label="邮箱" prop="email">
+                <el-input v-model="ruleForm.email"></el-input>
+            </el-form-item>
+            <el-form-item>
+                <el-button type="primary" @click="submitForm('ruleForm')">提交</el-button>
+                <el-button @click="resetForm('ruleForm')">重置</el-button>
+            </el-form-item>
+        </el-form>
+    </div>
+</body>
+<script>
+    new Vue({
+        el: '#app',
+        data() {
+            return {
+                ruleForm: {
+                    age: '',
+                    email: ''
+                },
+                rules: {
+                    age: [
+                        {
+                            validator: (rule, value, callback) => {
+                                if (!value) {
+                                    callback('年龄不能为空');
+                                }else if(value < 18){
+                                    callback('年龄必须年满18')
+                                }else{
+                                    callback();
+                                }
+                            }, trigger: 'change'
+                        }
+                    ],
+                    email: [
+                        {required: true, message: '请输入邮箱', trigger: 'change'},
+                        {validator: (rule, value, callback)=>{
+                            let _deg= /\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*/;
+                            if(_deg.test(value)){
+                                callback();
+                            }else {
+                                callback('请输入正确的邮箱格式');
+                            }
+                        },trigger: 'change'}
+                    ]
+                }
+            };
+        },
+        methods: {
+            submitForm(formName) {
+                this.$refs[formName].validate((valid) => {
+                    if (valid) {
+                        alert('submit!');
+                    } else {
+                        console.log('error submit!!');
+                        return false;
+                    }
+                });
+            },
+            resetForm(formName) {
+                this.$refs[formName].resetFields();
+            }
+        }
+    })
+</script>
+
+</html>

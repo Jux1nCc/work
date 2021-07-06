@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>入驻申请</title>
+		<link rel="stylesheet" href="../../public/css/style.css">
+		<link rel="stylesheet" href="../../package/layui/css/layui.css" />
+
+		<script type="text/javascript" src="../../package/layui/layui.js"></script>
+		<script src="../../public/js/public/jquery.min.js"></script>
+		<script src="../../public/js/index.js"></script>
+	</head>
+	<body>
+		<div id="certification_Alipay">
+			<div class="certification_title">
+				<a href="javascript:history.go(-1)" class="cert_return_btn" ><img src="../../img/backoff.png">返回</a>
+				<h3>入驻申请</h3>
+			</div>
+			<div class="certification_content">
+				<p class="certifi_content_pream">请您进行实名信息认证，您的个人信息将受<a href="../privacy.html" target="_blank">《咨聊用户隐私政策》</a>保护。</p>
+				<div class="certification_info_name">
+					<label class="lable_title" >真实姓名：</label>
+					<div class="input_w340">
+						<input type="text" id="realname" maxlength="20"/>
+						<label class="prompt-hint" id="realnamehint"></label>
+					</div>
+				</div>
+				
+				<div class="certification_info_name">
+					<label class="lable_title">身份证号：</label>
+					<div class="input_w340">
+						<input type="text" id="IDcard" maxlength="18" />
+						<label class="prompt-hint" id="IDcardhint"></label>
+					</div>
+				</div>
+				
+				<div class="l_identification_just">
+                    <span>上传手持身份证正面照片：</span> 
+                    <div class="l_identification_just_img clearfix">
+                        <div class="l_identification_just_input l_identification_public  fl" id="identityFront" style="margin-right:39px;background-size: 100% 100%;">
+                        <!--<img class="pic_l" src="../images/img_12.jpg" alt="">-->
+                            <input type="file" id="file1" name="pptPic">
+                            <!--<input type="file" id="file1" name="pptPic" onchange="getPhoto(node);" >-->
+                            <div class="l_close"></div>
+                        </div>
+                        <div class="l_identification_just_shil l_identification_public fl"></div>
+                    </div>
+                    <h6>要求：拍摄清晰的本人身份证正面照（照片不得超过10M）；请确保手持的身份证与填写的身份证信息一致；请确保手肘部位完全出现在照片中。</h6>  
+                </div>
+                
+				 <div class="l_identification_back">
+                    <span>上传身份证背面照片：</span> 
+                    <div class="l_identification_back_img clearfix">
+                        <div class="l_identification_back_input l_identification_public  fl" id="identityReverse" style="margin-right:39px;background-size: 100% 100%;">
+                            <!-- <img class="pic_l" src="../images/img_12.jpg" alt=""> -->
+                            <input type="file" id="file2">
+                            <!-- 关闭按钮 -->
+                            <div class="l_close"></div>
+                        </div>
+                        <div class="l_identification_back_shil l_identification_public fl" ></div>
+                    </div>
+                    <h6>要求：拍摄清晰的本人身份证背面照（照片不得超过10M）；身份证有效期需要一个月以上。</h6>  
+                </div>
+				
+				<p class=""><a href="javascript:;" id="Next_step">下一步：填写专家资料</a></p>
+				
+			
+			</div>
+			
+		</div>
+	</body>
+	<script>
+		$(document).ready(function(){
+ 			if(navigator.userAgent.indexOf('.MSIE') > 0) {
+				//普通用户资料修改 -->用户昵称
+				$("#certification_Alipay").on("input propertychange", "#realname", function() {
+					fun.inputdelay("realname", "真实姓名");
+				});
+				$("#certification_Alipay").on("input propertychange", "#IDcard", function() {
+					fun.inputdelay("IDcard", "身份证");
+				});
+		
+				
+			} else {
+				$("#certification_Alipay").on("input oninput", "#realname", function() {
+					fun.inputdelay("realname", "真实姓名");
+				})
+				$("#certification_Alipay").on("input oninput", "#IDcard", function() {
+					fun.inputdelay("IDcard", "身份证");
+				})
+				
+			}
+		})
+		
+	</script>
+</html>

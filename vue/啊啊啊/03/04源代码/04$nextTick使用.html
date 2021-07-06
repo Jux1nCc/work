@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <button @click="btnClick">点我啊</button>
+      <p ref="xxx">{{msg}}</p>
+    </div>
+    <script src="./vue.js"></script>
+    <script>
+      new Vue({
+        el: "#app",
+        data: {
+          msg: "这是一个寂寞的天",
+        },
+        methods: {
+          btnClick() {
+            this.msg = Math.random() * 999;
+            // 数据渲染是异步
+            // $nextTIck是setTimeout高级版本，它帮我们算好了数据渲染到页面所需时间
+            // $nextTick是异步
+            this.$nextTick(() => {
+              window.console.log(this.$refs.xxx.innerText);
+            });
+            // setTimeout(() => {
+            //   window.console.log(this.$refs.xxx.innerText);
+            // },1000);
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

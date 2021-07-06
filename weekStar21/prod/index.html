@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0, viewport-fit=cover">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="msapplication-tap-highlight" content="no">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Cache-Control" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <title>礼物周星榜</title>
+  <link rel="stylesheet" href="http://activity.folkcam.cn/common/comm.css">
+  <link rel="stylesheet" href="http://activity.folkcam.cn/common/layer/theme/default/layer.css">
+  <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+  <div class="page">
+    <header></header>
+    <div class="lastweek-btn popup" onclick="toLastWeekPage()"></div>
+    <div class="rule-btn" onclick="toRulePage()"></div>
+    <div class="champion-page">
+      <span class="champion-title">冠军黑马推荐</span>
+      <div class="champion-wrap column">
+        <span class="champion-text init">昨日周星礼物第1名</span>
+        <span class="init-text">黑马主播暂未产生，敬请期待</span>
+        <div class="champion-info flexbox" style="display: none;">
+          <div class="champion-pic flexbox" onclick="jumpToHomePage(this,0)">
+            <div class="champion-wing"></div>
+            <img src="images/miao.png" class="champion-img">
+            <div class="live-icon popup">live</div>
+          </div>
+          <div class="champion-item column">
+            <span>昵称: <span class="champion-name">此处展示八个字</span></span>
+            <span>奖励: <span class="champion-award">今日1<span class="appUnit">钻石</span>周星礼物=1.2积分</span></span>
+            <span>昨日积分: <span class="champion-value">1,500,000</span></span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="rank-page">
+      <div class="rank-page-title">本周礼物周星榜</div>
+      <ul class="gift-wrap flexbox">
+        <li>
+          <div class="gift-img">
+            <img src="images/miao.png" alt="">
+          </div>
+          <span class="gift-name">礼物名字七个字</span>
+        </li>
+        <li>
+          <div class="gift-img">
+            <img src="images/miao.png" alt="">
+          </div>
+          <span class="gift-name">礼物名字七个字</span>
+        </li>
+        <li>
+          <div class="gift-img">
+            <img src="images/miao.png" alt="">
+          </div>
+          <span class="gift-name">礼物名字七个字</span>
+        </li>
+      </ul>
+      <div class="rank-nav-wrap flexbox">
+        <div class="rank-nav-item rank-nav-1" onclick="changeHomeNav(1,this)">主播日榜</div>
+        <div class="rank-nav-item rank-nav-2" onclick="changeHomeNav(2,this)">主播周榜</div>
+      </div>
+      <p>第一名可在明日登上“冠军黑马推荐位”</p>
+      <div class="rank-wrap">
+        <div class="init-text">
+          <i></i>排名暂未产生，敬请期待
+        </div>
+        <ul class="popup">
+        </ul>
+      </div>
+    </div>
+    <div class="mine-wrap flexbox">
+      <div class="mine-num">暂未上榜</div>
+      <div class="mine-pic">
+        <img src="images/miao.png" alt="">
+      </div>
+      <div class="mine-info column">
+        <div class="mine-name">我的昵称有八个字</div>
+        <div class="mine-value">积分: <span>0</span></div>
+      </div>
+      <div class="mine-star">
+        <img src="images/miao.png" alt="">
+        <div class="star-icon flexbox">最强助攻</div>
+      </div>
+      <div class="arrow" type="1" onclick="toSecondaryPage(this)"></div>
+    </div>
+  </div>
+  <div class="dialog">
+    <div id="isLogin" class="popup">
+      <button class="isLogin-login" onclick="jumpToMe()"></button>
+      <button class="dialog-close login-close"></button>
+    </div>
+    <div id="openOutApp" class="popup">
+      <button class="dialog-ok to-download" onclick="download()"></button>
+      <button class="dialog-close login-close"></button>
+    </div>
+  </div>
+</body>
+<script src="http://activity.folkcam.cn/common/rem.js"></script>
+<script src="http://activity.folkcam.cn/common/app.js"></script>
+<script src="http://activity.folkcam.cn/common/config.js"></script>
+<script src="http://activity.folkcam.cn/common/jquery.min.js"></script>
+<script src="http://activity.folkcam.cn/common/layer/layer.js"></script>
+<script src="http://res.cdn.openinstall.io/openinstall.js"></script>
+<script src="index.js"></script>
+
+</html>

@@ -1,0 +1,5 @@
+<view>
+  <text class="title" wx:for="{{items}}">{{index}}: {{item}}</text>
+  <input placeholder="输入新增物品" bind:input="inputHandler" />
+  <button class="weui-btn weui-btn_primary" bind:tap="buttonHandler">确定</button>
+</view>

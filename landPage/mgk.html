@@ -1,0 +1,138 @@
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>美女一对一视频交友APP</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <meta http-equiv="Cache-Control" content="no-transform,no-siteapp">
+    <link rel="stylesheet" href="https://activity.folkcam.cn/common/comm.css">
+    <style>
+        img.bg {
+            width: 100%;
+            margin-bottom: 80px;
+        }
+
+        .footer {
+            position: fixed;
+            height: 85px;
+            width: 100%;
+            z-index: 2;
+            bottom: 0px;
+            background: #fff;
+            padding: 0 10px;
+        }
+
+        .footer img {
+            width: 50px;
+            height: 50px;
+
+        }
+
+        h1 {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 5px;
+        }
+
+        .download {
+            padding: 0 8px;
+            height: 50px;
+            border-radius: 10px;
+            background: #1890FF;
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="contain">
+        <img class="bg" id="bg" class="down1" src="img/bg.jpg">
+        <div class="footer flexbox between">
+            <div class="flexbox around" style="width: 50%">
+                <img src="img/logo1.png" alt="">
+                <div>
+                    <h1>觅伊</h1>
+                    <p>高效相亲交友</p>
+                </div>
+            </div>
+            <p class="download column down1" onclick="javaScript:getCode2();" id="down1d">立即下载</p>
+        </div>
+    </div>
+    <div id="mobile_top" style="display:none;position: absolute;z-index: 999;top: 0;width: 100%;height: 100%;">
+        <img src="" id="mobile_img" style="width: 100%; height: 100%;" />
+    </div>
+</body>
+<script src="https://activity.folkcam.cn/common/jquery.min.js"></script>
+<script>
+    (function () {
+        var ua = navigator.userAgent.toLowerCase();
+        var isAndroid = ua.indexOf('android') >= 0;
+        var isIOS = ua.indexOf('iphone') >= 0 || ua.indexOf('ipad') >= 0,
+            isWeixin = ua.indexOf('micromessenger') >= 0,
+            isQzone = ua.indexOf('qzone') >= 0,
+            isWeibo = ua.indexOf('weibo') >= 0,
+            isQQ = ua.match(/qq\/(\d+\.)+\d+/),
+            isMail = ua.match(/mail/),
+            isYixin = ua.match(/yixin/),
+            isUC = ua.match(/ucbrowser/);
+        if (is_weixin() || is_mobileQQ()) {
+            if (isIOS) {
+                $("#mobile_top").css("display", "block");
+                $("#mobile_img").attr("src", "img/iOS.png")
+                $(".down").css("display", "none")
+            } else if (isAndroid) {
+                $("#mobile_top").css("display", "block");
+                $("#mobile_img").attr("src", "img/android.png")
+                $(".down").css("display", "none")
+            }
+        }
+    })();
+    function is_weixin() {
+        var ua = navigator.userAgent.toLowerCase();
+        if (ua.match(/MicroMessenger/i) == "micromessenger") {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    function is_mobileQQ() {
+    	var ua = navigator.userAgent.toLowerCase();
+		if (ua.indexOf('mobile')>-1 && ua.indexOf(' qq') > -1 ) {
+    		return true;
+    	} else {
+    		return false;
+    	}
+	}
+</script>
+<script type="text/javascript" src="../share_files/jquery-1.js"></script>
+<script src="../js/openinstall.js"></script>
+<script type="text/javascript" charset="UTF-8" src="//res.cdn.openinstall.io/openinstall.js"></script>
+<script type="text/javascript">
+	var ua = navigator.userAgent.toLowerCase();
+	var isIOS = ua.indexOf('iphone') >= 0 || ua.indexOf('ipad') >= 0;
+	if(isIOS){
+		var data = OpenInstall.parseUrlParams();//openinstall.js中提供的工具函数，解析url中的所有查询参数
+	    new OpenInstall({
+	        /*appKey必选参数，openinstall平台为每个应用分配的ID*/
+	        appKey : "c6xjxt",
+	        onready : function() {
+	            var m = this, button = document.getElementById("down1d");
+	            button.style.visibility = "visible";
+
+	            /*在app已安装的情况尝试拉起app*/
+	            m.schemeWakeup();
+	            /*用户点击某个按钮时(假定按钮id为downloadButton)，安装app*/
+	            button.onclick = function() {
+	            	console.log("-----");
+            		m.wakeupOrInstall();
+            		console.log("---------");
+	                return false;
+	            }
+	        }
+	    }, data);
+	}
+    
+</script>
+<script type="text/javascript" src="../js/dss3.js"></script>
+</html>

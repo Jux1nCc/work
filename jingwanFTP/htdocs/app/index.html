@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>深圳市仁凯网络科技有限公司</title>
+	<meta name="viewport"
+		content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,initial-scale=1.0" />
+	<meta name="format-detection" content="telephone=no,email=no" />
+	<link rel="stylesheet" type="text/css" href="css/common.css" />
+	<link rel="stylesheet" type="text/css" href="css/style.css" />
+	<link rel="stylesheet" type="text/css" href="css/owl.carousel.css" />
+	<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+	<script type="text/javascript" src="js/slider.js"></script>
+
+</head>
+
+<body>
+	<div style="background: url(img/back.png); width: 100%; background-size: contain;">
+		<div class="header dh">
+			<div class="baoo">
+				<h1 class="logo"><a href="index.html"><img src="img/applogo02.png" alt="logo"></a></h1>
+				<div class="dh_close">
+					<a id="close_btn">
+						<img src="img/menu.png" alt="close" id="header_menu">
+					</a>
+				</div>
+			</div>
+
+		</div>
+		<div class="nav full">
+			<ul id="nav_list">
+				<li>
+					<a id="introduction">公司简介</a>
+				</li>
+				<li>
+					<a id="project_center">项目中心</a>
+				</li>
+				<li>
+					<a id="about_me">联系我们</a>
+				</li>
+
+			</ul>
+		</div>
+
+		<div class="wrap">
+			<div class="boxs" id="box">
+				<div class="inner">
+					<!--轮播图-->
+					<ul>
+					
+
+						<li>
+							<p>P咖</p>
+							<div class="flexslider" id="banner_tabs">
+								<ul class="slides">
+									<li>
+										<a title="" target="_blank" href="#">
+											<img src="img/Pka01.png">
+										</a>
+									</li>
+									<li>
+										<a title="" href="#">
+											<img src="img/Pka02.png">
+										</a>
+									</li>
+									<li>
+										<a title="" href="#">
+											<img src="img/Pka03.png">
+										</a>
+									</li>
+								</ul>
+
+							</div>
+							<a class="down_app" href="http://app.mi.com/details?id=com.expertol.pptdaka">立即下载</a>
+						</li>
+
+					</ul>
+					<ol class="bar" style="display: none;">小按钮数量无法确定，由js动态生成</ol>
+					<!--左右焦点-->
+					<div id="arr" style="display: none;"><span id="left">
+							<< /span> <span id="right">></span></div>
+				</div>
+			</div>
+		</div>
+		<div class="new-status">
+			<p style="color: #fff;font-size: 16px;">最新动态</p>
+			<ul class="news_list">
+				<li>
+					<a>
+						<p>仁凯网络科技首届校招应届生工作交流...<span>08-03</span></p>
+					</a>
+				</li>
+				<li>
+					<a>
+						<p>团结创新，续我辉煌——仁凯网络科技团建活动<span>07-29</span></p>
+					</a>
+				</li>
+				<li>
+					<a>
+						<p>互利共赢，融合发展————滨海金...<span>03-17</span></p>
+					</a>
+				</li>
+				<li>
+					<a>
+						<p>仁凯网络科技春季校园招聘，寻求志同...<span>03-06</span></p>
+					</a>
+				</li>
+				<li>
+					<a>
+						<p>不忘初心 砥砺前行——仁凯网络科技20...<span>01-19</span></p>
+					</a>
+				</li>
+				<li>
+					<a>
+						<p>这一站，地球肺叶西双版纳——镜...<span>11-22</span></p>
+					</a>
+				</li>
+
+			</ul>
+		</div>
+	</div>
+	<!--底部-->
+	<script type="text/javascript" src="js/swiper.min.js"></script>
+	<script type="text/javascript" src="js/owl.carousel.js"></script>
+	<script type="text/javascript" src="js/index.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
+</body>
+<script>
+	$(document).ready(function () {
+		$(".full").on("click", "#introduction", function () {
+			$(".nav").empty();
+			var str = "<div class='into_box'>"
+			str += "<p class='dou_into'>公司简介</p>"
+			str += "<p style='text-indent:50px;'>仁凯网络科技成立于2015年11月，专注于移动互联网产品。仁凯的目标是借助移动互联网的力量、通过商业模式创新，产品创新，让更多有意义、有想法的产品能被用户使用， 产品定位于全球市场，为多语言版本。仁凯网络科技由中组部“千人计划”和深圳市“孔雀计划”成员牵头，联合行业精英，创立的深圳市仁凯网络科技有限公司，承担起历史使命，融合东西方智慧，立志创新产品，解决关键问题。仁凯网络科技，定位于创新项目孵化服务平台，借助移动互联网的力量，让用户体验更多、更便利、更有意思的产品！目前公司所拥有的项目有：主打陌生人社交的兔聊软件、主打亲密社交的jernal软件、知识付费项目咨聊软件及主打海外陌生人社交的laxii项目。我们的目标是十年内打造三款亿级以上用户的互联网产品，让更多的用户体验互联产产品的便利！</p>"
+			str += "</div>"
+			$(".nav").append(str)
+		})
+
+		$(".full").on("click", "#project_center", function () {
+			$(".nav").empty();
+			var str = "<ul>"
+			str += "<li><a href='https://www.expertol.cn'>兔聊</a></li>"
+			/* str += "<li><a href='https://pptdaka.com'>P咖</a></li>"
+			/* str += "<li><a href='https://www.jernal.com'>jernal</a></li>"
+			/*str += "<li><a href='http://www.laxii.com'>laxii</a></li>"*/
+			$(".nav").append(str)
+		})
+
+		$(".full").on("click", "#about_me", function () {
+			$(".nav").empty();
+			var str = "<ul class='about_li'>"
+			str += "<li><a>联系我们</a></li>"
+			str += "<li><a>深圳市仁凯网络科技有限公司</a></li>"
+			str += "<li><a>邮箱：dev@rkvip8.com</a></li>"
+			str += "<li><a>地址：深圳市南山区科技南八路工勘大厦19B</a></li>"
+			$(".nav").append(str)
+		})
+
+
+	})
+	function change_pic() {
+		var picts = document.getElementById("header_menu");
+
+		var buttons = document.getElementById("close_btn");
+
+		buttons.onclick = function () {
+			if (picts.getAttribute("src", 2) == "img/menu.png") {
+
+				picts.setAttribute("src", "img/h5_close.png");
+
+
+			} else {
+
+				picts.setAttribute("src", "img/menu.png");
+
+
+			};
+		}
+	}
+	change_pic();
+</script>
+<script>
+	(function (doc, win) {
+		let docEl = doc.documentElement,
+			resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+			recalc = function () {
+				let clientWidth = docEl.clientWidth;
+				if (!clientWidth) return;
+				if (clientWidth > 1200) {
+					window.location.href = "../index.html";
+				}
+			};
+		if (!doc.addEventListener) return;
+		win.addEventListener(resizeEvt, recalc, false);
+		doc.addEventListener('DOMContentLoaded', recalc, false);
+	})(document, window);
+</script>
+
+</html>

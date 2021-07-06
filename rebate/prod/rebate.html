@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0, viewport-fit=cover">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="msapplication-tap-highlight" content="no">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Cache-Control" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <title>充值返利</title>
+  <link rel="stylesheet" href="http://activity.folkcam.cn/common/comm.css">
+  <link rel="stylesheet" href="http://activity.folkcam.cn/common/layer/theme/default/layer.css">
+  <style>
+    .page {
+      width: 100vw;
+      position: relative;
+      background-color: #d5100a;
+      color: #fff;
+    }
+
+    header {
+      width: 100%;
+      height: 7.72rem;
+      background-image: url("images/head.png");
+      background-size: 100% 100%;
+    }
+
+    .main {
+      width: 6.87rem;
+      background-color: #fff9f0;
+      border: .05rem solid #ff8f4a;
+      border-radius: .3rem;
+      margin: -3rem auto 0;
+      padding-top: .5rem;
+    }
+
+    p {
+      font-size: .24rem;
+      line-height: .4rem;
+      letter-spacing: .03rem;
+    }
+
+    p span {
+      font-size: .24rem;
+    }
+
+    .main>div {
+      width: 6.35rem;
+      margin: 0 auto .5rem;
+      background-size: 100% 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding-top: .4rem;
+    }
+
+    .rule-wrap {
+      height: 3.37rem;
+      background-image: url("images/rule_bg.png?v=001");
+      align-items: flex-start !important;
+      padding: 0 .3rem;
+    }
+
+    .canyu-wrap {
+      height: 3.47rem;
+      background-image: url("images/canyu_bg.png?v=001");
+    }
+
+    .canyu-wrap img {
+      width: 1.67rem;
+      height: 1.7rem;
+    }
+
+    .canyu-wrap p,
+    .datail-wrap p,
+    .datail-wrap p span {
+      font-size: .28rem;
+    }
+
+    p .red {
+      color: #e54640;
+      font-weight: 700;
+      background-color: #fffefd;
+      padding: 0 .05rem;
+      margin: 0 .05rem;
+    }
+
+    .main .datail-wrap {
+      height: 2.77rem;
+      background-image: url("images/datail_bg.png?v=001");
+      display: none;
+    }
+
+    footer {
+      width: 100%;
+      height: 2rem;
+      text-align: center;
+      line-height: 2rem;
+      font-size: .3rem;
+    }
+
+    footer span {
+      font-size: .3rem;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <script src="http://activity.folkcam.cn/common/rem.js"></script>
+    <script src="http://activity.folkcam.cn/common/createBar.js"></script>
+    <script src="http://activity.folkcam.cn/common/jquery.min.js"></script>
+    <script src="http://activity.folkcam.cn/common/config.js"></script>
+    <script>
+      $bar.setBar({ bg: '#fff', font: '#000' }, {
+        type: 3,
+      }, {
+        title: ''
+      })
+      if (!$config.browser.versions.android || $config.getQueryStringByName("isFrom")) {
+        $('.bar.header-bar.header-bar-nav').css('display', 'none')
+      }
+    </script>
+    <div class="page">
+      <header></header>
+      <div class="main">
+        <div class="rule-wrap">
+          <p>1、以每个用户在活动期间的首笔充值来返利，充值<span class="red">任何金额</span>都可享受！</p>
+          <p>2、当日充值，从次日开始登录就有返利，每天返利一次。返利累计为4次。每次返利充值额的8%，总计充值额的32%。</p>
+          <p>3、活动时间：即日起-6月30日。</p>
+        </div>
+        <div class="canyu-wrap">
+          <p class="popup">活动期间内完成首次充值即算参加</p>
+          <img class="popup" src="images/btn.png" onclick="toRecharge()">
+        </div>
+        <div class="datail-wrap">
+          <p>您可获得总计<span class="red rebateAmt">492</span><span class="appUnit">钻石</span>返利。</p>
+          <p>您已经领取<span class="red useNum">0</span>次，还有<span class="red surplusNum">4</span>次领取机会。</p>
+          <p>截止领取时间：截止到7月30日 </p>
+        </div>
+      </div>
+      <footer>本次活动最终解释权归<span class="appName">觅伊</span>官方所有</footer>
+    </div>
+  </div>
+</body>
+<script src="http://activity.folkcam.cn/common/app.js"></script>
+<script src="http://activity.folkcam.cn/common/layer/layer.js"></script>
+<script>
+  var rebate = {
+    env: 'prod',
+    customerId: $config.getQueryStringByName("customerId"),
+    token: $config.getQueryStringByName("token"),
+    apkChannel: $config.getQueryStringByName("apkChannel"), //myzh6
+    appType: null,
+    init: function () {
+      rebate.created()
+    },
+    created: function () {
+      var parmas = {
+        customerId: rebate.customerId,
+        token: rebate.token
+      }
+      $.ajax({
+        type: 'GET',
+        url: $config.toUrl(rebate.env, '/act/recall/miyiIndex'),
+        data: parmas,
+        dataType: 'json',
+        success: function (res) {
+          if (res.result) {
+            rebate.appType = res.data.appType
+            rebate.mounted(res.data)
+          } else {
+            if (res.code == '-100') {
+              layer.msg(res.message, {
+                time: false,
+                shade: 0.5
+              })
+            }
+          }
+        },
+        error: function () {
+          layer.msg('网络异常')
+        }
+      })
+    },
+    mounted: function (data) {
+      if (data.isRecharge) {
+        $('.main').html(
+          '<div class="datail-wrap">' +
+          '<p>您可获得总计<span class="red rebateAmt">492</span><span class="appUnit">钻石</span>返利。</p>' +
+          '<p>您已经领取<span class="red useNum">0</span>次，还有<span class="red surplusNum">4</span>次领取机会。</p>' +
+          '<p>截止领取时间：截止到7月30日 </p>' +
+          '</div>' +
+          '<div class="rule-wrap">' +
+          '<p>1、以每个用户在活动期间的首笔充值来返利，充值任何金额都可享受！</p>' +
+          '<p>2、当日充值，从次日开始登录就有返利，每天返利一次。返利累计为4次。每次返利充值额的8%，总计充值额的32%。</p>' +
+          '<p>3、活动时间：即日起-6月30日。</p>' +
+          '</div>'
+        )
+        $('.datail-wrap').css('display', 'flex')
+      } else {
+        if (data.isEnd) {
+          layer.msg('活动已结束', {
+            time: false,
+            shade: 0.5
+          })
+          document.body.addEventListener(
+            'touchmove',
+            function (e) {
+              e.preventDefault()
+            },
+            { passive: false }
+          )
+          return
+        }
+      }
+      if ($config.browser.versions.android && rebate.appType == 2) {
+        $('.canyu-wrap img').removeClass('popup')
+      } else {
+        $('.canyu-wrap p').removeClass('popup')
+      }
+      $('.rebateAmt').text(data.rebateAmt)
+      $('.useNum').text(data.useRebateNum)
+      $('.surplusNum').text(data.surplusRebateNum)
+      rebate.mountedApp()
+    },
+    mountedApp: function () {
+      if (rebate.appType == 1) {
+        $('.appName').text('兔聊')
+        $('.appUnit').text('聊币')
+      }
+    }
+  }
+  function toRecharge() {
+    client.jumpToCharge()
+  }
+  rebate.init()
+</script>
+
+</html>

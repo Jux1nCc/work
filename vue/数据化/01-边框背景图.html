@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            float: left;
+            margin-left: 50px;
+            width: 200px;
+            height: 200px;
+            background-color: aqua;
+            border: 10px solid pink;
+        }
+        .box1 {
+            border-image: url('./border.jpg') 167 stretch;
+            /* 图片地址 */
+            /* border-image-source: url('./border.jpg'); */
+            /* 图片裁剪  上 右 下 左   不带px*/
+            /* border-image-slice: 167 167 167 167; */
+            /* 图片宽度  :  默认 边框宽度*/   
+            /* border-image-width: 20px; */
+            /* 图片填充方式  默认 :  stretch 拉伸*/
+            /* border-image-repeat: stretch; */
+        }
+        .box2 {
+            border-image: url('./border.jpg') 167 repeat;
+        }
+        .box3 {
+            border-image: url('./border.jpg') 167 round;
+        }
+    </style>
+</head>
+<body>
+    <div class="box1">stretch : 拉伸铺满  中间裁切图片会拉伸铺满盒子边框</div>
+    <div class="box2">repeat : 平铺铺满   中间切割图片以中心点位置开始平铺，但是会导致图片显示不全</div>
+    <div class="box3">round : 环绕    完整的以切割的图片来铺满边框，但是图片会变形</div>
+</body>
+</html>

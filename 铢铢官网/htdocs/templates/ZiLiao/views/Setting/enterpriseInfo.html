@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>企业资料修改</title>
+		<link rel="stylesheet" href="../../public/css/style.css">
+		<link rel="stylesheet" href="../../package/layui/css/layui.css" />
+
+		<script type="text/javascript" src="../../package/layui/layui.js"></script>
+		<script src="../../public/js/public/jquery.min.js"></script>
+		<script src="../../public/js/public/jquery.cookie.min.js"></script>
+		<script src="../../public/js/index.js"></script>
+		<script src="../../public/js/public/city.js"></script>
+		<script src="../../public/js/setting/enterpriseInfo.js"></script>
+	</head>
+	<body>
+		<div id="enterprise_info">
+			<div class="Expert_update_title">
+				<a href="javascript:history.go(-1)" class="cert_return_btn" ><img src="../../img/backoff.png">返回</a>
+				<h3>资料修改</h3>
+			</div>
+			<div class="Expert_update_info">
+				
+				<div class="Expert_update_name">
+					<label class="lable_title">昵称：</label>
+					<div class="input_w340">
+						<input type="text" id="Expertname" maxlength="10"/>
+						<label class="prompt-hint" id="Expertnamehint">（必填）</label>
+					</div>
+				</div>
+				
+				<div class="Expert_update_name">
+					<label class="lable_title">企业名称：</label>
+					<div class="input_w340">
+						<input type="text" id="Expertqyname" disabled="disabled"/>
+						<label class="prompt-hint" id="Expertnamehint">（不可修改）</label>
+					</div>
+				</div>
+				
+				<div class="Expert_update_name" style="display: none;">
+					<label class="lable_title">所在地：</label>
+					<div class="input_w340">
+						<input type="text" id="Expertbirthday" maxlength="30"/>
+						<label class="prompt-hint" id="Expertbirthdayhint">（必填）</label>
+					</div>
+				</div>
+				
+				<div class="Expert_update_name">
+					<label class="lable_title">常驻城市：</label>
+					<!--<div class="input_w340">
+						<input type="text" id="Expertpermanent"/>
+					</div>-->
+					<div class="input_w340" onload="init()">
+						<select id="province" class="province" size=1 onchange="getCity()">
+							<option value="北京">北京</option>
+							<option value="上海市">上海市</option>
+							<option value="天津市">天津市</option>
+							<option value="重庆市">重庆市</option>
+							<option value="河北省">河北省</option>
+							<option value="山西省">山西省</option>
+							<option value="内蒙古自治区">内蒙古自治区</option>
+							<option value="辽宁省">辽宁省</option>
+							<option value="吉林省">吉林省</option>
+							<option value="黑龙江省">黑龙江省</option>
+							<option value="江苏省">江苏省</option>
+							<option value="浙江省">浙江省</option>
+							<option value="安徽省">安徽省</option>
+							<option value="福建省">福建省</option>
+							<option value="江西省">江西省</option>
+							<option value="山东省">山东省</option>
+							<option value="河南省">河南省</option>
+							<option value="湖北省">湖北省</option>
+							<option value="湖南省">湖南省</option>
+							<option value="广东省">广东省</option>
+							<option value="广西壮族自治区">广西壮族自治区</option>
+							<option value="海南省">海南省</option>
+							<option value="四川省">四川省</option>
+							<option value="贵州省">贵州省</option>
+							<option value="云南省">云南省</option>
+							<option value="西藏自治区">西藏自治区</option>
+							<option value="陕西省">陕西省</option>
+							<option value="甘肃省">甘肃省</option>
+							<option value="宁夏回族自治区">宁夏回族自治区</option>
+							<option value="青海省">青海省</option>
+							<option value="新疆维吾尔自治区">新疆维吾尔自治区</option>
+							<option value="香港">香港</option>
+							<option value="澳门">澳门</option>
+							<option value="台湾">台湾</option>
+							<option value="其他">其他</option>
+						</select>
+						<select id="userpermanent" class="userpermanent">
+							<option value="北京市">北京市</option>
+						</select>
+						<label class="prompt-hint">（必填）</label>
+					</div>
+				</div>
+				
+				<div class="Expert_add_select">
+					<label class="lable_title">擅长领域：</label>
+					<div class="Enterprise_add_input">
+						<button value="新媒体" class="button_class" id="newxmt">新媒体</button>  
+						<button value="SEO" class="button_class" id="newseo">SEO</button>
+						<button value="竞价排名" class="button_class"  id="newjjpm">竞价排名</button>
+						<button value="渠道建设" class="button_class" id="newjsqd">渠道建设</button><br />
+						<button value="品牌推广" class="add_button button_class" id="newpptg" style="margin-left: 100px !important;margin-top: 10px;">品牌推广</button>
+						<button value="公关" class="button_class" id="newgg">公关</button>
+						<button value="整合营销" class="button_class" id="newztyx">整合营销</button>
+						<button value="走向海外" class="button_class" id="newzxhw">走向海外</button><br />
+						<button value="博览" class="button_class" id="newbl" style="margin-left: 100px !important;margin-top: 10px;">博览</button>
+						<button value="产品" class="button_class" id="newcp">产品</button>
+					</div>
+				</div>
+				
+				<div class="Expert_update_work">
+					<label class="lable_title">从业经验：</label>
+					<div class="input_w340">
+						<select id="Expertworking" class="enterworking">
+							<option value="3年以下">3年以下</option>
+							<option value="3-5年">3-5年</option>
+							<option value="5-10年">5-10年</option>
+							<option value="10年以上">10年以上</option>
+						</select>
+						<label class="prompt-hint">（必填）</label>
+					</div>
+				</div>
+				
+				<div class="Expert_update_name">
+					<label class="lable_title">企业介绍：</label>
+					<div class="Expert_self_introduction">
+						<textarea id="Expertself" maxlength="500"></textarea>
+						<label class="prompt-hint" id="Expertselfhint">（必填）</label>
+					</div>
+				</div>
+				
+				<div class="Expert_update_job">
+					<label class="lable_title">一句话概括：</label>
+					<div class="input_w340">
+						<input type="text" id="Expertjob" maxlength="20"/>
+						<label class="prompt-hint" id="Expertjobhint">（必填）</label>
+					</div>
+				</div>
+				
+				<div class="Expert_update_job" style="height: 30px;">
+					<label class="lable_title">媒体报道链接：</label>
+					<div class="input_w340">
+						<input type="text" id="Experthtml" onkeyup="this.value=this.value.replace(/^ +| +$/g,'')"/>
+						<label class="prompt-hint" style="color: #999;">（选填）</label>
+					</div>
+				</div>
+				<div class="Expert_add_submit">
+					<input type="submit" id="infoadd_submit" value="保存资料"/>
+					<p>注意：修改其他信息，请联系客服</p>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

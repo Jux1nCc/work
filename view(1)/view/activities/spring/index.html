@@ -1,0 +1,926 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>新年快乐</title>
+
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <script>
+        new function () {
+            var _self = this;
+            _self.width = 750;
+            _self.fontSize = 100;
+            _self.widthProportion = function () {
+                var p = (document.body && document.body.clientWidth || document.getElementsByTagName("html")[0].offsetWidth) / _self.width;
+                return p > 1 ? 1 : p < 0.2 ? 0.2 : p;
+            };
+            _self.changePage = function () {
+                var a = _self.widthProportion() * _self.fontSize;
+                document.getElementsByTagName("html")[0].setAttribute("style", "font-size:" + a + "px !important");
+                if (a != parseFloat(window.getComputedStyle(document.documentElement)["fontSize"])) {
+                    document.getElementsByTagName("html")[0].setAttribute("style", "font-size:" + a / (parseFloat(window.getComputedStyle(document.documentElement)["fontSize"]) / a) + "px !important");
+                }
+            };
+            _self.changePage();
+            window.addEventListener('resize', function () {
+                _self.changePage();
+            }, false);
+        };
+
+
+
+    </script>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/layer/layer.js"></script>
+    <script src="js/iscroll.js"></script>
+
+
+</head>
+
+<body>
+
+    <section id="top" class="container">
+        <img src="images/happy1.jpg" alt="">
+        <img src="images/happy2.jpg" alt="">
+        <img src="images/happy3.jpg" alt="">
+        <img src="images/happy4.jpg" alt="">
+        <img src="images/happy5.jpg" alt="">
+        <div class="every_day_mod">
+            <img src="images/happy6.jpg" alt="">
+            <span class="currently_has">您当前拥有年兽数：<strong class="howmany"></strong></span>
+            <span class="btn_exchange" title="兑换"></span>
+        </div>
+        <img src="images/happy7.jpg" alt="">
+        <img src="images/happy8.jpg" alt="">
+        <img src="images/happy9.jpg" alt="">
+
+
+        <div class="draw_module">
+            <img src="images/happy10.jpg" alt="">
+            <div class="box">
+                <div id="raffleInit">
+                    <div class="list list1"></div>
+                    <div class="list list2"></div>
+                    <div class="list list3"></div>
+                    <div class="list list4"></div>
+                    <div class="list list5"></div>
+                    <div class="list list6"></div>
+                    <div class="list list7"></div>
+                    <div class="list list8"></div>
+                    <div class="start">
+                        <p id="currPay"></p>
+                        <p id="currPayHidden" style="display: none"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <img src="images/happy11.jpg" alt="">
+        <div class="flex">
+            <span><img src="images/happy12.jpg" alt=""></span>
+            <span id="btnTenTimes"><img src="images/happy13.jpg" alt="抽十次"></span>
+            <span><img src="images/happy14.jpg" alt=""></span>
+        </div>
+        <img src="images/happy15.jpg" alt="">
+        <div class="flex">
+            <span><img src="images/happy16.jpg" alt=""></span>
+            <span id="viewLog"><img src="images/happy17.jpg" alt="查看抽奖记录"></span>
+            <span><img src="images/happy18.jpg" alt=""></span>
+        </div>
+        <img src="images/happy19.jpg" alt="">
+
+        <div class="activity_list_mod">
+            <img src="images/happy20.jpg" alt="">
+            <div id="tabs" class="btn_tabs">
+                <a href="#" name="#tab1" id="current">女生榜</a>
+                <a href="#" name="#tab2">男生榜</a>
+            </div>
+            <div id="content" class="tab_con">
+                <div id="tab1">
+                    <!-- 女生榜单跳转至对方主页 -->
+                    <ul class="users_list" id ="womenList">
+                        <li>
+                            <p class="number">NO.1</p>
+                            <a class="img" href=""><img src="images/1.jpg" alt=""></a>
+                            <p class="name">我是女生哒哒</p>
+                            <p class="property">1234567</p>
+                        </li>
+                        <li>
+                            <p class="number">NO.2</p>
+                            <a class="img" href=""><img src="images/1.jpg" alt=""></a>
+                            <p class="name">总督先生的五个字</p>
+                            <p class="property">123456</p>
+                        </li>
+                        <li>
+                            <p class="number">NO.3</p>
+                            <a class="img" href=""><img src="images/1.jpg" alt=""></a>
+                            <p class="name">总督先生的五个字</p>
+                            <p class="property">12345</p>
+                        </li>
+                        <li>
+                            <p class="number">NO.4</p>
+                            <a class="img" href=""><img src="images/1.jpg" alt=""></a>
+                            <p class="name">总督先生的五个字</p>
+                            <p class="property">1234</p>
+                        </li>
+                        <li>
+                            <p class="number">NO.5</p>
+                            <a class="img" href=""><img src="images/1.jpg" alt=""></a>
+                            <p class="name">总督先生的五个字</p>
+                            <p class="property">123</p>
+                        </li>
+                        <li>
+                            <p class="number">NO.6</p>
+                            <a class="img" href=""><img src="images/1.jpg" alt=""></a>
+                            <p class="name">总督先生的五个字</p>
+                            <p class="property">12</p>
+                        </li>
+                        <li>
+                            <p class="number">NO.7</p>
+                            <a class="img" href=""><img src="images/1.jpg" alt=""></a>
+                            <p class="name">总督先生的五个字</p>
+                            <p class="property">1</p>
+                        </li>
+                        <li>
+                            <p class="number">NO.8</p>
+                            <a class="img" href=""><img src="images/1.jpg" alt=""></a>
+                            <p class="name">总督先生的五个字</p>
+                            <p class="property">1</p>
+                        </li>
+                        <li>
+                            <p class="number">NO.9</p>
+                            <a class="img" href=""><img src="images/1.jpg" alt=""></a>
+                            <p class="name">总督先生的五个字</p>
+                            <p class="property">1</p>
+                        </li>
+                        <li>
+                            <p class="number">NO.10</p>
+                            <a class="img" href=""><img src="images/1.jpg" alt=""></a>
+                            <p class="name">总督先生的五个字</p>
+                            <p class="property">1</p>
+                        </li>
+                    </ul>
+                </div>
+                <div id="tab2">
+                    <!-- 男生榜单不做任何跳转 -->
+                    <ul class="users_list" id ="menList">
+                        <li>
+                            <p class="number">NO.1</p>
+                            <p class="img"><img src="images/1.jpg" alt=""></p>
+                            <p class="name">我是男生哒</p>
+                            <p class="property">1234567</p>
+                        </li>
+                        <li>
+                            <p class="number">NO.2</p>
+                            <p class="img"><img src="images/1.jpg" alt=""></p>
+                            <p class="name">总督先生的五个字</p>
+                            <p class="property">1234567</p>
+                        </li>
+                        <li>
+                            <p class="number">NO.3</p>
+                            <p class="img"><img src="images/1.jpg" alt=""></p>
+                            <p class="name">总督先生的五个字</p>
+                            <p class="property">1234567</p>
+                        </li>
+                        <li>
+                            <p class="number">NO.4</p>
+                            <p class="img"><img src="images/1.jpg" alt=""></p>
+                            <p class="name">总督先生的五个字</p>
+                            <p class="property">1234567</p>
+                        </li>
+                        <li>
+                            <p class="number">NO.5</p>
+                            <p class="img"><img src="images/1.jpg" alt=""></p>
+                            <p class="name">总督先生的五个字</p>
+                            <p class="property">1234567</p>
+                        </li>
+                        <li>
+                            <p class="number">NO.6</p>
+                            <p class="img"><img src="images/1.jpg" alt=""></p>
+                            <p class="name">总督先生的五个字</p>
+                            <p class="property">1234567</p>
+                        </li>
+                        <li>
+                            <p class="number">NO.7</p>
+                            <p class="img"><img src="images/1.jpg" alt=""></p>
+                            <p class="name">总督先生的五个字</p>
+                            <p class="property">1234567</p>
+                        </li>
+                        <li>
+                            <p class="number">NO.8</p>
+                            <p class="img"><img src="images/1.jpg" alt=""></p>
+                            <p class="name">总督先生的五个字</p>
+                            <p class="property">1234567</p>
+                        </li>
+                        <li>
+                            <p class="number">NO.9</p>
+                            <p class="img"><img src="images/1.jpg" alt=""></p>
+                            <p class="name">总督先生的五个字</p>
+                            <p class="property">1234567</p>
+                        </li>
+                        <li>
+                            <p class="number">NO.10</p>
+                            <p class="img"><img src="images/1.jpg" alt=""></p>
+                            <p class="name">总督先生的五个字</p>
+                            <p class="property">1234567</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <img src="images/happylast.jpg" alt="">
+    </section>
+
+    <!-- TC -->
+    <!-- 没有登陆兔聊号弹窗 TC -->
+    <div id="nologin" class="popup same_window_mod">
+        <div class="window_main">
+            <div class="con">
+                <h2 style="margin-top: 1.37rem" id="alertUser">您还没有登陆兔聊号</h2>
+                <h4>无法领取礼品哦</h4>
+            </div>
+            <div class="tcbtn">
+                <a class="btn close_all">取消</a>
+                <a id="openClient" class="btn" href="javaScript:void(0)" onclick="jumpToLoginClient();">立即登陆</a>
+            </div>
+        </div>
+    </div>
+    
+    <div id="manlogin" class="popup same_window_mod">
+        <div class="window_main">
+            <div class="con">
+                <h2 style="margin-top: 1.37rem" id="alertUser">很抱歉哦</h2>
+                <h4 style="margin-top: 0.37rem" id="alertUser">您不是兔聊女主播</h4>
+                <h4 style="margin-top: 0.37rem" id="alertUser">不能参与该活动</h4>
+            </div>
+            <div class="tcbtn">
+                <a class="btn close_all">我知道了</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- 活动需在APP内进行 TC -->
+    <div id="intheapp" class="popup same_window_mod">
+        <div class="window_main">
+            <div class="con">
+                <h2 style="margin-top: .8rem">活动需在APP内进行</h2>
+                <h4>如未下载可点击下方“立即下载”按钮</h4>
+                <h4>如已下载可点击下方“立即参与”按钮</h4>
+                <h4>跳转至APP内</h4>
+            </div>
+            <div class="tcbtn">
+                <a class="btn close_all" href="javaScript:void(0);" onclick="openClient();">立即参与</a>
+                <a id="" class="btn" href="javaScript:void(0);"  onclick="openClient();">立即下载</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- 抽奖失败 TC -->
+    <div id="drawfailure" class="popup same_window_mod">
+        <div class="window_main">
+            <div class="con">
+                <h2 style="margin-top: 1.37rem">您的抽奖次数不足</h2>
+                <h4 id="payFaliAcc"></h4>
+            </div>
+            <div class="tcbtn">
+                <a class="btn close_all">我知道了</a>
+                <a id="" class="btn" href="javaScript:void(0);" onclick="jumpToHot();">立即消费</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- 积分兑换失败（礼物） TC-->
+    <div id="integralfailure1" class="popup same_window_mod">
+        <div class="window_main">
+            <div class="con">
+                <h2 style="margin-top: 1.37rem">您的礼物收益不足</h2>
+                <h4 id="giftCha"></h4>
+            </div>
+            <div class="tcbtn">
+                <a class="btn close_all">我知道了</a>
+            </div>
+        </div>
+    </div>
+
+    <!--  积分兑换失败（年兽） TC-->
+    <div id="integralfailure2" class="popup same_window_mod">
+        <div class="window_main">
+            <div class="con">
+                <h2 style="margin-top: 1.37rem">您的年兽数量不足</h2>
+                <h4 id="nianNum">还差 20 只方可领取红包</h4>
+                <h6>温馨提示:视频通话中会不定时获得年兽</h6>
+            </div>
+            <div class="tcbtn">
+                <a class="btn close_all">我知道了</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- 积分兑换成功 TC-->
+    <div id="forsuccessful" class="popup same_window_mod">
+        <div class="window_main">
+            <div class="con_change1">
+                <p class="chatmoney"></p>
+                <!-- <p class="chatmoney">10000聊币</p>
+                <p class="chatmoney">8888聊币</p>
+                <p class="chatmoney">3344聊币</p>
+                <p class="chatmoney">2019聊币</p> -->
+            </div>
+            <div class="tcbtn">
+                <a class="btn close_all">我知道了</a>
+                <a id="" class="btn" href="javaScript:void(0)" onclick="jumpToBill()">前往查看</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- 抽奖成功 TC-->
+    <div id="prize" class="popup same_window_mod">
+        <div class="window_main">
+            <div class="con_change2">
+                <!-- 1-8奖品图 -->
+                <img id="gift2Name" src="images/prize2.png" alt="">
+                <!-- <P>通行证已生效</P> -->
+                <!-- <p>已转至您的购买聊币中</p> -->
+                <p id="gift1Text"></p>
+            </div>
+            <div class="tcbtn">
+                <a class="btn close_all">我知道了</a>
+                <a id="gift1Jumt" class="btn"  href="javaScript:void(0)" onclick="jumpToPackage()">前往查看</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- 抽奖记录 TC-->
+    <div id="record" class="popup same_window_mod">
+        <!-- <i class="icon_close close_all"></i> -->
+        <div class="window_main">
+            <div class="con_change3">
+                <ul class="record_modlist">
+                    <!-- <li>
+                        <p><img src="images/record1.png" alt="500聊币赠送"></p>
+                        <p>500聊币赠送</p>
+                        <p>01-10 15:20</p>
+                    </li>
+                    <li>
+                        <p><img src="images/record2.png" alt="9.5折折扣券"></p>
+                        <p>9.5折折扣券</p>
+                        <p>01-10 15:20</p>
+                    </li>
+                    <li>
+                        <p><img src="images/record3.png" alt="50元代金券"></p>
+                        <p>50元代金券</p>
+                        <p>01-10 15:20</p>
+                    </li>
+                    <li>
+                        <p><img src="images/record4.png" alt="10000聊币"></p>
+                        <p>10000聊币</p>
+                        <p>01-10 15:20</p>
+                    </li>
+                    <li>
+                        <p><img src="images/record5.png" alt="7日通行证"></p>
+                        <p>7日通行证</p>
+                        <p>01-10 15:20</p>
+                    </li>
+                    <li>
+                        <p><img src="images/record6.png" alt="99999聊币"></p>
+                        <p>99999聊币</p>
+                        <p>01-10 15:20</p>
+                    </li>
+                    <li>
+                        <p><img src="images/record7.png" alt="1日通行证"></p>
+                        <p>1日通行证</p>
+                        <p>01-10 15:20</p>
+                    </li>
+                    <li>
+                        <p><img src="images/record8.png" alt="2000聊币"></p>
+                        <p>2000聊币</p>
+                        <p>01-10 15:20</p>
+                    </li>
+                    <li>
+                        <p><img src="images/record8.png" alt="2000聊币"></p>
+                        <p>2000聊币</p>
+                        <p>01-10 15:20</p>
+                    </li> -->
+                </ul>
+                <span class="hint">
+                    <p>注：卡券可在“包裹”中查看</p>
+                    <p>通行证已自动生效</p>
+                    <p id="recordText">体验金已直接纳入您的“购买聊币”中</p>
+                </span>
+            </div>
+            <div class="tcbtn">
+                <a class="btn close_all">我知道了</a>
+                <a id="" class="btn"  href="javaScript:void(0)" onclick="jumpToPackage()">前往查看</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- 10连抽 TC-->
+    <div id="allzero" class="popup same_window_mod">
+        <i class="icon_close close_all"></i>
+        <div class="window_main">
+            <div class="con_change4">
+                <div id="wrapper2">
+                    <div>
+                        <ul class="acquisition_listmod">
+<!--                             <li><img src="images/g1.png" alt=""></li> -->
+<!--                             <li><img src="images/g2.png" alt=""></li> -->
+<!--                             <li><img src="images/g3.png" alt=""></li> -->
+<!--                             <li><img src="images/g4.png" alt=""></li> -->
+<!--                             <li><img src="images/g5.png" alt=""></li> -->
+<!--                             <li><img src="images/g6.png" alt=""></li> -->
+<!--                             <li><img src="images/g7.png" alt=""></li> -->
+<!--                             <li><img src="images/g8.png" alt=""></li> -->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <span class='hint'>
+                <p>注：卡券可在“包裹”中查看</p>
+                <p>通行证已自动生效</p>
+                <p id="sexText">体验金已直接纳入您的“购买聊币”中</p>
+            </span>
+            <span class="golook" onclick="jumpToPackage()">立即查看</span>
+        </div>
+    </div>
+    
+    <div id="alertbg" style="width:100%; height:100%; top:0; position:absolute; background-color:rgba(0,0,0,0.5); display:none;" onClick="bgclick()">
+		<img id="abg" style="position:absolute; top:0; display:none;    border: 0;vertical-align: middle;" src="../images/bg1.png"/>
+	  	<img id="alert1" style="position:absolute;display:none;" src="../images/alert1.jpg"/>
+	    <p id="alertTitle3" style=" text-align:center;position:absolute;display:none;" onClick="closeAlert()">我知道了</p>
+	    <p id="alertTitle5" style=" text-align:center;position:absolute;display:none;" onClick="jumpNewUrl()">我知道了</p>
+	</div>
+    
+	<script src="../script/common.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        // layer.msg('默认弹窗');
+
+        $('.close_all').on('click', function () {
+            layer.closeAll(); // 关闭弹出层。
+        })
+        
+        var times = null;
+        var howGet = document.getElementById('howGet');
+        var rule = document.getElementById('rule');
+        var viewLog = document.getElementById('viewLog');
+        var btnTenTimes = document.getElementById('btnTenTimes');
+        var btnExchange = document.querySelector('.btn_exchange');
+        var myScroll2;
+        function loaded2() {
+            myScroll2 = new IScroll('#wrapper2');
+        }
+        loaded2()
+
+        // 重新刷新调用自定义滚动
+        function onCompletion() {
+            setTimeout(function () {
+                myScroll2.refresh();
+            }, 0);
+        };
+
+        //  没有登陆兔聊号弹窗 
+        // layer.open({
+        //     type: 1,
+        //     shadeClose: false,
+        //     title: false,
+        //     closeBtn: 0,
+        //     scrollbar: false,
+        //     skin: 'yourclass',
+        //     area: ['5.05rem', ''],
+        //     content: $('#nologin'),
+        //     success: function () {
+        //         $("body").addClass('dontmove');
+        //     },
+        //     end: function () {
+        //         $("body").removeClass("dontmove");
+        //     }
+        // });
+
+        //  活动需在APP内进行 1 
+        // layer.open({
+        //     type: 1,
+        //     shadeClose: false,
+        //     title: false,
+        //     closeBtn: 0,
+        //     scrollbar: false,
+        //     skin: 'yourclass',
+        //     area: ['5.05rem', ''],
+        //     content: $('#intheapp'),
+        //     success: function () {
+        //         $("body").addClass('dontmove');
+        //     },
+        //     end: function () {
+        //         $("body").removeClass("dontmove");
+        //     }
+        // });
+
+        //  抽奖失败  
+        // layer.open({
+        //     type: 1,
+        //     shadeClose: false,
+        //     title: false,
+        //     closeBtn: 0,
+        //     skin: 'yourclass',
+        //     scrollbar: false,
+        //     area: ['5.05rem', ''],
+        //     content: $('#drawfailure'),
+        //     success: function () {
+        //        
+        //     },
+        //     end: function () {
+        //         
+        //     }
+        // });
+
+        //  积分兑换失败  1 礼物
+        btnExchange.addEventListener('click', function () {
+        	duihuan();
+        })
+
+        
+
+        //  积分兑换成功
+        //  layer.open({
+        //     type: 1,
+        //     shadeClose: false,
+        //     title: false,
+        //     closeBtn: 0,
+        //     scrollbar: false,
+        //     skin: 'yourclass',
+        //     area: ['5.05rem', ''],
+        //     content: $('#forsuccessful'),
+        //     success: function () {
+        //        
+        //     },
+        //     end: function () {
+        //         
+        //     }
+        // });
+
+        //  抽奖记录
+        viewLog.addEventListener('click', function () {
+        	chouJiangList();
+        })
+
+        // 点击抽奖
+        var _list = document.querySelectorAll('#raffleInit .list');
+        var _start = document.querySelector('#raffleInit .start');
+        var btn = false;
+        var clickFlag = false;
+        //  连抽十次
+        btnTenTimes.addEventListener('click', function () {
+            // var arr=Math.floor(Math.random()*8+1);
+            if(clickFlag){
+            	return;
+            }
+            clickFlag = true;
+            setTimeout(function(){
+            	clickFlag = false;
+         	 },4000);
+        	if(checkUserFlag  ){
+        		var curr = parseInt($("#currPayHidden").text());
+//             	if(curr < 10){
+//             		layer.msg("您的抽奖次数不足");
+//             		return;
+//             	}
+                $.ajax({
+                    type:"POST",
+                    url:server+"/view/activitySpring/drawforType2?customerId="+ customerId +"&token="+token+"&type="+2,
+                    dataType: 'JSON',
+                    success:function(e){
+                    	$(".acquisition_listmod").html("");
+                        if(e.code && e.code != 0){
+                            code = e.code;
+                            message= e.message;
+                        }else{
+                            code = e.code;
+                            message= e.message;
+                        }
+                        if(code == 0){
+                        	$("#currPayHidden").text(curr-10);
+                        	$("#currPay").text("剩余"+(curr-10)+"次");
+                        	var listImg = e.data.sendGift;
+                        	var html="";
+                        	for (var i = 0; i < listImg.length; i++) {
+                        		html +=" <li><img src=\"images/g"+listImg[i]+".png\" alt=\"\"></li>";
+                        	}
+                        	$(".acquisition_listmod").append(html);
+                            //滚动奖品
+//                             if (!btn) return;
+                            raffleInit(3, function (n) {
+//                                 if (n == 3) {
+								if(e.data.sex == 1){
+                        			$("#sexText").text("已转至您的购买聊币中");
+                        		}else{
+                        			$("#sexText").text("已转至您的收益聊币中");
+                        		}
+                                	layer.open({ //连抽十次
+                                        type: 1,
+                                        shadeClose: false,
+                                        title: false,
+                                        closeBtn: 0,
+                                        scrollbar: false,
+                                        skin: 'yourclass',
+                                        area: ['4.89rem', ''],
+                                        content: $('#allzero'),
+                                        success: function () {
+                                            onCompletion()
+                                        },
+                                        end: function () {
+                                        }
+                                    });
+//                                 }
+                                btn = !btn
+                            },0);
+                            btn = !btn
+
+                        }
+                        if(message=="您的抽奖次数不足"){
+                        	$("#payFaliAcc").text("还需消费"+e.data+"聊币方可参与抽奖");
+                  		  //  抽奖失败  
+	                          layer.open({
+	                              type: 1,
+	                              shadeClose: false,
+	                              title: false,
+	                              closeBtn: 0,
+	                              skin: 'yourclass',
+	                              scrollbar: false,
+	                              area: ['5.05rem', ''],
+	                              content: $('#drawfailure'),
+	                              success: function () {
+	                                 
+	                              },
+	                              end: function () {
+	                                  
+	                              }
+	                          });
+	                  		return;
+                  		}	
+                        if(code == -1){
+                        	layer.msg(message);
+                        }else if(code == -2){
+                            layer.msg(message);
+                        }else if(code == -3){
+                            layer.msg(message);
+                        }else if(code == -4){
+                            layer.msg(message);
+                        }else if(code == -5){
+                            layer.msg(message);
+                        }else if(code == -6){
+                        	layer.msg(message);
+                        }
+                    }
+                });
+            }else{
+                //  没有登陆兔聊号弹窗
+                layer.open({
+                    type: 1,
+                    shadeClose: false,
+                    title: false,
+                    closeBtn: 0,
+                    scrollbar: false,
+                    skin: 'yourclass',
+                    area: ['5.05rem', ''],
+                    content: $('#nologin'),
+                    success: function () {
+                        $("body").addClass('dontmove');
+                    },
+                    end: function () {
+                        $("body").removeClass("dontmove");
+                    }
+                });
+            }
+            
+            /* if (!btn) return;
+            raffleInit( function (n) {
+                if (n == 5) {
+                    layer.open({ //连抽十次
+                        type: 1,
+                        shadeClose: false,
+                        title: false,
+                        closeBtn: 0,
+                        scrollbar: false,
+                        skin: 'yourclass',
+                        area: ['4.89rem', ''],
+                        content: $('#allzero'),
+                        success: function () {
+                            onCompletion()
+                        },
+                        end: function () {
+                        }
+                    });
+                }
+                btn = !btn
+            },0);
+            btn = !btn */
+
+        })
+
+        // 中间点击抽奖（单次）
+        _start.onclick = function () {
+            var type = 1;
+            if(clickFlag){
+            	return;
+            }
+            clickFlag = true;
+            setTimeout(function(){
+            	clickFlag = false;
+         	 },4000);
+            if(checkUserFlag){
+            	var curr = parseInt($("#currPayHidden").text());
+//             	if(curr < 1){
+//             		layer.msg("您的抽奖次数不足");
+//             		return;
+//             	}
+                $.ajax({
+                    type:"POST",
+                    url:server+"/view/activitySpring/drawforType2?customerId="+ customerId +"&token="+token+"&type="+type,
+                    dataType: 'JSON',
+                    success:function(e){
+                        if(e.code && e.code != 0){
+                            code = e.code;
+                            message= e.message;
+                        }else{
+                            code = e.code;
+                            message= e.message;
+                        }
+                        if(code == 0){
+                        	
+                        	$("#currPayHidden").text(curr-1);
+                        	$("#currPay").text("剩余"+(curr-1)+"次");
+                        	var sendGift = e.data.sendGift;
+                        	if(sendGift ==1 || sendGift ==2 || sendGift ==3){
+                        		$("#gift1Text").text("请在“包裹”中查看");
+                        		$("#gift1Jumt").attr("onclick","jumpToPackage();");
+                        	}else if(sendGift ==4 || sendGift ==5){
+                        		$("#gift1Text").text("通行证已生效");
+                        		$("#gift1Jumt").attr("onclick","openHomePage("+customerId+");");
+                        	}else{
+                        		if(e.data.sex == 1){
+                        			$("#gift1Text").text("已转至您的购买聊币中");
+                            		$("#gift1Jumt").attr("onclick","jumpToBill()");
+                        		}else{
+                        			$("#gift1Text").text("已转至您的收益聊币中");
+                            		$("#gift1Jumt").attr("onclick","jumpToBill()");
+                        		}
+                        		
+                        	}
+                        	$("#gift2Name").attr("src","images/prize"+sendGift+".png")
+                            //滚动奖品
+//                             if (!btn) return;
+                            raffleInit(sendGift, function (n) {
+//                                 if (n == sendGift) {
+                                    layer.open({ //  8个奖品 TC
+                                        type: 1,
+                                        shadeClose: false,
+                                        title: false,
+                                        closeBtn: 0,
+                                        skin: 'yourclass',
+                                        area: ['5.43rem', ''],
+                                        content: $('#prize'),
+                                        success: function () { },
+                                        end: function () { }
+                                    });
+//                                 }
+                                btn = !btn
+                            },0);
+                            btn = !btn
+
+                        }
+                        if(message=="您的抽奖次数不足"){
+                        	$("#payFaliAcc").text("还需消费"+e.data+"聊币方可参与抽奖");
+                  		  //  抽奖失败  
+	                          layer.open({
+	                              type: 1,
+	                              shadeClose: false,
+	                              title: false,
+	                              closeBtn: 0,
+	                              skin: 'yourclass',
+	                              scrollbar: false,
+	                              area: ['5.05rem', ''],
+	                              content: $('#drawfailure'),
+	                              success: function () {
+	                                 
+	                              },
+	                              end: function () {
+	                                  
+	                              }
+	                          });
+	                  		return;
+                  		}	
+                        if(code == -1){
+                        	layer.msg(message);
+                        }else if(code == -2){
+                            layer.msg(message);
+                        }else if(code == -3){
+                            layer.msg(message);
+                        }else if(code == -4){
+                            layer.msg(message);
+                        }else if(code == -5){
+                            layer.msg(message);
+                        }else if(code == -6){
+                        	layer.msg(message);
+                        }
+                    }
+                });
+            }else{
+                //  没有登陆兔聊号弹窗
+                layer.open({
+                    type: 1,
+                    shadeClose: false,
+                    title: false,
+                    closeBtn: 0,
+                    scrollbar: false,
+                    skin: 'yourclass',
+                    area: ['5.05rem', ''],
+                    content: $('#nologin'),
+                    success: function () {
+                        $("body").addClass('dontmove');
+                    },
+                    end: function () {
+                        $("body").removeClass("dontmove");
+                    }
+                });
+            }
+
+
+        };
+
+        var timer = null, now = 0, count = 0, startOff = true, s = 100;
+        function raffleInit(sendGift) {
+        	if(sendGift ==1){
+        		sendGift = 1;
+        	}else if(sendGift ==2){
+        		sendGift = 2;
+        	}else if(sendGift ==3){
+        		sendGift = 3;
+        	}else if(sendGift ==4){
+        		sendGift = 7;
+        	}else if(sendGift ==5){
+        		sendGift = 5;
+        	}else if(sendGift ==6){
+        		sendGift = 8;
+        	}else if(sendGift ==7){
+        		sendGift = 4;
+        	}else if(sendGift ==8){
+        		sendGift = 6;
+        	}
+        	now = sendGift;
+            if (typeof arguments[0] == 'function') {
+                var endnum = Math.round(Math.random() * 3 + 1);
+                var cb = arguments[0]
+            } else {
+                var endnum = arguments[0] - 1;
+                var cb = arguments[1]
+            }
+            clearInterval(timer)
+            timer = setInterval(function () {
+                startGo();
+            }, s);
+            function startGo() {
+                if (!startOff) {
+                    cb(endnum + 1)
+                    clearInterval(timer);
+                    count = 0, startOff = true, s = 200;
+                    return false;
+                };
+                for (var i = 0; i < _list.length; i++) {
+                    _list[i].classList.remove('active');
+                };
+                now++;
+                now = now++ % _list.length;
+                if (now % _list.length == 0) {
+                    count++;   //计算圈数
+                };
+                _list[now].classList.add('active');
+//                 _list[sendGift-1].classList.add('active');
+                if (count >= 1 && count < 2) {
+                    clearInterval(timer);
+                    s *= 0.96;
+                    timer = setInterval(function () {
+                        startGo();
+                    }, s);
+                };
+                if (count > 2) {
+                    clearInterval(timer);
+                    s *= 1.08;
+                    timer = setInterval(function () {
+                        startGo();
+                    }, s);
+                    if (s > 260 && (now == endnum)) {
+                        startOff = false;
+                    };
+                };
+            };
+        };
+
+    </script>
+</body>
+
+</html>

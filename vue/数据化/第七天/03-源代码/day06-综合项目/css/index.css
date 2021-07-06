@@ -1,0 +1,584 @@
+/* 第一部分：整体HTML布局 */
+
+/* 1.body背景图 */
+body{
+    background: url(../images/bg.jpg) no-repeat;
+    /* cover : 图片会等比例缩放， 一定会铺满整个盒子，但是图片可能显示不全 */
+    background-size: cover;
+}
+
+/* 2.版心 */
+.container{
+    /* 
+    注意点 : body默认高度为0， 所以盒子不能设置百分比
+    解决方案 ： 使用min与max来限制盒子宽高范围
+    */
+    min-width: 1024px;
+    max-width: 1920px;
+    min-height: 780px;
+    /* 如果电脑超过最大宽度，版心就会靠左，需要水平居中 */
+    margin: 0 auto;
+    background: url(../images/logo.png) no-repeat;
+    /* contain : 图片会等比例缩放， 一定能看到完整图片,但是盒子会有留白 */
+    background-size: contain;
+    padding: 88px 20px 0;
+    /* 伸缩布局 */
+    display: flex;
+}
+
+.column{
+    /* 宽度等比例
+    伸缩布局默认垂直方向 stretch : 铺满父盒子
+    */
+    flex: 3;
+}
+
+.column:nth-child(2){
+    flex: 4;
+}
+
+/* 3.面板样式：边框背景图 */
+.panel{
+    /* 注意点1：设置border */
+    border: 1px solid transparent;
+    /* 不规则背景图单独设置边框宽度 */
+    border-width:  51px 40px 21px 130px;
+    /* 边框背景图: 裁剪尺寸不要加px */
+    border-image: url(../images/border.png) 51 40 21 130;
+    /* 注意点2 ：设置内减盒子 */
+    box-sizing: border-box;
+    /* 注意点3：border会影响内容布局。  添加子盒子使用子绝父相来布局 */
+    position: relative;
+}
+
+.inner{
+    position: absolute;
+    top: -51px;
+    right: -40px;
+    bottom: -21px;
+    left: -130px;
+    padding: 20px 30px;
+}
+
+/* 第二部分： 第一列 */
+
+/* 1.数据概览 */
+.overview{
+    height: 110px;
+}
+
+.overview .item{
+    /* 方式一：伸缩  方式二：浮动+百分比 */
+    float: left;
+    width: 25%;
+    color: #fff;
+    text-align: center;
+}
+
+.overview .item p{
+    font-size: 25px;
+    margin-bottom: 10px;
+}
+
+.overview .item span{
+    color: #0A5BEE;
+}
+
+/* 字体图标颜色 : 选中第1个 item里面的字体图标 */
+.overview .item:nth-child(1) span i{
+    color: #006CFF;
+}
+
+/* n从0开始 */
+.overview .item:nth-child(n+2) span i{
+    color: #6ACCA3;
+}
+
+.overview .item:nth-child(4) span i{
+    color: #ED3F35;
+}
+
+
+/* 2.故障设备监控 */
+.monitor{
+    height: 474px;
+    margin-top: 20px;
+}
+
+/* tab栏布局 */
+.monitor .tabs a{
+    color: #1950C4;
+    padding: 0px 10px;
+    font-size: 18px;
+}
+
+.monitor .tabs a:nth-child(2){
+    border-left: 2px solid #00F2F1;
+}
+
+/* 通过交集选择器实现切换效果 */
+.monitor .tabs a.active{
+    color: #fff;
+}
+
+
+/* 内容content布局 */
+.monitor .content{
+    color: #5492DF;
+}
+
+.monitor .content .head{
+    height: 35px;
+    /* 设置行高垂直居中，子元素可以继承父元素的行高属性 */
+    line-height: 35px;
+    background-color: rgba(255, 255, 255, 0.1);
+    /* 子元素-30px margin 是为了抵消父元素inner的padding */
+    margin: 10px -30px 0;
+}
+
+.monitor .content .head span{
+    /* 浮动会默认将行内元素转成行内块 ： 可以设置宽度 */
+    float: left;
+    width: 25%;
+    font-size: 14px;
+    color: #68D8FE;
+    padding: 0px 30px;
+}
+
+.monitor .content .head span:nth-child(2){
+    width: 50%;
+}
+
+/* 内容轮播图区域 */
+.carousel-view{
+    height: 350px;
+    /* 超出部分隐藏：只显示十个 */
+    overflow: hidden;
+    /* 这里-30px只是为了和head的宽度一致，让文字对齐 */
+    margin: 0px -30px;
+    /* 轮播图需要修改元素位置：需要添加定位 */
+    position: relative;
+}
+
+.carousel-view .carousel{
+    position: absolute;
+}
+
+.carousel-view .carousel .row{
+    height: 35px;
+    /* 文字垂直居中 */
+    line-height: 35px;
+}
+
+.carousel-view .carousel .row .col{
+    /* 这里的样式和head里面一直，让文字对齐 */
+    float: left;
+    width: 25%;
+    font-size: 12px;
+    padding: 0px 30px;
+}
+
+/* 字体图标  绝对定位来做 */
+.carousel-view .carousel .row i{
+    position: absolute;
+    left: 10px;
+    line-height: 35px;
+    display: none;
+}
+
+/* row选中状态的样式 */
+.carousel-view .carousel .row.active{
+    color: #52FFFF;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.carousel-view .carousel .row.active i{
+    display: block;
+}
+
+
+/* 第二列文字 超出部分显示省略号 */
+.carousel-view .carousel .row .col:nth-child(2){
+    width: 50%;
+    /* 固定三步走 */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* 3.点位分布 */
+.point{
+    height: 335px;
+    margin-top: 20px;
+}
+
+.point h3{
+    color: #fff;
+    font-size: 20px;
+}
+
+.point .chart{
+    height: 238px;
+    margin-top: 24px;
+}
+
+.point .chart .pie{
+    float: left;
+    width: 60%;
+    height: 100%;
+    background-color:rgba(255, 255, 255, 0.1);
+}
+
+.point .chart .data{
+    float: left;
+    width: 40%;
+    height: 100%;
+    background: url(../images/rect.png) no-repeat;
+    /* 等比例缩放 铺满盒子 */
+    background-size: cover;
+}
+
+.point .chart .data .item{
+    height: 50%;
+    color: #fff;
+    text-align: center;
+    /* 解决margin塌陷 */
+    overflow: hidden;
+}
+
+.point .chart .data .item p{
+    font-size: 25px;
+    /*注意点： 子元素设置margin-top会导致父元素margin塌陷 
+    解决margin塌陷三种方式
+        方式一 ： 设置父元素border
+        方式二 ： 设置父元素padding代替margin
+        方式三：  设置父元素 overflow:hidden
+    */
+    margin-top: 30px;
+}
+
+.point .chart .data .item span{
+    color: #458EEB;
+    font-size: 14px;
+}
+
+
+
+
+/* 第三部分： 第二列 */
+.map{
+    margin-left: 20px;
+}
+
+.map h3{
+    color: #fff;
+    font-size: 20px;
+    padding: 20px 0;
+}
+
+.map h3 i{
+    color: #68D8FE;
+}
+
+.map .chart{
+    height: 538px;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* 里面的图标默认高度为0，需要设置 */
+.map .chart .geo{
+    height: 100%;
+}
+
+/* 2.全国用户总量统计 */
+.user{
+    height: 335px;
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+.user h3{
+    color: #fff;
+    font-size: 20px;
+}
+
+.user .chart{
+    margin-top: 20px;
+}
+
+.user .chart .bar{
+    float: left;
+    width: 70%;
+    height: 240px;
+    background-color: rgba(255,255,255,0.1);;
+}
+
+.user .data{
+    float: left;
+    width: 30%;
+    height: 240px;
+    color: #fff;
+    background: url(../images/rect.png) no-repeat;
+    /* 背景图铺满 */
+    background-size: cover;
+}
+
+.user .data .item{
+    height: 50%;
+    text-align: center;
+    /* 解决子元素margin塌陷 */
+    overflow: hidden;
+}
+
+.user .data .item h4{
+    margin-top: 32px;
+    font-size: 30px;
+}
+
+.user .data .item:nth-child(1) .icon-dot{
+    color: #ED3F35;
+}
+
+.user .data .item:nth-child(2) .icon-dot{
+    color: #EACF19;
+}
+
+
+
+/* 第四部分： 第三列 */
+
+/* 1.订单统计 */
+.order{
+    height: 145px;
+    margin-left: 20px;
+}
+
+.order .filter a{
+    font-size: 18px;
+    color:#1950C4;
+    /* 这里使用浮动原因： 字数不同，不能用padding，会导致每一个span宽度不同*/
+    float: left;
+    width: 70px;
+    border-right: 2px solid #00F2F1;
+    text-align: center;
+    line-height: 18px;
+}
+
+/* 选中状态：文字变白 */
+.order .filter a.active{
+    color: #fff;
+}
+
+/* 底部数据 */
+.order .data .item{
+    float: left;
+    width: 50%;
+    color: #fff;
+    text-align: center;
+}
+
+.order .data .item h4{
+    font-size: 25px;
+    margin: 20px auto 10px;
+}
+
+/* 2.销售额统计 */
+.sales{
+    height: 245px;
+    margin-left: 20px;
+    margin-top: 20px;
+}
+
+.sales .caption span{
+    font-size: 20px;
+    color: #fff;
+    padding-right: 15px;
+    border-right: 2px solid #00F2F1;
+}
+
+.sales .caption a{
+    font-size: 16px;
+    color: #098DC0;
+    padding: 5px;
+}
+
+/* 选中状态时a的样式 */
+.sales .caption a.active{
+    /* 颜色白色 */
+    color: #fff;
+    /* 背景图 */
+    background-color: #4C9BFD;
+}
+
+/* 图表 */
+.sales .chart{
+    height: 170px;
+    margin-top: 10px;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.sales .chart .line{
+    height: 100%;
+}
+
+/* 3.渠道分布与一季度销售进度 */
+.wrap{
+    height: 230px;
+    margin-left: 20px;
+    margin-top: 20px;
+}
+
+.wrap>div{
+    float: left;
+    /* 两个盒子之间有一定间距，所以这里给48% 留4%的间距 */
+    width: 48%;
+    height: 100%;
+}
+
+.channel h3,.quarter h3{
+    font-size: 18px;
+    color: #fff;
+}
+
+.channel .data{
+    margin-top: 20px;
+    height: 60px;
+}
+
+.channel .data .item{
+    float: left;
+    width: 50%; 
+    text-align: center;
+}
+
+.channel .data .item h4{
+    font-size: 28px;
+    color: #fff;
+}
+
+.channel .data .item span{
+    color: #4C9BFD;
+}
+
+/* （1）渠道分布 */
+/* （2）一季度销售 */
+.wrap .quarter{
+    margin-left: 4%;
+    color: #fff;
+}
+
+.quarter .chart{
+    background-color: rgba(255,255,255,0.1);
+    height: 80px;
+    position: relative;
+}
+
+.quarter .chart .gauge{
+    height: 100%;
+}
+
+.quarter .chart .label{
+    font-size: 30px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-30%);
+}
+
+.quarter .data .item{
+    float: left;
+    width: 50%;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.quarter .data .item h4{
+    font-size: 26px;
+}
+
+/* 4.全国热榜 */
+.hot{
+    height: 280px;
+    margin-left: 20px;
+    margin-top: 20px;
+}
+
+.hot .all,.hot .province{
+    float: left;
+    width: 30%;
+    height: 100%;
+    color: #fff;
+}
+
+.hot .province{
+    width: 70%;
+}
+
+/* 左侧全国热榜 */
+.hot .all ul>li{
+    font-size: 14px;
+    margin-top: 25px;
+}
+
+.hot .all ul>li i{
+    font-size: 30px;
+    margin: 0 10px;
+    /* 设置字体图标 与 文字 中线对齐 */
+    vertical-align: middle;
+}
+
+/* 右侧 */
+
+/* 公共样式 */
+.hot .province ul{
+    float: left;
+    width: 50%;
+    height: 100%;
+    margin-top: 10px;
+}
+
+.hot .province ul li{
+    font-size: 12px;
+    height: 30px;
+    line-height: 30px;
+}
+
+
+.hot .province ul li span:nth-child(1){
+    float: left;
+}
+
+.hot .province ul li span:nth-child(2){
+    float: right;
+}
+
+/* 左侧ul */
+/* 这里由于第一个ul是 province的第二个子元素，所以需要使用 nth(2) */
+.hot .province ul:nth-child(2){
+    color: #468FEA;
+}
+
+/* li元素选中状态 */
+.hot .province ul:nth-child(2) li.active{
+    /* 颜色不同 */
+    color: #8FB1DC;
+    /* 背景颜色 */
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* 右侧li */
+.hot .province ul:nth-child(3){
+    color: #50F8FA;
+    padding-left: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+

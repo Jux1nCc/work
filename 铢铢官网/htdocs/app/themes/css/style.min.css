@@ -1,0 +1,177 @@
+body, html, div, span, h1, h2, h3, h4, h5, h6, p, ul, ol, li, blockquote, form, input, fieldset { margin: 0; padding: 0 }
+img, fieldset { border: 0 }
+img { height: auto; max-width: 100% }
+ul, ol { list-style: none }
+body { background: #fff; font-family: Verdana, Arial, sans-serif; font-size: 1em; line-height: 1.2em }
+blockquote { border-left: 4px solid #d54e21; margin: 12px 8px; padding-left: 4px }
+textarea { width: 90% }
+ul { list-style: none; margin: 0; }
+ol { list-style: none; margin: 0;}
+ul li, ol li { color: #333; }
+.clearfix { clear: both }
+#headerwrap { width: 100% }
+#contentwrap { width: 100% }
+#heading h2 { background: #f3f3f3; border-bottom: 1px solid #f3f3f3; color: #000; font-size: .9em; padding: 8px }
+ul#list, ol#list { border-bottom: 1px solid #f3f3f3; margin: 0; list-style: none; padding: 0 8px 8px }
+ul#list li, ol#list li { color: #333; font-size: .8em; padding-left: 0 ; list-style:none;}
+ul#list li a, ol#list li a { color: #d54e21 }
+#search { background: #fff; padding: 8px }
+
+.clb{ clear:both; width:100%;}
+a{ text-decoration:none; color:#666666;}
+a:hover{ color:#000;}
+.left{ float:left;}
+.right{ float:right;}
+@media screen and (max-width:99999px){
+#header {  border-bottom:1px solid #FD9A08; height:60px;}
+#header .wap_back{ width:8%; float:left;padding:2% 0;}
+#header .wap_back a{ width:100%; display:block;}
+#header .wap_title{ width:80%; font-size:22px; font-family: "微软雅黑"; font-weight:normal;float:left; text-align:center;padding:0; line-height:60px;}
+#header .wap_menu{ width:12%; float:left;padding:2% 0; cursor:pointer;}	
+#header .wap_menu img{ float:right;}
+/* wap menu*/
+.wap_menulist{ position: absolute; top:97px; background-color:#333; width:100%; display:none; z-index:999;}
+.wap_menulist ul{ padding:15px 0; float:left; display:block; width:100%;}
+.wap_menulist ul ul{ padding:3px 3px;}
+.wap_menulist li{ color:#FFF; width:100%; float:left; }
+.wap_menulist li span{ width:100%; display:block; padding-bottom:5px; text-indent:5px; border-bottom:1px solid #999;}
+.wap_menulist li li{ width:25%; float:left; border:none;}
+.wap_menulist li li a{ font:16px/26px "微软雅黑"; color:#999;}
+
+
+.containtor{ width:736px; margin:0 auto;}
+.wap_one .logo{ width:25%; display:block; margin:0 auto;}	
+.wap_one .logo img{ width:100%; float:left; margin-top:90%;}
+.wap_one h2{ margin-top:4%; font:30px/40px ""; color:#666666;}	
+.wap_one h2,.wap_one p{ width:100%; text-align:center; float:left;}
+.wap_one p{ font:22px/30px ""; color:#999999;}
+.wap_one .botton,.nav-fixed{ font:26px/68px "";  background-color:#FD9709; text-align:center; border-radius:10px; width:54%; margin:17% auto 5% auto;}
+.wap_one .botton span,.nav-fixed span{ width:100%; margin:0 auto;}
+.wap_one .botton a,.nav-fixed a{ color:#FFF;}
+.fixed{position:fixed; bottom:8px; left:0; margin:0; width:100%; display:none; z-index:999;}
+.nav-fixed{ margin-bottom:1%;margin:0 auto;}
+
+.bottom{ width:32px; margin:0 auto;}
+.section{ text-align:center;}
+.section .img{margin:0 auto;}
+.section h2{ font:30px/40px "微软雅黑"; margin-top:14%; }
+.section p{ font:22px/30px ""; margin:3% auto;}
+.wap_toone .img{ width:61%; }
+.wap_video .img{ width:76%;}
+
+
+/*dynamic_list*/
+.dynamic_list ul{ margin:7% 0 15% 0;}
+.dynamic_list li{list-style-type:disc; border-bottom:1px dashed #666666;}
+.dynamic_list h3{ font:14px/30px "微软雅黑"; height:30px; overflow:hidden; color:#333; }
+.dynamic_list .title{ margin:0; }
+.dynamic_list h3 .time{ float:left; display:inline; margin-right:10px;}
+.dynamic_list h3 a{ color:#333;}
+/*detail_dynamic*/
+.detail_dynamic #title h2,.detail .title{ font:18px/24px "微软雅黑"; color:#000; text-align:center; margin: 5% 0 1% 0;}
+.detail .title h2{ font: bold 24px/30px "宋体";}
+.detail_dynamic .date,.detail .date,.single_data .category{ font:14px/20px "微软雅黑"; text-align:center; color:#333;}
+.detail .title,.detail .date{ text-align:left;}
+.single_data{ width:100%; float:left;}
+.single_data .date{ float:left; margin-right:10px;}
+.single_data .category{ display:inline; float:left;}
+/* detail_page*/
+.detail_page .menu-about-container{ width:100%; float:left; margin-top:5%;}
+.detail_page .menu-about-container li{ width:20%; float:left;}
+.detail_page .menu-about-container li a{ font: 14px/20px "宋体"; color:#666;}
+.detail_page .menu-about-container .current_page_item a{ color:#000; border-bottom:2px solid #FD8D29; padding-bottom:2px;}
+.detail_page .post{ font-size:14px; font-family:"宋体"; color:#666; min-height:300px;}
+.post{
+	margin: 5% 0;
+	font-size: 15px;
+}
+.detail_line{ width:100%; margin-bottom:3%; height:24px; background:url(../img/line.jpg) repeat-x left center; float:left; text-align:center;}
+
+.detail_line span{ padding:0 10%; background-color:#FFF;}
+.wap_share{ margin:0 auto; text-align:center; display:block; width:230px;}
+
+/*archive_list*/
+.archive_list .title{ font:16px/24px "宋体"; height:24px; overflow:hidden;}
+.archive_list .title a{ color:#000;}
+.archive_list .post{ border-bottom:1px solid #999;}
+.archive_list .post p{ height:38px; overflow:hidden; text-indent:2em; color:#666;}
+.archive_listdata{ margin:5% 0 2% 0;}
+.archive_listdata .category,.archive_listdata .time{ float:right; height:22px; overflow:hidden; margin-right:10px; color:#666;}
+
+.wp-pagenavi{ margin:0 auto; text-align:center}
+.wp-pagenavi .current{ border:1px solid #CCC; background-color:#FD8D29; color:#FFF; padding:2px 8px;}
+.page,.previouspostslink,.nextpostslink,.extend,.last,.first{ border:1px solid #CCC;padding:2px 8px; margin:0 2px; margin-top:10px; display:inline-block;}
+/*help_list*/
+.help_nav{ width:100%; float:left; margin:5% 0 4% 0; }
+.help_nav li{ width:25%; float:left; text-align:center; }
+.help_nav .current-menu-item a{ color:#000;}
+.help_listbox .search,.help_listbox .help_list{ margin-left:8%;}
+.help_listbox .search #s{ width:60%; float:left; height:30px; padding:2px 4px; font:14px/30px ""; border:1px solid #CCC; }
+.help_listbox .search #searchsubmit{ background-color:#FD8D29; height:36px; padding:0 20px; color:#FFF; font-weight:bold; display:block; cursor:pointer; font-size:18px;  border:none;}
+.help_listbox .search #searchsubmit:hover{ background-color:#F60;}
+.help_list h2{ font: bold 18px/30px "宋体"; color:#666; margin:5% 0 2% 0;}
+.help_list h3{ font:14px/22px ""; height:22px; overflow:hidden;}
+.detail_help .mbx{
+	width: 100%;
+	margin: 5% 0;
+	font-family: "宋体";
+	font-size: 18px;
+	line-height: 30px;
+}
+
+.about_post h3{ font:20px/30px "宋体"; color:#333; margin:5% 0 3% 0;}
+.about_post .related_posts ul{ margin-left:3%;}
+.about_post .related_posts li{ font:14px/30px "微软雅黑 Light"; height:30px; overflow:hidden; list-style-type:none; background:url(../img/ico.png) no-repeat left center; text-indent:15px;}
+.about_post .related_posts li a{ color:#666; }
+
+
+}
+
+@media screen and (max-width:767px){	
+.containtor{ width:450px; margin:0 auto;}
+#header .wap_title{ width:80%; float:left; text-align:center;padding:0; line-height:60px;}
+.wap_one p{ font:18px/26px "";}
+.wap_one .botton,.nav-fixed{ font:20px/60px "";  }	
+.section h2{ font:24px/32px "微软雅黑"; }
+.section p{ font:18px/26px ""; }
+.device { height: 520px;}
+.swiper-container,
+.swiper-containereye,
+.swiper-containermessage,
+.swiper-containeraddress,
+.swiper-containeri{ height: 500px;}
+.swiper-slide{height:500px;}
+.wap_scenario h3{ font:14px/24px "微软雅黑"}
+.wap_menulist{ top:70px; }
+
+.scenario_list h3{ font: bold 18px/24px "微软雅黑";}
+.scenario_list .img{ width:304px; height:480px; background-size:100% auto;}
+.scenario_list .img img{ width:267px; margin: 0 auto;}
+#header .wap_title{ font-size:18px;}
+
+/* detail*/
+
+
+@media screen and (max-width:479px){	
+.containtor{ width:300px;}
+#header { height:45px;}
+#header .wap_back{ padding:0;}
+#header .wap_title{ padding:0; margin:0; line-height:45px;}
+#header .wap_back img{ width:80%; margin:20% 0 0 20%;}
+#header .wap_menu img{width:80%; margin-top:0px;}	
+.wap_menulist{top:64px; }
+.section h2{ font: bold 22px/22px "微软雅黑"; margin-top:20%;}
+.wap_one h2{ font: bold 16px/22px "微软雅黑";  margin:10% 0 0 0; }
+.wap_one .botton,.nav-fixed{ font: bold 16px/54px "";  }	
+.section p{ font:14px/18px ""; }
+.swiper-containeri{ height: 500px; }
+.swiper-slide{height:500px;}
+.wap_scenario h3{ font:14px/24px "微软雅黑"}
+.wap_toone .img,.wap_video .img{ width:100%;}
+.wap_look .list,
+.wap_eye .list,
+.wap_message .list,
+.wap_address .list,
+.wap_i .list{ width:90%; }
+.wap_scenario li{ width:100%; margin-bottom:30px;}
+.wap_totop{  bottom:70px; right:5%;}

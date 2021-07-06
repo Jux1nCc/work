@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0, viewport-fit=cover">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="msapplication-tap-highlight" content="no">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Cache-Control" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <title>网络设置</title>
+  <style type="text/css">
+    * {
+      border: 0;
+      outline: 0;
+      vertical-align: baseline;
+      background: 0 0;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      padding: .3rem;
+    }
+
+    p {
+      font-size: .3rem;
+      color: #666;
+    }
+
+    .middle {
+      margin: .4rem 0;
+    }
+
+    .bottom {
+      margin-top: .4rem;
+    }
+  </style>
+</head>
+
+<body>
+  <p>未能连接到互联网</p>
+  <p>您的设备未启用移动网络或无线局域网</p>
+  <p class="middle">如需要连接到互联网，请参考一下几点：</p>
+  <p>1、检查手机中的无线局域网设置，查看是否有可接入的无线局域网信号</p>
+  <p>2、检查手机是否已接入移动网络，并且手机没有被停机。</p>
+  <p class="bottom">如果您已接入无线局域网：请检查您所连接的无线局域网热点是否已接入互联网，或该热点是否已允许您的设备访问互联网。</p>
+</body>
+<script>
+  new function () {
+    var _self = this;
+    _self.width = 750;
+    _self.fontSize = 100;
+    _self.widthProportion = function () {
+      var p =
+        ((document.body && document.body.clientWidth) ||
+          document.getElementsByTagName("html")[0]
+            .offsetWidth) / _self.width;
+      return p > 1 ? 1 : p < 0.2 ? 0.2 : p;
+    };
+    _self.changePage = function () {
+      var a = _self.widthProportion() * _self.fontSize;
+      document
+        .getElementsByTagName("html")[0]
+        .setAttribute(
+          "style",
+          "font-size:" + a + "px !important"
+        );
+      if (
+        a !=
+        parseFloat(
+          window.getComputedStyle(document.documentElement)[
+          "fontSize"
+          ]
+        )
+      ) {
+        document
+          .getElementsByTagName("html")[0]
+          .setAttribute(
+            "style",
+            "font-size:" +
+            a /
+            (parseFloat(
+              window.getComputedStyle(
+                document.documentElement
+              )["fontSize"]
+            ) /
+              a) +
+            "px !important"
+          );
+      }
+    };
+    _self.changePage();
+    window.addEventListener(
+      "resize",
+      function () {
+        _self.changePage();
+      },
+      false
+    );
+  }();
+</script>
+
+</html>

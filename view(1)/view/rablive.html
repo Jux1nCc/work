@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>新版本内测</title>
+		<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="format-detection" content="telephone=no">
+		<script type="text/javascript" src="sharePc_files/jquery-1.js"></script><!--jQuery 库-->
+		<style type="text/css">
+			html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr, acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong, sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption, tbody,tfoot,thead,tr,th,td{border:0;outline:0;vertical-align:baseline; background:transparent;margin:0;padding:0;}
+			body{line-height:1;}
+			ol,ul{list-style:none;}
+			blockquote,q{quotes:none;}
+			blockquote:before,blockquote:after,q:before,q:after{content:none;}
+			:focus{outline:0;}
+			ins{text-decoration:none;}
+			del{text-decoration:line-through;}
+			table{border-collapse:collapse;border-spacing:0;}
+			
+			.momo_head{
+				text-align: center;
+				padding: 5% 0;
+			}
+			
+			.momo_head img{
+				width: 6rem;
+				height: 6rem;
+				border-radius: 20px;
+			}
+			
+			.momo_head p{
+				font-size: 20px;
+				font-weight: 600;
+				padding: 5% 0 3% 0;
+			}
+			
+			.momo_container{
+				padding: 3% 10%;
+				
+				color: #666;
+			}
+			
+			p{
+				line-height: 1.7;
+			}
+			.momo_top{
+				text-align: center;
+				width: 80%;
+				margin: 20% 10%;
+			}
+			
+			.momo_top a{
+				width: 100%;
+				height: 2.5rem;
+				line-height: 2.5;
+				display: block;
+				background: #3f61f6;
+				margin: 2% auto;
+				border-radius: 25px;
+    			color: #fff;
+    			text-decoration: none;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<div id="mobile_top" style="display:none;position: absolute;z-index: 999;top: 0;width: 100%;height: 100%;">
+				<img src="" id="mobile_img" style="width: 100%; height: 100%;"/>
+			</div>
+			<div class="momo_head">
+				<img src="https://is2-ssl.mzstatic.com/image/thumb/Purple113/v4/ce/8c/86/ce8c865b-1317-938f-d991-78a3b8d8782e/AppIcon-0-1x_U007emarketing-0-0-85-220-5.png/152x152bb-80.png" />
+				<p>兔聊内测邀请</p>
+				<span>版本3.4.1</span>
+			</div>
+			<div class="momo_container">
+				<p style="color: #000;">恭喜获得兔聊v3.4.1体验资格，诚邀您体验新版本内容</p><br />
+				<p>1、优化女性上线流程。</p><br />
+				<p>2、全新的界面设计。</p><br />
+				<p>修复已知bug</p>
+			</div>
+			<div class="momo_top">
+				<a id="jump1" href="https://itunes.apple.com/cn/app/testflight/id899247664?mt=8  ">第一步：安装TestFlight</a>
+				<a id="jump2" href="itms-beta://testflight.apple.com/join/761cQHOw">第二步：参与内测</a>
+				<a id="jump3" style="display: none" href="itms-beta://testflight.apple.com/join/761cQHOw">下载</a>
+				<p>需要安装<span style="color: #3f61f6;">TestFlight</span>应用才可下载内测包如已安装请忽略</p>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+var isInstallTest=0;
+//获取Url的参数
+function getUrlParam(url, name) {
+    var pattern = new RegExp("[?&]" + name + "\=([^&]+)", "g");
+    var matcher = pattern.exec(url);
+    var items = null;
+    if (matcher != null) {
+        try {
+            items = decodeURIComponent(decodeURIComponent(matcher[1]));
+        } catch (e) {
+            try {
+                items = decodeURIComponent(matcher[1]);
+            } catch (e) {
+                items = matcher[1];
+            }
+        }
+    }
+    return items;
+}
+$(function () {
+	var url = window.location;
+	isInstallTest = getUrlParam(url,"isInstallTest");
+	if(isInstallTest == 1){
+		$("#jump1").hide();
+		$("#jump2").hide();
+		$("#jump3").show();
+	}
+});
+var JumpUrl;
+
+//判断iOS或安卓和微信扣扣打开
+var ua = navigator.userAgent.toLowerCase();
+
+var u = navigator.userAgent,
+app = navigator.appVersion;
+var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Linux') > -1; //g
+var isIOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+
+if(isIOS) {
+	JumpUrl = "https://itunes.apple.com/us/app/tu-liao-liao-ni-xiang-liao/id1155891716?l=zh&ls=1&mt=8";
+} else if(isAndroid) {
+	JumpUrl = "http://jw-version.oss-cn-shenzhen.aliyuncs.com/android/RabLiveOffical.apk";
+} else {
+	JumpUrl = "http://www.rabbitlive.cn";
+}
+
+
+var isIosQQ = ( /(iPhone|iPad|iPod|iOS)/i.test(u) && /\sQQ/i.test(u));
+var isAndroidQQ = ( /(Android)/i.test(u) && /MQQBrowser/i.test(u) && /\sQQ/i.test((u).split('MQQBrowser')));
+	
+
+if(ua.match(/MicroMessenger/i) == "micromessenger") {
+	if(isIOS) {
+		$("#mobile_top").css("display","block");
+		$("#mobile_img").attr("src","img/iOS.png");
+		$(".down").css("display","none")
+	} 
+	if(isAndroid) {
+		$("#mobile_top").css("display","block")
+		$("#mobile_img").attr("src","img/android.png")
+		$(".down").css("display","none")
+		
+	}
+} else if(isIosQQ || isAndroidQQ) {
+	if(isIOS) {
+		$("#mobile_top").css("display","block");
+		$("#mobile_img").attr("src","img/iOS.png")
+		$(".down").css("display","none")
+	} 
+	if(isAndroid) {
+		$("#mobile_top").css("display","block");
+		$("#mobile_img").attr("src","img/android.png")
+		$(".down").css("display","none")
+	}
+} else {          
+	$("#mobile_top").css("display","none")
+	
+}
+if(isAndroid){
+	$("#jump1").hide();
+	$("#jump2").hide();
+	$("#jump3").show();
+	$("#jump3").attr('href','');
+}
+</script>
+</html>

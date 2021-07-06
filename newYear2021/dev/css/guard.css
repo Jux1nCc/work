@@ -1,0 +1,337 @@
+@font-face {
+  font-family: "rank";
+  src: url("../font/Alibaba-PuHuiTi-Heavy.ttf");
+  font-weight: normal;
+  font-style: normal;
+  color: #333;
+}
+.rank-font{
+  font-family: 'rank';
+}
+.page{
+  width: 100vw;
+  background-color: #c82d32;
+}
+header{
+  width: 100%;
+  height: 3rem;
+}
+.head-title{
+  justify-content: space-around;
+  align-items: flex-start;
+}
+.head-text{
+  align-items: flex-start;
+}
+.head-text span{
+  color: #f3cfc4;
+  font-size: 0.24rem;
+  line-height: 0.4rem;
+}
+.head-text .ht-title{
+  font-size: 0.56rem;
+  color: #ffd474;
+  font-weight: 700;
+  margin-bottom: 0.2rem;
+}
+.rank-icon i{
+  display: block;
+  width: 1.67rem;
+  height: 1.84rem;
+  background: url(../images/cup.png) no-repeat;
+  background-size: 100% 100%;
+  margin-bottom: 0.1rem;
+}
+.rank-icon span{
+  color: #fef8e8;
+  font-size: 0.32rem;
+}
+.rank-icon .num{
+  color: #f8d148;
+}
+.nav{
+  width: 100%;
+  justify-content: space-around;
+  margin-bottom: 0.3rem;
+}
+.big-nav{
+  width: 3.5rem;
+  height: 1.1rem;
+  background: url(../images/rule-btn_1.png) no-repeat;
+  background-size: 100% 100%;
+  color: #f8d149;
+  font-size: 0.54rem;
+  font-weight: 700;
+  text-align: center;
+  line-height: 0.9rem;
+}
+.small-nav{
+  width: 2.67rem;
+  height: 0.85rem;
+  background: url(../images/rule-btn_0.png) no-repeat;
+  background-size: 100% 100%;
+  color: #f23030;
+  font-size: 0.35rem;
+  font-weight: 700;
+  text-align: center;
+  line-height: 0.7rem;
+}
+.guard-rank{
+  margin-bottom: 0.8rem;
+}
+.gi-title{
+  position: relative;
+  width: 7.18rem;
+  height: 1.1rem;
+  background-color: #f8d148;
+  margin: 0 auto;
+  border-top-left-radius: 0.18rem;
+  border-top-right-radius: 0.18rem;
+  justify-content: space-around;
+}
+.gi-title span{
+  color: #c82d32;
+  font-size: 0.3rem;
+}
+.gi-qlName{
+  position: relative;
+  width: 2rem;
+  height: 0.8rem;
+}
+.gi-qlName span{
+  position: absolute;
+}
+.gi-name-other{
+  top: 0;
+  left: 0;
+}
+.gi-name-other.other-boy{
+  color: #8daffb;
+}
+.gi-name-other.other-girl{
+  color: #fb8d8d;
+}
+.gi-name-mine{
+  bottom: 0;
+  right: 0;
+}
+.gi-name-mine.mine-boy{
+  color: #8daffb;
+}
+.gi-name-mine.mine-girl{
+  color: #fb8d8d;
+}
+.gi-value{
+  text-align: center;
+}
+.gi-title i{
+  position: absolute;
+  bottom: -27.5%;
+  width: 0;
+  height: 0;
+}
+.gi-i-left{
+  left: 0;
+  border-bottom: 0.15rem solid transparent;
+  border-left: 0.07rem solid transparent;
+  border-top: 0.15rem solid #c69500;
+  border-right: 0.07rem solid #c69500;
+}
+.gi-i-right{
+  right: 0;
+  border-bottom: 0.15rem solid transparent;
+  border-right: 0.07rem solid transparent;
+  border-left: 0.07rem solid #c69500;
+  border-top: 0.15rem solid #c69500;
+}
+.gi-wrap{
+  width: 6.9rem;
+  height: 13.42rem;
+  background: #fef8e8;
+  margin: 0 auto;
+  border-bottom-left-radius: 0.18rem;
+  border-bottom-right-radius: 0.18rem;
+  box-shadow: #ab0b0d 10px 10px 10px;
+}
+.wrap-title{
+  width: 100%;
+  height: 0.76rem;
+  font-size: 0.27rem;
+  color: #ebaf1f;
+}
+.gi-wrap ul{
+  width: 100%;
+  height: 12rem;
+  overflow: auto;
+}
+.gi-wrap ul li{
+  position: relative;
+  width: 100%;
+  height: 1.4rem;
+  justify-content: space-around;
+  font-size: 0.3rem;
+}
+.li-rank{
+  width: 0.78rem;
+  height: 0.89rem;
+  text-align: center;
+  line-height: 0.8rem;
+  font-size: 0.32rem;
+  margin-left: 0.2rem;
+}
+.li-rank img{
+  width: 100%;
+}
+.li-photo{
+  width: 0.9rem;
+  height: 0.9rem;
+  border-radius: 0.9rem;
+  overflow: hidden;
+  margin-left: 0.1rem;
+}
+.li-photo.first{
+  border: 1px solid #fc693a;
+}
+.li-photo.second{
+  border: 1px solid #3db3fb;
+}
+.li-photo.third{
+  border: 1px solid #d292fb;
+}
+.li-photo img{
+  width: 100%;
+  height: 100%;
+}
+.li-name{
+  position: relative;
+  width: 2.5rem;
+  height: 0.8rem;
+  margin-left: 0.2rem;
+}
+.li-name input{
+  position: absolute;
+  width: 2.7rem;
+  height: 0.4rem;
+  font-size: 0.28rem;
+  border: none;
+  background-color: transparent;
+}
+.li-name .name-sex0.li-name-girl{
+  bottom: 0;
+  right: 0;
+  color: #fb8d8d;
+  text-align: right;
+}
+.li-name .name-sex0.li-name-boy{
+  top: 0;
+  left: 0;
+  color: #8daffb;
+}
+.li-name .name-sex1.li-name-girl{
+  top: 0;
+  left: 0;
+  color: #fb8d8d;
+}
+.li-name .name-sex1.li-name-boy{
+  bottom: 0;
+  right: 0;
+  color: #8daffb;
+  text-align: right;
+}
+.li-name i{
+  position: absolute;
+  width: 0.61rem;
+  height: 0.57rem;
+}
+.li-icon-left{
+  top: -20%;
+  left: -6%;
+  background: url(../images/crown_1.png) no-repeat;
+  background-size: 100% 100%;
+}
+.li-icon-right{
+  bottom: 22%;
+  right: -6%;
+  background: url(../images/crown_11.png) no-repeat;
+  background-size: 100% 100%;
+}
+.gi-wrap ul li:nth-child(2) .li-icon-left{
+  background: url(../images/crown_2.png) no-repeat;
+  background-size: 100% 100%;
+}
+.gi-wrap ul li:nth-child(2) .li-icon-right{
+  background: url(../images/crown_22.png) no-repeat;
+  background-size: 100% 100%;
+}
+.gi-wrap ul li:nth-child(3) .li-icon-left{
+  background: url(../images/crown_3.png) no-repeat;
+  background-size: 100% 100%;
+}
+.gi-wrap ul li:nth-child(3) .li-icon-right{
+  background: url(../images/crown_33.png) no-repeat;
+  background-size: 100% 100%;
+}
+.li-value{
+  width: 1.7rem;
+  /* align-items: flex-end; */
+  justify-content: space-between;
+  margin-right: 0.2rem;
+}
+.lv-value{
+  font-size: 0.3rem;
+  color: #c82d32;
+  font-weight: 700;
+}
+.lv-value.black{
+  color: #000;
+}
+.black{
+  color: #333333;
+}
+.lv-success{
+  color: #ef585d;
+  font-size: 0.24rem;
+}
+.gi-wrap li .invite{
+  position: absolute;
+  bottom: 5%;
+  right: 5%;
+  color: #6666ff;
+  font-size: 0.2rem;
+}
+.gi-wrap li .invite.gray{
+  color: gray;
+}
+.gi-wrap li .li-border{
+  position: absolute;
+  bottom: 0;
+  right: 0.16rem;
+  width: 5.53rem;
+  height: 1px;
+  background-color: #ffe2a2;
+}
+.gi-wrap ul .look-more{
+  width: 100%;
+  height: 0.3rem;
+  text-align: center;
+  color: #f8d148;
+  font-size: 0.26rem;
+  margin-top: 0.3rem;
+}
+.look-more img{
+  width: 0.21rem;
+  height: 0.12rem;
+  margin-left: 0.1rem;
+}
+.nomore{
+  width: 100%;
+  height: 1rem;
+  line-height: 0.5rem;
+  text-align: center;
+  color: #666666;
+  font-size: 0.3rem;
+}
+footer{
+  height: 0.8rem;
+  width: 100%;
+}

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0, viewport-fit=cover">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="msapplication-tap-highlight" content="no">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Cache-Control" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <title>铢铢APP - 更自然的找到真爱</title>
+  <link rel="shortcut icon" href="favicon.ico">
+  <link rel="stylesheet" href="css/comm.css">
+  <link rel="stylesheet" href="css/swiper.min.css">
+  <link rel="stylesheet" href="css/index.css">
+</head>
+
+<body>
+  <div class="page">
+    <div id="head">
+      <header>
+        <img id="logo" src="images/logo.png"></img>
+        <button onclick="showMenus()"></button>
+        <ul id="menuWrap" class="popup">
+          <li><a href="index.html">首页</a></li>
+          <li><a href="about.html?type=about">关于我们</a></li>
+          <li><a href="case.html?type=case">牵手成功</a></li>
+          <li><a href="square.html?type=square">相亲广场</a></li>
+          <li><a href="dynamic.html?type=dynamic">产品动态</a></li>
+        </ul>
+      </header>
+      <div class="swiper-container award-preview-wrap">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide slide-01">
+            <div class="bg-img"></div>
+            <div class="slide-01-wrap">
+              <h1>更自然地找到真爱</h1>
+              <p>免费 · 真实 · 防打扰</p>
+              <p>露 不 露 脸 你 决 定</p>
+              <div class="downLoad-btn">
+                <button onclick="downLoadApp()">立即脱单</button>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide slide-02">
+            <div class="text-wrap">
+              <h2>免费</h2>
+              <p>免费精准匹配对象</p>
+              <p>免费查看“喜欢的人”更多详细资料</p>
+              <p>免费查看、回复所有未读消息</p>
+              <p>免费语音视频聊天、回复喜欢的人</p>
+              <p>让你谈情说爱不为钱烦恼</p>
+            </div>
+            <div class="slide-img">
+              <img src="images/bg_02.png">
+            </div>
+            <div class="downLoad-btn">
+              <button onclick="downLoadApp()">立即脱单</button>
+            </div>
+          </div>
+          <div class="swiper-slide slide-03">
+            <div class="text-wrap">
+              <h2>真实</h2>
+              <p>身边的朋友都在用的婚恋交友APP。<br />
+                本人认证，年龄、身高、学历、收入、职业、<br />
+                户口、房车情况等多维度资料，24小时人工审<br />
+                核，确保用户信息真实可靠。</p>
+            </div>
+            <div class="slide-img">
+              <img src="images/bg_03.png">
+            </div>
+            <div class="downLoad-btn">
+              <button onclick="downLoadApp()">立即脱单</button>
+            </div>
+          </div>
+          <div class="swiper-slide slide-04">
+            <div class="text-wrap">
+              <h2>防打扰</h2>
+              <p>根据你所在位置、你的个人资料、你所填<br />
+                写的择偶要求，快速过滤掉不符合你要求<br />
+                的人，减少无效信息沟通</p>
+            </div>
+            <div class="slide-img">
+              <img src="images/bg_04.png">
+            </div>
+            <div class="downLoad-btn">
+              <button onclick="downLoadApp()">立即脱单</button>
+            </div>
+          </div>
+          <div class="swiper-slide slide-05">
+            <div class="text-wrap">
+              <h2>露不露脸你决定</h2>
+              <p>好看的皮囊千篇一律，有趣的灵魂万里挑一。<br />
+                露不露脸，你说了算</p>
+            </div>
+            <div class="slide-img">
+              <img src="images/bg_05.png">
+            </div>
+            <div class="downLoad-btn">
+              <button onclick="downLoadApp()">立即脱单</button>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-pagination swiper-pagination-bullets"></div>
+      </div>
+    </div>
+  </div>
+</body>
+<script src="js/rem.js"></script>
+<script src="js/config.js"></script>
+<script src="js/swiper.min.js"></script>
+<script src="js/jquery.min.js"></script>
+<script src="js/openinstall.js"></script>
+<script src="js/index.js"></script>
+<script>
+  // PC端打开跳转PC端页面
+  (function (doc, win) {
+    let docEl = doc.documentElement,
+      resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+      recalc = function () {
+        let clientWidth = docEl.clientWidth;
+        if (!clientWidth) return;
+        if (clientWidth > 1200) {
+          window.location.href = "../pc/index/index1.html";
+        }
+      };
+    if (!doc.addEventListener) return;
+    win.addEventListener(resizeEvt, recalc, false);
+    doc.addEventListener('DOMContentLoaded', recalc, false);
+  })(document, window);
+
+
+</script>
+
+</html>

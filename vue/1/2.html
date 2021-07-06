@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="http://activity.folkcam.cn/common/comm.css">
+  <style>
+    #app{
+      display: flex;
+    }
+    .box{
+      width: 300px;
+      height: 700px;
+      margin-left: 100px;
+      margin-top: 100px;
+    }
+    .user{
+      width: 100%;
+      height: 500px;
+      border: 1px solid #000;
+      background-color: #ccc;
+      overflow: auto;
+      padding: 0 10px;
+    }
+    .input-wrap{
+      display: flex;
+      align-items: center;
+      width: 100%;
+      height: 40px;
+      border: 1px solid #000;
+      border-top: none;
+    }
+    input{
+      width: 70%;
+      height: 30px;
+      border: none;
+      border-radius: 5px;
+      background-color: #eee;
+      text-indent: 0.5em;
+    }
+    button{
+      width: 15%;
+      border: 1px solid #000;
+      height: 30px;
+      border: none;
+      margin-left: 5px;
+    }
+    .user p{
+      width: 100%;
+      margin-top: 20px;
+      align-items: flex-start;
+    }
+    .user-a .act-a{
+      justify-content: flex-end;
+    }
+    .user-a .act-a span{
+      background-color: #15d36a;
+      max-width: 160px;
+      padding: 5px;
+      border-radius: 5px;
+      margin-right: 10px;
+      word-break:break-all
+    }
+    .user-a .act-b{
+      justify-content: flex-start;
+    }
+    .user-a .act-b span{
+      background-color: #fff;
+      max-width: 160px;
+      padding: 5px;
+      border-radius: 5px;
+      margin-left: 10px;
+      word-break:break-all
+    }
+    .user-b .act-b{
+      justify-content: flex-end;
+    }
+    .user-b .act-b span{
+      background-color: #15d36a;
+      max-width: 160px;
+      padding: 5px;
+      border-radius: 5px;
+      margin-right: 10px;
+      word-break:break-all
+    }
+    .user-b .act-a{
+      justify-content: flex-start;
+    }
+    .user-b .act-a span{
+      background-color: #fff;
+      max-width: 160px;
+      padding: 5px;
+      border-radius: 5px;
+      margin-left: 10px;
+      word-break:break-all;
+    }
+    p img{
+      width: 30px;
+      height: 30px;
+      border-radius: 5px;
+    }
+    .input-wrap img{
+      width: 30px;
+      height: 30px;
+      border-radius: 30px;
+    }
+    </style>
+</head>
+
+<body>
+  <div id="app">
+    <div class="box box-a">
+      <div class="user user-a">
+        <p v-for="(item, index) in items" :key="index" class="flexbox" :class="[(item.user == '1') ? 'act-b' : 'act-a']">
+          <span v-show="item.user == 0" v-text="item.value"></span>
+          <img :src="src[item.user]">
+          <span v-show="item.user == 1" v-text="item.value"></span>
+        </p>
+      </div>
+      <div class="input-wrap">
+        <img src="C:\Users\Jingwan\Desktop\1.jpg" alt="">
+        <input type="text" class="inputA" v-model="valueA">
+        <button @click='sendA'>发送</button>
+      </div>
+    </div>
+    <div class="box box-b">
+      <div class="user user-b">
+        <p class="flexbox" v-for="(item, index) in items" :key="index" :class="[(item.user == '1') ? 'act-b' : 'act-a']">
+          <span v-show="item.user == 1" v-text="item.value"></span>
+          <img :src="src[item.user]">
+          <span v-show="item.user == 0" v-text="item.value"></span>
+        </p>
+      </div>
+      <div class="input-wrap">
+        <img src="C:\Users\Jingwan\Desktop\1.jpg" alt="">
+        <input type="text" class="inputB" v-model="valueB">
+        <button @click='sendB'>发送</button>
+      </div>
+    </div>
+  </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+  new Vue({
+    el: '#app',
+    data(){
+      return {
+        src: ['https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=2070064583,3133263856&fm=26&gp=0.jpg','https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1605610516191&di=92a6af10864708c3cfb46513878f5ac9&imgtype=0&src=http%3A%2F%2Fwww.2qqtouxiang.com%2Fpic%2FTP4849_01.jpg'],
+        items:[],
+        valueA:'',
+        valueB:''
+      }
+    },
+    methods: {
+      sendA(){
+        if(this.valueA == '') return
+        this.items.push({user:'0',value:this.valueA})
+        this.valueA = ''
+      },
+      sendB(){
+        if(this.valueB == '') return
+        this.items.push({user:'1',value:this.valueB})
+        this.valueB = ''
+      },
+    },
+  })
+</script>
+<!-- <div id="app">
+  <div class="box box-a">
+    <div class="user user-a">
+    </div>
+    <div class="input-wrap">
+      <img src="C:\Users\Jingwan\Desktop\1.jpg" alt="">
+      <input type="text" class="inputA">
+      <button onclick="sendA()">发送</button>
+    </div>
+  </div>
+  <div class="box box-b">
+    <div class="user user-b">
+    </div>
+    <div class="input-wrap">
+      <img src="C:\Users\Jingwan\Desktop\1.jpg" alt="">
+      <input type="text" class="inputB">
+      <button onclick="sendB()">发送</button>
+    </div>
+  </div>
+</div> -->
+<!-- <script src="http://activity.folkcam.cn/common/jquery.min.js"></script>
+<script>
+function sendA(){
+  var value = $('.inputA').val()
+  if(value == ''){
+    return
+  }
+  var strA = '<p class="act-a flexbox"><span>'+ value +'</span><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1605610516191&di=92a6af10864708c3cfb46513878f5ac9&imgtype=0&src=http%3A%2F%2Fwww.2qqtouxiang.com%2Fpic%2FTP4849_01.jpg"></p>'
+  var strB = '<p class="act-a flexbox"><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1605610516191&di=92a6af10864708c3cfb46513878f5ac9&imgtype=0&src=http%3A%2F%2Fwww.2qqtouxiang.com%2Fpic%2FTP4849_01.jpg"><span>'+ value +'</span></p>'
+  $('.user-a').append(strA)
+  $('.user-b').append(strB)
+  $('.inputA').val('')
+}
+function sendB(){
+  var value = $('.inputB').val()
+  if(value == ''){
+    return
+  }
+  var strA = '<p class="act-b flexbox"><img src="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=2070064583,3133263856&fm=26&gp=0.jpg"><span>'+ value +'</span></p>'
+  var strB = '<p class="act-b flexbox"><span>'+ value +'</span><img src="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=2070064583,3133263856&fm=26&gp=0.jpg>"</p>'
+  $('.user-a').append(strA)
+  $('.user-b').append(strB)
+  $('.inputB').val('')
+}
+</script> -->
+</html>

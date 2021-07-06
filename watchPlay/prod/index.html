@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0, viewport-fit=cover">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="msapplication-tap-highlight" content="no">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Cache-Control" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <title>看直播 拿花式福利</title>
+  <link rel="stylesheet" href="http://activity.folkcam.cn/common/comm.css">
+  <link rel="stylesheet" href="http://activity.folkcam.cn/common/swiper.min.css">
+  <link rel="stylesheet" href="http://activity.folkcam.cn/common/layer/theme/default/layer.css">
+  <link rel="stylesheet" href="index.css?v=2021">
+</head>
+
+<body>
+  <div class="page">
+    <header></header>
+    <div class="wrap live-wrap">
+      <div class="title"></div>
+      <p class="flexbox"><i></i>每日累计看直播达时长, 可领取奖励</p>
+      <ul class="live-time-ul">
+        <li>0</li>
+        <li style="left: 12%;">10分钟</li>
+        <li style="left: 31%;">20分钟</li>
+        <li style="left: 72%;">40分钟</li>
+      </ul>
+      <div class="live-progress-wrap">
+        <div class="live-progress-item"></div>
+        <i></i>
+        <i></i>
+        <i></i>
+      </div>
+      <ul class="live-award flexbox">
+        <li class="column li-0">
+          <div class="award-img flexbox">
+            <img src="images/car.png">
+          </div>
+          <span>随机进场特效3天</span>
+          <div class="btn gray" onclick="getAward(this,1)">立即领取</div>
+        </li>
+        <li class="column li-1">
+          <div class="award-img flexbox">
+            <img class="img-ticket" src="images/dia_miyi.png">
+          </div>
+          <span>满19元赠300<br /><span class="appUnit">钻石</span>券1张</span>
+          <div class="btn get-award gray" onclick="getAward(this,2)">立即领取</div>
+          <div class="btn goto-recharge popup" onclick="toRecharge()">去充值</div>
+        </li>
+        <li class="column li-2">
+          <div class="award-img flexbox">
+            <img class="img-vip" src="images/miyi_vip.png">
+          </div>
+          <span class="gold-vip"><span class="appVip">黄金贵族</span>3天</span>
+          <div class="award-img flexbox">
+            <img class="img-ticket" src="images/dia_money.png">
+          </div>
+          <span>满60元减14元<br />充值券1张</span>
+          <div class="btn get-award gray" onclick="getAward(this,3)">立即领取</div>
+          <div class="btn goto-recharge popup" onclick="toRecharge()">去充值</div>
+        </li>
+      </ul>
+      <div class="lianjie"></div>
+    </div>
+    <div class="wrap comment-wrap">
+      <div class="title"></div>
+      <p class="column">
+        <span>在单主播直播间累计停留30分钟</span>
+        <span>且在其直播间评论达30条(每条≥10个字)</span>
+        <span>可领礼物<img src="images/heart.png"><span class="yellow">爱意项链(100<span
+              class="appUnit">钻石</span>)*3个</span></span>
+      </p>
+      <div class="swiper-container award-preview-wrap">
+        <div class="swiper-wrapper">
+        </div>
+      </div>
+      <div class="preview-prev-btn popup" onclick="showTip()"></div>
+      <div class="preview-next-btn popup" onclick="showTip()"></div>
+      <div class="get-award gray popup" onclick="getAward(this,4)">立即领奖</div>
+    </div>
+    <div class="wrap rule-wrap">
+      <div class="rule-title"></div>
+      <div class="rule-wrap-1">
+        <p>1、每天观看直播即可领取奖励，累计看播10分钟、20分钟、40分钟各领取一次；</p>
+        <p>2、每天发送直播间评论也可领取一次奖励，需在某位主播直播间停留30分钟，且在其直播间评论达30条，（每条≥10个字评论），包含高级评论和尊贵弹幕；</p>
+        <p>3、活动进度每天24点清零；</p>
+        <p>4、礼物奖励将发至背包，充值券奖励将发放至“我的-钱包-优惠券”，有效期均为2天。<span class="appVip">黄金贵族</span>奖励将自动到账（如果您已是<span
+            class="appVip2">白银贵族</span>，<span class="appVip">黄金贵族</span>奖励将被等值折算成<span
+            class="appVip2">白银贵族</span>发放给您，系统自动延期）。</p>
+        <p>5、活动期间如果因用户在直播间违规为被平台冻结，该用户当天进度将被清零。</p>
+      </div>
+      <div class="rule-wrap-2">
+        <p>温馨提示:</p>
+        <p>1、进场特效等装扮奖励发放后, 请在“我-更多-个性装扮”里手动选择使用；</p>
+        <p class="miyi-android">2、满减优惠券请务必在本活动页或公众号“觅伊（微信号:Miyiapp）-菜单栏充值”使用。</p>
+        <p class="miyi-ios popup">2、满减优惠券请在公众号“觅伊（微信号:Miyiapp）-菜单栏充值”使用。</p>
+        <p class="tuliao popup">2、满减优惠券请务必在本活动页或公众号“兔聊APP（微信号:tuliaoapp）-菜单栏充值”使用。</p>
+        <p>3、本活动起止时间、奖励发放时间、奖励有效时间均已北京时间为准。</p>
+      </div>
+    </div>
+    <footer class="column">
+      <span class="apple">本活动奖励由<span class="appName">觅伊</span>平台提供，与苹果公司无关。</span>
+      <span>活动最终解释权归<span class="appName">觅伊</span>所有</span>
+    </footer>
+  </div>
+  <div class="dialog">
+    <div id="diaCar" class="popup">
+      <div class="main column">
+        <p class="dialog-title">“炫彩流金跑车”进场特效x3天</p>
+        <img src="images/miao.png">
+        <span class="dialog-text-span">记得去「我-更多-个性装扮」使用~</span>
+      </div>
+      <button class="dialog-ok" onclick="layer.closeAll()"></button>
+      <button class="dialog-close"></button>
+    </div>
+    <div id="diaTicket" class="popup">
+      <div class="main column">
+        <p class="dialog-title">满19元赠300<span class="appUnit">钻石</span> 充值券</p>
+        <img src="images/dia_miyi.png">
+        <span class="dialog-text-span">有效期2天，请及时使用哦~</span>
+        <span class="dialog-text-span">可在“我-更多-我的钱包-优惠券”里查看</span>
+      </div>
+      <h3>多多看直播，福利都抱走。</h3>
+      <button class="dialog-ok" onclick="layer.closeAll()"></button>
+      <button class="dialog-ok useTicket" onclick="toRecharge()"></button>
+      <button class="dialog-close"></button>
+    </div>
+    <div id="diaVip" class="popup">
+      <div class="main column">
+        <div class="dialog-title flexbox">
+          <span><span class="appVip">黄金贵族</span><br />3天</span>
+          <span>满60元减14元<br />充值券1张</span>
+        </div>
+        <div class="diaVip-img flexbox">
+          <img class="vip-img" src="images/miyi_vip.png">
+          <img class="ticket-img" src="images/dia_money.png">
+        </div>
+        <span class="dialog-text-span">
+          提示：<span class="appVip">黄金贵族</span>奖励已到账，如果您<br />已是<span class="appVip2">白银贵族</span>，将等值折算成<span
+            class="appVip2">白银贵族</span><br />发放给您，系统为您自动延期。<br />充值券有效期2天，请及时使用。
+        </span>
+      </div>
+      <button class="dialog-ok" onclick="layer.closeAll()"></button>
+      <button class="dialog-ok useTicket" onclick="toRecharge()"></button>
+      <button class="dialog-close"></button>
+    </div>
+    <div id="diaNecklace" class="popup">
+      <div class="main column">
+        <p class="dialog-title">背包礼物“爱意项链（100<span class="appUnit">钻石</span>）”</p>
+        <img src="images/dia_heart.png">
+        <b>x3个</b>
+        <span class="dialog-text-span">礼物已放入您背包，有效期2天，快去<br />送给心爱的主播吧~</span>
+      </div>
+      <button class="dialog-ok" onclick="layer.closeAll()"></button>
+      <button class="dialog-close"></button>
+    </div>
+  </div>
+</body>
+<script src="http://activity.folkcam.cn/common/rem.js"></script>
+<script src="http://activity.folkcam.cn/common/app.js"></script>
+<script src="http://activity.folkcam.cn/common/config.js"></script>
+<script src="http://activity.folkcam.cn/common/jquery.min.js"></script>
+<script src="http://activity.folkcam.cn/common/swiper.min.js"></script>
+<script src="http://activity.folkcam.cn/common/layer/layer.js"></script>
+<script src="index.js"></script>
+
+</html>

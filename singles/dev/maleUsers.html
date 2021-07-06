@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0, viewport-fit=cover">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="msapplication-tap-highlight" content="no">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Cache-Control" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <title>疯狂双十一 疯狂中大奖</title>
+  <link rel="stylesheet" href="http://activity.folkcam.cn/common/layer/theme/default/layer.css">
+  <link rel="stylesheet" href="http://activity.folkcam.cn/common/comm.css">
+  <link rel="stylesheet" href="./css/maleUsers.css?v=202011091200" as="style">
+</head>
+
+<body>
+  <div class="page-man" data-src="./image/man_bg.png">
+    <header data-src="./image/man_head.png"></header>
+    <div class="places-btn flexbox csImg popup" data-src="./image/image.png">
+      <span>
+        爆大奖名额：
+        <span class="place-time">11.11开启</span>
+      </span>
+    </div>
+    <div class="record-btn flexbox popup" onclick="toWinRecord()">我的中奖记录</div>
+    <div class="lottery-wrap" data-src="./image/lottery_bg.png">
+      <div class="lottery-notice" data-src="./image/lottery_notice.png">
+        <div class="notice">
+          <ul>
+            <!-- <li class="flexbox">恭喜<span class="notice-name">哈哈哈哈哈</span>幸运抽中“<span
+                class="notice-award">XXXXXXXXXX</span>”</li> -->
+          </ul>
+        </div>
+      </div>
+      <div class="lottery-pack flexbox">
+        <div class="pack-light pack-left csImg" data-src="./image/image.png"></div>
+        <div class="pack-item" data-src="./image/lottery_item.png" onclick="doLottery(this)"></div>
+        <div class="pack-item" data-src="./image/lottery_item.png" onclick="doLottery(this)"></div>
+        <div class="pack-item" data-src="./image/lottery_item.png" onclick="doLottery(this)"></div>
+        <div class="pack-light pack-right csImg" data-src="./image/image.png"></div>
+      </div>
+      <div class="lottery-chance gray">剩余抽奖机会：<span>0</span> 次</div>
+      <!-- <div class="chance-icon"></div> -->
+    </div>
+    <div class="to-look" onclick="toLook()">查看奖品>></div>
+    <div class="act-rule">
+      <div class="rule-title csImg" data-src="./image/image.png"></div>
+      <p><span>❶</span> 每日充值任意金额，即可免费抽奖1次，上不封顶；</p>
+      <p><span>❷</span> 单笔充值金额越高，奖品越丰富、奖金越高。100%中奖；</p>
+      <p><span>❸</span> 11月11日, 当天完成1笔充值的用户, 进入活动页享受额外随机爆大奖，最高3000元，每人最多1次！限量1111名，先到先得~</p>
+      <p>（不占用正常抽奖次数哦）</p>
+      <p><span>❹</span> 抽奖机会仅限活动期间，活动结束后如有剩余抽奖机会，视为默认放弃。</p>
+    </div>
+    <footer class="column">
+      <p class="apple">本活动奖励由<span class="appName">觅伊</span>平台提供, 与苹果公司无关。</p>
+      <p>一本活动最终解释权归<span class="appName">觅伊</span>所有一</p>
+    </footer>
+  </div>
+  <div class="dialog">
+    <!-- app外打开 -->
+    <div id="openApp" class="open-app popup" data-src="./image/downLoad.png">
+      <button onclick="download()" class="openApp-btn"></button>
+      <button class="dialog-close" onclick="layer.closeAll()"></button>
+    </div>
+    <!-- 未登录 -->
+    <div id="toLogin" class="to-login popup" data-src="./image/login.png">
+      <button onclick="jumpToMe()" class="toLogin-btn"></button>
+      <button class="dialog-close" onclick="layer.closeAll()"></button>
+    </div>
+    <!-- 中奖记录 -->
+    <div id="winRecord" class="win-record popup" data-src="./image/record.png">
+      <div class="record-main">
+        <ul>
+          <li class="flexbox">
+            <div class="record-name">20钻石</div>
+            <div class="record-time">2020-11-10 19:00:01</div>
+          </li>
+          <li class="flexbox flexend">
+            <div class="record-name">
+              <div>国王宝座-气泡 +</div>
+              <div>国王宝座-头像框 +</div>
+              <div>国王宝座-进场特效</div>
+            </div>
+            <div class="record-time">2020-11-10 18:00:01</div>
+          </li>
+          <li class="flexbox flexend">
+            <div class="record-name">
+              <div>国王宝座-气泡 +</div>
+              <div>国王宝座-头像框 +</div>
+              <div>国王宝座-进场特效</div>
+            </div>
+            <div class="record-time">2020-11-10 18:00:01</div>
+          </li>
+          <li class="flexbox">
+            <div class="record-name">20钻石</div>
+            <div class="record-time">2020-11-10 19:00:01</div>
+          </li>
+          <li class="flexbox">
+            <div class="record-name">20钻石</div>
+            <div class="record-time">2020-11-10 19:00:01</div>
+          </li>
+          <li class="flexbox flexend">
+            <div class="record-name">
+              <div>国王宝座-气泡 +</div>
+              <div>国王宝座-头像框 +</div>
+              <div>国王宝座-进场特效</div>
+            </div>
+            <div class="record-time">2020-11-10 18:00:01</div>
+          </li>
+          <li class="flexbox flexend">
+            <div class="record-name">
+              <div>国王宝座-气泡 +</div>
+              <div>国王宝座-头像框 +</div>
+              <div>国王宝座-进场特效</div>
+            </div>
+            <div class="record-time">2020-11-10 18:00:01</div>
+          </li>
+          <li class="flexbox flexend">
+            <div class="record-name">
+              <div>国王宝座-气泡 +</div>
+              <div>国王宝座-头像框 +</div>
+              <div>国王宝座-进场特效</div>
+            </div>
+            <div class="record-time">2020-11-10 18:00:01</div>
+          </li>
+          <li class="flexbox flexend">
+            <div class="record-name">
+              <div>国王宝座-气泡 +</div>
+              <div>国王宝座-头像框 +</div>
+              <div>国王宝座-进场特效</div>
+            </div>
+            <div class="record-time">2020-11-10 18:00:01</div>
+          </li>
+          <li class="flexbox flexend">
+            <div class="record-name">
+              <div>国王宝座-气泡 +</div>
+              <div>国王宝座-头像框 +</div>
+              <div>国王宝座-进场特效</div>
+            </div>
+            <div class="record-time">2020-11-10 18:00:01</div>
+          </li>
+          <li class="flexbox flexend">
+            <div class="record-name">
+              <div>国王宝座-气泡 +</div>
+              <div>国王宝座-头像框 +</div>
+              <div>国王宝座-进场特效</div>
+            </div>
+            <div class="record-time">2020-11-10 18:00:01</div>
+          </li>
+        </ul>
+      </div>
+      <button onclick="toClose()" class="fontfamily"></button>
+    </div>
+    <!-- 充值提示 -->
+    <div id="rechargeHint" class="recharge-hint popup">
+      <div class="recharge-main" data-src="./image/recharge.png"></div>
+      <button onclick="toRecharge()" class="recharge-btn"></button>
+      <button class="dialog-close" onclick="layer.closeAll()"></button>
+    </div>
+    <!-- 中奖 -->
+    <div id="winning" class="winning popup" data-src="./image/getAward.png">
+      <div class="allValue popup">(总价值<span>30000</span>聊币)</div>
+      <div class="win-main1 flexbox popup">
+        <div class="win-item1 column">
+          <img src="./image/diamond.png" alt="">
+          <span>200000钻石</span>
+        </div>
+      </div>
+      <div class="win-main2 flexbox">
+        <div class="win-item2 column">
+          <span class="award1">"火麒麟"进场特效x7天</span>
+          <span class="aValue">（价值<span>30000</span>聊币）</span>
+          <div class="win-image flexbox">
+            <img src="./image/火麒麟进场特效.png" alt="">
+          </div>
+        </div>
+      </div>
+      <div class="win-main3 flexbox popup">
+        <div class="win-item3 column">
+          <div class="win-image flexbox">
+            <img src="./image/爱同火花头像框.png" alt="">
+          </div>
+          <span class="award1">"爱同火花"</span>
+          <span class="award2">头像框x7天</span>
+        </div>
+        <div class="win-item4 column">
+          <div class="win-image flexbox">
+            <img src="./image/爱同火花气泡.png" alt="">
+          </div>
+          <span class="award1">"爱同火花"</span>
+          <span class="award2">头像框x7天</span>
+        </div>
+        <div class="win-item5 column">
+          <div class="win-image flexbox">
+            <img src="./image/火麒麟进场特效.png" alt="">
+          </div>
+          <span class="award1">"火麒麟"</span>
+          <span class="award2">进场特效x7天</span>
+        </div>
+      </div>
+      <div class="dress popup">提示：记得去「我-更多-个性装扮」使用~</div>
+      <div class="look-diamond">提示：奖品已将发放至您的钱包余额，可在“非直播收益明细”里查看“活动收入”。</div>
+      <button onclick="shareTc()" class="share-btn"></button>
+      <button class="dialog-close" onclick="layer.closeAll()"></button>
+    </div>
+    <!-- 查看奖励 -->
+    <div id="lookAward" class="look-award popup">
+      <div class="look-award-main">
+        <img src="./image/查看奖品.png" alt="">
+        <div class="appUnit flexbox">钻石</div>
+        <!-- <div class="flexbox">气泡</div> -->
+        <!-- <div class="flexbox">头像框</div> -->
+        <!-- <div class="flexbox">进场特效</div> -->
+        <div class="appUnit flexbox">钻石</div>
+        <!-- <div class="flexbox">头像框+气泡+进场特效</div> -->
+      </div>
+      <button class="close-btn" onclick="toClose()"></button>
+    </div>
+    <!-- 爆大奖 -->
+    <!-- 未充值 -->
+    <div id="placesRob" class="places-rob popup" data-src="./image/rob.png">
+      <button onclick="toRecharge()" class="sure-btn"></button>
+      <button class="dialog-close" onclick="layer.closeAll()"></button>
+    </div>
+    <!-- 已充值 -->
+    <div id="placesAwait" class="places-await popup" data-src="./image/await.png">
+      <button onclick="layer.closeAll()" class="sure-btn"></button>
+      <button class="dialog-close" onclick="layer.closeAll()"></button>
+    </div>
+    <!-- 已开启 -->
+    <div id="placesOpen" class="places-open popup" data-src="./image/open.png">
+      <button onclick="openAward()" class="sure-btn"></button>
+      <button class="dialog-close" onclick="layer.closeAll()"></button>
+    </div>
+    <!-- 未中奖 -->
+    <div id="placesNo" class="places-no popup" data-src="./image/to_lottery.png">
+      <button onclick="layer.closeAll()" class="sure-btn"></button>
+      <button class="dialog-close" onclick="layer.closeAll()"></button>
+    </div>
+    <!-- 充值提醒 -->
+    <div id="chargeTip" class="popup" data-src="./image/dialog-chargeTip.png">
+      <button class="dialog-ok chargeTip-ok" onclick="layer.closeAll()"></button>
+    </div>
+  </div>
+</body>
+<script src="http://activity.folkcam.cn/common/jquery.min.js"></script>
+<script src="http://activity.folkcam.cn/common/polyfill.js"></script>
+<script src="http://activity.folkcam.cn/common/layer/layer.js"></script>
+<script src="http://activity.folkcam.cn/common/app.js"></script>
+<script src="http://activity.folkcam.cn/common/rem.js"></script>
+<script src="http://activity.folkcam.cn/common/config.js"></script>
+<!-- <script src="./js/config.js?v=2020"></script> -->
+<script src="http://activity.folkcam.cn/common/moment.js"></script>
+<script src="http://res.cdn.openinstall.io/openinstall.js"></script>
+<script src="./js/maleUsers.js?v=202011091200"></script>
+<!-- <script src="https://cdn.bootcss.com/vConsole/3.3.0/vconsole.min.js"></script> -->
+<script>
+  // var vConsole = new VConsole()
+  // console.log(window.location.href);
+  config.dialogComm($('#winRecord'), 'winRecord')
+</script>
+
+</html>

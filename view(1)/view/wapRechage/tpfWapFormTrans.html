@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>支付收银台</title> 
+<meta http-equiv="Content-type" content="text/html; charset=utf-8"> 
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="format-detection" content="telephone=no"> 
+<link type="text/css" rel="stylesheet" href="css/global.css"> 
+<link type="text/css" rel="stylesheet" href="css/style.css"> 
+<meta http-equiv="Pragma" content="no-cache">
+
+<link type="text/css" rel="stylesheet" href="css/interface_wps.css">
+<script type="text/javascript" src="js/jquery-1.4.2.min.js?version=20170627"></script>
+<script type="text/javascript">
+	var CAP_CNL = "";
+// 	var PAG_NTF_URL = "http://localhost:8080/folkcam-rablive-app/view/wapRechage/WAPRECHAGE.html";
+	var PAG_NTF_URL = "http://p2pcluster.folkcam.cn/view/wapRechage/WAPRECHAGE.html";
+	var tjtime = 100;
+	var tjtimer;
+	var ORD_NO = "";
+// 	var WE_RETURN_URL = "https://www.js.10086.cn:80/upay/wps/OWPSPUB4/4432402.dow"+"?ORD_NO="+ORD_NO;
+	var WE_RETURN_URL = "";
+// 	var WECHARTGZH_URL = "http://localhost:8080/folkcam-rablive-app/view/wapRechage/doTfpWapPayment.xhtml";
+	var WECHARTGZH_URL = "http://p2pcluster.folkcam.cn/view/wapRechage/doTfpWapPayment.xhtml";
+	var PAYSIGN = "";//签名
+	var APPID = "";//公众号id
+	var TIMESTAMP = "";//时间戳
+	var NONCESTR = "";//随机字符串
+	var PREPAYID = "";//订单详情扩展字符串
+	var sessionId=getURLParameter("sessionid");
+	$(function(){
+		//获取对应订单信息
+		$.ajax({
+				url : "../../view/wapcashIn/getInfo/",  
+				type : "POST",
+				data : {sessionId:sessionId},
+				dataType : "json",
+				success : function(data) {
+// 					alert(data.CAP_CNL);
+					if(data){
+						CAP_CNL = data.CAP_CNL;
+						$("#WPS_ORD_NO").val(data.WPS_ORD_NO);
+						$("#WPS_PAY_AMTS").val(data.WPS_PAY_AMTS);
+						$("#WPS_ORDER_DESC").val(data.WPS_ORDER_DESC);
+						$("#WPS_CASH_CORG").val(data.WPS_CASH_CORG);
+						$("#WPS_WECHART_TYPE").val(data.WPS_WECHART_TYPE);
+						$("#RESERVED").val(data.RESERVED);
+						$("#spcrip").val(data.spcrip);
+						$("#detailurl").val(data.detailurl);
+						$("#we_return_url").val(data.we_return_url);
+						
+					}
+				},
+				error : function(x, h, e) {
+					alert("系统异常，请联系客服人员");
+				}
+			});
+// 		alert(CAP_CNL);
+		
+		$("#we_return_url").val(WE_RETURN_URL);
+		var buttonType = $("#buttonType").val();
+		if(buttonType=="0"){
+			showModel();
+			return;
+		}
+		tjtimer = setTimeout(function(){
+			var flag = navigator.userAgent.toLowerCase().match(/MicroMessenger/i);//=="micromessenger"
+			var reserved = $("#reserved1").val();
+			if(tjtimer){
+				clearTimeout(tjtimer);
+			}
+			if(CAP_CNL=="ALIPAY" || CAP_CNL=="WECHAT"|| CAP_CNL=="CMPAY"){
+				
+				if(CAP_CNL=="WECHAT"){
+					//页面在微信中打开，公众号中所应用
+					if(flag=="micromessenger"){//测试用！=，正常用==
+						$("#WPS_WECHART_TYPE").val("JSAPI");
+						$("#RESERVED").val(reserved);
+						doGzhAjax();
+						$("#buttonType").val("0");
+						showModel();
+						return;
+					//页面在浏览器中打开
+					}else{
+						
+					}
+				}
+				$("#buttonType").val("0");
+				showModel();
+				$("#payForm").submit();
+			}else{
+				$("#loadingDiv").hide();
+				$("body").css("background-color","#fff");
+				$("#nosupport").show();
+			}
+		},tjtime);
+	});
+	
+	function getURLParameter(param) {
+		var url = "";
+		try {
+			url = window.location.href;
+		} catch (e) {
+			url = document.URL;
+		}
+		for (;;) {
+			if (url.endWith && url.endWith('#')) {
+				url = url.substring(0, url.length - 1);
+			} else {
+				break;
+			}
+		}
+		var params = (url.substr(url.indexOf("?") + 1)).split("&");
+		if (params != null) {
+			for (var i = 0; i < params.length; i++) {
+				var strsName = params[i].substr(0, params[i].indexOf("="));
+				var strsValue = params[i]
+						.substr(params[i].indexOf("=") + 1);
+				if (strsName == param) {
+					return strsValue;
+				}
+			}
+		}
+		return "";
+	}
+	
+	function closePage(){
+	    window.history.go(-1);
+	}
+	
+	function showModel(){
+		$(".modelBody").show();
+	}
+	
+	function finishPay(){
+		$("#clickflg").val("1");
+		$("#interSucForm").submit();
+	}
+	
+	function giveupPay(){
+		if(PAG_NTF_URL!=null && PAG_NTF_URL!=""){
+			window.location.href = PAG_NTF_URL;
+		}
+	}
+	
+	//ajax请求调用后台获取公众号支付需要的参数（公众号支付）
+	function doGzhAjax(){
+		if(tjtimer){
+			clearTimeout(tjtimer);
+		}
+		
+		var ORD_NO = $("#WPS_ORD_NO").val();
+		var PAY_AMTS = $("#WPS_PAY_AMTS").val();
+		var ORDER_DESC = $("#WPS_ORDER_DESC").val();
+		var CASH_CORG = $("#WPS_CASH_CORG").val();
+		var WECHART_TYPE = $("#WPS_WECHART_TYPE").val();
+		var RESERVED = $("#RESERVED").val();
+		var tokenVal = $("#token").val();
+		
+		$.ajax({
+	        type: "POST",
+	        url:WECHARTGZH_URL,
+	        contentType:'application/x-www-form-urlencoded; charset=UTF-8',
+	        data : {
+	        	"ORD_NO":ORD_NO,
+	        	"PAY_AMTS":PAY_AMTS,
+	        	"ORDER_DESC":ORDER_DESC,
+	        	"CASH_CORG":CASH_CORG,
+	        	"WECHART_TYPE":WECHART_TYPE,
+	        	"RESERVED":RESERVED,
+	        	"TOKEN":tokenVal
+	        },
+			dataType : "json",
+			success: function(msg) {
+				if(msg.GWA.MSG_CD == "RPM00000"){
+					PAYSIGN = msg.SIGN;//签名
+					APPID = msg.APPID;//公众号id
+					TIMESTAMP = msg.TIMESTAMP;//时间戳
+					NONCESTR = msg.NONCESTR;//随机字符串
+					PREPAYID = msg.PREPAYID;//订单详情扩展字符串
+					//alert(PAYSIGN+" "+APPID+" "+TIMESTAMP+" "+NONCESTR+" "+PREPAYID+" "+PAYSIGN);
+					doGzhWechartPay();
+	        	}else{
+	        		alert(msg.GWA.MSG_CD+"："+msg.GWA.MSG_INF);
+	            }
+	        },
+			error: function(msg) {
+				//alert("系统异常，请稍后重试！Connection error！！！"+msg.response);
+				alert(msg.response);
+	        }
+		});
+	}
+
+	function doGzhWechartPay(){
+		if (typeof WeixinJSBridge == "undefined"){
+		   if( document.addEventListener ){
+		       document.addEventListener('WeixinJSBridgeReady', onBridgeReady, false);
+		   }else if (document.attachEvent){
+		       document.attachEvent('WeixinJSBridgeReady', onBridgeReady); 
+		       document.attachEvent('onWeixinJSBridgeReady', onBridgeReady);
+		   }
+		}else{
+		   onBridgeReady();
+		}
+	}
+	
+	function onBridgeReady(){
+	   $("#buttonType").val("0");
+	   showModel();	
+		
+	   WeixinJSBridge.invoke(
+	       'getBrandWCPayRequest', {
+	           "appId":APPID,     //公众号名称，由商户传入     
+	           "timeStamp":TIMESTAMP,         //时间戳，自1970年以来的秒数     
+	           "nonceStr":NONCESTR, //随机串     
+	           "package":"prepay_id="+PREPAYID,     
+	           "signType":"MD5",         //微信签名方式：     
+	           "paySign":PAYSIGN //微信签名 
+	       },
+	       function(res){     
+	           if(res.err_msg == "get_brand_wcpay_request:ok" ){
+
+		       }     // 使用以上方式判断前端返回,微信团队郑重提示：res.err_msg将在用户支付成功后返回    ok，但并不保证它绝对可靠。 
+	       }
+	   ); 
+	}
+</script>
+</head>
+<body style="">
+<section>
+	<div id="loadingDiv" class="" style="text-align: center;margin-top:150px;">
+		<div class="tzzDiv">
+			<div style="height:20px;"><!--  --></div>
+			<div class="interDiv">
+				跳转中
+			</div>
+			<img alt="" src="images/loading2.gif" width="40" height="20">
+		</div>
+	</div>
+	<div id="nosupport" style="display: none;text-align: center;margin-top: 50px;">
+		<div class="fail">
+        	<p>
+	            <img src="images/fail_icon.png" alt="Failure">
+	        </p>
+	        <p class="pay_fail">暂不支持该支付方式！</p>
+	     </div>
+	     <div class="pd0_15 mtb50">
+	        <button id="" type="button" class="ui_btn ui_btn_s2" onclick="closePage()">关闭</button>
+		 </div>
+	</div>
+   	<form id="payForm" name="payForm" action="../../view/wapcashIn/recharge" method="post"><!-- accept-charset="utf-8" onsubmit="document.charset='utf-8';" -->
+		<input name="token" id="token" value="" type="hidden">
+		<input id="WPS_ORD_NO" name="ORD_NO" value="" type="hidden"> 
+		<input id="WPS_PAY_AMTS" name="PAY_AMTS" value="" type="hidden">
+		<input id="WPS_ORDER_DESC" name="ORDER_DESC" value="" type="hidden">
+		<input id="WPS_CASH_CORG" name="CASH_CORG" value="" type="hidden">
+		<input id="WPS_WECHART_TYPE" name="WECHART_TYPE" value="" type="hidden"><!-- JSAPI -->
+		<input id="RESERVED" name="RESERVED" value="test" type="hidden"><!--  -->
+		<input id="spcrip" name="SPCRIP" value="" type="hidden">
+		<input id="detailurl" name="DETAILURL" value="" type="hidden">
+		<input id="we_return_url" name="WE_RETURN_URL" value="" type="hidden">
+	</form>
+	<form id="interSucForm" name="interSucForm" action="" method="post"><!-- accept-charset="utf-8" onsubmit="document.charset='utf-8';" -->
+		<input name="ORD_NO" value="" type="hidden"> 
+		<input id="clickflg" name="CLICKFLG" type="hidden">
+	</form>
+	<input id="reserved1" value="" type="hidden"><!--  -->
+	<input id="CAP_CNL" value="ALIPAY" type="hidden">
+	<input id="pag_ntf_url" value="" type="hidden"><!--  -->
+	<input id="buttonType" value="" type="hidden">
+	
+	<div class="modelBody" style="display: block;">
+		<div style="width:100%;height: 270px;">
+			<div style="height: 60px;"><!--  --></div>
+			<div class="modelImg" style="width:70px;height:100px;"><img src="images/modelIcon.png" alt="" width="70" height=""></div>
+			<div style="height: 20px;"><!--  --></div>
+			<div style="text-align: center;font-size:16px;">支付平台跳转中，请继续支付</div>
+		</div>
+		<!-- <div style="height:25px;border-top:1px dotted #ccc"></div> -->
+		<div style="text-align: center;">
+			<a href="javascript:void(0)" class="ui_btn_model_g" onclick="finishPay()">我已完成支付</a>
+			<span style="display: inline-block;width:10px;"></span>
+			<a href="javascript:void(0)" class="ui_btn_model_g" onclick="giveupPay()">更换支付方式</a>
+		</div>
+	</div>
+</section>
+
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 引入文件 -->
+    <script src="./echarts.js"></script>
+</head>
+
+<body>
+    <!-- 为 ECharts 准备一个具备大小（宽高）的 DOM -->
+    <div id="main" style="width: 600px;height:400px;"></div>
+    <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('main'));
+
+        // 指定图表的配置项和数据
+        var arr1 = [24, 40, 101, 134, 90, 230, 210, 230, 120, 230, 210, 120];
+        var arr2 = [40, 64, 191, 324, 290, 330, 310, 213, 180, 200, 180, 79];
+
+        option = {
+            title: {
+                text: '单位 :万',
+                textStyle: {
+                    color: '#4996F5',
+                }
+            },
+            tooltip: {
+                trigger: 'axis'
+            },
+            legend: {
+                data: ['预期销售额', '实际销售额'],
+                textStyle: {
+                    color: '#4B99FA',
+                },
+                left: 'right',
+            },
+            xAxis: {
+                type: 'category',
+                boundaryGap: false,
+                axisLabel: {
+                    color: '#4c9bfd'
+                },
+                axisTick: {
+                    show: false,
+                },
+                data: ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月']
+            },
+            yAxis: [{
+                type: 'value',
+                axisTick: {
+                    show: false,
+                },
+                axisLabel: {
+                    formatter: '{value} ',
+                    color: '#4c9bfd'
+                }
+            },{}],
+            series: [
+                {
+                    name: '预期销售额',
+                    type: 'line',
+                    data: arr1,
+                    smooth: true,
+                    symbolSize: 8,
+                    itemStyle: {
+                        color: '#00F2F1',
+                    },
+                },
+                {
+                    name: '实际销售额',
+                    type: 'line',
+                    data: arr2,
+                    smooth: true,
+                    symbolSize: 8,
+                    itemStyle: {
+                        color: '#ED3F35',
+                    },
+                }
+            ]
+        };
+
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+    </script>
+</body>
+
+</html>

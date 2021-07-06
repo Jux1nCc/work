@@ -1,0 +1,337 @@
+.app-banner {
+  height: 1.4rem;
+}
+
+.app-banner .app-banner-logo {
+  margin: 0.18rem 0 0 0.3rem;
+  width: 0.84rem;
+  height: 0.84rem;
+}
+
+.app-banner .app-banner-avatar {
+  margin: 0.18rem 0 0 0.3rem;
+  width: 0.84rem;
+  height: 0.84rem;
+}
+
+.app-banner .app-banner-gallery-pages {
+  bottom: 0.3rem;
+}
+
+.app-banner .app-banner-gallery-pages span {
+  height: 0.08rem;
+  margin: 0 0.05rem;
+  width: 0.08rem;
+}
+
+.app-banner .app-banner-intro {
+  margin: 0.25rem 1.4rem 0 1.34rem;
+}
+
+.app-banner .app-banner-intro dt {
+  height: 0.35rem;
+  line-height: 0.35rem;
+  font-size: 0.26rem;
+}
+
+.app-banner .app-banner-intro dt .app-banner-text {
+  vertical-align: top;
+}
+
+.app-banner .app-banner-intro dt em {
+  margin-left: 0.13rem;
+  width: 1.7rem;
+  height: 0.32rem;
+}
+
+.app-banner .app-banner-intro dd {
+  margin-top: 0.06rem;
+  font-size: 0.24rem;
+}
+
+.app-banner .app-banner-btn {
+  right: 0.2rem;
+  top: 0.36rem;
+  padding: 0 0.2rem;
+  height: 0.5rem;
+  line-height: 0.5rem;
+  border-radius: 0.05rem;
+  font-size: 0.28rem;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #f2f2f2;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.inner {
+  width: 100%;
+  height: 1.2rem;
+  position: fixed;
+  z-index: 99;
+}
+
+.inner .icontent {
+  padding: 0.36rem 0.59rem 0 0.48rem;
+}
+
+.inner .icontent .iL {
+  float: left;
+  width: 4.54rem;
+}
+
+.inner img {
+  width: 4.54rem;
+  height: 0.64rem;
+  margin: 0 auto;
+}
+
+.inner h2 {
+  font-size: 0.24rem;
+  text-indent: -99.99rem;
+}
+
+.inner p {
+  font-size: 0.2rem;
+  text-indent: -99.99rem;
+}
+
+.inner .dload-btn {
+  width: 1.46rem;
+  height: 0.46rem;
+  float: right;
+  border: 2px solid #4d97ef;
+  border-radius: 0.46rem;
+  font-size: 0.24rem;
+  text-align: center;
+  line-height: 0.46rem;
+  color: #4d97ef;
+}
+
+.inner .dload-btn a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  color: #144b8d;
+}
+
+.inner .app2018-banner-btn {
+  top: 0.36rem;
+  right: 0.2rem;
+  width: 1.68rem;
+  height: 0.69rem;
+  line-height: 0.55rem;
+  background: url("../img/topBtnBg.png") center center no-repeat;
+  background-size: 1.68rem 0.69rem;
+}
+
+.swiper-container {
+  margin: 0 auto;
+  position: absolute;
+  top: 0;
+  bottom: 0rem;
+  left: 0;
+  right: 0;
+  overflow: hidden;
+  direction: ltr;
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -ms-backface-visibility: hidden;
+  -o-backface-visibility: hidden;
+  backface-visibility: hidden;
+  z-index: 1;
+}
+
+.swiper-wrapper {
+  position: relative;
+  width: 100%;
+  -webkit-transition-property: -webkit-transform, left, top;
+  -webkit-transition-duration: 0s;
+  -webkit-transform: translate3d(0px, 0, 0);
+  -webkit-transition-timing-function: ease;
+  -moz-transition-property: -moz-transform, left, top;
+  -moz-transition-duration: 0s;
+  -moz-transform: translate3d(0px, 0, 0);
+  -moz-transition-timing-function: ease;
+  -o-transition-property: -o-transform, left, top;
+  -o-transition-duration: 0s;
+  -o-transform: translate3d(0px, 0, 0);
+  -o-transition-timing-function: ease;
+  -o-transform: translate(0px, 0px);
+  -ms-transition-property: -ms-transform, left, top;
+  -ms-transition-duration: 0s;
+  -ms-transform: translate3d(0px, 0, 0);
+  -ms-transition-timing-function: ease;
+  transition-property: transform, left, top;
+  transition-duration: 0s;
+  transform: translate3d(0px, 0, 0);
+  transition-timing-function: ease;
+}
+
+.swiper-free-mode > .swiper-wrapper {
+  -webkit-transition-timing-function: ease-out;
+  -moz-transition-timing-function: ease-out;
+  -ms-transition-timing-function: ease-out;
+  -o-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+  margin: 0 auto;
+}
+
+.swiper-slide {
+  position: relative;
+  float: left;
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  display: block;
+  width: 7.5rem;
+  height: 13.34rem;
+}
+
+.swiper-wrapper {
+  height: 100%;
+  padding-top: 0 !important;
+}
+
+.swiper-wp8-horizontal {
+  -ms-touch-action: pan-y;
+}
+
+.swiper-wp8-vertical {
+  -ms-touch-action: pan-x;
+}
+
+.swiper-container {
+}
+
+.swiper-slide {
+  background: #ffa489;
+}
+
+.photo-card {
+  width: 100%;
+  height: 100%;
+}
+
+.card1 {
+  background: url("../img/1.jpg") center center no-repeat;
+  background-size: contain;
+}
+
+.card2 {
+  background: url("../img/2.jpg") center center no-repeat;
+  background-size: contain;
+}
+
+.card3 {
+  background: url("../img/3.jpg") center center no-repeat;
+  background-size: contain;
+}
+
+.card4 {
+  background: url("../img/4.jpg") center center no-repeat;
+  background-size: contain;
+}
+
+.card5 {
+  background: url("../img/5.jpg") center center no-repeat;
+  background-size: contain;
+}
+
+.foot {
+  display: none;
+  width: 100%;
+  text-align: center;
+  margin: 0.16rem 0 0;
+  left: 0%;
+  bottom: 0.8rem;
+  z-index: 999;
+}
+
+.foot a {
+  width: 2.54rem;
+  height: 0.74rem;
+  display: block;
+  background: url("../img/dl_btn.png") center center no-repeat;
+  background-size: 100% 100%;
+  margin: 0 auto;
+  box-shadow: 0 0 0.29rem #c2c2c2;
+  border-radius: 0.37rem;
+}
+
+.u-dismissal {
+  position: absolute;
+  left: 50%;
+  right: 50%;
+  bottom: 1rem;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+  z-index: 100;
+  width: 2.29rem;
+  height: 0.79rem;
+  background: url("../img/btn.png") center center no-repeat;
+  background-size: 100% 100%;
+}
+
+.u-direction {
+  position: absolute;
+  left: 50%;
+  right: 50%;
+  bottom: 0.5rem;
+  z-index: 100;
+  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+  width: 0.39rem;
+  height: 0.47rem;
+  background: url("../img/arrow.png") center center no-repeat;
+  background-size: 100% 100%;
+}
+
+.directionAnimation {
+  animation: directionAnimation 2s infinite linear;
+  -webkit-animation: directionAnimation 2s infinite linear;
+}
+
+@keyframes directionAnimation {
+  0% {
+    opacity: 1;
+    bottom: 0.5rem;
+  }
+
+  60% {
+    opacity: 0;
+    bottom: 0.25rem;
+  }
+
+  100% {
+    opacity: 0;
+    bottom: 0.5rem;
+  }
+}
+
+@-webkit-keyframes directionAnimation {
+  0% {
+    opacity: 1;
+    bottom: 0.5rem;
+  }
+
+  60% {
+    opacity: 0;
+    bottom: 0.25rem;
+  }
+
+  100% {
+    opacity: 0;
+    bottom: 0.5rem;
+  }
+}

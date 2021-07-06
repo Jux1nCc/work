@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>营销大咖都在这里！</title>
+	<meta name="keywords" content="">
+	<meta name="description" content="">
+	<meta name="viewport"
+		content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,initial-scale=1.0" />
+	<meta name="format-detection" content="telephone=no,email=no" />
+	<link rel="stylesheet" href="../css/style.css" />
+	<link rel="stylesheet" href="../css/aliplayer-min.css" />
+	<script src="../js/jquery-2.1.4.min.js"></script>
+	<script src="../js/aliplayer-h5-min.js"></script>
+	<script src="../js/common.js"></script>
+	<link rel="stylesheet" href="https://g.alicdn.com/de/prismplayer/2.7.2/skins/default/aliplayer-min.css" />
+	<link rel="stylesheet" href="https://g.alicdn.com/de/prismplayer/2.8.1/aliplayer-min.js">
+	<script charset="utf-8" type="text/javascript" src="https://g.alicdn.com/de/prismplayer/2.7.2/aliplayer-min.js">
+	</script>
+	<script charset="utf-8" type="text/javascript" src="https://g.alicdn.com/de/prismplayer/2.8.1/aliplayer-h5-min.js"></script>
+	<script src="https://res2.wx.qq.com/open/js/jweixin-1.4.0.js"></script>
+	<script>
+		window.onload=function(){
+		    document.getElementById('z_indexs').style.display = "block"
+		}
+	</script>
+</head>
+
+<body>
+	<div style="position: absolute;background: #FFF;width: 100%;height: 100%;top: 0;z-index: 999;display: none;" id="z_indexs"></div>
+	<div class="courese hd">
+		<div class="header">
+			<div class="header_logo">
+				<label class="db_logo">
+					<img src="../img/logo.png">
+				</label>
+				<label class="db_logowz">
+					<img src="../img/logowenz.png">
+					<p>打开APP收藏、下载</p>
+				</label>
+			</div>
+			<div class="dh_jump">
+				<a href="#">打开</a>
+			</div>
+		</div>
+		<div style="width: 100%; height: 0.5rem;background: #f5f5f5;"></div>
+		<div id="J_prismPlayer_play" class="J_prismPlayer_play"></div>
+		<div class="courese_title">
+			<p class="courese_title_play"><span class="courese_is">试学</span></p>
+			<p class="courese_jump">
+				<a>打开APP收藏、下载</a>
+			</p>
+		</div>
+		<div style="width: 100%; height: 0.5rem;background: #f5f5f5;"></div>
+		<div class="courese_albun_list">
+			<div class="courese_ablum">
+				<a class="cousere_jumps">
+					<img src="" class="data_avatar_img">
+					<p class="coures_title"></p>
+					<p class="coures_name"></p>
+				</a>
+			</div>
+			<div class="courese_lists">
+				<ul id="courese_list_show">
+					<!--<li><a>
+	     					<label>1</label>
+	     					<p class="ablun_course_title"><span class="cour_title">专辑标题，两行，么样巴拉巴拉</span><span class="cur_time">2018-10-10</span></p>
+	     					<p class="ablun_coures_content">
+	     						<span class="ablun_course_play"><img src="../img/played_small.png">320</span>
+	     						<span class="ablun_course_num"><img src="../img/time_small_999.png">12:30</span>
+	     						<span class="ablun_course_price">试学</span>
+	     					</p>
+	     				</a></li>-->
+				</ul>
+			</div>
+		</div>
+	</div>
+</body>
+<script>
+	$(document).ready(function () {
+		var imgUrl;
+		customerId = getURLParameter("customerId");
+		//var customerId = 10120172;
+		sessionStorage.setItem('customerId', customerId);
+		// var curriculumId = 10000026
+		// var unionId = 10000008;
+		curriculumId = getURLParameter("curriculumId");
+		unionId = getURLParameter("unionId");
+		console.log(customerId)
+		if (customerId != null) {
+
+			$.get("/api/curriculum/findCurriculumDetails", {
+				"curriculumId": curriculumId,
+				"unionId": unionId,
+				"customerId": customerId
+			}, function (data) {
+				console.log(data)
+				imgUrl = data.data.unionPhoto;
+
+				if (data.result == true && data.code == 0) {
+					document.getElementById('z_indexs').style.display = "none"
+					var testFlag = data.data.testFlag;
+
+					if (testFlag == 0) {
+						$(".courese_is").css("display", "none");
+					} else {
+						$(".courese_is").css("display", "block");
+					}
+					$(".courese_title_play").html(data.data.curriculumName)
+					var videoId = data.data.videoId;
+					$.post("/api/app/ParameterManagement/getVideoAdderss", {
+						"vid": videoId
+					}, function (data) {
+						console.log(data)
+						if (data.result == true && data.code == 0) {
+							var PlayInfo = data.data.PlayInfoList.PlayInfo;
+							for (var i = 0; i < PlayInfo.length; i++) {
+								var Encrypt = data.data.PlayInfoList.PlayInfo[i].Encrypt;
+								var EncryptType = data.data.PlayInfoList.PlayInfo[i].EncryptType;
+								var PlayURL = data.data.PlayInfoList.PlayInfo[i].PlayURL;
+								var StreamType = data.data.PlayInfoList.PlayInfo[i].StreamType;
+							}
+							console.log(EncryptType)
+							if (EncryptType == 'AliyunVoDEncryption') { //私有加密
+								console.log("私有加密")
+								$.post("/api/app/ParameterManagement/getVideoEvidence", {
+									vid: videoId
+								}, function (data) {
+									console.log(data)
+									player = new Aliplayer({
+										id: "J_prismPlayer_play",
+										autoplay: true,
+										vid: videoId,
+										playauth: data.data.playAuth,
+									});
+								})
+								//						
+							} else if (EncryptType == 'HLSEncryption') { //标准加密
+								console.log("标准加密")
+								var player = new Aliplayer({
+									id: 'J_prismPlayer_play',
+									width: '100%',
+									autoplay: true,
+									//支持播放地址播放,此播放优先级最高
+									source: PlayURL
+								})
+							} else { //不加密
+								var player = new Aliplayer({
+									id: 'J_prismPlayer_play',
+									width: '100%',
+									autoplay: true,
+									//支持播放地址播放,此播放优先级最高
+									source : PlayURL,
+								})
+
+
+							}
+
+
+						}
+					})
+				}
+			})
+
+			$.post("/api/curriculum/getAllCurrByUnionId", {
+				"customerId": customerId,
+				"unionId": unionId,
+				"type": 0
+			}, function (data) {
+				if (data.result == true && data.code == 0) {
+					$(".data_avatar_img").attr('src', data.data.unionPhoto)
+					$(".coures_title").html(data.data.unionName);
+					$(".coures_name").html(data.data.nickName);
+
+					fun.coureseList(data.data.curriculumList, data.data.unionId)
+				}
+			})
+
+			//			$(".courese_albun_list").on("click", ".cousere_jumps", function() {
+			//				window.location.href = "ablum.html?" + encodeURI(unionId)
+			//			})
+		}
+
+		var url = encodeURIComponent(location.href.split('#')[0]);
+
+		var data = getCookie("dataName");
+		//console.log(data)
+		var timestamp = null;
+		var nonceStr = null;
+		var signature = null;
+		if (data != null || data != undefined) {
+			var signArray = data.split(",");
+			timestamp = signArray[0];
+			nonceStr = signArray[1];
+			signature = signArray[2];
+
+		}
+		//console.log(signature)
+
+		if (timestamp == null || signature == null || nonceStr == null) {
+			$.get("/getSignature", {
+					"url": url
+				},
+				function (data) {
+					//	console.log(data)
+					timestamp = data.data.timestamp;
+					nonceStr = data.data.nonceStr;
+					signature = data.data.signature;
+					var saveData = timestamp + "," + nonceStr + "," + signature;
+					saveCookie("dataName", saveData, 2);
+
+					wx.config({
+						debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的onMenuShareAppMessage参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+						appId: 'wx74bf89427d4f03a6', // 必填，企业号的唯一标识，此处填写企业号corpid
+						timestamp: timestamp, // 必填，生成签名的时间戳
+						nonceStr: nonceStr, // 必填，生成签名的随机串
+						signature: signature, // 必填，签名，见附录1
+						jsApiList: [
+							'onMenuShareTimeline',
+							'onMenuShareAppMessage',
+							'onMenuShareQZone',
+							'onMenuShareQQ',
+							'onMenuShareWeibo'
+						] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+					});
+
+				});
+			//console.log(signature)
+
+		} else { //3个都有值，直接执行下一步
+			wx.config({
+				debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的onMenuShareAppMessage参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+				appId: 'wx74bf89427d4f03a6', // 必填，企业号的唯一标识，此处填写企业号corpid
+				timestamp: timestamp, // 必填，生成签名的时间戳
+				nonceStr: nonceStr, // 必填，生成签名的随机串
+				signature: signature, // 必填，签名，见附录1
+				jsApiList: [
+					'onMenuShareTimeline',
+					'onMenuShareAppMessage',
+					'onMenuShareQZone',
+					'onMenuShareQQ',
+					'onMenuShareWeibo'
+				] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+			});
+			console.log(signature)
+		}
+
+		if (imgUrl == null) {
+			imgUrl =
+				'https://livegle-video-test.oss-cn-shenzhen.aliyuncs.com/livegle-Person/PhotoAlbum/15238715193011801152036022770.jpeg'
+		}
+		//https://other.expertol.cn/open_instar/download.html?code=83fe94e9&unionId=10000006&curriculumId=10000107
+		var muUrl = location.href.split('#')[0];
+		wx.ready(function () {
+			wx.onMenuShareTimeline({
+				title: '营销大咖都在这里！', // 分享标题
+				desc: '我已加入，邀你一起成长', // 分享描述
+				link: muUrl, // 分享链接
+				imgUrl: imgUrl, // 分享图标
+				type: '', // 分享类型,music、video或link，不填默认为link
+				dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+				success: function () {
+					// 用户确认分享后执行的回调函数
+				},
+				cancel: function () {
+					// 用户取消分享后执行的回调函数
+				}
+			});
+
+			wx.onMenuShareAppMessage({
+				title: '营销大咖都在这里!', // 分享标题
+				desc: '我已加入，邀你一起成长', // 分享描述
+				link: muUrl, // 分享链接
+				imgUrl: imgUrl, // 分享图标
+				type: 'link', // 分享类型,music、video或link，不填默认为link
+				dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+				success: function () {
+					// 用户确认分享后执行的回调函数
+				},
+				cancel: function () {
+					// 用户取消分享后执行的回调函数
+				}
+			});
+
+			wx.onMenuShareQQ({
+				title: '营销大咖都在这里!', // 分享标题
+				desc: '我已加入，邀你一起成长', // 分享描述
+				link: muUrl, // 分享链接
+				imgurl: imgUrl, // 分享图标
+				type: 'link', // 分享类型,music、video或link，不填默认为link
+				dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+				success: function () {
+					// 用户确认分享后执行的回调函数
+				},
+				cancel: function () {
+					// 用户取消分享后执行的回调函数
+				}
+			});
+			//分享到腾讯微博
+			wx.onMenuShareWeibo({
+				title: '营销大咖都在这里!', // 分享标题
+				desc: '我已加入，邀你一起成长', // 分享描述
+				link: muUrl, // 分享链接
+				imgurl: imgUrl, // 分享图标
+				type: 'link', // 分享类型,music、video或link，不填默认为link
+				dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+				success: function () {
+					// 用户确认分享后执行的回调函数
+				},
+				cancel: function () {
+					// 用户取消分享后执行的回调函数
+				}
+			});
+			//分享到QQ空间
+			wx.onMenuShareQZone({
+				title: '营销大咖都在这里!', // 分享标题
+				desc: '我已加入，邀你一起成长', // 分享描述
+				link: muUrl, // 分享链接
+				imgurl: imgUrl, // 分享图标
+				type: 'link', // 分享类型,music、video或link，不填默认为link
+				dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+				success: function () {
+					// 用户确认分享后执行的回调函数
+				},
+				cancel: function () {
+					// 用户取消分享后执行的回调函数
+				}
+
+			})
+		})
+
+	})
+
+	function saveCookie(dataName, data, closeHours) {
+
+		var str = dataName + "=" + escape(data);
+
+		//为0时不设定过期时间，浏览器关闭时cookie自动消失    
+		if (closeHours > 0) {
+			var date = new Date();
+			var ms = closeHours * 3600 * 1000;
+			date.setTime(date.getTime() + ms);
+			str += "; expires=" + date.toString();
+		}
+		document.cookie = str;
+
+	}
+
+	function getCookie(dataName) {
+
+		var arrstr = document.cookie.split("; ");
+
+		for (var i = 0; i < arrstr.length; i++) {
+			var temp = arrstr[i].split("=");
+
+			if (temp[0] == dataName) {
+
+				return unescape(temp[1]);
+			} else {
+				continue;
+			}
+
+		}
+	}
+
+	var fun = {
+		coureseList: function (data, unionId) {
+			var length = data.length;
+			if (length > 4) {
+				length = 4;
+			}
+			for (var i = 0; i < length; i++) {
+				var createTime = data[i].createTime;
+				var date = new Date(createTime);
+				var Y = date.getFullYear() + '-';
+				var M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1) + '-';
+				var D = date.getDate() + ' ';
+				var h = date.getHours() + ':';
+				var m = date.getMinutes() + ':';
+				var s = date.getSeconds();
+				var createTimes = Y + M + D + h + m + s;
+
+				var curriculumTime = data[i].curriculumTime;
+				var curriculumTimes = (Math.floor(curriculumTime / 60)) + ":" + (curriculumTime - Math.floor(
+					curriculumTime / 60) * 60);
+
+				var testFlag = data[i].testFlag;
+
+				if (testFlag == 0) { //0是试学还是什么
+					var str = "<li id='" + data[i].curriculumId + "' aid='" + unionId +
+						"'><a class='courese_jump'>";
+					str += "<label>" + data[i].seqNum + "</label>"
+					str += "<p class='ablun_course_title'><span class='cour_title'>" + data[i].curriculumName +
+						"</span><span class='cur_time'>" + createTimes + "</span></p>"
+					str += "<p class='ablun_coures_content'>"
+					str += "<span class='ablun_course_play'><img src='../img/played_small.png'>" + data[i]
+						.playNum + "</span>";
+					str += "<span class='ablun_course_num'><img src='../img/time_small_999.png'>" +
+						curriculumTimes + "</span>";
+					str += "</p>"
+					str += "</a></li>"
+					$("#courese_list_show").append(str)
+				} else {
+
+					var str = "<li id='" + data[i].curriculumId + "' aid='" + unionId +
+						"'><a class='courese_jump'>";
+					str += "<label>" + data[i].seqNum + "</label>"
+					str += "<p class='ablun_course_title'><span class='cour_title'>" + data[i].curriculumName +
+						"</span><span class='cur_time'>" + createTimes + "</span></p>"
+					str += "<p class='ablun_coures_content'>"
+					str += "<span class='ablun_course_play'><img src='../img/played_small.png'>" + data[i]
+						.playNum + "</span>";
+					str += "<span class='ablun_course_num'><img src='../img/time_small_999.png'>" +
+						curriculumTimes + "</span>";
+					str += "<span id='ablun_course_price'>试学</span>"
+					str += "</p>"
+					str += "</a></li>"
+					$("#courese_list_show").append(str)
+				}
+			}
+		}
+	}
+</script>
+
+</html>

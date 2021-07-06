@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<head lang="zh-CN">
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="format-detection" content="telephone=no"/>
+<meta name="screen-orientation" content="portrait">
+<meta name="x5-orientation" content="portrait">
+	<title>提现详情</title>
+  
+<style>
+.els, .icon { overflow: hidden }
+a, abbr, acronym, address, applet, article, aside, audio, b, big, blockquote, body, canvas, caption, center, cite, code, dd, del, details, dfn, div, dl, dt, em, embed, fieldset, figcaption, figure, footer, form, h1, h2, h3, h4, h5, h6, header, hgroup, html, i, iframe, img, ins, kbd, label, legend, li, mark, menu, nav, object, ol, output, p, pre, q, ruby, s, samp, section, small, span, strike, strong, sub, summary, sup, table, tbody, td, tfoot, th, thead, time, tr, tt, u, ul, var, video { margin: 0; padding: 0; border: 0; font: inherit; vertical-align: baseline }
+a, body, button, input, select, textarea { font-family: "微软雅黑", "Microsoft Yahei", "Helvetica Neue", Helvetica, STHeiTi, sans-serif }
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section { display: block }
+body { line-height: 1; font-size: 10px }
+ol, ul { list-style: none }
+blockquote, q { quotes: none }
+blockquote:after, blockquote:before, q:after, q:before { content: none }
+table { border-collapse: collapse; border-spacing: 0 }
+address, caption, cite, code, dfn, em, i, th, var { font-style: normal; font-weight: 500 }
+a img, fieldset, img { border: 0 }
+.fn-left { float: left }
+.fn-right { float: right }
+.clearfix:after { content: ""; display: block; height: 0; clear: both; visibility: hidden }
+.clearfix { zoom: 1 }
+.fn-hide { display: none }
+.icon, video { display: inline-block }
+.relative { position: relative }
+.absolute { position: absolute }
+body, h1, h2, h3, h4, h5, h6, html, p { margin: 0; padding: 0 }
+html { height: 100%; -webkit-text-size-adjust: 100% 
+.els { white-space: nowrap; text-overflow: ellipsis }
+</style>
+<style>
+.div_tip{padding-left: 10px; padding-top: 20px;font-size: 16px; color: #ff2222}
+.bottom_p{padding-left: 10px; padding-bottom: 40px;font-size: 16px; color: #a5a7aa }
+.balance h1, .balance header p, .btn { text-align: center }
+.btn, a { text-decoration: none }
+body { background: #fafafa}
+header { background: #fff height:100px;}
+
+header img{height: 60px;}
+.balance h1 { margin: 0 15px; padding-top: 10px; height: 33px; font-size: 15px; line-height: 33px }
+.balance h2 { padding-top: 12px; height: 30px; color: #000; line-height: 30px  font-size:18px;}
+.balance h3 { height: 46px; line-height: 46px; font-size: 18px; color: #a5a7aa }
+.balance header p { padding-bottom: 10px; font-size: 30px color:#000000; }
+.bor_top { border-top: 1px solid #e6e6e6 }
+.bor_btm { border-bottom: 1px solid #e6e6e6 }
+.pb-20 { padding-bottom: 20px }
+.box { display: -webkit-box }
+.box-flex { -webkit-box-flex: 1; box-flex: 1 }
+.form-item { margin-bottom: 10px }
+.form-item input { width: 100%; border-radius: 5px; outline: 0; border: none; padding-right: 20px; box-sizing: border-box; -webkit-box-sizing: border-box; background: #fff }
+.btn { display: block; border-radius: 5px; font-size: 16px }
+select { -webkit-appearance: none }
+.btn-grey { color: #fff; background-color: #fd8d29 }
+.balance .btn-active { color: #fff; background-color: #000 }
+</style>
+<style>
+.form-item, .form-item input { font-size: 15px; height: 45px ; text-align: right; text-indent: -100px; }
+/*.form-item { margin-bottom: 0; line-height: 45px; color: #555; overflow: hidden }*/
+.form-item label { display: block; width: 102px; text-indent: 15px ; text-align: left;}
+.balance header { background: #fafafa; padding-top: 35px; padding-bottom: 25px; text-align: center }
+.balance section { background: #fff }
+.form-item { margin-bottom: 0; line-height: 45px; color: #555; overflow: hidden }
+.form-item .leftLabel { display: block; width: 102px; text-indent: 15px  }
+.form-item .rightLabel{text-align: right; width: 102px; text-indent: 15px }
+.box-flex { -webkit-box-flex: 1; box-flex: 1 }
+.btn-next { margin: 20px 10px 30px; height: 42px; line-height: 42px }
+
+</style>
+<script type="text/javascript" language="javascript" src="../../view/assets/js/jquery-1.11.1.min.js"></script>
+	<script type="text/javascript" language="javascript" src="../../view/js/common.js"></script>
+</head>
+
+
+<body>
+
+    <div class="warp balance">
+        <header >
+           <img src="../../view/assets/images/finish.png"/ >
+           <h1>提现申请成功</h1> 
+           
+        </header>
+        <section class="">
+               <div class="form-item box bor_btm bor_top">
+                <label for="username">支付宝</label>
+                <div class="box-flex">
+                    <input class=""  id="alipayNumber" disabled="disabled">
+                </div>
+            </div>
+
+            <div class="form-item box bor_btm">
+                <label for="username">提现金额 </label>
+                <div class="box-flex">
+                    <input class="" type="text"   id="withdrawMoney" disabled="disabled">
+                </div>
+            </div>
+            <div class="form-item box bor_btm">
+                <label for="username">手续费</label>
+                <div class="box-flex">
+                    <input class="" type="text"   id="brokerage" disabled="disabled">
+                </div>
+            </div>
+            <div class="form-item box bor_btm">
+                <label for="username">实到金额</label>
+                <div class="box-flex">
+                    <input class="" type="text"   id="factMoney" disabled="disabled">
+                </div>
+            </div>
+        </section>
+        <div class="div_tip" id="withdraw_tip"></div>
+        <a class="btn btn-next btn-grey" id="" href="javascript:void(0);" onclick="detail()">完成</a>
+    </div>
+<script type="text/javascript">
+	var alipayNumber = getURLParameter("alipayNumber");
+	var wandou = getURLParameter("wandou");
+	var factCash = getURLParameter("factCash");
+	var withdrawMoney =Math.round(parseInt(wandou))/100;
+	var brokerage=0;
+    if (withdrawMoney*0.005<2){
+    	brokerage = 2+"元";
+    }else if(withdrawMoney*0.005>25){
+    	brokerage= 25+"元";
+    }else{
+    	brokerage = Math.round(withdrawMoney*0.005)+"元";
+    }
+	$("#alipayNumber").val(alipayNumber);
+	$("#withdrawMoney").val(withdrawMoney+"元");
+	$("#brokerage").val(brokerage);
+	$("#factMoney").val(decodeURI(factCash));
+	var cid = getURLParameter("cid");
+	
+	function detail(){
+		var url = "../../view/mobile/mobileDetail";		
+		var params = {};
+		params.customerId=cid;
+		jQuery.ajax( {
+	          type : 'POST',  
+	          contentType : 'application/json',  
+	          url : url,  
+	          data:JSON.stringify(params),//json序列化   
+	          datatype:"html", //此处不能省略   
+	          contentType: "application/json; charset=utf-8",//此处不能省略   
+	          success : function(data) {  
+	        	  if(data.status=="ok"){
+	        		  window.location.href="../../view/weixinopen/withdraw.html?cid="+data.customerId+"&cname="+data.nickName+"&bal="+data.rechargeBal+"&code="+data.code+"&cmobile="+data.cmobile+"&key="+data.key;	  
+	        	  }else{
+	        		  
+	        	  }
+	          },  
+	          error : function(data) {  
+	          }   
+	        });  
+	}
+</script>
+</body>
+
+</html>

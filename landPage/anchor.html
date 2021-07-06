@@ -1,0 +1,587 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="Cache-control" content="max-age=0">
+    <meta name="viewport" content="width=device-width">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>觅伊-年轻人的脱单神器</title>
+    <meta name="description" content="觅伊是同城单身美女帅哥的恋爱交友平台,可以与附近美女一对一语音视频,1秒连线身边萌妹子。真实、快速、有温度，想脱单上觅伊。">
+    <meta name="keywords"
+        content="觅伊官网,视频聊天,美女视频,一对一视频,同城约会,交友平台,同城约炮,约炮神器,约会交友,交友软件,交友神器,恋爱软件,脱单神器,约会软件,视屏,同城约爱,陪聊,美女直播,小视频,短视频,网恋,v聊,知聊,富聊,平台">
+    <link rel="stylesheet" href="//activity.folkcam.cn/common/layer/theme/default/layer.css">
+    <link rel="stylesheet" href="//activity.folkcam.cn/common/comm.css">
+    <link rel="stylesheet" href="//activity.folkcam.cn/common/swiper.min.css">
+    <link rel=" stylesheet" href="css/common.css">
+
+    <style>
+        .wrap {
+            position: relative
+        }
+
+        img {
+            width: 100%;
+            display: block
+        }
+
+        .main {
+            width: 100%;
+        }
+
+        .m_left {
+            width: 50%;
+            float: left;
+        }
+
+        .m_right {
+            width: 50%;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            color: #59cee7;
+            text-align: center;
+            line-height: 1rem;
+            padding-top: 3rem;
+            font-weight: bold
+        }
+
+        h2 {
+            font-size: 2.2rem;
+            color: #ac4eff;
+            text-align: center;
+            line-height: 1rem;
+            padding-top: 3rem;
+            font-weight: bold
+        }
+
+        h3 {
+            font-size: 2.2rem;
+            color: #ff6a55;
+            text-align: center;
+            line-height: 1rem;
+            padding-top: 3rem;
+            font-weight: bold
+        }
+
+        h4 {
+            font-size: 2.2rem;
+            color: #57a2ff;
+            text-align: center;
+            line-height: 1rem;
+            padding-top: 3rem;
+            font-weight: bold
+        }
+
+        h5 {
+            font-size: 2.2rem;
+            color: #ff7d50;
+            text-align: center;
+            line-height: 1rem;
+            padding-top: 3rem;
+            font-weight: bold
+        }
+
+        h6 {
+            font-size: 2.2rem;
+            color: #5b7eff;
+            text-align: center;
+            line-height: 1rem;
+            padding-top: 3rem;
+            font-weight: bold
+        }
+
+        p {
+            font-size: 1.2rem;
+            color: #888888;
+            text-align: center;
+            padding-top: 1.3rem;
+            font-weight: 400
+        }
+
+        .b_download {
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            /* min-height: 4rem; */
+        }
+
+        .b_download::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            min-height: 4rem;
+            background: url('img/bottom_download.png');
+            background-size: 100% 100%;
+            bottom: 0;
+            left: 0;
+            right: 0;
+        }
+
+        .yqm {
+            font-size: 14px;
+            color: #888888;
+            text-align: center;
+        }
+
+        .yqm span {
+            color: #ff8a00
+        }
+
+        .dialog {
+            width: 100%;
+            box-shadow: 0 0 8px #B2B0B0;
+            background: #fff;
+            padding: 30px 8% 20px;
+            box-sizing: border-box;
+            font-family: '黑体';
+            font-size: 14px;
+        }
+
+        .dialog h6 {
+            font-size: 22px;
+            color: #8B46CB;
+            padding-top: 0;
+            margin-bottom: 35px;
+        }
+
+        .dialog input,
+        .dialog select {
+            border: none;
+            background-color: #FEF8FF;
+            color: #8B46CB;
+            font-size: 14px;
+        }
+
+        .dialog input {
+            width: 150px;
+        }
+
+        .dialog :focus {
+            outline: none;
+        }
+
+        .input-wrap {
+            width: 100%;
+            height: 40px;
+            line-height: 40px;
+            background: #FEF8FF;
+            border-radius: 15px;
+            margin: 20px 0;
+            color: #8B46CB;
+            padding: 0 10px;
+        }
+
+        input.input-wrap {
+            width: 60%;
+        }
+
+        .verify {
+            width: 40%;
+            height: 35px;
+            line-height: 35px;
+            text-align: center;
+            color: #8B46CB;
+            border: 1px solid #8B46CB;
+            border-radius: 15px;
+        }
+
+        .submit-ok {
+            width: 100%;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            border-radius: 15px;
+            background: #751FC4;
+            color: #fff;
+            font-size: 14px;
+        }
+
+        .button-close {
+            font-size: 18px;
+            color: #734746;
+            position: absolute;
+            right: 10px;
+            top: 10px;
+            background: transparent;
+            transform: scale(1.5);
+        }
+
+        .layui-layer.dialog {
+            background: transparent !important;
+            box-shadow: none !important;
+            top: 25% !important;
+            left: 5% !important;
+            right: 5% !important;
+            width: 90% !important;
+        }
+
+        .layui-layer.layui-layer-dialog {
+            top: 40% !important;
+        }
+
+        .popup {
+            display: none
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <img title="美女最多的视频交友" src="img/gw_top_1.jpg">
+        <img title="美女最多的视频交友" src="img/gw_top_2.jpg">
+        <img title="美女最多的视频交友" src="img/gw_top_2_2.jpg">
+        <div class="main">
+            <!-- <div class="m_left" onclick="getDownUrl()"><a title="ios下载" src="img/gw_see.jpg"></a></div> -->
+            <div class="m_right flexbox down1" onclick="download(this)" id="down1d">
+                <img title="立即下载" src="img/gw_download.jpg"></div>
+        </div>
+        <div style="clear:both"></div>
+        <div class="yqm"></div>
+        <h1>视频相亲</h1>
+        <p>视频相亲一对一，遇见喜欢的人，<br>说说心里话！</p>
+        <img src="img/1.1.png">
+        <img src="img/1.2.png">
+        <img src="img/1.3.png">
+        <h2>优质推荐</h2>
+        <p>100%匹配，遇见懂你的人！</p>
+        <img src="img/2.1.png">
+        <img src="img/2.2.png">
+        <img src="img/2.3.png">
+        <h3>同城缘分</h3>
+        <p>智能定位带你浪漫邂逅，<br>发现身边缘分！</p>
+        <img src="img/3.1.png">
+        <img src="img/3.2.png">
+        <img src="img/3.3.png">
+        <h4>真人在线</h4>
+        <p>平台审核，严格把关，<br>真人认证，拒绝照骗！</p>
+        <img src="img/4.1.png">
+        <img src="img/4.2.png">
+        <img src="img/4.3.png">
+        <h6>高成功率</h6>
+        <p>想脱单上觅伊，从此脱单不再难</p>
+        <img style="margin-bottom:5rem" src="img/gw_img6_1.jpg">
+        <div class="b_download down1" onclick="download(this)">
+            <!-- <img title="新一代语音交友" src="img/bottom_download.png"> -->
+        </div>
+        <div id="mobile_top" style="display:none;position: absolute;z-index: 999;top: 0;width: 100%;height: 100%;">
+            <img src="" id="mobile_img" style="width: 100%; height: 100%;" />
+        </div>
+    </div>
+    <div class="dialog popup" id="dialog">
+        <h6>输入手机号即可下载哦~</h6>
+        <div class="input-wrap flexbox between">
+            <select name="" id="" class="flexbox">
+                <option value="86">中国 +86</option>
+                <option value="886">中国台湾 +886</option>
+            </select>
+            <input type="text" class="phone-input" placeholder="请输入手机号码">
+        </div>
+        <div class="flexbox between">
+            <input class="input-wrap verify-code" type="text" placeholder="请输入验证码">
+            <span class="verify" onclick="sendVerify()">获取验证码</span>
+        </div>
+        <button class="submit-ok" onclick="submitOk()">点击下载</button>
+        <button class="button-close" onclick="close()">X</button>
+    </div>
+    <script src="//activity.folkcam.cn/common/jquery.min.js"></script>
+    <script src="//activity.folkcam.cn/common/config.js"></script>
+    <script src="//activity.folkcam.cn/common/swiper.min.js"></script>
+    <script src="//activity.folkcam.cn/common/layer/layer.js"></script>
+    <script type="text/javascript" src="js/alertPopShow.js"></script>
+    <script type="text/javascript">
+        (function () {
+            var ua = navigator.userAgent.toLowerCase();
+            var isAndroid = ua.indexOf('android') >= 0;
+            var isIOS = ua.indexOf('iphone') >= 0 || ua.indexOf('ipad') >= 0,
+                isWeixin = ua.indexOf('micromessenger') >= 0,
+                isQzone = ua.indexOf('qzone') >= 0,
+                isWeibo = ua.indexOf('weibo') >= 0,
+                isQQ = ua.match(/qq\/(\d+\.)+\d+/),
+                isMail = ua.match(/mail/),
+                isYixin = ua.match(/yixin/),
+                isUC = ua.match(/ucbrowser/);
+            if (is_weixin() || is_mobileQQ()) {
+                if (isIOS) {
+                    $("#mobile_top").css("display", "block");
+                    $("#mobile_img").attr("src", "img/iOS.png")
+                    $(".down").css("display", "none")
+                } else if (isAndroid) {
+                    $("#mobile_top").css("display", "block");
+                    $("#mobile_img").attr("src", "img/android.png")
+                    $(".down").css("display", "none")
+                }
+            }
+        })();
+        function is_weixin() {
+            var ua = navigator.userAgent.toLowerCase();
+            if (ua.match(/MicroMessenger/i) == "micromessenger") {
+                return true;
+            } else {
+                return false;
+            }
+        }
+        function is_mobileQQ() {
+            var ua = navigator.userAgent.toLowerCase();
+            if (ua.indexOf('mobile') > -1 && ua.indexOf(' qq') > -1) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+    </script>
+</body>
+<script type="text/javascript" charset="UTF-8" src="//res.cdn.openinstall.io/openinstall.js"></script>
+<script type="text/javascript">
+    var ua = navigator.userAgent.toLowerCase();
+    var isIOS = ua.indexOf('iphone') >= 0 || ua.indexOf('ipad') >= 0;
+    var isAndroid = ua.indexOf('android') >= 0;
+    var timer = null;
+    var env = $config.getQueryStringByName('env') || 'development';
+    var path = '//192.168.1.101:8080';
+    var androidURL = "https://jw-version.oss-cn-shenzhen.aliyuncs.com/miyipackage/MiYi1_sign-miyituiguangzhe.apk";
+    var url = window.location;
+    var inviteCode = getUrlParam(url, 'code');
+    var customerId = getUrlParam(url, 'customerId');
+    var link = getUrlParam(url, 'link');
+    
+    init();
+    function init() {
+        if (customerId && inviteCode) {
+            $.ajax({
+                url : "/dssController/getApkUrl",
+                type : "POST",
+                data : {
+                    "inviteCode" : inviteCode,
+                    "customerId" : customerId,
+                    "mark": 'link' + link
+                },
+                dataType : "json",
+                success : function(data) {
+                    if (data.result) {
+                        androidURL = data.data.apkUrl;
+                    }
+                },
+                error : function(x, h, e) {
+                }
+            });
+        }
+    }
+    
+    // 安卓和ios均需要弹窗
+    function download(ele) {
+        if ($(ele).attr('disabled') == true) return;
+
+        $.ajax({
+            url: "/validateCodeNew/isDownload",
+            type: "POST",
+            data: {
+                "customerId": customerId,
+                "link": link
+            },
+            dataType: "json",
+            success: function (data) {
+                if (data.result) {
+                    // 打开手机绑定的弹窗
+                    $('.down1').each(function (index, ele) {
+                        $(ele).attr('disabled', true)
+                    })
+                    dialogComm($('#dialog'), 'dialog')
+                } else {
+                    layer.msg('链接已失效, 不能下载!');
+                }
+            },
+            error: function () {
+                layer.msg('网络错误!');
+            }
+        });
+    }
+
+    function close() {
+        $('.phone-input').val('')
+        $('.verify-code').val('')
+        $('.down1').each(function (index, ele) {
+            $(ele).attr('disabled', false)
+        })
+    }
+    // $('.down1').each(function (index, ele) {
+    //     $(ele).click(function () {
+    //         // $.ajax({
+    //         //     url: "/validateCodeNew/isDownload",
+    //         //     type: "POST",
+    //         //     data: {
+    //         //         "customerId": customerId,
+    //         //     },
+    //         //     dataType: "json",
+    //         //     success: function (data) {
+    //         //         if (data.result) {
+    //         //             // 打开手机绑定的弹窗
+    //         dialogComm($('#dialog'), 'dialog')
+    //         //     } else {
+    //         //         layer.msg('链接已失效, 不能下载!');
+    //         //     }
+    //         // },
+    //         // error: function () {
+    //         // }
+    //         // });
+    //     });
+    // });
+    // 获取Url的参数
+    function getUrlParam(url, name) {
+        var pattern = new RegExp("[?&]" + name + "\=([^&]+)", "g");
+        var matcher = pattern.exec(url);
+        var items = null;
+        if (matcher != null) {
+            try {
+                items = decodeURIComponent(decodeURIComponent(matcher[1]));
+            } catch (e) {
+                try {
+                    items = decodeURIComponent(matcher[1]);
+                } catch (e) {
+                    items = matcher[1];
+                }
+            }
+        }
+        return items;
+    }
+
+    function dialogComm(contain, className) {
+        layer.closeAll()
+        layer.open({
+            type: 1,
+            shadeClose: false,
+            title: false,
+            shade: .5,
+            closeBtn: 0,
+            scrollbar: false,
+            skin: className || 'yourclass',
+            content: contain,
+            end: function () {
+            }
+        })
+        $('.button-close').on('click', function () {
+            layer.closeAll()
+        })
+    }
+    function toUrl(url) {
+        var BASE_URL = path[env]
+        return BASE_URL + url;
+    }
+    function sendVerify() {
+        var params = {
+            account: $('.phone-input').val(),
+            areaCode: $('select').val(),
+            specifier: 22,
+            refCustomerId: customerId,
+            refInviteCode: inviteCode,
+            refUrlType: link
+        }
+        if (!params.account) {
+            layer.msg('请输入手机号');
+            return;
+        } else if (params.areaCode == 86 && params.account.length != 11 || params.areaCode == 886 && params.account.length != 10) {//!$config.checkPhone(params.account)
+            layer.msg('请输入正确格式的手机号码');
+            return;
+        }
+        $.ajax({
+            type: "post",
+            url: "/validateCodeNew/sendCode",
+            data: params,
+            dataType: "json",
+            success: function (res) {
+                if (res.result) {
+                    count();
+                } else {
+                    $config.yfAlert(res.message)
+                }
+            },
+            error: function () {
+                $config.yfAlert('网络异常')
+            }
+        });
+    }
+    function count() {
+        var count = 60;
+        if ($('.verify').attr('disabled')) return;
+        $('.verify').html(count + 's')
+        timer = setInterval(function () {
+            count--;
+            if (+count > 0) {
+                $('.verify').html(count + 's').attr('disabled', true)
+            } else {
+                $('.verify').html('获取验证码').attr('disabled', false);
+                clearInterval(timer);
+            }
+        }, 1000)
+    }
+    function submitOk() {
+        var params = {
+            account: $('.phone-input').val(),
+            areaCode: $('select').val(),
+            specifier: 22,
+            code: $('.verify-code').val(),
+            refCustomerId: customerId,
+            refInviteCode: inviteCode
+        }
+        if (!params.account) {
+            layer.msg('请输入手机号');
+            return;
+        } else if (params.areaCode == 86 && params.account.length != 11 || params.areaCode == 886 && params.account.length != 10) {
+            layer.msg('请输入正确格式的手机号码');
+            return;
+        }
+        if (!params.code) {
+            layer.msg('请输入验证码');
+            return;
+        }
+        $.ajax({
+            type: "post",
+            url: "/validateCodeNew/verificationCode",
+            data: params,
+            dataType: "json",
+            success: function (res) {
+                if (res.result) {
+
+                    layer.msg('验证成功!')
+                    $('.phone-input').val('')
+                    $('.verify-code').val('')
+                    $('.down1').each(function (index, ele) {
+                        $(ele).attr('disabled', false)
+                    })
+                    layer.closeAll()
+
+                    if (isIOS) { //ios去appstore
+                        var data = OpenInstall.parseUrlParams();//openinstall.js中提供的工具函数，解析url中的所有查询参数
+                        new OpenInstall({
+                            /*appKey必选参数，openinstall平台为每个应用分配的ID*/
+                            appKey: "c6xjxt",
+                            onready: function () {
+                                var m = this, button = document.getElementById("down1d");
+                                button.style.visibility = "visible";
+                                /*在app已安装的情况尝试拉起app*/
+                                m.schemeWakeup();
+                                // 未安装时去Appstore
+                                m.wakeupOrInstall();
+                            }
+
+                        })
+                    } else { //安卓直接下载
+                        window.location.href = androidURL
+                    }
+                } else {
+                    $config.yfAlert(res.message)
+                }
+            },
+            error: function () {
+                $config.yfAlert('网络异常')
+            }
+        });
+    }
+    function getCode2() { }
+</script>
+
+</html>

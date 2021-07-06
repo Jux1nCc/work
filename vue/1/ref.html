@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+        padding: 0;
+        margin: 0;
+    }
+    div{
+      height: 50px;
+    }
+    #wrapper {
+        height: 200px;
+        border: 1px solid red;
+        overflow: auto;
+    }
+  </style>
+</head>
+<body>
+  <div id='app'>
+    <button @click="goBottom">到底部</button>
+    <div id="wrapper" ref="wrapper">
+        <div>测试滚动1</div>
+        <div>测试滚动2</div>
+        <div>测试滚动3</div>
+        <div>测试滚动4</div>
+        <div>测试滚动5</div>
+        <div>测试滚动6</div>
+        <div>测试滚动7</div>
+        <div>测试滚动8</div>
+        <div>测试滚动9</div>
+        <div>测试滚动10</div>
+        <div>测试滚动11</div>
+        <div>测试滚动12</div>
+    </div>
+    <button @click="goTop">到顶部</button>
+
+</div>
+</body>
+<script src="../js/vue.js"></script>
+<script>
+  new Vue({
+    el: '#app',
+    methods: {
+      goBottom(){
+        console.log('原生DOM:', document.querySelector('#wrapper'))
+        console.log('Vue-DOM:', this.$refs.wrapper)
+        // document.querySelector('#wrapper').scrollTop = 9999
+        this.$refs.wrapper.scrollTop = 9999
+      },
+      goTop(){
+        // document.querySelector('#wrapper').scrollTop = 0
+        this.$refs.wrapper.scrollTop = 0
+      }
+    },
+    created(){
+      console.log('原生DOM:', document.querySelector('#wrapper'))
+      console.log('Vue-DOM:', this.$refs.wrapper) // 由于DOM还没初始化 所以是undefined
+    },
+    mounted(){
+      console.log('原生DOM:', document.querySelector('#wrapper'))
+      console.log('Vue-DOM:', this.$refs.wrapper) // DOM已经初始化
+    },
+  })
+</script>
+</html>

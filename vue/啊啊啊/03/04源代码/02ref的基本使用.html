@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    .wrapper {
+      width: 300px;
+      height: 100px;
+      border: 1px solid red;
+      overflow: auto;
+    }
+  </style>
+  <body>
+    <!-- vue获取dom方式
+    1：在相应标签上定义一个ref属性  ref="值"
+    2:获取dom  this.$refs.ref值
+    
+    
+    -->
+    <div id="app">
+      <button @click="goBottom">到底部</button>
+      <button @click="goTop">到顶部</button>
+      <ul class="wrapper" id="wrapper" ref="xxx">
+        <li v-for="(item, index) in arr" :key="index">{{item}}</li>
+      </ul>
+    </div>
+    <script src="./vue.js"></script>
+    <script>
+      new Vue({
+        el: "#app",
+        data: {
+          arr: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
+          _inter: "",
+        },
+        methods: {
+          move(end) {
+            clearInterval(this._inter);
+            this._inter = setInterval(() => {
+              this.$refs.xxx.scrollTop += (end - this.$refs.xxx.scrollTop) / 3;
+              //   window.console.log(123);
+              if (Math.abs(this.$refs.xxx.scrollTop - end) < 6) {
+                this.$refs.xxx.scrollTop = end;
+                clearInterval(this._inter);
+              }
+            }, 20);
+          },
+          goBottom() {
+            window.console.log(this.$refs.xxx);
+            //scrollTop
+            // document.getElementById("wrapper").scrollTop = 9999;
+            // this.$refs.xxx.scrollTop = this.$refs.xxx.scrollHeight - 102;
+            this.move(this.$refs.xxx.scrollHeight - 102);
+            // let _inter = setInterval(() => {
+            //   this.$refs.xxx.scrollTop +=
+            //     (this.$refs.xxx.scrollHeight - 102 - this.$refs.xxx.scrollTop) /
+            //     3;
+            //   window.console.log(123);
+            //   if (
+            //     Math.abs(
+            //       this.$refs.xxx.scrollTop - (this.$refs.xxx.scrollHeight - 102)
+            //     ) < 6
+            //   ) {
+            //     clearInterval(_inter);
+            //   }
+            // }, 20);
+          },
+          goTop() {
+            // this.$refs.xxx.scrollTop = 0;
+            this.move(0);
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

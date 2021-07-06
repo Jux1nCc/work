@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<head lang="zh-CN">
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="format-detection" content="telephone=no"/>
+<meta name="screen-orientation" content="portrait">
+<meta name="x5-orientation" content="portrait">
+<METAHTTP-EQUIV="Pragma" CONTENT="no-cache" />
+<METAHTTP-EQUIV="Cache-Control" CONTENT="no-cache" />
+<METAHTTP-EQUIV="Expires" CONTENT="0" />
+<title>账单详情</title>
+<style type="text/css">
+a, abbr, acronym, address, applet, article, aside, audio, b, big, blockquote, body, canvas, caption, center, cite, code, dd, del, details, dfn, div, dl, dt, em, embed, fieldset, figcaption, figure, footer, form, h1, h2, h3, h4, h5, h6, header, hgroup, html, i, iframe, img, ins, kbd, label, legend, li, mark, menu, nav, object, ol, output, p, pre, q, ruby, s, samp, section, small, span, strike, strong, sub, summary, sup, table, tbody, td, tfoot, th, thead, time, tr, tt, u, ul, var, video { margin: 0; padding: 0; border: 0; font: inherit; vertical-align: baseline }
+	body{  font-size: 10px ;background:#efefef;}
+  ol, ul{ list-style: none }
+  header { 
+    text-indent: 15px;
+     font-size: 16px; width: 100%;  height:80px; background: #fff;
+      display: -webkit-box;
+      display: -ms-flexbox;
+     }
+     header .tip{
+      height: 80px;
+      line-height: 80px;
+      color: #171717;
+      font-size: 18px;
+    }
+    header .time{
+      height: 80px;
+      line-height: 80px;
+      font-size: 24px;
+      color: #fd8d29;
+    }
+     .detail{
+      text-indent: 15px;
+       font-size: 16px; width: 100%;  height:30px; background: #fff;
+      display: -webkit-box;
+      display: -ms-flexbox;
+     }
+     .detail .tip{
+      height: 30px;
+      line-height: 30px;
+      color: #171717;
+      font-size: 14px;
+    }
+    .detail .time{
+      height: 30px;
+      line-height: 30px;
+      font-size: 14px;
+      color: #9a9a9a;
+    }
+    .bor_btm { border-bottom: 5px solid #e6e6e6 }
+    .left{
+        width: 40%;
+    }
+    
+   .right{
+    margin-right: 5%;
+    width: 55%;
+    display: -webkit-box;
+    -webkit-box-align: center;
+    -webkit-box-pack: end;
+    }  
+    .padtop{
+      padding-top: 10px;
+    }
+    .padbottom{
+      padding-bottom: 10px;
+    }
+</style>
+<script type="text/javascript" language="javascript" src="../../view/assets/js/jquery-1.11.1.min.js"></script>
+	<script type="text/javascript" language="javascript" src="../../view/js/common.js?version=20170622"></script>
+</head>
+<body>
+
+  <header class="bor_btm">
+     <div class="tip left">出账</div>
+    <div class="time right" id="jwAmt"><span  ></span></div>
+  </header>
+
+  <section>
+      <div class="detail padtop">
+             <div class="tip left ">类    型:</div>
+              <div class="time right">收益提现</div>
+      </div>
+      <div class="detail">
+             <div class="tip left ">提现金额:</div>
+              <div class="time right"  id="cashOutAmt"></div>
+      </div>
+      <div class="detail">
+             <div class="tip left ">到账方式:</div>
+              <div class="time right" id="cashOutType"></div>
+      </div>
+      <div class="detail">
+             <div class="tip left ">手续费用:</div>
+              <div class="time right"  id="serveFee"></div>
+      </div>
+      <div class="detail padbottom">
+             <div class="tip left ">实际到账:</div>
+              <div class="time right" id="serveAmt"></div>
+      </div>
+
+</section>
+<script type="text/javascript">
+	var cid = getURLParameter("cid");
+	var billNo = getURLParameter("billNo");
+	
+	$.ajax({
+		url : "../../view/mobile/findBillDetails", // 新版JSAPI_ForVer3.X  
+		type : "POST",
+		data : {"cid":cid,"billNo":billNo},
+		dataType : "json",
+		success : function(data) {
+			if(data && data.code == 0){
+// 				$("#jwAmt").text = data.data.titleAmt;
+				$("#jwAmt").text(data.data.titleAmt);
+				$("#cashOutAmt").text(data.data.tradeAmt);
+				$("#cashOutType").text( data.data.way);
+				$("#serveFee").text(data.data.serveFee);
+				$("#serveAmt").text( data.data.trueAmt);
+			}
+		},
+		error : function(x, h, e) {
+			alert("error");
+		}
+	});
+</script>
+</body>
+</html>

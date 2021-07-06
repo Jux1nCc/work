@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>兔聊</title>
+  <link data-n-head="ssr" rel="icon" type="image/png" sizes="16x16" href="./logo.png">
+  <link rel="stylesheet" href="http://activity.folkcam.cn/common/comm.css">
+  <style>
+    .wrap{
+      width: 100vw;
+      height: 100vh;
+      position: relative;
+      background-color: #fff;
+      overflow: hidden;
+    }
+    .img{
+      width: 100%;
+      height: 86%;
+      background-image: url(./01.jpg);
+      background-size: cover;
+      background-position: center;
+      filter: blur(.15rem);
+    }
+    .circle{
+      width: 140%;
+      height: 70%;
+      position: absolute;
+      left: -20%;
+      bottom: 3%;
+      z-index: 1;
+      border-bottom: 2rem solid #fff;
+      border-radius: 0 0 300% 300%;
+      background: transparent;
+    }
+    .main{
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 85%;
+      background-color: rgba(0, 0, 0, .4);
+    }
+    img{
+      width: 1.5rem;
+      height: 1.5rem;
+    }
+    p{
+      color: #fff;
+      font-size: .4rem;
+      margin: .1rem 0 .2rem;
+      font-weight: 700;
+    }
+    .main span{
+      font-size: .28rem;
+      color: #fff;
+      font-weight: 700;
+    }
+    .yellow{
+      color: #f9c110;
+    }
+    .main-img{
+      width: 90%;
+      height: 36%;
+      background-image: url(./01.jpg);
+      background-size: 100% 100%;
+      border-radius: .1rem;
+      margin: .5rem;
+    }
+    .download{
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 15%;
+      z-index: 2;
+    }
+    .down-btn{
+      width: 6rem;
+      height: .8rem;
+      border-radius: .8rem;
+      background-color: #467bf3;
+      color: #fff;
+      border: 1px solid #467bf3;
+      font-size: .3rem;
+    }
+    .top-app{
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 7%;
+      background-color: #fff;
+      justify-content: space-between;
+      color: #869791;
+      z-index: 2;
+      padding: 0 .1rem;
+    }
+    .top-app span{
+      font-size: .26rem;
+    }
+    .wrap>span{
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      text-align: center;
+      font-size: .26rem;
+      color: #869791;
+    }
+    @-webkit-keyframes animate_1 {
+      0% {
+        -webkit-background-color: #fff;
+        -webkit-color: #467bf3;
+      }
+      50%{
+        -webkit-background-color: #fff;
+        -webkit-color: #467bf3;
+      }
+      100% {
+        -webkit-background-color: #467bf3;
+        -webkit-color: #fff;
+      }
+    }
+    @keyframes animate_1 {
+      0% {
+        background-color: #fff;
+        color: #467bf3;
+      }
+      50%{
+        background-color: #fff;
+        color: #467bf3;
+      }
+      100% {
+        background-color: #467bf3;
+        color: #fff;
+      }
+    }
+    @-webkit-keyframes animate_2 {
+      from{-webkit-transform:scale3d(1,1,1);transform:scale3d(1,1,1)}15%{-webkit-transform:scale3d(1.05,1.05,1);transform:scale3d(1.05,1.05,1)}18%{-webkit-transform:scale3d(1.049,1.049,1);transform:scale3d(1.049,1.049,1)}21%{-webkit-transform:scale3d(1.044,1.044,1);transform:scale3d(1.044,1.044,1)}24%{-webkit-transform:scale3d(1.036,1.036,1);transform:scale3d(1.036,1.036,1)}27%{-webkit-transform:scale3d(1.023,1.023,1);transform:scale3d(1.023,1.023,1)}30%{-webkit-transform:scale3d(1,1,1);transform:scale3d(1,1,1)}33%{-webkit-transform:scale3d(0.991,.991,1);transform:scale3d(0.991,.991,1)}36%{-webkit-transform:scale3d(0.986,.986,1);transform:scale3d(0.986,.986,1)}39%{-webkit-transform:scale3d(0.984,.984,1);transform:scale3d(0.984,.984,1)}42%{-webkit-transform:scale3d(0.987,.987,1);transform:scale3d(0.987,.987,1)}45%{-webkit-transform:scale3d(0.992,.992,1);transform:scale3d(0.992,.992,1)}51%{-webkit-transform:scale3d(1.004,1.004,1);transform:scale3d(1.004,1.004,1)}54%{-webkit-transform:scale3d(1.008,1.008,1);transform:scale3d(1.008,1.008,1)}57%{-webkit-transform:scale3d(1.01,1.01,1);transform:scale3d(1.01,1.01,1)}60%{-webkit-transform:scale3d(1.009,1.009,1);transform:scale3d(1.009,1.009,1)}63%{-webkit-transform:scale3d(1.006,1.006,1);transform:scale3d(1.006,1.006,1)}69%{-webkit-transform:scale3d(0.998,.998,1);transform:scale3d(0.998,.998,1)}72%{-webkit-transform:scale3d(0.996,.996,1);transform:scale3d(0.996,.996,1)}75%{-webkit-transform:scale3d(1,1,1);transform:scale3d(1,1,1)}to{-webkit-transform:scale3d(1,1,1);transform:scale3d(1,1,1)}}
+    @keyframes animate_2 { 
+      from{transform:scale3d(1,1,1);transform:scale3d(1,1,1)}15%{transform:scale3d(1.05,1.05,1);transform:scale3d(1.05,1.05,1)}18%{transform:scale3d(1.049,1.049,1);transform:scale3d(1.049,1.049,1)}21%{transform:scale3d(1.044,1.044,1);transform:scale3d(1.044,1.044,1)}24%{transform:scale3d(1.036,1.036,1);transform:scale3d(1.036,1.036,1)}27%{transform:scale3d(1.023,1.023,1);transform:scale3d(1.023,1.023,1)}30%{transform:scale3d(1,1,1);transform:scale3d(1,1,1)}33%{transform:scale3d(0.991,.991,1);transform:scale3d(0.991,.991,1)}36%{transform:scale3d(0.986,.986,1);transform:scale3d(0.986,.986,1)}39%{transform:scale3d(0.984,.984,1);transform:scale3d(0.984,.984,1)}42%{transform:scale3d(0.987,.987,1);transform:scale3d(0.987,.987,1)}45%{transform:scale3d(0.992,.992,1);transform:scale3d(0.992,.992,1)}51%{transform:scale3d(1.004,1.004,1);transform:scale3d(1.004,1.004,1)}54%{transform:scale3d(1.008,1.008,1);transform:scale3d(1.008,1.008,1)}57%{transform:scale3d(1.01,1.01,1);transform:scale3d(1.01,1.01,1)}60%{transform:scale3d(1.009,1.009,1);transform:scale3d(1.009,1.009,1)}63%{transform:scale3d(1.006,1.006,1);transform:scale3d(1.006,1.006,1)}69%{transform:scale3d(0.998,.998,1);transform:scale3d(0.998,.998,1)}72%{transform:scale3d(0.996,.996,1);transform:scale3d(0.996,.996,1)}75%{transform:scale3d(1,1,1);transform:scale3d(1,1,1)}to{transform:scale3d(1,1,1);transform:scale3d(1,1,1)}}
+    .animate-1{
+      -webkit-animation: animate_1 1.5s linear;
+      animation: animate_1 1.5s linear;
+    }
+    .animate-2{
+      -webkit-animation: animate_2 1.33333333s linear infinite;
+      animation: animate_2 1.33333333s linear infinite;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="top-app flexbox">
+      <div class="app-left column" style="align-items: flex-start;">
+        <span>开发者：深圳市镜玩网络科技有限公司</span>
+        <span>兔聊V5.3.3 <span onclick="download()">立即下载</span></span>
+      </div>
+      <div class="app-right column" style="align-items: flex-end;">
+        <div class="flexbox"><span onclick="toAuthority()">权限</span><span style="margin: 0 .2rem;">|</span><span onclick="toPrivacy()">协议</span></div>
+        <span>2021/3/23更新</span>
+      </div>
+    </div>
+    <div class="circle"></div>
+    <div class="img"></div>
+    <div class="main column">
+      <img src="./logo.png" alt="">
+      <p>兔聊</p>
+      <span><span class="yellow">同城快速</span>交友约会</span>
+      <div class="main-img"></div>
+    </div>
+    <div class="download flexbox">
+      <div class="down-btn flexbox" onclick="download()">立即下载</div>
+    </div>
+    <span>版权：绍兴猜筠网络科技有限公司</span>
+  </div>
+</body>
+<script src="http://activity.folkcam.cn/common/rem.js"></script>
+<script src="http://activity.folkcam.cn/common/jquery.min.js"></script>
+<script>
+  $('.down-btn').addClass('animate-1')
+  setTimeout(function(){
+    $('.down-btn').removeClass('animate-1').addClass('animate-2')
+  },2000)
+  function download(){
+    window.location.href = 'https://jw-version.oss-cn-shenzhen.aliyuncs.com/android/TLBUX7.apk'
+  }
+  function toAuthority(){
+    window.location.href = 'https://www.expertol.cn/privacy.html'
+  }
+  function toPrivacy(){
+    window.location.href = 'http://activity.folkcam.cn/authority.html'
+  }
+</script>
+</html>

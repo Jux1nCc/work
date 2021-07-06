@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0, viewport-fit=cover">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="msapplication-tap-highlight" content="no">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Cache-Control" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <title>朋友眼中的我</title>
+  <link rel="stylesheet" href="https://activity.folkcam.cn/common/layer/theme/default/layer.css">
+  <link rel="stylesheet" href="https://activity.folkcam.cn/common/mui.min.css">
+  <link rel="stylesheet" href="./comm.css">
+  <link rel="stylesheet" href="./index.css?v=202106111520" as="style">
+</head>
+
+<body>
+  <div class="page">
+    <header class="column">
+      <div class="logo"></div>
+      <div class="website flexbox">“铢铢”帮助众多单身男女找到了真爱。<a href="https://www.zzright.cn/">了解“铢铢”APP></a></div>
+      <div class="photo">
+      </div>
+      <div class="text">
+        <!-- <p class="bold-text">有朋友的人，才会让人信任;</p>
+        <p class="bold-text">有朋友的评价，才会让他显得真实。</p> -->
+        <p class="mt-text">我<span class="nick-name"></span>在“铢铢”上找对象，希望您能通过图文、语音或视频来评价我。</p>你的评价将会出现在 <a href="#"
+          onclick="lookExample(); return false">我的个人主页</a>
+      </div>
+      <div class="pic">
+        <img src="image/page_icon.png">
+      </div>
+    </header>
+    <div class="main">
+      <p class="main-title"><span>请任选一种或多种方式</span>说说你印象中的我。</p>
+      <!-- <div class="nickname flexbox">
+        <div class="column">
+          <p>我怎么称呼你</p>
+          <p>(您是谁)</p>
+        </div>
+        <input id="appellation" type="text" onfocus="removeFocus(this)" placeholder="比如: 老王、阿强" maxlength="9">
+        <span>(必填)</span>
+      </div>
+      <div class="relation flexbox">
+        <div class="column">
+          <p>你和我的关系</p>
+        </div>
+        <input id="relation" type="text" onfocus="removeFocus(this)" placeholder="比如: 同事、同学" maxlength="9">
+        <span>(必填)</span>
+      </div> -->
+      <div class="audio-wrap">
+        <div class="title">方式一：通过<span>语音</span>说说您印象中的我</div>
+        <div class="audio-main column">
+          <div class="audio-btn flexbox">
+            <img class="audioing" src="image/click_recording.png" alt="" onclick="startRec()">
+          </div>
+          <div class="audio-text">点击录制语音</div>
+          <div class="audio-text redColor popup" onclick="confirmRestartRec()">重录</div>
+          <div class="audio-time flexbox">最长可录制3分钟</div>
+        </div>
+        <div class="audio-submit flexbox" onclick="submitAudio()">提交</div>
+      </div>
+      <div class="pic-wrap">
+        <div class="title">方式二：通过<span>图文</span>说说您印象中的我</div>
+        <div class="pic-main">
+          <div class="suggest">
+            <textarea name="suggestText" id="suggestText" rows="6" maxlength="500"
+              placeholder="你可以从生活习惯、工作情况等方面，说说你印象中的我是什么样子。" oninput="countChar(this)"
+              onfocus="resetAudio(this)"></textarea>
+            <div class="text-num" id="counter"> <span>0</span> / 500</div>
+          </div>
+          <div class="picture">
+            <div class="picture-item">
+              <div class="uploading">
+                <input type="file" id="uploadPic" accept='image/*' multiple="multiple" onfocus="resetAudio(this)">
+                <img id="addMyPic" src="image/add_pic.png">
+              </div>
+            </div>
+            <span class="pic-item-text">图片非必传,最多可上传5张</span>
+          </div>
+        </div>
+        <div class="pic-submit flexbox" onclick="submitPic()">提交</div>
+      </div>
+      <div class="video-wrap">
+        <div class="title">方式三：通过<span>视频</span>说说您印象中的我</div>
+        <p class="video-title">你可选择直接录制视频或从本地设备上传已有视频</p>
+        <div class="video-main column">
+          <div class="video-btn flexbox">
+            <div class="video-upload"></div>
+            <img src="images/addVideo.png" onclick="openVideoDia()">
+            <!-- <input class="openCamera" type="file" accept="video/*" capture onchange="getUrl(this)"> -->
+            <div class="video-upload column">
+              <!-- <img id="starUpVideo" src="image/upload_video.png" alt="">
+              <span>上传</span>
+              <input class="loadVideo" type="file" accept="video/*" onchange="getUrl(this)"> -->
+            </div>
+          </div>
+          <!-- <div class="audio-text">点击录制视频</div>
+          <div class="audio-time">最长可录制3分钟</div> -->
+        </div>
+        <div class="video-submit flexbox" onclick="submitVIdeo()">提交</div>
+      </div>
+    </div>
+  </div>
+  <!-- 弹框 -->
+  <div class="dialog">
+    <!-- 苹果微信打开跳浏览器 -->
+    <div id="openInIphone" class="popup">
+      <div class="flexbox">
+        <p class="column">
+          <span>请打开右上角按钮</span>
+          <span>选择在浏览器中打开~~</span>
+        </p>
+      </div>
+      <img src="image/openinbrowser.png" alt="">
+    </div>
+    <!-- 个人主页示例 -->
+    <div id="example" class="popup">
+      <div class="example-main column">
+        <p>你评价之后将会出现在哪里呢？</p>
+        <img src="image/example.png">
+        <button class="flexbox" onclick="layer.closeAll()">我知道了</button>
+      </div>
+    </div>
+    <!-- 提交弹框 -->
+    <div id="openSubmitDia" class="popup">
+      <div class="nickname flexbox">
+        <div class="column">
+          <p>我怎么称呼你</p>
+          <!-- <p>(您是谁)</p> -->
+        </div>
+        <input id="appellation" type="text" onfocus="removeFocus(this)" placeholder="比如: 老王、阿强" maxlength="9">
+        <span>(必填)</span>
+      </div>
+      <div class="relation flexbox">
+        <div class="column">
+          <p>你和我的关系</p>
+        </div>
+        <input id="relation" type="text" onfocus="removeFocus(this)" placeholder="比如: 同事、同学" maxlength="9">
+        <span>(必填)</span>
+      </div>
+      <div class="submit flexbox" onclick="submitPic()">提交</div>
+    </div>
+    <!-- 录视频弹框 -->
+    <div id="openVideoDia" class="popup">
+      <div id="starTakeVideo" class="flexbox"
+        style="width: 100%;height: 1.4rem;border-bottom: .02rem solid #F1F2F1;position: relative;">
+        <p style="font-weight: 700;color: #000;font-size: .34rem;text-align: center;line-height: .4rem;">
+          录制视频<br />
+          <span style="font-size: .24rem;color: #666;">最长可录制3分钟</span>
+        </p>
+        <input style="position: absolute;width: 10%;height: 10%;top: 0;left: 0;" class="openCamera" type="file"
+          accept="video/*" onclick="stopEvent(event)" capture onchange="getUrl(this)">
+      </div>
+      <div class="flexbox" id="starUpVideo" style="height: 1.04rem;width: 100%;position: relative;">
+        <p style="font-weight: 700;color: #000;font-size: .34rem;">从手机相册选择视频</p>
+        <input style="position: absolute;width: 10%;height: 10%;top: 0;left: 0;" class="loadVideo" type="file"
+          accept="video/*" onclick="stopEvent(event)" onchange="getUrl(this)">
+      </div>
+      <div class="flexbox"
+        style="font-size: 0.34rem;border-top: .4rem solid #F8F8FA;width: 100%;height: 1.4rem;font-weight: 700;"
+        onclick="layer.closeAll()">取消
+      </div>
+    </div>
+  </div>
+</body>
+<script src="https://activity.folkcam.cn/common/jquery.min.js"></script>
+<script src="https://activity.folkcam.cn/common/layer/layer.js"></script>
+<script src="https://activity.folkcam.cn/common/mui.min.js"></script>
+<script src="https://activity.folkcam.cn/common/rem.js"></script>
+<script src="https://activity.folkcam.cn/common/config.js"></script>
+<!-- 压缩图片JS -->
+<script src="LocalResizeIMG.js"></script>
+<!-- 录音JS -->
+<script src="recorder.mp3.min.js"></script>
+<!-- <script src="https://activity.folkcam.cn/common/vconsole.min.js"></script> -->
+<script>
+  // var vConsole = new VConsole()
+  var arr = new Array()
+  var imgID = 0
+  var lastTouchEnd = 0
+  // 禁止Safari双击放大
+  document.documentElement.addEventListener('touchend', function (event) {
+    var now = Date.now()
+    if (now - lastTouchEnd <= 300) {
+      event.preventDefault()
+    }
+    lastTouchEnd = now
+  }, false)
+  // 压缩图片
+  // localResizeIMG插件 上传照片
+  $('#uploadPic').localResizeIMG({
+    width: 1024,
+    quality: .8,
+    success: function (result) {
+      if (arr.length >= 5) {
+        layer.msg('亲，最多只能上传5张')
+        return
+      }
+      var img = new Image()
+      img.src = result.base64
+      img.className = 'realPic'
+      arr.push(result.base64)
+      var str = '<div class="up-photo up-photo-' + imgID + '" baseStr = ' + result.base64 + ' ><i onclick="remove(this)"></i></div>'
+      $('.picture-item').append(str)
+      $('.up-photo.up-photo-' + imgID).append(img)
+      $('.pic-item-text').addClass('popup')
+      imgID++
+    }
+  })
+  // 转换图片上传格式
+  function convertBase64UrlToBlob(urlData) {
+    var bytes = window.atob(urlData.split(',')[1])  //去掉url的头，并转换为byte
+    //处理异常,将ascii码小于0的转换为大于0
+    var ab = new ArrayBuffer(bytes.length)
+    var ia = new Uint8Array(ab)
+    for (var i = 0; i < bytes.length; i++) {
+      ia[i] = bytes.charCodeAt(i)
+    }
+    return new Blob([ab], { type: 'image/png' })
+  }
+</script>
+<script src="index.js?v=202106171210"></script>
+
+</html>

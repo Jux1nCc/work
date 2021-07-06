@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0, viewport-fit=cover">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="msapplication-tap-highlight" content="no">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Cache-Control" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <title>守护值榜单</title>
+  <link rel="stylesheet" href="http://activity.folkcam.cn/common/layer/theme/default/layer.css">
+  <link rel="stylesheet" href="http://activity.folkcam.cn/common/comm.css">
+  <link rel="stylesheet" href="./css/guard.css?v=002" as="style">
+</head>
+
+<body>
+  <div class="page">
+    <header class="flexbox">
+      <div class="head-title flexbox head-sex0">
+        <div class="head-text column">
+          <span class="ht-title">守护我的男神们</span>
+          <span>您可以点击昵称，修改你和男神的</span>
+          <span>专属情侣名，修改后的昵称</span>
+          <span>将会在此活动的所有榜单同步。</span>
+          <span>大胆秀恩爱吧！</span>
+        </div>
+        <div class="rank-icon column">
+          <i></i>
+          <span><span class="num">0</span>人正在守护我</span>
+        </div>
+      </div>
+      <div class="head-title flexbox head-sex1 popup">
+        <div class="head-text column">
+          <span class="ht-title">我守护的女神们</span>
+          <span>女生天生害羞，所以拥有修改情侣名</span>
+          <span>的权限，她们修改后的昵称</span>
+          <span>将会在此活动的所有榜单同步。</span>
+          <span>看看谁起的名字最般配！</span>
+        </div>
+        <div class="rank-icon column">
+          <i></i>
+          <span>我正在守护<span class="num">0</span>人</span>
+        </div>
+      </div>
+    </header>
+    <div class="nav flexbox">
+      <div class="nav-award big-nav" onclick="changeNav(2)">今日榜</div>
+      <div class="nav-des small-nav" onclick="changeNav(3)">总榜</div>
+    </div>
+    <div class="guard-item">
+      <div class="gi-title flexbox">
+        <span>排名</span>
+        <span class="gi-photo">头像</span>
+        <span class="gi-qlName">
+          <span class="gi-name-other other-boy">他的昵称</span>
+          <span class="gi-name-mine mine-girl">我的昵称</span>
+        </span>
+        <span class="gi-value gi-value-sex0">他对我的<br>跨年守护值</span>
+        <span class="gi-value gi-value-sex1 popup">我们的跨年<br>守护值</span>
+        <i class="gi-i-left"></i>
+        <i class="gi-i-right"></i>
+      </div>
+      <div class="gi-wrap">
+        <div class="wrap-title wrap-sex0 flexbox">按照你的男神与你拥有的跨年守护值进行排列</div>
+        <div class="wrap-title wrap-sex1 flexbox popup">按照你与你的女神拥有的跨年守护值进行排列</div>
+        <ul>
+          <li class="flexbox">暂无人上榜</li>
+          <li class="flexbox popup">
+            <div class="li-rank"><img src="./images/guard_11.png"></div>
+            <div class="li-photo first"><img src="./images/photo.jpg"></div>
+            <div class="li-name">
+              <input class="name-sex0 li-name-boy" type="text" value="我给对方设的昵称" onblur="setNickName(this,1)"
+                onfocus="getNickName(this)">
+              <input class="name-sex0 li-name-girl" type="text" value="我给我自己设置的" onblur="setNickName(this,2)"
+                onfocus="getNickName(this)">
+            </div>
+            <div class="li-value column">
+              <p class="lv-value">3,333</p>
+              <p class="lv-success popup">跨年成功</p>
+            </div>
+            <span class="invite" onclick="toInvite(this)">【点击邀请她参加活动】</span>
+            <i class="li-border"></i>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <footer></footer>
+  </div>
+</body>
+<script src="http://activity.folkcam.cn/common/jquery.min.js"></script>
+<script src="http://activity.folkcam.cn/common/layer/layer.js"></script>
+<script src="http://activity.folkcam.cn/common/app.js"></script>
+<script src="http://activity.folkcam.cn/common/rem.js"></script>
+<script src="http://activity.folkcam.cn/common/config.js"></script>
+<script src="./js/guard.js?v=004"></script>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul id="ul1">
+        我是班长的小迷妹
+        <!-- 我是暗恋班长的班花 -->
+        <li>我是班长1</li>
+        <li>我是班长2</li>
+        <li>我是班长3</li>
+        <li>我是班长4</li>
+        <li>我是班长5</li>
+    </ul>
+    <input type="button" value="增加" id="add">
+    <script>
+        /*本小节知识点：获取子元素与子节点
+            1.获取子元素： 父元素.children
+    
+            2.获取子节点： 父元素.childNodes
+         */
+
+        var ul1 = document.getElementById('ul1');
+
+        //1.获取子元素： 元素节点
+        /* 
+        谷歌火狐：元素节点
+        IE8：包含注释和元素
+        */
+        console.log(ul1.children);  // 5个li标签
+
+
+        //2.获取子节点: 元素节点  文本节点  注释节点
+        /* 
+        谷歌火狐：  包含空文本
+        IE8：  不包含空文本
+        */
+        console.log(ul1.childNodes);
+        var add = document.getElementById('add');
+        add.onclick = function () {
+            var date = Date();
+            console.time(date);
+
+            for (var i = 0; i < 1000; i++) {
+                var p = document.createElement('p');
+                p.innerText = '我是第' + i + '个P标签';
+                document.body.appendChild(p);
+            }
+            console.timeEnd(date);
+        }
+    </script>
+</body>
+
+</html>

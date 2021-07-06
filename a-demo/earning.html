@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>我的收益</title>
+    <link rel="stylesheet" type="text/css" href="http://activity.folkcam.cn/common/layer/theme/default/layer.css">
+    <link rel="stylesheet" type="text/css" href="http://activity.folkcam.cn/common/comm.css">
+    <link rel="stylesheet" type="text/css" href="./comm.css?v=1.1.1">
+    <style>
+        @font-face {
+            font-family: "PingFang";
+            src: url("PingFangMedium.ttf");
+            font-weight: bold;
+            font-style: normal;
+            color: #000;
+        }
+
+        body,
+        button {
+            font-family: "PingFang";
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap earning">
+        <script type="text/javascript" src="http://activity.folkcam.cn/common/jquery.min.js"></script>
+        <script type="text/javascript" src="http://activity.folkcam.cn/common/rem.js"></script>
+        <script type="text/javascript" src="http://activity.folkcam.cn/common/createBar.js"></script>
+        <script>
+            $bar.setBar({ bg: '#8464FB', font: '#fff' }, {
+                type: 3,
+            }, {
+                title: '收益明细',
+                url: null,
+                jumpTo: null
+            })
+        </script>
+        <div class="wrap-content">
+            <header></header>
+            <div class="main">
+                <div class="summary flexbox around comm-card">
+                    <div class="other">
+                        <h1 class="currentInter">0.00</h1>
+                        <p>非直播收益（积分）</p>
+                    </div>
+                    <div class="live">
+                        <h1 class="currentInter">0.00</h1>
+                        <p>直播收益(积分)</p>
+                    </div>
+                    <div onclick="toExtend()" class="to-extent">
+                        <img src="./image/trumpet.png" alt="">
+                        <span>邀请有奖，躺着赚钱></span>
+                    </div>
+                </div>
+                <div class="comm-card amount total1"></div>
+                <div class="comm-card amount total2"></div>
+                <div class="comm-card amount total3"></div>
+                <button onclick="exchangeMoney()" class="flexbox between"><span class="font-earn">积分兑换人民币</span> <b
+                        class="fa"></b></button>
+                <button onclick="doExchange()" class="flexbox between"><span class="font-earn">积分兑换钻石</span>
+                    <b class="fa"></b>
+                </button>
+                <p class="tip">如有疑问可查看<span onclick="jumpToProblems()">积分问题></a></p>
+            </div>
+        </div>
+    </div>
+    <div class="menu">
+        <div class="subMenu">
+            <p onclick="withDraw(1)">非直播收益提现到支付宝</p>
+            <p onclick="withDraw(2)">直播收益提现到支付宝</p>
+            <p>取消</p>
+        </div>
+    </div>
+    <div class="menu-nav">
+        <div class="nav-tip column">
+            <p class="flexbox start" onclick="showEarningDetail(false)">
+                <img src="image/otherIcon.png" alt="">
+                非直播收益
+            </p>
+            <p class="flexbox start" onclick="showEarningDetail(true)">
+                <img src="image/liveIcon.png" alt="">
+                直播收益
+            </p>
+        </div>
+    </div>
+</body>
+
+<script type="text/javascript" src="http://activity.folkcam.cn/common/config.js"></script>
+<script type="text/javascript" src="http://activity.folkcam.cn/common/layer/layer.js"></script>
+<script type="text/javascript" src="./index.js?v=1.1.1"></script>
+<script>
+    var num = Math.random() * 100
+</script>
+<!-- <script src="http://activity.folkcam.cn/common/vconsole.min.js"></script>
+<script>
+    var vConsole = new VConsole()
+    console.log(window.location.href);
+</script> -->
+
+</html>

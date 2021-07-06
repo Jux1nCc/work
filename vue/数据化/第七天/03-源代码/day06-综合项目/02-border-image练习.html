@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .box1{
+            width: 300px;
+            height: 180px;
+            margin-top: 20px;
+            background-color: #222;
+        }
+
+        .box2{
+            width: 400px;
+            height: 200px;
+            margin-top: 20px;
+            background-color: pink;
+        }
+
+        .box3{
+            width: 500px;
+            height: 300px;
+            margin-top: 20px;
+            background-color: pink;
+        }
+
+        .panel{
+            /* 注意点1： 设置边框背景图前提是一定要有border
+            规则图片 ： border可以随时设置宽度，图片会自动等比缩放
+            不规则图片 ： 需要单独设置border的边框
+            */
+            border: 10px solid green;
+            border-width: 51px 40px 21px 130px;
+
+            /* 边框背景图 */
+            border-image: url(./images/border.png) 51 40 21 130;
+
+            /* 注意点2 ：默认情况下，盒子真实宽度 = content + padding + border （把盒子撑开）
+            解决 ： 设置内减盒子   width = 盒子宽度 （border越大，content会自动内减）
+            */
+            box-sizing: border-box;
+
+            /* 注意点3 ： 内减盒子，设置了border之后，内容就会减少，影响布局
+            解决问题 ： 添加一个子盒子，使用子绝父相布局
+            */
+            position: relative;
+        }
+
+        /* 给父元素添加一个绝对定位的子元素 */
+        .inner{
+            position: absolute;
+            left: -130px;
+            top: -51px;
+            right: -40px;
+            bottom: -21px;
+            padding: 20px;
+        }
+
+
+
+    </style>
+</head>
+<body>
+    <div class="box1 panel">
+        <div class="inner">
+                么么哒
+        </div>
+    </div>
+    <div class="box2 panel">
+        <div class="inner">
+
+        </div>
+    </div>
+    <div class="box3 panel">
+        <div class="inner">
+
+        </div>
+    </div>
+</body>
+</html>

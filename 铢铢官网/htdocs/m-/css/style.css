@@ -1,0 +1,398 @@
+body,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+li,
+span,
+i,
+ul,
+img,
+a,
+strong {
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+}
+body {
+  font-family: "microsoft yahei";
+  font-size: 0.24rem;
+}
+li {
+  list-style-type: none;
+  float: left;
+}
+a {
+  text-decoration: none;
+  color: #000;
+}
+img {
+  border: none;
+  vertical-align: middle;
+  margin-top: 0;
+}
+i,
+var {
+  font-style: normal;
+}
+button {
+  font-family: "microsoft yahei";
+  outline: none;
+  cursor: pointer;
+  font-size: 0.24rem;
+  border: none;
+}
+iframe {
+  border: none;
+}
+input,
+select,
+textarea {
+  outline: none;
+  font-family: "microsoft yahei";
+  font-size: 0.24rem;
+}
+textarea,
+input[type="submit"],
+input[type="reset"],
+input[type="button"],
+button {
+  -webkit-appearance: none;
+}
+textarea {
+  resize: none;
+}
+div {
+  margin: 0 auto;
+}
+.fl {
+  float: left;
+}
+.fr {
+  float: right;
+}
+.rogate {
+  transition: 0.3s;
+}
+.rogate:hover {
+  transform: rotate(90deg);
+}
+.ohei {
+  display: table;
+}
+.fixed {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: #fff;
+}
+.hide {
+  display: none;
+}
+body,
+html {
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+.mobile_wrap {
+  width: 100%;
+  height: 100%;
+}
+.typehei {
+  background: url(../img/8.png);
+  background-size: cover;
+}
+.teback {
+  background: url(../img/4.png);
+  background-size: cover;
+}
+.Recharge {
+  position: fixed;
+  width: 1.26rem;
+  height: 0.56rem;
+  border-radius: 0.3rem;
+  background: rgba(255, 255, 255, 0.7);
+  text-align: center;
+  line-height: 0.56rem;
+  top: 0.41rem;
+  margin-left: 6.04rem;
+  font-size: 0.32rem;
+  color: #2d2d2d;
+  z-index: 1;
+}
+.Recharge-sw {
+  position: fixed;
+  width: 1.26rem;
+  height: 0.56rem;
+  border-radius: 0.3rem;
+  background: rgba(255, 255, 255, 0.7);
+  text-align: center;
+  line-height: 0.56rem;
+  top: 0.41rem;
+  margin-left: 6.04rem;
+  font-size: 0.24rem;
+  color: #2d2d2d;
+  z-index: 1;
+}
+
+.down {
+  position: fixed;
+  bottom: 3.8rem;
+  width: 0.6rem;
+  height: 2.28rem;
+  line-height: 0.53rem;
+  border-radius: 0.3rem;
+  background: rgba(121, 70, 205, 0.8);
+  text-align: center;
+  left: 50%;
+  margin-left: 2.85rem;
+  font-size: 0.33rem;
+  color: #fff;
+  z-index: 1;
+}
+@keyframes scaleDiv {
+  0% {
+    transform: scale(1); /*开始为原始大小*/
+  }
+  25% {
+    transform: scale(1.065); /*放大1.1倍*/
+  }
+  50% {
+    transform: scale(1);
+  }
+  75% {
+    transform: scale(1.065);
+  }
+}
+.more {
+  position: fixed;
+  width: 100%;
+  text-align: center;
+  left: calc(50% - 50%);
+  z-index: 1;
+  bottom: 0.4rem;
+}
+.more img {
+  width: 0.75rem;
+  animation: scaleDiv 2s infinite alternate;
+}
+.one_page {
+  float: left;
+  width: 100%;
+  position: relative;
+}
+.one_page .logo {
+  margin: 1.08rem auto 0;
+  height: 1.6rem;
+}
+.one_page .logo img {
+  float: left;
+  width: 1.18rem;
+}
+.one_page .logo .text {
+  color: #fff;
+  float: right;
+  margin-left: 0.2rem;
+}
+.one_page .logo .text h2 {
+  font-weight: normal;
+  font-size: 0.48rem;
+  margin-bottom: 0.35rem;
+}
+.one_page .logo .text p {
+  margin-top: 0.1rem;
+}
+.one_page .pict {
+  text-align: center;
+}
+.one_page .pict h1 {
+  font-size: 0.46rem;
+  font-weight: normal;
+  color: #fff;
+  margin-top: 0.2rem;
+}
+.one_page .pict img {
+  width: 4rem;
+  margin-top: 0.43rem;
+}
+
+/*二维码*/
+
+.code {
+  float: left;
+  width: 100%;
+  position: relative;
+}
+.code h1 {
+  font-weight: normal;
+  font-size: 0.52rem;
+  color: #fff;
+  margin-top: 2.48rem;
+  text-align: center;
+}
+.code .pict {
+  text-align: center;
+  margin-top: 1.06rem;
+}
+.code .pict img {
+  width: 3.5rem;
+}
+.code .pict p {
+  font-size: 0.3852rem;
+  color: #fff;
+  margin-top: 0.14rem;
+}
+.bot_menu {
+  margin-top: 2rem;
+  color: #eee;
+}
+
+.bot_menu p,
+.bot_menu span {
+  line-height: 1.5;
+  font-size: 12px;
+}
+.bot_menu a {
+  color: #eee;
+  line-height: 1.5;
+  font-size: 12px;
+}
+.public {
+  float: left;
+  width: 100%;
+  text-align: center;
+  position: relative;
+}
+.public .text {
+  margin-top: 1.04rem;
+}
+.public .text p {
+  font-size: 0.45rem;
+  color: #fff;
+  margin-top: 0.28rem;
+}
+.public img {
+  margin-top: 0.5rem;
+}
+.two_page {
+}
+.two_page img {
+  width: 4rem;
+}
+.three_page {
+}
+.three_page img {
+  width: 4rem;
+}
+.four_page {
+}
+.four_page img {
+  width: 4rem;
+}
+
+.swiper-container {
+  width: 100%;
+  height: 100%;
+}
+.swiper-wrapper {
+  height: 100%;
+}
+.swiper-slide {
+  height: 100%;
+  position: relative;
+  display: table;
+}
+
+.alertbox {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 2;
+  display: none;
+}
+.alertbox .layout {
+  background: #fff;
+  width: 80%;
+  padding: 0.4rem 0;
+  -webkit-border-radius: 0.1rem;
+  -moz-border-radius: 0.1rem;
+  border-radius: 0.1rem;
+  position: relative;
+  top: 38%;
+}
+.alertbox .layout .close {
+  position: absolute;
+  right: 0.15rem;
+  top: 0.15rem;
+  cursor: pointer;
+}
+.alertbox .layout .close img {
+  width: 0.3rem;
+}
+.alertbox .layout h2 {
+  font-weight: normal;
+  line-height: 2;
+  width: 80%;
+  margin: 0.2rem auto;
+  margin-top: 0.3rem;
+}
+
+.alertbox-sw {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 2;
+  display: none;
+}
+.alertbox-sw .layout-sw {
+  background: #fff;
+  width: 80%;
+  padding: 0.4rem 0;
+  -webkit-border-radius: 0.1rem;
+  -moz-border-radius: 0.1rem;
+  border-radius: 0.1rem;
+  position: relative;
+  top: 38%;
+}
+.alertbox-sw .layout-sw .close {
+  position: absolute;
+  right: 0.15rem;
+  top: 0.15rem;
+  cursor: pointer;
+}
+.alertbox-sw .layout-sw .close img {
+  width: 0.3rem;
+}
+.alertbox-sw .layout-sw h2 {
+  font-weight: normal;
+  line-height: 2;
+  width: 80%;
+  margin: 0.2rem auto;
+  margin-top: 0.3rem;
+}
+
+@media screen and (min-width: 750px) {
+  .mobile_wrap {
+    width: 750px;
+  }
+  .fixed {
+    width: 750px;
+    margin-left: -375px;
+    left: 50%;
+  }
+  .alertbox {
+    width: 750px;
+    left: 50%;
+    margin-left: -375px;
+  }
+}

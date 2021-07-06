@@ -1,0 +1,78 @@
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0, viewport-fit=cover">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="msapplication-tap-highlight" content="no">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Cache-Control" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <title>开播看播活动</title>
+  <link rel="stylesheet" href="http://activity.folkcam.cn/common/comm.css">
+  <link rel="stylesheet" href="./hang.css?v=202009281724">
+</head>
+
+<body>
+  <!-- 主播端挂件 -->
+  <div class="wrap1 column popup font-family" onclick="openHang()">
+    <div class="wrap1-main">
+      <img class="wrap1-fade" src="./image/fade.png" alt="">
+      <img class="main-img" src="./image/hang1.png" alt="">
+      <img class="main" src="./image/框框.png" alt="">
+      <div class="receive">
+        <p>再播<span class="wrap1-time">10</span>分钟可领:</p>
+        <p class="youshe wrap1-awarded">随机聊天气泡</p>
+      </div>
+      <div class="receiving">
+        <p>当前可领奖励:</p>
+        <!-- <p class="award-over">太棒了,<br>你已领到<br>2000<span class="appUnit">收益积分</span></p> -->
+        <p class="youshe wrap1-awarding"><span class="wrap1-credits">0</span>积分</p>
+      </div>
+      <div class="deputy">单场播越久,奖越高</div>
+    </div>
+  </div>
+  <!-- 女性用户端挂件 -->
+  <div class="wrap2 column" onclick="openHang()">
+    <img src="./image/hang2.png" alt="">
+  </div>
+  <!-- 男性用户端挂件 -->
+  <div class="wrap3 column popup" onclick="openHang()">
+    <div class="wrap3-main">
+      <img src="./image/hang3.png" alt="">
+      <div class="main">
+        <div class="watch-time">
+          <div class="progress"></div>
+          <p>看播时长</p>
+          <p class="currTime">0/10</p>
+          <button class="summ-btn popup" onclick="userGetAward(6,this,1)">领取奖励</button>
+        </div>
+        <div class="send-comm">
+          <div class="progress"></div>
+          <p>发送评论</p>
+          <p class="currComm">0/30</p>
+          <button class="summ-btn popup" onclick="userGetAward(4,this,1)">领取奖励</button>
+        </div>
+        <div class="wrap3-all popup"></div>
+        <div class="fix-text column">每天领取一份奖励</div>
+      </div>
+    </div>
+  </div>
+</body>
+<script src="http://activity.folkcam.cn/common/jquery.min.js"></script>
+<script src="http://activity.folkcam.cn/common/rem.js"></script>
+<script src="http://res.cdn.openinstall.io/openinstall.js"></script>
+<script src="http://activity.folkcam.cn/common/layer/layer.js"></script>
+<script src="http://activity.folkcam.cn/common/config.js"></script>
+<script src="http://activity.folkcam.cn/common/app.js"></script>
+<script src="http://activity.folkcam.cn/common/moment.js"></script>
+<script src="./index.js?v=202009281900"></script>
+<script>
+  var str = window.location.href
+  // layer.msg(str.split('?').length)
+</script>
+
+</html>

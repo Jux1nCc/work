@@ -1,0 +1,66 @@
+/* pages/cook/cook.wxss */
+.nav{
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+ }
+ .nav-item{
+  width: 25%;
+  font-size: 12px;
+  margin-top: 20rpx;
+ }
+ .nav-item image{
+  width: 50rpx;
+  height: 50rpx;
+ }
+ .hr{
+  height: 30rpx;
+  background: #ccc;
+  margin-top: 30rpx;
+  opacity: 0.2;
+ }
+ .head{
+  display: flex;
+  flex-direction: row;
+  margin: 26rpx;
+  color: #ccc;
+ }
+ .right{
+  position: absolute;
+  right: 20rpx;
+  color: #ccc;
+}
+/* 模版的样式表 */
+.item{
+ display: flex;
+ flex-direction: row;
+ margin-left: 20rpx;
+ margin-bottom: 10rpx;
+ margin-top: 10rpx;
+}
+.desc{
+ margin-left: 40rpx;
+ line-height: 60rpx;
+}
+.title{
+ font-weight: bold;
+}
+.count{
+ display: flex;
+ flex-direction: row;
+ font-size: 24rpx;
+ color: #999;
+}
+.liulan{
+ position: absolute;
+ right: 140rpx;
+}
+.pinglun{
+ position: absolute;
+ right: 20rpx;
+}
+.hr2{
+ height: 4rpx;
+ background: #ccc;
+ opacity: 0.2;
+}

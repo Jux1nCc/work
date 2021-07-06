@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0, viewport-fit=cover">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="msapplication-tap-highlight" content="no">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Cache-Control" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <title>邀请有奖</title>
+  <!-- <script>
+    (function (para) {
+      var p = para.sdk_url, n = para.name, w = window, d = document, s = 'script', x = null, y = null;
+      if (typeof (w['sensorsDataAnalytic201505']) !== 'undefined') {
+        return false;
+      }
+      w['sensorsDataAnalytic201505'] = n;
+      w[n] = w[n] || function (a) { return function () { (w[n]._q = w[n]._q || []).push([a, arguments]); } };
+      var ifs = ['track', 'quick', 'register', 'registerPage', 'registerOnce', 'trackSignup', 'trackAbtest', 'setProfile', 'setOnceProfile', 'appendProfile', 'incrementProfile', 'deleteProfile', 'unsetProfile', 'identify', 'login', 'logout', 'trackLink', 'clearAllRegister', 'getAppStatus'];
+      for (var i = 0; i < ifs.length; i++) {
+        w[n][ifs[i]] = w[n].call(null, ifs[i]);
+      }
+      if (!w[n]._t) {
+        x = d.createElement(s), y = d.getElementsByTagName(s)[0];
+        x.async = 1;
+        x.src = p;
+        x.setAttribute('charset', 'UTF-8');
+        w[n].para = para;
+        y.parentNode.insertBefore(x, y);
+      }
+    })({
+      sdk_url: 'https://cdn.jsdelivr.net/npm/sa-sdk-javascript@1.16.15/sensorsdata.min.js',
+      name: 'sensors',
+      server_url: 'http://sensorsdata.expertol.cn/sa?token=schemaLimited-vKGPsjw9&project=zhuzhu_prod',
+      heatmap: { scroll_notice_map: 'not_collect' },
+      app_js_bridge: true
+    });
+    sensors.quick('autoTrack');
+  </script> -->
+  <script charset="UTF-8" src="sensorsdata.min.js"></script>
+  <script charset="UTF-8">
+    var sensors = window['sensorsDataAnalytic201505'];
+    sensors.init({
+      server_url: 'http://sensorsdata.expertol.cn/sa?token=schemaLimited-vKGPsjw9&project=zhuzhu_prod',
+      heatmap: { scroll_notice_map: 'not_collect' },
+      use_client_time: true,
+      send_type: 'beacon',
+      app_js_bridge: true
+    });
+    sensors.quick('autoTrack');
+  </script>
+  <link rel="stylesheet" href="http://activity.folkcam.cn/common/layer/theme/default/layer.css">
+  <link rel="stylesheet" href="http://activity.folkcam.cn/common/comm.css">
+  <style>
+    @font-face {
+      font-family: 'pingfang';
+      src: url('./inviteprize.ttf');
+      font-weight: normal;
+      font-style: normal;
+    }
+
+    .page {
+      width: 100vw;
+      height: 23.5rem;
+      background-color: #a739bf;
+      font-family: 'pingfang';
+    }
+
+    header {
+      width: 7.5rem;
+      height: 8.1rem;
+      background-image: url(images/invite_bg1.png);
+      background-size: 100% 100%;
+    }
+
+    .award-wrap {
+      width: 6.69rem;
+      height: 6.88rem;
+      background-color: rgba(255, 255, 255, .5);
+      margin: 0 auto;
+    }
+
+    .award-main {
+      width: 100%;
+      height: 100%;
+      background-image: url(images/wrap1_bg.png);
+      background-size: 100% 100%;
+      padding-top: .3rem;
+    }
+
+    .award-main .title {
+      color: #a739bf;
+      font-weight: 700;
+      font-size: .32rem;
+      margin-bottom: .2rem;
+    }
+
+    .award-main p {
+      font-size: .26rem;
+      color: #666;
+      margin-bottom: .35rem;
+    }
+
+    .extend-wrap {
+      position: relative;
+      width: 6.7rem;
+      height: 7.51rem;
+      background-color: #fff;
+      border-radius: .5rem;
+      margin: 0 auto;
+      margin-top: .77rem;
+      box-shadow: 1px 1px 10px #a739bf;
+      padding: 1rem 0 .72rem;
+      justify-content: space-between;
+    }
+
+    .extend-wrap .title {
+      position: absolute;
+      left: 19%;
+      top: -5%;
+      width: 4.38rem;
+      height: 1rem;
+      background-image: url(images/extend.png);
+      background-size: 100% 100%;
+    }
+
+    a.to-question {
+      position: absolute;
+      right: .48rem;
+      top: .77rem;
+      color: #408BF9;
+      text-decoration: underline;
+      font-size: .32rem;
+      font-weight: 700;
+    }
+
+    .copyText {
+      position: relative;
+      width: 5.75rem;
+      height: 3.2rem;
+      border-radius: 0.15rem;
+      background-color: #f7f7f7;
+      margin-bottom: .56rem;
+      align-items: flex-start;
+      justify-content: flex-start;
+      padding: .3rem;
+    }
+
+    .share-text {
+      font-size: .28rem;
+      color: #a739bf;
+      width: 5.45rem;
+    }
+
+    .share-count {
+      color: #000;
+      font-size: .3rem;
+      font-weight: 700;
+    }
+
+    .share-code {
+      font-size: .28rem;
+    }
+
+    .people {
+      padding: 0 .2rem;
+      text-align: center;
+      color: #a739bf;
+      border-bottom: 1px solid #a739bf;
+      font-size: .3rem;
+    }
+
+    .money {
+      padding: 0 .1rem;
+      font-size: .3rem;
+    }
+
+    .code {
+      font-size: .28rem;
+    }
+
+    .copy-btn {
+      width: 1.05rem;
+      height: .45rem;
+      background-color: #a739bf;
+      border-radius: .1rem;
+      color: #fff;
+      margin-left: .2rem;
+      font-size: .26rem;
+      border: none;
+    }
+
+    .copyText img {
+      position: absolute;
+      bottom: .16rem;
+      right: .27rem;
+      width: 1.2rem;
+      height: .52rem;
+    }
+
+    .ct-title {
+      font-size: .28rem;
+      font-weight: 700;
+      color: #000;
+      margin-bottom: .21rem;
+    }
+
+    .ct-text {
+      font-size: .26rem;
+      color: #666;
+      margin-bottom: .2rem;
+    }
+
+    .copyText span {
+      font-size: .26rem;
+      color: #a739bf;
+      text-decoration: underline;
+    }
+
+    #input {
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page">
+    <header></header>
+    <div class="award-wrap">
+      <div class="award-main column">
+        <div class="title">一重奖</div>
+        <p>每推荐1人注册，可获得50铢铢币。</p>
+        <div class="title">二重奖</div>
+        <p>邀请满50人注册成功，可以在获得<br />一重奖的基础上额外获得1000铢铢币。</p>
+        <p>邀请满100人注册成功，可以在获得<br />一重奖的基础上额外获得2000铢铢币。</p>
+        <p>邀请满500人注册成功，可以在获得<br />一重奖的基础上额外获得5000铢铢币。</p>
+        <p>邀请满1000人注册成功，可以在获得<br />一重奖的基础上额外获得10000铢铢币。</p>
+      </div>
+    </div>
+    <div class="extend-wrap column">
+      <div class="title"></div>
+      <p class="share-text">请把下面的话通过微信、QQ、短信或邮件发给你处于适婚年龄、正在找对象的朋友。</p>
+      <div class="copyText column">
+        <p class="ct-title">“铢铢”——更自然地找到真爱！</p>
+        <p class="ct-text">与相互喜欢的人免费畅聊、不看脸的走心模式更靠谱，已帮助众多单身男女找到真爱！</p>
+        <p style="font-size: .26rem;">点击 <span class="webUrl">http://www.zzright.cn/</span> 查看。如有疑问，请给我电话。</p>
+        <img src="images/copy.png" data-clipboard-target="#input" class="codeBtn" onclick="copyIcode(0)">
+      </div>
+      <p class="share-count flexbox">你已经推荐<span class="people">0</span>人，获得<span class="money">0</span>铢铢币。</p>
+      <p class="share-code flexbox">你的邀请码是：<span class="code" id="code">Xshdsfjsk</span><button class="copy-btn flexbox"
+          onclick="copyIcode(1)" data-clipboard-target="#input">复制</button></p>
+    </div>
+    <textarea id="input"></textarea>
+  </div>
+</body>
+<script src="http://activity.folkcam.cn/common/jquery.min.js"></script>
+<script src="http://activity.folkcam.cn/common/app.js"></script>
+<script src="http://activity.folkcam.cn/common/rem.js"></script>
+<script src="http://activity.folkcam.cn/common/config.js"></script>
+<script src="http://activity.folkcam.cn/common/layer/layer.js"></script>
+<!-- <script src="clipboard.js"></script> -->
+<!-- <script src="http://activity.folkcam.cn/common/vconsole.min.js"></script> -->
+<script>
+  // var vConsole = new VConsole()
+  // console.log(window.location.href);
+  var obj = {
+    inviteCnt: $config.getQueryStringByName("inviteCnt") || 0, // 邀请人数
+    iCode: $config.getQueryStringByName("iCode") || 'forever', // 邀请码
+    refCustBal: $config.getQueryStringByName("refCustBal") || 0, // 推荐余额
+    customerId: $config.getQueryStringByName("customerId") || '', // 推荐余额
+    mounted: function () {
+      $('.people').text(obj.inviteCnt)
+      $('.money').text(obj.refCustBal)
+      $('.code').text(obj.iCode)
+      $('.webUrl').text('http://www.zzright.cn?id=' + obj.customerId)
+    }
+  }
+  function copyIcode(type) {
+    var copyText = null
+    if (type) {
+      copyText = obj.iCode
+      // var clipboard = new ClipboardJS('.copy-btn');
+    } else {
+      copyText = '铢铢，更自然地找到真爱！找对象不直接看脸，避免尴尬、更靠谱。与相互喜欢的人，免费自由的交流。铢铢已帮助众多单身男女找到真爱，点击 http://www.zzright.cn/?id=' + obj.customerId + ' 查看。如有疑问，请给我电话。'
+      // var clipboard = new ClipboardJS('.codeBtn');
+    }
+    var input = document.getElementById("input");
+    input.value = copyText
+    input.select(); // 选中文本
+    document.execCommand("copy"); // 执行浏览器复制命令
+    layer.msg('复制成功')
+    input.blur()
+    // clipboard.on("success", function (e) {
+    //   layer.msg('复制成功')
+    //   e.clearSelection();
+    // });
+    // clipboard.on("error", function (e) {
+    //   layer.msg('复制失败')
+    // });
+  }
+  // function share() {
+  //   https://www.jernal.cn/
+  //   var img = "http://qsurl.jernal.cn/miao.png",
+  //     title = '“铢铢”——更自然地找到真爱！',
+  //     subtitle = '与相互喜欢的人免费畅聊、不看脸的走心模式更靠谱，已帮助众多单身男女找到真爱！点击查看>',
+  //     url = 'https://www.jernal.cn/'
+  //   if ($config.browser.versions.android) {
+  //     client.jumpToShare(img, title, url, subtitle);
+  //   } else {
+  //     window.webkit.messageHandlers.jumpToShare.postMessage({
+  //       img: img,
+  //       title: title,
+  //       url: url,
+  //       subtitle: subtitle,
+  //     });
+  //   }
+  // }
+  obj.mounted()
+</script>
+
+</html>

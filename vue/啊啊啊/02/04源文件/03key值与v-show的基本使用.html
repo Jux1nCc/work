@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- 
+          有时候标签长得太像，vue也不一定能识别,
+          key就代表你的身份证
+          key值不能是对象，尽量都写字符串与数字 
+          key后面的值不要写一样
+    -->
+
+    <!-- 
+v-show指令
+用法：v-show="boolean值"
+      true:正常显示
+      false:隐藏  （display:none）
+      v-show没有v-else
+功能：控制标签是否显示（实际控制的是display:none）
+
+v-if与v-show有什么区别：
+1：v-if是控制 标签是否渲染，v-show是控制标签是否显示（实际就是控制display:none）
+2:什么场景使用v-if什么场景使用v-show
+  1:当多条件控制 时优先使用v-if
+  2:当内容频繁切换时优先考虑v-show
+  3:实际项目使用中多数优先使用v-if
+ -->
+    <div id="app">
+      <button @click="bol=!bol">点我切换</button>
+      <!-- <ul>
+    <li v-for="(item, index) in items" :key="index"></li>
+</ul> -->
+      <!-- <div v-if="bol" key="0">
+        <span>用户名</span>
+        <input type="text" placeholder="请输入用户名" />
+      </div>
+      <div v-else key="1">
+        <span>密码</span>
+        <input type="text" placeholder="请输入密码" />
+      </div> -->
+      <div v-show="bol" key="0">
+        <span>用户名</span>
+        <input type="text" placeholder="请输入用户名" />
+      </div>
+      <div v-show="!bol" key="1">
+        <span>密码</span>
+        <input type="text" placeholder="请输入密码" />
+      </div>
+    </div>
+    <script src="./vue.js"></script>
+    <script>
+      new Vue({
+        el: "#app",
+        data: {
+          bol: true,
+        },
+      });
+    </script>
+  </body>
+</html>

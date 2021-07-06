@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 字体图标 -->
+    <link rel="stylesheet" href="./fonts/icomoon.css">
+    <!-- 初始化样式 -->
+    <link rel="stylesheet" href="./css/base.css">
+    <!-- 项目样式 -->
+    <link rel="stylesheet" href="./css/index.css">
+    <!-- jquery -->
+    <script src="./js/jquery-1.12.4.js"></script>
+    <!-- js样式 -->
+    <script src="./js/index.js"></script>
+    <!-- 图标样式 -->
+    <script src="./js/echarts.js"></script>
+    <!-- 地图样式 -->
+    <script src="./js/china.js"></script>
+</head>
+
+<body>
+    <!-- 版心 -->
+    <div class="container">
+        <!-- 第一列 -->
+        <div class="con-left">
+            <!-- 设备数据 -->
+            <div class="overview panel">
+                <div class="inner">
+                    <div class="item">
+                        <p>2,190</p>
+                        <span><i class="icon-dot" style="color: #006CFF;"></i>设备总数</span>
+                    </div>
+                    <div class="item">
+                        <p>190</p>
+                        <span><i class="icon-dot"></i>季度新增</span>
+                    </div>
+                    <div class="item">
+                        <p>3,001</p>
+                        <span><i class="icon-dot"></i>运营设备</span>
+                    </div>
+                    <div class="item">
+                        <p>108</p>
+                        <span><i class="icon-dot" style="color: #ED3F35;"></i>异常设备</span>
+                    </div>
+                </div>
+            </div>
+            <!-- 故障监控 -->
+            <div class="monitor panel">
+                <div class="inner">
+                    <div class="tabs">
+                        <a href="javascript:;" class="active">故障设备监控</a>
+                        <a href="javascript:;">异常设备监控</a>
+                    </div>
+                    <div class="content">
+                        <div class="head">
+                            <span>故障时间</span>
+                            <span>故障地址</span>
+                            <span>故障代码</span>
+                        </div>
+                        <div class="content-view">
+                            <div class="carousel">
+                                <div class="row">
+                                    <span class="col">20200221</span>
+                                    <span class="col">广东省深圳市福田区滨海大道新洲十一街新洲花园5栋203</span>
+                                    <span class="col">1000001</span>
+                                    <i class="icon-dot"></i>
+                                </div>
+                                <div class="row">
+                                    <span class="col">20200221</span>
+                                    <span class="col">广东省深圳市福田区滨海大道新洲十一街新洲花园5栋203</span>
+                                    <span class="col">1000001</span>
+                                    <i class="icon-dot"></i>
+                                </div>
+                                <div class="row">
+                                    <span class="col">20200221</span>
+                                    <span class="col">广东省深圳市福田区滨海大道新洲十一街新洲花园5栋203</span>
+                                    <span class="col">1000001</span>
+                                    <i class="icon-dot"></i>
+                                </div>
+                                <div class="row">
+                                    <span class="col">20200221</span>
+                                    <span class="col">广东省深圳市福田区滨海大道新洲十一街新洲花园5栋203</span>
+                                    <span class="col">1000001</span>
+                                    <i class="icon-dot"></i>
+                                </div>
+                                <div class="row">
+                                    <span class="col">20200221</span>
+                                    <span class="col">广东省深圳市福田区滨海大道新洲十一街新洲花园5栋203</span>
+                                    <span class="col">1000001</span>
+                                    <i class="icon-dot"></i>
+                                </div>
+                                <div class="row">
+                                    <span class="col">20200221</span>
+                                    <span class="col">广东省深圳市福田区滨海大道新洲十一街新洲花园5栋203</span>
+                                    <span class="col">1000001</span>
+                                    <i class="icon-dot"></i>
+                                </div>
+                                <div class="row">
+                                    <span class="col">20200221</span>
+                                    <span class="col">广东省深圳市福田区滨海大道新洲十一街新洲花园5栋203</span>
+                                    <span class="col">1000001</span>
+                                    <i class="icon-dot"></i>
+                                </div>
+                                <div class="row">
+                                    <span class="col">20200221</span>
+                                    <span class="col">广东省深圳市福田区滨海大道新洲十一街新洲花园5栋203</span>
+                                    <span class="col">1000001</span>
+                                    <i class="icon-dot"></i>
+                                </div>
+                                <div class="row">
+                                    <span class="col">20200221</span>
+                                    <span class="col">广东省深圳市福田区滨海大道新洲十一街新洲花园5栋203</span>
+                                    <span class="col">1000001</span>
+                                    <i class="icon-dot"></i>
+                                </div>
+                                <div class="row">
+                                    <span class="col">20200221</span>
+                                    <span class="col">广东省深圳市福田区滨海大道新洲十一街新洲花园5栋203</span>
+                                    <span class="col">1000001</span>
+                                    <i class="icon-dot"></i>
+                                </div>
+                                <div class="row">
+                                    <span class="col">20200221</span>
+                                    <span class="col">广东省深圳市福田区滨海大道新洲十一街新洲花园5栋203</span>
+                                    <span class="col">1000001</span>
+                                    <i class="icon-dot"></i>
+                                </div>
+                                <div class="row">
+                                    <span class="col">20200221</span>
+                                    <span class="col">广东省深圳市福田区滨海大道新洲十一街新洲花园5栋203</span>
+                                    <span class="col">1000001</span>
+                                    <i class="icon-dot"></i>
+                                </div>
+                                <div class="row">
+                                    <span class="col">20200221</span>
+                                    <span class="col">广东省深圳市福田区滨海大道新洲十一街新洲花园5栋203</span>
+                                    <span class="col">1000001</span>
+                                    <i class="icon-dot"></i>
+                                </div>
+                                <div class="row">
+                                    <span class="col">20200221</span>
+                                    <span class="col">广东省深圳市福田区滨海大道新洲十一街新洲花园5栋203</span>
+                                    <span class="col">1000001</span>
+                                    <i class="icon-dot"></i>
+                                </div>
+                                <div class="row">
+                                    <span class="col">20200221</span>
+                                    <span class="col">广东省深圳市福田区滨海大道新洲十一街新洲花园5栋203</span>
+                                    <span class="col">1000001</span>
+                                    <i class="icon-dot"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="content" style="display: none;">
+                        <div class="head">
+                            <span>异常时间</span>
+                            <span>异常地址</span>
+                            <span>异常代码</span>
+                        </div>
+                        <div class="content-view">
+                            <div class="carousel">
+                                <div class="row">
+                                    <span class="col">20200223</span>
+                                    <span class="col">广东省深圳市福田区滨海大道新洲十一街新洲花园5栋203</span>
+                                    <span class="col"> 1000520</span>
+                                    <i class="icon-dot"></i>
+                                </div>
+                                <div class="row">
+                                    <span class="col">20200223</span>
+                                    <span class="col">广东省深圳市福田区滨海大道新洲十一街新洲花园5栋203</span>
+                                    <span class="col"> 1000520</span>
+                                    <i class="icon-dot"></i>
+                                </div>
+                                <div class="row">
+                                    <span class="col">20200223</span>
+                                    <span class="col">广东省深圳市福田区滨海大道新洲十一街新洲花园5栋203</span>
+                                    <span class="col"> 1000520</span>
+                                    <i class="icon-dot"></i>
+                                </div>
+                                <div class="row">
+                                    <span class="col">20200223</span>
+                                    <span class="col">广东省深圳市福田区滨海大道新洲十一街新洲花园5栋203</span>
+                                    <span class="col"> 1000520</span>
+                                    <i class="icon-dot"></i>
+                                </div>
+                                <div class="row">
+                                    <span class="col">20200223</span>
+                                    <span class="col">广东省深圳市福田区滨海大道新洲十一街新洲花园5栋203</span>
+                                    <span class="col"> 1000520</span>
+                                    <i class="icon-dot"></i>
+                                </div>
+                                <div class="row">
+                                    <span class="col">20200223</span>
+                                    <span class="col">广东省深圳市福田区滨海大道新洲十一街新洲花园5栋203</span>
+                                    <span class="col"> 1000520</span>
+                                    <i class="icon-dot"></i>
+                                </div>
+                                <div class="row">
+                                    <span class="col">20200223</span>
+                                    <span class="col">广东省深圳市福田区滨海大道新洲十一街新洲花园5栋203</span>
+                                    <span class="col"> 1000520</span>
+                                    <i class="icon-dot"></i>
+                                </div>
+                                <div class="row">
+                                    <span class="col">20200223</span>
+                                    <span class="col">广东省深圳市福田区滨海大道新洲十一街新洲花园5栋203</span>
+                                    <span class="col"> 1000520</span>
+                                    <i class="icon-dot"></i>
+                                </div>
+                                <div class="row">
+                                    <span class="col">20200223</span>
+                                    <span class="col">广东省深圳市福田区滨海大道新洲十一街新洲花园5栋203</span>
+                                    <span class="col"> 1000520</span>
+                                    <i class="icon-dot"></i>
+                                </div>
+                                <div class="row">
+                                    <span class="col">20200223</span>
+                                    <span class="col">广东省深圳市福田区滨海大道新洲十一街新洲花园5栋203</span>
+                                    <span class="col"> 1000520</span>
+                                    <i class="icon-dot"></i>
+                                </div>
+                                <div class="row">
+                                    <span class="col">20200223</span>
+                                    <span class="col">广东省深圳市福田区滨海大道新洲十一街新洲花园5栋203</span>
+                                    <span class="col"> 1000520</span>
+                                    <i class="icon-dot"></i>
+                                </div>
+                                <div class="row">
+                                    <span class="col">20200223</span>
+                                    <span class="col">广东省深圳市福田区滨海大道新洲十一街新洲花园5栋203</span>
+                                    <span class="col"> 1000520</span>
+                                    <i class="icon-dot"></i>
+                                </div>
+                                <div class="row">
+                                    <span class="col">20200223</span>
+                                    <span class="col">广东省深圳市福田区滨海大道新洲十一街新洲花园5栋203</span>
+                                    <span class="col"> 1000520</span>
+                                    <i class="icon-dot"></i>
+                                </div>
+                                <div class="row">
+                                    <span class="col">20200223</span>
+                                    <span class="col">广东省深圳市福田区滨海大道新洲十一街新洲花园5栋203</span>
+                                    <span class="col"> 1000520</span>
+                                    <i class="icon-dot"></i>
+                                </div>
+                                <div class="row">
+                                    <span class="col">20200223</span>
+                                    <span class="col">广东省深圳市福田区滨海大道新洲十一街新洲花园5栋203</span>
+                                    <span class="col"> 1000520</span>
+                                    <i class="icon-dot"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <!-- 点位分布 -->
+            <div class="point panel">
+                <div class="inner">
+                    <h3>点位分布统计</h3>
+                    <div class="chart">
+                        <div class="pie"></div>
+                        <div class="data">
+                            <div class="item">
+                                <p>320,11</p>
+                                <span> <i class="icon-dot"></i> 点位总数</span>
+                            </div>
+                            <div class="item">
+                                <p>418</p>
+                                <span> <i class="icon-dot"></i> 本月新增</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 第二列 -->
+        <div class="con-center">
+            <!-- 全国统计图 -->
+            <div class="map">
+                <h3><i class="icon-cube"></i>设备数据统计</h3>
+                <div class="chart">
+                    <div class="geo"></div>
+                </div>
+            </div>
+            <!-- 全国用户量 -->
+            <div class="user panel">
+                <div class="inner">
+                    <h3>全国用户总量统计</h3>
+                    <div class="chart">
+                        <div class="bar"></div>
+                        <div class="data">
+                            <div class="item">
+                                <p>120,899</p>
+                                <span><i class="icon-dot"></i>用户总量</span>
+                            </div>
+                            <div class="item">
+                                <p>248</p>
+                                <span><i class="icon-dot"></i>本月新增</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 第三列 -->
+        <div class="con-right">
+            <!-- 订单统计 -->
+            <div class="order panel">
+                <div class="inner">
+                    <div class="fifter">
+                        <ul>
+                            <li>365天</li>
+                            <li>90天</li>
+                            <li class="active">30天</li>
+                            <li>24小时</li>
+                        </ul>
+                    </div>
+                    <div class="data">
+                        <div class="item">
+                            <h4>1,987</h4>
+                            <span><i class="icon-dot"></i>订单量</span>
+                        </div>
+                        <div class="item">
+                            <h4>3834</h4>
+                            <span><i class="icon-dot"></i>销售额(万元)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 销售额统计 -->
+            <div class="sales panel">
+                <div class="inner">
+                    <div class="caption">
+                        <h3>销售额统计</h3>
+                        <ul>
+                            <li>年</li>
+                            <li>季</li>
+                            <li class="active">月</li>
+                            <li>周</li>
+                        </ul>
+                    </div>
+                    <div class="chart">
+                        <div class="line"></div>
+                    </div>
+                </div>
+            </div>
+            <!-- 渠道分布和销售进度 -->
+            <div class="wrap">
+                <!-- 渠道分布 -->
+                <div class="channel panel">
+                    <div class="inner">
+                        <h3>渠道分布</h3>
+                        <div class="data">
+                            <div class="item">
+                                <h4>39 <small>%</small></h4>
+                                <span><i class="icon-plane"></i> 机场</span>
+                            </div>
+                            <div class="item">
+                                <h4>28 <small>%</small></h4>
+                                <span><i class="icon-bag"></i> 商城</span>
+                            </div>
+                        </div>
+                        <div class="data">
+                            <div class="item">
+                                <h4>20 <small>%</small></h4>
+                                <span>
+                                    <i class="icon-train"></i>
+                                    地铁
+                                </span>
+                            </div>
+                            <div class="item">
+                                <h4>13 <small>%</small></h4>
+                                <span>
+                                    <i class="icon-bus"></i>
+                                    火车站
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 一季度销售额 -->
+                <div class="quarter panel">
+                    <div class="inner">
+                        <h3>一季度销售进度</h3>
+                        <div class="chart">
+                            <div class="gauge"></div>
+                            <div class="lable">75<small> %</small></div>
+                        </div>
+                        <div class="data">
+                            <div class="item">
+                                <h4>1,321</h4>
+                                <span><i class="icon-dot" style="color: #6acca3"></i>
+                                    销售额(万元)</span>
+                            </div>
+                            <div class="item">
+                                <h4>150%</h4>
+                                <span><i class="icon-dot" style="color: #ed3f35"></i>
+                                    同比增长</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 全国热榜 -->
+            <div class="hot panel">
+                <div class="inner">
+                    <div class="all">
+                        <h3>全国热榜</h3>
+                        <ul>
+                            <li><i class="icon-cup1" style="color: #d93f36;"></i>
+                                可爱多</li>
+                            <li><i class="icon-cup2" style="color: #68d8fe;"></i>
+                                娃哈啥</li>
+                            <li><i class="icon-cup3" style="color: #4c9bfd;"></i>
+                                喜之郎</li>
+                        </ul>
+                    </div>
+                    <div class="province">
+                        <h3>各省热销 <i class="date">// 近30日 //</i></h3>
+                        <div class="data">
+                            <ul class="sup">
+                                <li  class="active">
+                                    <span>北京</span>
+                                    <span>25,179 <s class="icon-up" style="color: #DC3C33"></s></span>
+                                </li>
+                                <li>
+                                    <span>河北</span>
+                                    <span>23,252 <s class="icon-down" style="color: #36BE90"></s></span>
+                                </li>
+                                <li>
+                                    <span>上海</span>
+                                    <span>20,760 <s class="icon-up" style="color: #DC3C33"></s></span>
+                                </li>
+                                <li>
+                                    <span>江苏</span>
+                                    <span>23,252 <s class="icon-down" style="color: #36BE90"></s></span>
+                                </li>
+                                <li>
+                                    <span>山东</span>
+                                    <span>20,760 <s class="icon-up" style="color: #DC3C33"></s></span>
+                                </li>
+                            </ul>
+                            <ul class="sup">
+                                <li>
+                                    <span>
+                                    </span>可爱多<span> <s class="icon-up" style="color: #DC3C33"></s>9,086
+                                    </span>
+                                </li>
+                                <li>
+                                    <span>
+                                    </span>娃哈哈<span> <s class="icon-up" style="color: #DC3C33"></s>8,341
+                                    </span>
+                                </li>
+                                <li>
+                                    <span>
+                                    </span>喜之郎<span> <s class="icon-up" style="color: #DC3C33"></s>7,407
+                                    </span>
+                                </li>
+                                <li>
+                                    <span>
+                                    </span>八喜<span> <s class="icon-up" style="color: #DC3C33"></s>6,080
+                                    </span>
+                                </li>
+                                <li>
+                                    <span>
+                                    </span>小洋人<span> <s class="icon-up" style="color: #DC3C33"></s>6,724
+                                    </span>
+                                </li>
+                                <li>
+                                    <span>
+                                    </span>好多鱼<span> <s class="icon-up" style="color: #DC3C33"></s>2,170
+                                    </span>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

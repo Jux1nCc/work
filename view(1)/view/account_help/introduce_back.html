@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<title>充值</title>
+<meta http-equiv="content-type" content="text/html;charset=utf-8">
+<meta id="viewport" name="viewport"
+	content="width=device-width; initial-scale=1.0;  minimum-scale=1.0; maximum-scale=1.0">
+<meta name="format-detection" content="telephone=no">
+<link href="./css/style_wsczNew_html5.css" rel="stylesheet"
+	type="text/css">
+<link href="./css/wsczgb.css?t=201750627" rel="stylesheet"
+	type="text/css">
+<script language="javascript" type="text/javascript"
+	src="./js/jquery-1.7.1.min.js"></script>
+<script language="javascript" type="text/javascript" src="./js/main.js"></script>
+<!-- <script language="javascript" type="text/javascript" -->
+<!-- 	src="./js/dialog.js"></script> -->
+<!--<script type="text/javascript" src="./mobile/resource/touch/js/business/wscznew/WSCZGB.js?t=20161213"></script>-->
+<!-- <script type="text/javascript" src="./js/WSCZGBjquery.js"></script> -->
+<!--<script type="text/javascript" src="./mobile/resource/touch/js/business/wscznew/js.js"></script>-->
+<!-- <script language="javascript" type="text/javascript" -->
+<!-- 	src="./js/Page20170217.js"></script> -->
+<!-- <script language="javascript" type="text/javascript" -->
+<!-- 	src="./js/CM20170217.js"></script> -->
+<script language="javascript" type="text/javascript"
+	src="../../view/js/common.js"></script>
+<script type="text/javascript" src="./js/WSCZGB.js?t=20161213"></script>
+<!--<script language="javascript" type="text/javascript" src="./mobile/resource/touch/js/business/insertCodeKD/H.js"></script>-->
+<!--  <script language="javascript" type="text/javascript" src="./mobile/resource/touch/js/business/insertCodeKD/CM.js?20161014"></script>-->
+<!-- <script language="javascript" type="text/javascript" -->
+<!-- 	src="./js/sdc_simpleJS_160405.js"></script> -->
+<style type="text/css">
+.imgtest {
+	margin: 10px 5px;
+	overflow: hidden;
+}
+
+.list_ul figcaption p {
+	font-size: 12px;
+	color: #aaa;
+}
+
+.imgtest figure .photo {
+	display: inline-block;
+	margin: 23px auto;
+	width: 60px;
+	height: 60px;
+	border-radius: 100px;
+	border: 2px solid #fff;
+	overflow: hidden;
+	-webkit-box-shadow: 0 0 3px #ccc;
+	box-shadow: 0 0 3px #ccc;
+}
+
+.imgtest img {
+	width: 100%;
+	min-height: 100%;
+	text-align: center;
+}
+
+.imgtest figure .info {
+	padding-top: 30px;
+	/* padding-left:30px; */
+	display: inline-block;
+	margin: 5px auto;
+	width: 70%;
+	height: 60px;
+	overflow: hidden;
+	float:left;
+}
+</style>
+</head>
+<body>
+	<!--//header-->
+	<div id="busiArea" class="gridMain">
+		<input type="hidden" name="responseTime" value="0">
+<!-- 		<form method="post" id="form1" name="form1" action="QUICKPAYMENT.html"> -->
+			<input type="hidden" value="" id="bid"
+				name="B_ID"> <input type="hidden" value="QUICKPAYMENT"
+				id="busiNum" name="busiNum"> <input type="hidden" value="0"
+				id="yhqMoneyValue" name="yhqMoneyValue"> <input
+				type="hidden" value="6" id="amount" name="amount"> <input
+				type="hidden" value="" id="isTest" name="isTest"> <input
+				type="hidden" value="0" id="yhPayMoney" name="yhPayMoney"> <input
+				type="hidden" value="3" id="paytype" name="paytype"> <input
+				type="hidden" value="" id="openid" name="openid"> <input
+				type="hidden" value="NULL" id="fastczq" name="fastczq"> <input
+				type="hidden" value="NULL" id="ecpczq" name="ecpczq"> <input
+				type="hidden" value="" id="czqValFast" name="czqValFast"> <input
+				type="hidden" value="NULL" id="czqtype" name="czqtype"> <input
+				type="hidden" value="" id="viewName" name="viewName"><input
+				type="hidden" value="" id="second_view_name" name="second_view_name">
+			<input type="hidden" value="" id="mobile" name="mobile">
+			<input type="hidden" value="" id="marketFirstPkid"
+				name="marketFirstPkid"> <input type="hidden" value=""
+				id="marketSecondPkid" name="marketSecondPkid"> <input
+				type="hidden" value="4" id="marketType" name="marketType"> <input
+				type="hidden" value="$resultVal.moneyyue" id="moneyyue"
+				name="moneyyue"> <input type="hidden" value=""
+				id="loginmobile" name="loginmobile"> <input type="hidden"
+				value="$resultVal.sumCzqCount" id="sumCzqCount" name="sumCzqCount">
+
+			<input type="hidden" value="$resultVal.isFirstFund" id="isFirstFund"
+				name="isFirstFund"> <input type="hidden" value=""
+				id="yhqAccount" name="yhqAccount"> <input type="hidden"
+				value="500" id="accountHis" name="accountHis"> <input
+				type="hidden" value="Empty" id="bid"> <input type="hidden"
+				value="$resultVal.hmqc" id="hmqc" name="hmqc"> <input
+				type="hidden" value="y" id="wednesday" name="wednesday">
+
+			<!--充值方式-->
+			<div class="cz_way" id="firstIndexDiv">
+				<!--充值text-->
+				<div class="cz_text">
+					<!--普通充值-->
+					<div class="way" id="divOne">
+						<div class="way_text"></div>
+						<!--优惠活动-->
+						<div class="yhact" style="margin: 5px auto;">
+							<div class="czje_con">
+								<div class="imgtest">
+									<figure>
+										<div class="photo" style="float: left">
+											<img  id="customerInfoForPhoto" />
+										</div>
+										<div class="info" style="text-align: left;margin-left:10px;">
+											<p id="customerInfoForName"> ( 兔聊号: </p>
+											<p style="font-weight: bold;" id="customerInfoForAccount">购买的聊币余额: </p>
+										</div>
+									</figure>
+								</div>
+								<!--充值金额-->
+								<div class="czje czje-sel clearfix">
+									<p style="font-weight: bold; margin: 5px 0 5px 2.5%;">
+										请选择充值方式，<span style="color: red">支付宝充值有赠送</span>
+									</p>
+									<ul>
+										<li collect="CZSY_07"
+											onclick="WSCZGBBusiComp.selectPaytypeSecond(this,'3')"
+											id="3p" name="aas" collectready="true" style="border: 0"><img
+											style="width: 100%; height:100%;" 
+											src="./images/Alipay_p.png" alt="" id="imgFor3p" ></li>
+										<li collect="CZSY_08" id="11p"
+											onclick="WSCZGBBusiComp.selectPaytypeSecond(this,'11')"
+											name="aas" style="border: 0" ><img
+											style="width: 100%; height:100%;" 
+											src="./images/wechat_n.png" alt="" id="imgFor11p"></li>
+											
+										<!-- <li collect="CZSY_09" id="30y"
+											onclick="WSCZGBBusiComp.aas(this)" name="aas"
+											touchvid="T051709392996601214" touchcode="CZSY_09"
+											collectready="true">其他支付</li> -->
+									</ul>
+								</div>
+								<!--//充值金额-->
+								<!--充值金额-->
+								<div class="czje clearfix" style="display: none">
+									<ul class="alldisabled">
+										<li><img
+											style="width: 35px; height: 35px; margin-right: 2%"
+											src="./images/pic_10.png" alt="">支付宝钱包</li>
+										<li>18元</li>
+									</ul>
+								</div>
+								<!--//充值金额-->
+							</div>
+
+							
+							<div class="zffs clearfix">
+								<ul>
+									<li class="clearfix"><label targetareaname="CZDDQR"
+										onclick="javascript:WSCZGBBusiComp.abs(this,'6')"> <input
+											type="radio" collect="CZSY_16" name="zffs" id="wxZF1"
+											checked="checked" touchvid="T051709392996792845"
+											touchcode="CZSY_16" collectready="true"><span></span>
+											<p>
+												<font
+													style="color: black; font-weight: 800; font-size: 14px;">420聊币</font><font
+													style="color: black; font-weight: 800; "
+													class="payAmountFordisplay1"> + </font><font
+													class="payAmountFordisplay"
+													style="color: red; font-weight: 600; "
+													id="sjMoneyEM">180聊币(赠)</font><br> <font
+													style="color: #ff8000; font-weight: 600; "
+													id="yfPayMoney">￥6</font>
+											</p>
+									</label></li>
+									<li class="clearfix"><label targetareaname="CZDDQR"
+										onclick="javascript:WSCZGBBusiComp.abs(this,'18')"> <input
+											type="radio" collect="CZSY_17" name="zffs" id="wxZF2"
+											touchvid="T051709392996732762" touchcode="CZSY_17"
+											collectready="true"> <span></span>
+											<p>
+												<font
+													style="color: black; font-weight: 800; font-size: 14px;">1260聊币</font><font
+													style="color: black; font-weight: 800; font-size: 14px;"
+													class="payAmountFordisplay1"> + </font><font
+													class="payAmountFordisplay"
+													style="color: red; font-weight: 800; font-size: 14px;"
+													id="sjMoneyEM">540聊币(赠)</font><br> <font
+													style="color: #ff8000; font-weight: 800; font-size: 14px;"
+													id="yfPayMoney">￥18</font>
+											</p>
+									</label></li>
+									<li class="clearfix"><label targetareaname="CZDDQR"
+										onclick="javascript:WSCZGBBusiComp.abs(this,'30')"> <input
+											type="radio" collect="CZSY_17" name="zffs" id="wxZF3"
+											touchvid="T051709392996732762" touchcode="CZSY_17"
+											collectready="true"> <span></span>
+											<p>
+												<font
+													style="color: black; font-weight: 800; font-size: 14px;">2100聊币</font><font
+													style="color: black; font-weight: 800; font-size: 14px;"
+													class="payAmountFordisplay1"> + </font><font
+													class="payAmountFordisplay"
+													style="color: red; font-weight: 800; font-size: 14px;"
+													id="sjMoneyEM">900聊币(赠)</font><br> <font
+													style="color: #ff8000; font-weight: 800; font-size: 14px;"
+													id="yfPayMoney">￥30</font>
+											</p>
+									</label></li>
+									<li class="clearfix"><label targetareaname="CZDDQR"
+										onclick="javascript:WSCZGBBusiComp.abs(this,'50')"> <input
+											type="radio" collect="CZSY_17" name="zffs" id="wxZF4"
+											touchvid="T051709392996732762" touchcode="CZSY_17"
+											collectready="true"> <span></span>
+											<p>
+												<font
+													style="color: black; font-weight: 800; font-size: 14px;">3500聊币</font><font
+													style="color: black; font-weight: 800; font-size: 14px;"
+													class="payAmountFordisplay1"> + </font><font
+													class="payAmountFordisplay"
+													style="color: red; font-weight: 800; font-size: 14px;"
+													id="sjMoneyEM">1500聊币(赠)</font><br> <font
+													style="color: #ff8000; font-weight: 800; font-size: 14px;"
+													id="yfPayMoney">￥50</font>
+											</p>
+									</label></li>
+									<li class="clearfix"><label targetareaname="CZDDQR"
+										onclick="javascript:WSCZGBBusiComp.abs(this,'98')"> <input
+											type="radio" collect="CZSY_17" name="zffs" id="wxZF5"
+											touchvid="T051709392996732762" touchcode="CZSY_17"
+											collectready="true"> <span></span>
+											<p>
+												<font
+													style="color: black; font-weight: 800; font-size: 14px;">6860聊币</font><font
+													style="color: black; font-weight: 800; font-size: 14px;"
+													class="payAmountFordisplay1"> + </font><font
+													class="payAmountFordisplay"
+													style="color: red; font-weight: 800; font-size: 14px;"
+													id="sjMoneyEM">2940聊币(赠)</font><br> <font
+													style="color: #ff8000; font-weight: 800; font-size: 14px;"
+													id="yfPayMoney">￥98</font>
+											</p>
+									</label></li>
+									<li class="clearfix"><label targetareaname="CZDDQR"
+										onclick="javascript:WSCZGBBusiComp.abs(this,'298')"> <input
+											type="radio" collect="CZSY_17" name="zffs" id="wxZF6"
+											touchvid="T051709392996732762" touchcode="CZSY_17"
+											collectready="true"> <span></span>
+											<p>
+												<font
+													style="color: black; font-weight: 800; font-size: 14px;">20860聊币</font><font
+													style="color: black; font-weight: 800; font-size: 14px;"
+													class="payAmountFordisplay1"> + </font><font
+													class="payAmountFordisplay"
+													style="color: red; font-weight: 800; font-size: 14px;"
+													id="sjMoneyEM">8940聊币(赠)</font><br> <font
+													style="color: #ff8000; font-weight: 800; font-size: 14px;"
+													id="yfPayMoney">￥298</font>
+											</p>
+									</label></li>
+									<li class="clearfix"><label targetareaname="CZDDQR"
+										onclick="javascript:WSCZGBBusiComp.abs(this,'488')"> <input
+											type="radio" collect="CZSY_17" name="zffs" id="wxZF7"
+											touchvid="T051709392996732762" touchcode="CZSY_17"
+											collectready="true"> <span></span>
+											<p>
+												<font
+													style="color: black; font-weight: 800; font-size: 14px;">34160聊币</font><font
+													style="color: black; font-weight: 800; font-size: 14px;"
+													class="payAmountFordisplay1"> + </font><font
+													class="payAmountFordisplay"
+													style="color: red; font-weight: 800; font-size: 14px;"
+													id="sjMoneyEM">14640聊币(赠)</font><br> <font
+													style="color: #ff8000; font-weight: 800; font-size: 14px;"
+													id="yfPayMoney">￥488</font>
+											</p>
+									</label></li>
+									<li class="clearfix"><label targetareaname="CZDDQR"
+										onclick="javascript:WSCZGBBusiComp.abs(this,'998')"> <input
+											type="radio" collect="CZSY_17" name="zffs" id="wxZF8"
+											touchvid="T051709392996732762" touchcode="CZSY_17"
+											collectready="true"> <span></span>
+											<p>
+												<font
+													style="color: black; font-weight: 800; font-size: 14px;">69860聊币</font><font
+													style="color: black; font-weight: 800; font-size: 14px;"
+													class="payAmountFordisplay1"> + </font><font
+													class="payAmountFordisplay"
+													style="color: red; font-weight: 800; font-size: 14px;"
+													id="sjMoneyEM">29940聊币(赠)</font><br> <font
+													style="color: #ff8000; font-weight: 800; font-size: 14px;"
+													id="yfPayMoney">￥998</font>
+											</p>
+									</label></li>
+									<li class="clearfix"><label targetareaname="CZDDQR"
+										onclick="javascript:WSCZGBBusiComp.abs(this,'1498')">
+											<input type="radio" collect="CZSY_17" name="zffs" id="wxZF9"
+											touchvid="T051709392996732762" touchcode="CZSY_17"
+											collectready="true"> <span></span>
+											<p>
+												<font
+													style="color: black; font-weight: 800; font-size: 14px;">104860聊币</font><font
+													style="color: black; font-weight: 800; font-size: 14px;"
+													class="payAmountFordisplay1"> + </font><font
+													class="payAmountFordisplay"
+													style="color: red; font-weight: 800; font-size: 14px;"
+													id="sjMoneyEM">44940聊币(赠)</font><br> <font
+													style="color: #ff8000; font-weight: 800; font-size: 14px;"
+													id="yfPayMoney">￥1498</font>
+											</p>
+									</label></li>
+								</ul>
+							</div>
+
+							<!--//支付方式-->
+							<!--foot-->
+							<footer>
+								<div class="f_cz clearfix" id="payTypeButton">
+									<div class="f_cz_rig" collect="CZSY_23" nextarea="true"
+										style="width: 100%" nextpage="true" id="czBtn"
+										businessid="E051709351477646480bid" businessname="bid"
+										onclick="var cate = $('#czBtn').attr('first');if(cate==undefined) WSCZGBBusiComp.zhifuOtherPay();else WSCZGBBusiComp.zhifuFastPay();if(typeof(_tag)!='undefined'){_tag.dcsMultiTrack('WT.nv','WSCZ', 'WT.event','WSCZ_LJCZ_m');}"
+										touchvid="T051709392996884432" touchcode="CZSY_23"
+										collectready="true">立即充值</div>
+								</div>
+							</footer>
+							<!--//foot-->
+							<!--//优惠券-->
+						</div>
+					</div>
+
+				</div>
+
+			</div>
+<!-- 		</form> -->
+		<div id="pay_account" style="display: none"></div>
+		<!--充值确认-->
+		<div id="confirmPage"></div>
+		<!--优惠券提示-->
+		<div class="loading" id="yhqwxts" style="display: none;">
+			<div class="notice_01">
+				<div class="tit">温馨提示</div>
+				<div class="not_text">
+					<p align="center">优惠券仅限登录号码充值使用</p>
+				</div>
+				<a class="close_btn" onclick="WSCZGBBusiComp.closeWin('yhqwxts')">确定</a>
+			</div>
+		</div>
+		<!--//优惠券提示-->
+		<!--积分提示-->
+		<div class="loading" id="jifenwxts" style="display: none;">
+			<div class="notice_01">
+				<div class="tit">温馨提示</div>
+				<div class="not_text">
+					<p>停机等异常状态会导致兑换失败（能否兑换成功以系统实际扣减为准），您可复机后至积分专区-大礼品小积分中进行话费兑换，谢谢！</p>
+				</div>
+				<a class="close_btn" onclick="WSCZGBBusiComp.closeWin('jifenwxts')">确定</a>
+			</div>
+		</div>
+		<!--//积分提示-->
+
+
+		<!--不符合充值条件的手机号码提示-->
+		<div class="loading" id="nomobilewxts" style="display: none;">
+			<div class="notice_01">
+				<div class="tit">温馨提示</div>
+				<div class="not_text">
+					<p id="nomobilemsg"></p>
+				</div>
+				<a class="close_btn"
+					onclick="WSCZGBBusiComp.closeWin('nomobilewxts')">确定</a>
+			</div>
+		</div>
+		<!--//不符合充值条件的手机号码提示-->
+
+
+		<!--充值卡充值确认弹框-->
+		<div class="loading" id="czkczXQ" style="display: none;">
+			<div class="notice_01">
+				<div class="tit">充值详情</div>
+				<div class="not_text">
+					充值号码；
+					<p id="mobileXQ"></p>
+					归属地：
+					<p id="gsdXQ"></p>
+					充值方式: 充值卡充值
+
+				</div>
+				<a class="half_btn" onclick="WSCZGBBusiComp.closeWin('czkczXQ')">返回修改</a>
+				<a class="half_btn" onclick="WSCZGBBusiComp.payCZKCZ()">确定充值</a>
+			</div>
+		</div>
+		<!--//弹窗-->
+
+		<!--充值卡充值 充值成功-->
+		<div class="loading" id="czkpaySuccess" style="display: none;">
+			<div class="notice_01">
+				<div class="tit">提示</div>
+				<div class="not_text">
+					<p align="center">
+						<img src="./images/checked.png"><br> <br>
+						您的充值请求已提交！充值结果将会以短信形式告知，请注意查收
+					</p>
+				</div>
+				<a class="close_btn" id="close_btn"
+					onclick="$(this).parents('.loading').hide();">确定</a>
+			</div>
+		</div>
+
+
+		<!--//充值成功-->
+
+		<!--营销活动详情弹窗-->
+		<div class="loading" id="yxxq" style="display: none;">
+			<div class="notice_01">
+				<div class="tit" id="yxxqtitle"></div>
+				<div class="not_text" id="yxxqmsg"></div>
+				<a class="close_btn" id="close_btn"
+					onclick="WSCZGBBusiComp.closeWin('yxxq')">确定</a>
+			</div>
+		</div>
+		<!--//营销活动详情弹窗-->
+
+		<!--不符合充值条件的手机号码提示-->
+		<div class="loading" id="mobileWar" style="display: none;">
+			<div class="notice_01">
+				<div class="tit">温馨提示</div>
+				<div class="not_text">
+					<p>很抱歉，您输入的账号错误，不是一个正确的兔聊号</p>
+				</div>
+				<a class="close_btn" onclick="WSCZGBBusiComp.closeWin('mobileWar')">确定</a>
+			</div>
+		</div>
+		<!--//不符合充值条件的手机号码提示-->
+
+		<!--快捷支付只有登录号码才能充值-->
+
+
+		<!--所选择充值方式不符合当前优惠券的使用条件-->
+
+		<div class="loading" id="czq_paytype_War" style="display: none;">
+			<div class="notice_01">
+				<div class="tit">提示</div>
+				<div class="not_text">
+					<p align="center">请选择该优惠券支持的支付方式</p>
+				</div>
+				<a class="close_btn" id="close_btn"
+					onclick="WSCZGBBusiComp.closeWin('czq_paytype_War')">确定</a>
+			</div>
+		</div>
+
+
+		<!--所选择充值方式不符合当前优惠券的使用条件-->
+
+
+
+		<!--所选择充值档次不符合当前优惠券的使用条件-->
+
+		<div class="loading" id="czq_payaccount_War" style="display: none;">
+			<div class="notice_01">
+				<div class="tit">提示</div>
+				<div class="not_text">
+					<p align="center">请选择该优惠券支持的充值档次</p>
+				</div>
+				<a class="close_btn" id="close_btn"
+					onclick="WSCZGBBusiComp.closeWin('czq_payaccount_War')">确定</a>
+			</div>
+		</div>
+
+
+		<!--所选择充值档次不符合当前优惠券的使用条件-->
+
+
+		<!--所有优惠券-->
+		<div id="yhqAll" style="display: none;">
+
+			<!--充值确认-->
+			<div id="confirmPage"></div>
+
+			<!--积分提示-->
+			<div class="loading" id="jifenwxts" style="display: none;">
+				<div class="notice_01">
+					<div class="tit">温馨提示</div>
+					<div class="not_text">
+						<p>停机等异常状态会导致兑换失败（能否兑换成功以系统实际扣减为准），您可复机后至积分专区-大礼品小积分中进行话费兑换，谢谢！</p>
+					</div>
+					<a class="close_btn" onclick="WSCZGBBusiComp.closeWin('jifenwxts')">确定</a>
+				</div>
+			</div>
+			<!--//积分提示-->
+			<!--不符合充值条件的手机号码提示-->
+			<div class="loading" id="nomobilewxts" style="display: none;">
+				<div class="notice_01">
+					<div class="tit">温馨提示</div>
+					<div class="not_text">
+						<p id="nomobilemsg"></p>
+					</div>
+					<a class="close_btn"
+						onclick="WSCZGBBusiComp.closeWin('nomobilewxts')">确定</a>
+				</div>
+			</div>
+			<!--//不符合充值条件的手机号码提示-->
+
+
+			<!--充值卡充值确认弹框-->
+			<div class="loading" id="czkczXQ" style="display: none;">
+				<div class="notice_01">
+					<div class="tit">充值详情</div>
+					<div class="not_text">
+						充值号码；
+						<p id="mobileXQ"></p>
+						归属地：
+						<p id="gsdXQ"></p>
+						充值方式: 充值卡充值
+
+					</div>
+					<a class="half_btn" onclick="WSCZGBBusiComp.closeWin('czkczXQ')">返回修改</a>
+					<a class="half_btn" onclick="WSCZGBBusiComp.payCZKCZ()">确定充值</a>
+				</div>
+			</div>
+			<!--//弹窗-->
+
+
+			<!--充值卡充值 充值成功-->
+			<div class="loading" id="czkpaySuccess" style="display: none;">
+				<div class="notice_01">
+					<div class="tit">充值详情</div>
+					<div class="not_text">
+						<p>您的充值请求已经提交，请您在10分钟后查询到账信息，确认到账前保留充值卡密码</p>
+					</div>
+					<a class="close_btn" id="close_btn"
+						onclick="WSCZGBBusiComp.closeWin('czkpaySuccess')">确定</a>
+				</div>
+			</div>
+		</div>
+
+		<!--//充值成功-->
+
+
+		<!--营销活动详情弹窗-->
+		<div class="loading" id="yxxq" style="display: none;">
+			<div class="notice_01">
+				<div class="tit" id="yxxqtitle"></div>
+				<div class="not_text" id="yxxqmsg"></div>
+				<a class="close_btn" id="close_btn"
+					onclick="WSCZGBBusiComp.closeWin('yxxq')">确定</a>
+			</div>
+		</div>
+		<!--//营销活动详情弹窗-->
+
+
+		<!--非登陆号码无法参与营销活动弹窗-->
+		<div class="loading" id="loginmark" style="display: none;">
+			<div class="notice_01">
+				<div class="tit">温馨提示</div>
+				<div class="not_text">为保障您的权益，当登录号码和充值号码一致才可办理充值类活动</div>
+				<a class="close_btn" id="close_btn"
+					onclick="WSCZGBBusiComp.closeWin('loginmark')">确定</a>
+			</div>
+		</div>
+		<!--//非登陆号码无法参与营销活动弹窗-->
+
+
+		<!--不符合充值条件的手机号码提示-->
+		<div class="loading" id="mobileWar" style="display: none;">
+			<div class="notice_01">
+				<div class="tit">温馨提示</div>
+				<div class="not_text">
+					<p>请正确输入充值号码</p>
+				</div>
+				<a class="close_btn" onclick="WSCZGBBusiComp.closeWin('mobileWar')">确定</a>
+			</div>
+		</div>
+		<!--//不符合充值条件的手机号码提示-->
+
+		<!--不符合充值条件的充值卡密码提示-->
+		<div class="loading" id="cardNumWar" style="display: none;">
+			<div class="notice_01">
+				<div class="tit">温馨提示</div>
+				<div class="not_text">
+					<p>您输入的充值卡密码不足18位</p>
+				</div>
+				<a class="close_btn" onclick="WSCZGBBusiComp.closeWin('cardNumWar')">确定</a>
+			</div>
+		</div>
+		<!--//不符合充值条件的充值卡密码提示-->
+
+
+		<!--快捷支付只有登录号码才能充值-->
+
+		<div class="loading" id="fastWar" style="display: none;">
+			<div class="notice_01">
+				<div class="tit">温馨提示</div>
+				<div class="not_text">
+					<p>抱歉，只有登录号码才能使用快捷支付。</p>
+				</div>
+				<a class="close_btn" onclick="WSCZGBBusiComp.closeWin('fastWar')">确定</a>
+			</div>
+		</div>
+
+
+		<!--快捷支付只有登录号码才能充值-->
+
+
+		<!--所选择充值方式不符合当前优惠券的使用条件-->
+
+
+
+		<div class="loading" id="czq_paytype_War" style="display: none;">
+			<div class="notice_01">
+				<div class="tit">提示</div>
+				<div class="not_text">
+					<p align="center">该优惠券不支持此支付方式，请切换</p>
+				</div>
+				<a class="close_btn" id="close_btn"
+					onclick="WSCZGBBusiComp.closeWin('czq_paytype_War')">确定</a>
+			</div>
+		</div>
+
+
+		<!--所选择充值方式不符合当前优惠券的使用条件-->
+
+
+		<!--所有优惠券-->
+		<div id="yhqAll" style="display: none;"></div>
+		<!--//所有优惠券-->
+
+
+		<!--暂时没有可用的优惠券-->
+		<div id="yhqNonePage" style="display: none;">
+			<div class="yhq-empty">
+				<img src="./images/pic_22.png" class="pic">
+				<p>很抱歉，暂时没有可用的优惠券~</p>
+			</div>
+
+
+			<!--foot-->
+			<footer>
+				<a class="f_cz_rig f_cz_rigall" href="javascript:void(0)"
+					onclick="WSCZGBBusiComp.closeWin('yhqNonePage')">确定</a>
+			</footer>
+			<!--//foot-->
+			<!--//暂时没有可用的优惠券-->
+		</div>
+
+
+		<!--//所有优惠券-->
+
+
+		<!--暂时没有可用的优惠券-->
+		<div id="yhqNonePage" style="display: none;">
+			<div class="yhq-empty">
+				<img src="./images/pic_22.png" class="pic">
+				<p>很抱歉，暂时没有可用的优惠券~</p>
+			</div>
+
+
+			<!--foot-->
+			<footer>
+				<a class="f_cz_rig f_cz_rig1" href="javascript:void(0)"
+					onclick="WSCZGBBusiComp.closeWin('yhqNonePage')">确定</a>
+			</footer>
+			<!--//foot-->
+			<!--//暂时没有可用的优惠券-->
+		</div>
+
+
+
+		<!--弹窗-->
+		<div class="loading" id="NOYHQList" style="display: none;">
+			<div class="notice_01 notice_yhq">
+				<div class="tit">
+					优惠券 <a class="close" href="javascript:void(0)"
+						onclick="WSCZGBBusiComp.closeWin('NOYHQList')">✕</a>
+				</div>
+				<!--暂时没有可用的优惠券-->
+				<div class="yhq-empty">
+					<img src="./images/pic_22.png" class="pic">
+					<p>很抱歉，暂时没有可用的优惠券~</p>
+				</div>
+				<!--//暂时没有可用的优惠券-->
+				<a class="close_btn" id="close_btn"
+					onclick="WSCZGBBusiComp.closeWin('NOYHQList')">确定</a>
+			</div>
+		</div>
+		<!--//弹窗-->
+	</div>
+
+	<script type="text/javascript">
+		var cid;
+		var token;
+		var tokenCustomerId;
+		$(function() {
+			WSCZGBBusiComp.selectPaytypeSecond(null,'3')
+			cid = getURLParameter("customerId");
+			token = getURLParameter("token");
+			tokenCustomerId = getURLParameter("tokenCustomerId");
+			if (cid && token && tokenCustomerId) {
+				$("#mobile").val(cid);
+				$("#customerInfoForName").append(cid);
+				$("#customerInfoForName").append(" )");
+				$("#mobile").val(cid);
+				Cookie.setCookie("cid",tokenCustomerId,-1);
+				Cookie.setCookie("token",token,-1)
+				$.ajax({
+					url : "../../view/wapPay/getInfoByIdInPayPage", 
+					type : "POST",
+					data : {"customerId":cid,"token":token,"tokenCustomerId":tokenCustomerId},
+					dataType : "json",
+					success : function(data) {
+						if(data.code=="0"){
+							var cdata = data.data;
+							$("#customerInfoForName"). prepend(cdata.name);
+							$("#customerInfoForAccount").append(cdata.rechargeBal);
+							$("#customerInfoForPhoto").attr("src",cdata.photo);
+						}
+					},
+					error : function(x, h, e) {
+
+					}
+				});
+			}else{
+				$("#customerInfoForName").append(")");
+			}
+		});
+	</script>
+</body>
+</html>

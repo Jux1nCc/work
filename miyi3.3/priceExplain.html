@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0, viewport-fit=cover">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="msapplication-tap-highlight" content="no">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Cache-Control" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <title>音视频聊价提价说明</title>
+  <link rel="stylesheet" href="http://activity.folkcam.cn/common/comm.css">
+  <style>
+    @font-face {
+      font-family: 'pingfang';
+      src: url('./PingFangMedium.ttf');
+      font-weight: normal;
+      font-style: normal;
+    }
+
+    body {
+      font-family: 'pingfang';
+      padding: 0.08rem 0.32rem 0;
+    }
+    .wrap{
+      width: 100%;
+    }
+    p {
+      margin: 0.2rem 0 0.12rem;
+      font-weight: 700;
+      font-size: 0.32rem;
+      color: #222;
+    }
+
+    span {
+      font-size: 0.28rem;
+      color: #408BF9;
+    }
+
+    div {
+      font-size: 0.28rem;
+      color: #999;
+    }
+
+    .prove {
+      display: block;
+      margin-top: .5rem;
+      margin-bottom: .5rem;
+      width: 100%;
+      text-align: center;
+      font-weight: 700;
+      font-size: 0.32rem;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <p>1.什么是音视频聊价？</p>
+    <div>音视频聊价是指男性用户和你之间以视频/语音的方式进行聊天时，男性用户需要支付的费用，费用的多少取决于你设置的数额。</div>
+    <p>2.聊价是我的收益吗？</p>
+    <div>男性用户支付的费用，你将会得到属于你的那部分收益，收益的多少将根据你当前的分成比例来进行计算（新用户已认证的情况下为50%），剩余部分将由平台收取，作为服务支持费用。</div>
+    <p>3.如何提升我的音视频聊价？</p>
+    <div>新用户未认证时，不可以设置视频/语音聊价，平台统一为免费，你可以正常从私信和礼物中获取收益，但所有收益减半。当语音/视频价格为0钻石时，你可以通过完成<span
+        onclick="jumpToBasicTask()">基础任务</span>来提升你的音视频价格，最高可达500钻石。</div>
+    <p>4.如何完成音视频聊价的进一步提升？</p>
+    <div>平台的聊价突破，在你已经达到500钻石时，突破后最高可达1000钻石，但具有时效性，需要完成<span onclick="jumpToWeekTask()">每周任务</span>来进行提升。</div>
+    <p>5.平台的资费机制是怎么样的？</p>
+    <div>私信聊天，平台统一10钻石/条；缘分速配，平台统一200钻石/分钟（不可修改），未认证的用户无法参与缘分速配。所有聊天支出由男性支付，女性聊天得收益。</div>
+    <p>6.最终解释权归觅伊官方所有</p>
+    <span class="prove" onclick="jumpToProve()">未认证？点击此处去认证>></span>
+  </div>
+</body>
+<script src="http://activity.folkcam.cn/common/rem.js"></script>
+<script>
+  var ua = navigator.userAgent.toLowerCase();
+  var u = navigator.userAgent;
+  var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Linux') > -1; //g
+  var isIOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端 
+  function jumpToBasicTask() {
+    if (isIOS) {
+      window.webkit.messageHandlers.jumpToBasicTask.postMessage(null)
+    }else {
+      client.jumpToBasicTask()
+    }
+  }
+  function jumpToWeekTask(){
+    if (isIOS) {
+      window.webkit.messageHandlers.jumpToWeekTask.postMessage(null)
+    }else {
+      client.jumpToWeekTask()
+    }
+  }
+  function jumpToProve() {
+    if(isIOS){
+      window.webkit.messageHandlers.jumpToAccrediteConfirm.postMessage(null)
+    }else {
+      client.jumpToAccrediteConfirm()
+    }
+  }
+</script>
+</html>

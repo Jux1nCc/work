@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>铢铢</title>
+</head>
+
+<body>
+  <a href="market://details?id=com.datalink.miyi">打开觅伊应用市场</a><br /><br /><br />
+  <a href="miyi://app:8080/main">打开觅伊</a><br /><br /><br />
+  <a href="forever://">打开铢铢</a><br /><br /><br />
+  <!-- 打开微信 -->
+  <a href="weixin://">打开微信</a><br /><br /><br />
+
+  <!-- 打开支付宝 -->
+  <a href="alipays://">打开支付宝</a><br /><br /><br />
+
+  <!-- 打开支付宝的扫一扫 -->
+  <a href="alipays://platformapi/startapp?saId=10000007">打开支付宝的扫一扫</a><br /><br /><br />
+
+  <!-- 打开支付宝的蚂蚁森林 -->
+  <a href="alipays://platformapi/startapp?appId=60000002">打开支付宝的蚂蚁森林</a><br /><br /><br />
+  <a class="abcd" href="javascript:;">打开觅伊</a>
+</body>
+<script src="http://activity.folkcam.cn/common/jquery.min.js"></script>
+<script src="http://res.cdn.openinstall.io/openinstall.js"></script>
+<script src="http://activity.folkcam.cn/common/vconsole.min.js"></script>
+<script>
+  // window.open("http://www.baidu.com/", "_self")
+  // var data = OpenInstall.parseUrlParams();//openinstall.js中提供的工具函数，解析url中的所有查询参数
+  //new OpenInstall({
+  /*appKey必选参数，openinstall平台为每个应用分配的ID*/
+  //  appKey: 'c6xjxt',
+  // onready: function () {
+  //  var m = this;
+  /*在app已安装的情况尝试拉起app*/
+  //   m.schemeWakeup();
+  // 未安装时去Appstore
+  //   m.wakeupOrInstall();
+  //  }
+  //   })
+  $('.abcd').on('click', function () {
+    // 微信目前不支持打开非企鹅应用，所以先判断是否在微信中打开此页面
+    // 调起APP
+    window.location.href = "miyi://app:8080/main"
+
+    // 如果超时证明没有安装此APP则跳到下载页
+    window.setTimeout(function () {
+      window.location.href = "market://details?id=com.datalink.miyi"
+    }, 1500)
+  })
+
+  //检查app是否打开
+  function checkOpen(cb) {
+    var _clickTime = +(new Date());
+    function check(elsTime) {
+      if (elsTime > 3000 || document.hidden || document.webkitHidden) {
+        cb(1);
+      } else {
+        cb(0);
+      }
+    }
+    //启动间隔20ms运行的定时器，并检测累计消耗时间是否超过3000ms，超过则结束
+    var _count = 0, intHandle;
+    intHandle = setInterval(function () {
+      _count++;
+      var elsTime = +(new Date()) - _clickTime;
+      if (_count >= 100 || elsTime > 3000) {
+        clearInterval(intHandle);
+        check(elsTime);
+      }
+    }, 20);
+  }
+</script>
+
+</html>

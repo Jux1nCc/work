@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>概览</title>
+		<link rel="stylesheet" href="../../public/css/style.css" />
+		<link rel="stylesheet" href="../../package/layui/css/layui.css" />
+		
+		<script type="text/javascript" src="../../package/layui/layui.js"></script>
+		<script src="../../public/js/public/jquery.min.js"></script>
+		<script src="../../public/js/index.js"></script>
+		<script src="../../public/js/overview.js"></script>
+	</head>
+	<body>
+		<div id="Overview_info" class="overview_info">
+			<div class="user_info">
+				<div class="info_Avatar"><img src="" alt=""></div>
+				<div class="info_personal">
+					<p class="personal_ID"><strong></strong>（ID:<span id="privacy_card"></span>）</p>
+					<p class="personal_name"><span></span></p>
+					<p class="personal_join" style="display: none;"><img src=""><a></a></p>
+					<p class="personal_Application"><span>申请入驻，成为专家，发布课程，获得收益！</span><a href="#" id="Application">去入驻></a></p>
+				</div>
+			</div>
+		
+			<div class="content_more_info">
+				<div class="info_Views f1" >
+					<p><img src="../../img/booked_small_red.png"><span>课程播放次数</span></p>
+					<p class="Views_yesterday"><span>昨日</span><strong id="Course_play_times"></strong></p>
+					<p class="Views_total"><span>累计</span><strong id="Course_play_cumulative"></strong></p>
+				</div>
+				<div class="info_Collection f1">
+					<p><img src="../../img/played_small.png"><span>专辑收藏次数</span></p>
+					<p class="Views_yesterday"><span>昨日</span><strong id="Views_Collections"></strong></p>
+					<p class="Views_total"><span>累计</span><strong id="Collection_accumulation"></strong></p>
+				</div>
+				<div class="info_Fan f1">
+					<p><img src="../../img/booked_small_red.png"><span>我的粉丝数</span></p>
+					<p class="Views_yesterday"><span>昨日</span><strong id="My_fans"></strong></p>
+					<p class="Views_total"><span>累计</span><strong id="My_total_fans"></strong></p>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
+
+
+<!--接口：/api/customer/myWorkbench-->

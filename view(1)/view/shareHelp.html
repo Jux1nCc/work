@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>推广有奖介绍</title>
+		<meta name="keywords" content="">
+		<meta name="description" content="">
+		<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,initial-scale=1.0" />
+		<meta name="format-detection" content="telephone=no,email=no" />
+		<script type="text/javascript" language="javascript"
+	src="js/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" language="javascript" src="js/common.js"></script>
+		<style type="text/css">
+			html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr, acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong, sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption, tbody,tfoot,thead,tr,th,td{border:0;outline:0;vertical-align:baseline; background:transparent;margin:0;padding:0;}
+			body{line-height:1;}
+			ol,ul{list-style:none;}
+			blockquote,q{quotes:none;}
+			blockquote:before,blockquote:after,q:before,q:after{content:none;}
+			:focus{outline:0;}
+			ins{text-decoration:none;}
+			del{text-decoration:line-through;}
+			table{border-collapse:collapse;border-spacing:0;}
+			
+			.prize{
+				padding: 1rem;
+			}
+			.prize p{
+				line-height: 1.5;
+			}
+			.prize_max_title{
+				font-size: 1.8rem;
+				color: #000;
+			}
+			.prize_min_title{
+				font-size: 1.4rem;
+				color: #fe6c05;
+				margin-top: 0.8rem;
+			}
+			
+			.prize_min_title2{
+				font-size: 1.4rem;
+				color: #3788fd;
+				margin-top: 0.8rem;
+			}
+			.prize_btn{
+				width: 80%;
+				height: 3rem;
+			}
+			.prize_enter{
+				width: 100%;
+				height: 100%;
+				display: block;
+				margin: 6% 10% 0 10%;
+				line-height: 3;
+    			text-align: center;
+				background: linear-gradient(to top right, #ff4d4b, #ff7763);
+				color: #fff;
+				border-radius: 25px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="prize">
+			<p class="prize_max_title">合作方式一</p>
+			<p class="prize_min_title">【无需大量粉丝，操作灵活】</p>
+			<p class="prize_content">点击“推荐有奖”系统里面的“推荐好友”，将您的专属推广链接分享到微信朋友圈等新媒体平台，他人点击您的推广链接注册，系统自动绑定在您的名下。（需要先登录兔聊APP）</p>
+			<p class="prize_min_title">【高达10%的提成收益】</p>
+			<P class="prize_content">男性消费额提成5%和女性收益额提成5%。假设您每天推荐100人（女性和男性各50人），男性每天消费100元，女性每天收益100元，一个月按30天计算，你可以获得15000元。</P>
+			<p class="prize_min_title">【收益持续3年】</p>
+			<P class="prize_content">在3年内，男性给您带来的每笔消费和女性给您带来的每笔收益，均可以获得5%的提成奖励。“推荐有奖”系统实时更新您的推广数据，以及推广收益。</P>
+			<p class="prize_btn" style="margin-bottom: 3rem;"><a class="prize_enter" href="javascript:jumpToShareTop();">进入“推荐有奖系统”>></a></p>
+			
+			<p class="prize_max_title">合作方式二</p>
+			<p class="prize_min_title2">【独立的数据统计后台】</p>
+			<p class="prize_content">开设单独的“大资源客户推广”后台，数据实时更新。对自己推广的用户质量、收益等核心数据了如指掌。</p>
+			<p class="prize_min_title2">【灵活多样的合作模式】</p>
+			<P class="prize_content">按人头计费模式，最高可达5元/人；男性消费提成和女性收益提成模式，最高可达30%；按人头计费费和男消费、女收益提成的混合合作模式。</P>
+			<p class="prize_min_title2">【大资源客户专人客服】</p>
+			<P class="prize_content">公司安排专门的客服为您服务，7X24小时服务。</P>
+			<p class="prize_btn"><a class="prize_enter" href="javascript:jumpToMeiqia();">联系客服>></a></p>
+		</div>
+	</body>
+
+<script type="text/javascript">
+	var browser;
+	/* $(document)
+			.ready(
+					function() { */
+						browser = {
+							versions : function() {
+								var u = navigator.userAgent, app = navigator.appVersion;
+								return {
+									android : u.indexOf('Android') > -1
+											|| u.indexOf('Linux') > -1,
+									iPhone : u.indexOf('iPhone') > -1,
+									iPad : u.indexOf('iPad') > -1,
+									iPod : u.indexOf('iPod') > -1,
+								};
+							}(),
+							language : (navigator.browserLanguage || navigator.language)
+									.toLowerCase()
+						}
+					/* }); */
+	function jumpToMoreHelp() {
+		window.location.href = "help/faq.html";
+	}
+	function jumpToEarningSkill() {
+		window.location.href = "help/earningSkill.html";
+	}
+
+	function jumpToMeiqia() {
+		if (browser.versions.android) {
+			client.jumpToMeiqia();
+		} else {
+			window.webkit.messageHandlers.jumpToMeiqia.postMessage(null);
+		}
+	}
+	function jumpToShareTop() {
+		if (browser.versions.android) {
+			client.jumpTotopOfShare();
+		} else {
+			window.webkit.messageHandlers.jumpTotopOfShare.postMessage(null);
+		}
+	}
+</script>
+</html>

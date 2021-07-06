@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+      }
+      .item {
+        width: 100px;
+        height: 100px;
+        background-color: #f00;
+        margin-right: 30px;
+      }
+      .wrapper {
+        display: flex;
+        justify-content: center;
+      }
+      /* :进入动画执行体 */
+      .xxx-enter-active {
+        transition: all 0.5s;
+        /* transition: 属性名  时间  路径  延时*/
+      }
+      .xxx-enter-active:nth-child(1) {
+        transition-delay: 0s;
+      }
+      .xxx-enter-active:nth-child(2) {
+        transition-delay: 0.2s;
+      }
+      .xxx-enter-active:nth-child(3) {
+        transition-delay: 0.4s;
+      }
+      .xxx-enter-active:nth-child(4) {
+        transition-delay: 0.6s;
+      }
+      .xxx-enter-active:nth-child(5) {
+        transition-delay: 0.8s;
+      }
+
+      .xxx-leave-active {
+        transition: all 3.5s;
+      }
+
+      .xxx-enter {
+        opacity: 0;
+        transform: translateY(100px);
+      }
+      /* :进入时，从什么状态到当前状态 */
+      .xxx-leave-to {
+        opacity: 0;
+        transform: translateY(100px);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 多元素动画
+    条件：进入/离开  v-if/v-show
+    过程：1：用transition-group包住
+          2:transition-group的每一个子项都要加一个key
+          3:在transition-group标签上加一个name属性 （后面css前缀 ）
+          .xxx-enter-active:进入动画执行体
+          .xxx-leave-active:离开动画执行体
+          .xxx-enter:进入时，从什么状态到当前状态
+          .xxx-leave-to:离开时，从正常状态到什么状态
+    -->
+    <div id="app">
+      <button @click="btnClick">点我啊</button>
+      <ul>
+        <transition-group class="wrapper" name="xxx">
+          <li class="item" v-for="(item, index) in list" :key="index">
+            {{item}}
+          </li>
+        </transition-group>
+      </ul>
+    </div>
+    <script src="./vue.js"></script>
+    <script>
+      new Vue({
+        el: "#app",
+        data: {
+          bol: true,
+          list: [1, 2, 3, 4, 5],
+        },
+        methods: {
+          btnClick() {
+            if (this.list.length > 0) {
+              this.list = [];
+            } else {
+              this.list = [1, 2, 3, 4, 5];
+            }
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

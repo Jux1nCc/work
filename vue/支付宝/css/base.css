@@ -1,0 +1,51 @@
+/* 初始化代码准备 */
+
+/* 清除内外边距 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* 控制内容的字体,行高以及背景颜色 */
+body {
+    font-size: 12px;
+    background-color: #f3f6f6;
+    line-height: 1;
+}
+
+/* 控制em和i标签的斜体样式,改为正常样式 */
+em,
+i {
+    font-style: normal;
+}
+
+/* 清除li标签前面自带的黑点 */
+li {
+    list-style: none;
+}
+
+img {
+    /* 低级版本浏览器img标签自带边框,照顾低版本浏览器 */
+    border: none;
+    /* 清除图片底侧的空白间隙,使行内块元素与文字中线对齐 */
+    vertical-align: center;
+}
+
+a {
+    /* 改变a标签自身颜色 */
+    color: #000;
+    /* 清除a标签自带下划线 */
+    text-decoration: none;
+}
+
+ /* 当鼠标经过按钮的时候,鼠标变成点击状态(即变成小手) */
+button {
+    cursor: pointer;
+}
+
+/* 清除文本框的高亮以及边框 */
+input {
+    outline: none;
+    border: none;
+}

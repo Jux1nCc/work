@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>课程管理</title>
+		<link rel="stylesheet" href="../../public/css/style.css" />
+		<link rel="stylesheet" href="../../package/layui/css/layui.css" />
+
+		<script type="text/javascript" src="../../package/layui/layui.js"></script>
+		<script src="../../public/js/public/jquery.min.js"></script>
+		<script src="../../public/js/public/jquery.cookie.min.js"></script>
+		<script src="../../public/js/public/es6-promise.min.js"></script>
+		<script src="../../public/js/public/aliyun-oss-sdk-5.2.0.min.js"></script>
+		<script src="../../public/js/public/aliyun-upload-sdk-1.4.0.min.js"></script>
+		<script src="../../public/js/index.js"></script>
+		<style type="text/css">
+			.operating_replace {
+				display: none;
+				width: 600px;
+				height: 500px;
+				float: left;
+				position: absolute;
+				left: 30%;
+				top: 25%;
+				border: 2px solid #eee;
+				background: #fff;
+				box-shadow: 2px 2px 2px #eee;
+				z-index: 999;
+			}
+			
+			.replace_title {
+				height: 40px;
+				width: 90%;
+				margin: 10px auto;
+			}
+			
+			.replace_title p {
+				float: left;
+			}
+			
+			.replace_title a {
+				float: right;
+				cursor: pointer;
+			}
+			
+			.replace_content {
+				height: 450px;
+				margin: 15px;
+			}
+			
+			.replace_content button {
+				position: absolute;
+				width: 100px;
+				height: 30px;
+				background: #fff;
+				border: 1px solid #1DA0F2;
+				color: #1DA0F2;
+				bottom: 24px;
+				left: 43%;
+			}
+			
+			#video_list_li li {
+				height: 61px;
+				border: 1px solid #eee;
+				margin-top: 10px;
+				padding: 10px 15px;
+				cursor: move;
+			}
+			
+			#video_list_li span {
+				float: right;
+				color: #1DA0F2;
+				position: relative;
+				top: 20px;
+				right: 15px;
+			}
+			
+			#video_list_li input {
+				position: relative;
+				float: right;
+				border: 0;
+				background: #fff;
+				color: #1DA0F2;
+				left: 20px;
+			}
+			
+			#video_list_li a {
+				position: relative;
+				float: right;
+				cursor: pointer;
+				color: #1DA0F2;
+			}
+			
+			.list_paixu {
+				float: left;
+				width: 30px;
+			}
+			
+			.container {
+				width: 350px;
+				height: 15px;
+				background: #eee;
+				margin-top: 10px;
+			}
+			
+			.container div {
+				background: #1DA0F2;
+				float: left;
+				height: 100%;
+				text-align: center;
+				line-height: 150%;
+			}
+			
+			#filesimg {
+				background-size: 100% 100%;
+				width: 150px;
+				height: 40px;
+				float: left;
+			}
+			
+			#replace_video {
+				opacity: 0;
+				float: left;
+				width: 150px;
+				position: relative;
+				right: 150px;
+				height: 40px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="operating_ablum">
+			<div class="operating_ablum_title">
+				<a href="javascript:history.go(-1)" class="cert_return_btn"><img src="../../img/backoff.png">返回</a>
+				<h3>课程管理</h3>
+			</div>
+			<div class="operating_ablum">
+				<div class="operating_modify">
+					<div class="operating_courses">
+						<img src="../../img/icon_02.png" id="table_list_img">
+						<p id="table_list_title">30天手把手教你做运营</p>
+						<p class="list_info">
+							<img src="../../img/played_small.png">
+							<span id="table_list_play"></span>
+							<img src="../../img/video.png">
+							<span id="table_list_episode">集</span>
+							<span id="table_list_piece">聊币</span>
+						</p>
+						<p>ID:<span id="table_list_id"></span></p>
+						<p id="opera_list_score">课程评分：<span id="table_list_score"></span></p>
+					</div>
+					<div class="operating_buts">
+						<input type="button" value="申请完结" style="display: none;" /><br>
+						<a href="upload.html">课程上传</a>
+					</div>
+				</div>
+
+				<div class="operating_list_table">
+					<p class="operating_table_title">课程列表(<span id="courese"></span>)</p>
+					<table class="layui-table">
+						<tbody id="operating_table">
+							<!--<tr>
+			    					<td>01</td>
+			    					<td class="coures_list">
+			    						<video src="" id="coures_video_name"></video>
+							    		<p id="coures_video_title">30天手把手教你做运营</p>
+							    		<p class="list_info">
+							    			<img src="../../img/played_small.png">
+							    			<span id="coures_video_play">99</span>
+							    			<img src="../../img/played_small.png">
+							    			<span id="coures_video_num">99集</span>
+							    			<img src="../../img/played_small.png">
+							    			<span id="coures_video_time">500</span>
+							    		</p>
+			    					</td>
+			    					<td>
+			    						<p ><span>2017-10-10</span></p>
+			    						<p class="coures_list_stata">已发布</p>
+			    					</td>
+			    					<td class="operating_table_operating">
+			    						<a href="#" class="operating_table_testFlag">设为试学</a>
+			    						<a href="#" class="operating_table_Sort">排序</a>
+			    						
+			    						<a href="#" class="operating_table_delect">删除</a>
+			    						<a href="#" class="operating_table_replace">替换</a>
+			    					</td>
+			    				</tr>-->
+
+						</tbody>
+					</table>
+					<div class="coures_video_listpage">
+						<div id="operating_viode_page" class="operating_page"></div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<div class="operating_replace">
+			<div class="replace_title">
+				<p>替换课程</p>
+				<a id="replace_close">关闭</a>
+			</div>
+			<div class="replace_content">
+				<ul id="video_list_li">
+
+				</ul>
+				<img src="../../img/addvideo.png" id="filesimg" />
+				<input type="file" name="file" id="replace_video" accep="video/*" />
+				<button onclick="replace()">替换视频</button>
+			</div>
+		</div>
+	</body>
+
+	<script>
+		var releaseVideo = true;
+		var videoInfo;
+		var uploader;
+		sessionStorage.setItem('releaseVideo', releaseVideo);
+		var videoListNum = "0"; //  0 是默认，未选择视频，1是选择了视频还在上传，2是上传完成
+		
+		var unionId = location.href.split("OperatAlbum/")[0].split("?")[1];  //截取传送过来的专辑id；
+		
+		fun.postCurrByUnionId(unionId);
+		
+		
+		
+		
+		
+		
+		document.getElementById("replace_video").addEventListener('change', function(event) {
+
+			if(videoListNum == "1") {
+				//弹框
+				alert("只能选择一个视频")
+			} else {
+				videoInfo = fun.getcurrentCourse();
+				//console.log(videoInfo)  
+				for(var i = 0; i < event.target.files.length; i++) {
+					// 逻辑
+					var filesObj = document.getElementById("replace_video").files[0];
+
+					var filesname = filesObj.name;
+					var filessize = filesObj.size;
+
+					var index = filesname.lastIndexOf(".");
+					var suffix = filesname.substring(index + 1).toUpperCase();
+
+					var type = "AIFF , AIF , MP4 , 3GP , AVI , WMV , MPG , VOB , FLV , MOV , RMVB , RM , MPEG , MP3 , WMA , WAV , FLAC , OGG , MP2 , AAC , AMR , M4A"
+					if(suffix.indexOf(type) >= 0) {
+						alert("请重新选择上传文件enter上传文件只能为mp4/avi/rm/rmvb格式");
+					} else { //当你点击选择了视频
+						releaseVideo = false; //标志位为false
+						sessionStorage.setItem('releaseVideo', releaseVideo);
+						videoInfo.curriculumName = filesname;
+						$.get(base_url +"/api/app/ParameterManagement/GetVideoUploadAddress", {
+							"action": 'CreateUploadVideo',
+							"fileName": filesname,
+							"title": filesname,
+							"fileSize": filessize,
+							"description": '123123',
+							"cateId":'135724169', //879471725正式环境     135724169 测试环境
+							"tags": '课程'
+						}, function(data) {
+							//console.log(data)
+							if(data.result == true && data.code == 0) {
+								videoListNum = "1";
+								videoInfo.videoId = data.data.videoId;
+								//console.log(videoInfo)
+								sessionStorage.setItem('uploadAddress', data.data.uploadAddress); //视频地址
+								sessionStorage.setItem('videoId', data.data.videoId); //视频id
+								sessionStorage.setItem('uploadAuth', data.data.uploadAuth); //上传token
+								var userData = '{"Vod":{"UserData":"{"IsShowWaterMark":"false","Priority":"7"}"}}';
+								var jsonUserData = JSON.stringify(userData);
+								uploader.addFile(filesObj, null, null, null, jsonUserData);
+								progress(0, filessize, filesname);
+								uploader.startUpload();
+							}
+						})
+					}
+
+				}
+			}
+		});
+
+		uploader = new AliyunUpload.Vod({
+			//分片大小默认1M，不能小于100K
+			partSize: 1048576,
+			//并行上传分片个数，默认5  
+			parallel: 5,
+			//网络原因失败时，重新上传次数，默认为3
+			retryCount: 3,
+			//网络原因失败时，重新上传间隔时间，默认为2秒
+			retryDuration: 30,
+			// 开始上传
+			'onUploadstarted': function(uploadInfo) {
+				uploadOver = false;
+				var str = "onUploadStarted:" + uploadInfo.file.name + ", endpoint:" + uploadInfo.endpoint + ", bucket:" + uploadInfo.bucket + ", object:" + uploadInfo.object
+				//console.log(str);
+				//上传方式1, 需要根据uploadInfo.videoId是否有值，调用点播的不同接口获取uploadauth和uploadAddress，如果videoId有值，调用刷新视频上传凭证接口，否则调用创建视频上传凭证接口
+				uploader.setUploadAuthAndAddress(uploadInfo, window.sessionStorage.getItem('uploadAuth'), window.sessionStorage.getItem('uploadAddress'), window.sessionStorage.getItem('videoId'));
+				//上传方式2 
+				// uploader.setSTSToken(uploadInfo, accessKeyId, accessKeySecret,secretToken);
+			},
+			// 文件上传成功
+			'onUploadSucceed': function(uploadInfo) {
+				//在这里执行上传到数据库的操作，哪个上传到阿里云成功了，就上传哪个，这里有file.name。根据名字上传
+				//console.log("onUploadSucceed: " + uploadInfo.file.name + ", endpoint:" + uploadInfo.endpoint + ", bucket:" + uploadInfo.bucket + ", object:" + uploadInfo.object);
+				//上传到阿里云成功
+				videoListNum = "2" //上传成功
+				sessionStorage.setItem('isOver', true); //视频地址
+				sessionStorage.setItem("name", uploadInfo.file.name);
+
+			},
+
+			// 文件上传失败
+			'onUploadFailed': function(uploadInfo, code, message) {
+				funopera.uploaderFailure(0, 0, uploadInfo.file.name);
+				console.log("onUploadFailed: file:" + uploadInfo.file.name + ",code:" + code + ", message:" + message);
+				
+
+			},
+			// 文件上传进度，单位：字节
+			'onUploadProgress': function(uploadInfo, totalSize, loadedPercent) {
+				var width = Math.ceil(loadedPercent * 100);
+				var percentHt = "名字：" + uploadInfo.file.name + ", 大小:" + totalSize + ", 精度条:" + width + "%";
+				var name = uploadInfo.file.name;
+				//console.log(percentHt)
+				//console.log(percentHt)
+				//  	if(width != 100 ){    
+				//  		window.onbeforeunload=function(e){
+				//			  var e=window.event||e;
+				//			  e.returnValue=("确定离开当前页面吗？"); 
+				//			}
+				//  	} else{
+				//  		
+				//  	}
+
+				progress(width, totalSize, name);
+				//$("#video_list_li").append("<li><lable>"+name+"</lable><span>"+ width +"</span><div class='container' ><div  id='"+idTag+"' style='width:0%;'></div></li>")
+
+				//console.log(percentHt);
+			},
+			//视频删除
+			'deleteFile': function(uploadInfo) {},
+			'cancelFile': function(uploadInfo) {},
+			// 上传凭证超时
+			'onUploadTokenExpired': function(uploadInfo) {
+				//console.log("onUploadTokenExpired");
+
+			},
+			//全部文件上传结束
+			'onUploadEnd': function(uploadInfo) {
+				//console.log("onUploadEnd: uploaded all the files");
+				uploadOver = true;
+
+			},
+
+		});
+		
+		var funopera = {
+			uploaderFailure : function(width, idTag,name){
+				var id = document.getElementById(idTag);
+				//id.style.width = (width) + "%";
+				var total = document.getElementById(name); 
+				if(total != null){
+					if(width == 0) {
+						total.innerHTML = "上传失败 <input id='" + name + "' onclick='resumeUpload(this)' type='button' value='重新上传'>";   
+					} 
+				}
+			},
+		}
+		
+		//续传
+		function resumeUpload(name){  //这里传过来的是控件，我要他的id
+
+			uploader.startUpload();
+		}
+		//替换视频
+
+		function replace() {
+			//有个判断
+			if(videoListNum != "2") {
+				//还未上传完成
+			} else {
+				//请求 课程id
+				//console.log(videoInfo)
+				
+				//abcImg(videoInfo);
+
+				$.post(base_url +"/api/app/ParameterManagement/getVideoMessage", {
+					"vid": videoInfo.videoId
+				}, function(data) {
+					//console.log(data)
+					if(data.result == true && data.code == 0) {
+						
+						var curriculumTime = parseInt(data.data.duration)
+						
+						if(curriculumTime != null) {
+							//var curriculumTime = parseInt(data.data.duration)
+							$.post(base_url +"/api/curriculum/updateCurriculumById", {
+								"curriculumId": videoInfo.curriculumId,
+								"customerId": videoInfo.customerId,
+								"curriculumTime": curriculumTime,
+								"videoId": videoInfo.videoId
+							}, function(data) {
+								//console.log(data)
+								if(data.result == true && data.code == 0) {
+									alert("课程替换成功");
+									location.reload();
+								} else {
+									alert(data.data)
+								}
+
+							})
+						} else{}
+					} else {
+
+						alert("替换失败")
+					}
+
+					//replace();
+				})
+
+			}
+		}
+
+		
+
+		function progress(width, idTag, name) {
+			if(document.getElementById(idTag) == null) {
+				var str = "<li aid='" + name + "' >"
+				str += "<lable>" + name + "</lable>"
+				str += "<span id='" + name + "'>" + width + "</span>"
+				str += "<div class='container' >";
+				str += "<div  id='" + idTag + "' style='width:0%;'></div> ";
+				str += "</div>";
+				//			 	str += "<a aid='"+name+" id='"+idTag+"' onclick='renewFun(this)''>取消上传</a>"
+				//			 	str += "<input id='"+name+"' onclick='deleteFun(this)' type='button' value='删除'>"
+				str += "</li>";
+				$("#video_list_li").append(str);
+			} else {
+				var id = document.getElementById(idTag);
+				id.style.width = (width) + "%";
+				var total = document.getElementById(name);
+				if(width == 100) {
+					total.innerHTML = "上传成功 <input id='" + name + "' onclick='deleteFun(this)' type='button' value='删除'>";
+				} else {
+					total.innerHTML = "上传中：" + (width) + "% <a style='display:none' id='" + name + "' onclick='renewFun(this)''>取消上传</a>";
+				}
+			}
+		}
+
+		//删除按钮
+		function deleteFun(btnid) {
+			var delid = btnid.id;
+
+			var aid = btnid.parentElement.parentElement;
+			//console.log(aid)
+			aid.remove()
+
+			uploader.listFiles();
+			var lists = uploader.listFiles();
+			for(var i = 0; i < lists.length; i++) {
+				uploader.deleteFile(i);
+
+			}
+			videoListNum = "0";
+		}
+		//取消上传
+		function renewFun(newx) {
+			var newxs = newx.id;
+
+			var aid = newx.parentElement.parentElement;
+			aid.remove()
+			uploader.listFiles();
+			var lists = uploader.listFiles();
+			for(var i = 0; i < lists.length; i++) {
+				uploader.cancelFile(i);
+
+			}
+			videoListNum = "0";
+		}
+	</script>
+
+</html>

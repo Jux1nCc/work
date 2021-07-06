@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- 
+    this可以在new Vue中任意地方使用，都是代表vue实例对象,但是都是只能使用在第一层
+      beforeCreate:创建前，还不能访问data与methods  ,实际项目基本不用,只执行一次
+      created:创建后，可以访问data与methods，进入页面接口调用,只执行一次
+      所有的生命周期都是回调函数,它都是自动执行
+       -->
+    <div id="app">
+      <ul>
+        <li v-for="(item, index) in list" :key="index">{{item.name}}</li>
+      </ul>
+    </div>
+    <script src="./vue.js"></script>
+    <script src="./axios.js"></script>
+    <script>
+      new Vue({
+        el: "#app",
+        data: {
+          num: 10,
+          list: [],
+        },
+        methods: {
+          test() {
+            window.console.log("test");
+          },
+        },
+        beforeCreate() {
+          window.console.log("beforeCreate:", this.num);
+        },
+        created() {
+          window.console.log("created:", this.num);
+          this.test();
+          axios({
+            url: "https://autumnfish.cn/api/lol/search",
+            method: "get",
+          }).then((res) => {
+            this.list = res.data.data;
+            window.console.log("列表数据:", res);
+            axios({
+              url: "https://autumnfish.cn/api/lol/info",
+              method: "get",
+              params: {
+                id: this.list[0].id,
+              },
+            }).then((res) => {
+              window.console.log("详情:", res);
+            });
+          });
+        },
+      });
+    </script>
+  </body>
+</html>

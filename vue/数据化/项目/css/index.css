@@ -1,0 +1,429 @@
+body {
+  background: url('../images/bg.jpg') no-repeat;
+  background-size: cover;
+}
+body .container {
+  min-width: 1024px;
+  max-width: 1920px;
+  min-height: 780px;
+  margin: 0 auto;
+  padding: 88px 20px 0;
+  background: url('../images/logo.png') no-repeat;
+  background-size: contain;
+  display: flex;
+}
+body .container .con-left {
+  flex: 3;
+}
+body .container .con-left .overview {
+  height: 110px;
+}
+body .container .con-left .overview .inner {
+  display: flex;
+}
+body .container .con-left .overview .inner .item {
+  flex: 1;
+  text-align: center;
+}
+body .container .con-left .overview .inner .item p {
+  font-size: 25px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+body .container .con-left .overview .inner .item span {
+  color: #4C9BFD;
+  font-size: 15px;
+}
+body .container .con-left .overview .inner .item span i {
+  color: #6ACCA3;
+  margin-right: 4px;
+}
+body .container .con-left .monitor {
+  margin-top: 20px;
+  height: 474px;
+}
+body .container .con-left .monitor .inner .tabs a {
+  color: #1950C4;
+  font-size: 18px;
+  padding: 0px 20px;
+}
+body .container .con-left .monitor .inner .tabs a:nth-child(2) {
+  border-left: 2px solid #00F2F1;
+}
+body .container .con-left .monitor .inner .tabs .active {
+  color: #fff;
+}
+body .container .con-left .monitor .inner .content {
+  color: #4B82C8;
+}
+body .container .con-left .monitor .inner .content .head {
+  height: 35px;
+  line-height: 35px;
+  background-color: rgba(255, 255, 255, 0.1);
+  display: flex;
+  margin: 10px -30px 0;
+  padding: 0 40px;
+  text-align: left;
+}
+body .container .con-left .monitor .inner .content .head span {
+  color: #68D8FE;
+  flex: 1;
+  font-size: 14px;
+  padding: 0 20px;
+}
+body .container .con-left .monitor .inner .content .head span:nth-child(2) {
+  flex: 2;
+  margin-left: 50px;
+}
+body .container .con-left .monitor .inner .content .content-view {
+  height: 350px;
+  overflow: hidden;
+  position: relative;
+}
+body .container .con-left .monitor .inner .content .content-view .carousel {
+  position: absolute;
+}
+body .container .con-left .monitor .inner .content .content-view .carousel .row {
+  height: 35px;
+  line-height: 35px;
+  display: flex;
+  position: relative;
+}
+body .container .con-left .monitor .inner .content .content-view .carousel .row span {
+  flex: 1;
+  padding: 0 30px;
+}
+body .container .con-left .monitor .inner .content .content-view .carousel .row span:nth-child(2) {
+  flex: 2;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+body .container .con-left .monitor .inner .content .content-view .carousel .row span:nth-child(3) {
+  margin-left: -60px;
+}
+body .container .con-left .monitor .inner .content .content-view .carousel .row i {
+  position: absolute;
+  left: 10px;
+  line-height: 35px;
+  display: none;
+}
+body .container .con-left .monitor .inner .content .content-view .carousel .active {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+body .container .con-left .monitor .inner .content .content-view .carousel .active i {
+  display: block;
+}
+body .container .con-left .point {
+  height: 335px;
+  margin-top: 20px;
+}
+body .container .con-left .point h3 {
+  font-size: 20px;
+}
+body .container .con-left .point .chart {
+  height: 240px;
+  display: flex;
+  padding: 20px 0 0 20px;
+}
+body .container .con-left .point .chart .pie {
+  flex: 3;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+body .container .con-left .point .chart .data {
+  flex: 1.6;
+  margin-left: 20px;
+  height: 100%;
+  background: url(../images/rect.png) no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+}
+body .container .con-left .point .chart .data .item {
+  flex: 1;
+  margin: 40px 0 0 30px;
+}
+body .container .con-left .point .chart .data .item p {
+  font-size: 24px;
+  margin-bottom: 5px;
+}
+body .container .con-left .point .chart .data .item span {
+  font-size: 16px;
+  color: #4C9BFD;
+}
+body .container .con-left .point .chart .data .item span i {
+  color: #ED3F35;
+}
+body .container .con-left .point .chart .data .item:nth-child(2) span i {
+  color: #EACF19;
+}
+body .container .con-center {
+  flex: 4;
+}
+body .container .con-center .map {
+  margin-left: 20px;
+}
+body .container .con-center .map h3 {
+  color: #fff;
+  font-size: 20px;
+  padding-top: 40px;
+  padding-bottom: 20px;
+}
+body .container .con-center .map h3 i {
+  color: #68e8fe;
+}
+body .container .con-center .map .chart {
+  height: 520px;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+body .container .con-center .user {
+  height: 337px;
+  margin-top: 20px;
+  margin-left: 20px;
+}
+body .container .con-center .user h3 {
+  font-size: 20px;
+}
+body .container .con-center .user .chart {
+  height: 240px;
+  display: flex;
+  padding: 20px 0 0 20px;
+}
+body .container .con-center .user .chart .bar {
+  flex: 7;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+body .container .con-center .user .chart .data {
+  flex: 2.4;
+  margin-left: 20px;
+  height: 100%;
+  background: url(../images/rect.png) no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+}
+body .container .con-center .user .chart .data .item {
+  flex: 1;
+  margin: 40px 0 0 30px;
+}
+body .container .con-center .user .chart .data .item p {
+  font-size: 24px;
+  margin-bottom: 5px;
+}
+body .container .con-center .user .chart .data .item span {
+  font-size: 16px;
+  color: #4C9BFD;
+}
+body .container .con-center .user .chart .data .item span i {
+  color: #ED3F35;
+}
+body .container .con-center .user .chart .data .item:nth-child(2) span i {
+  color: #EACF19;
+}
+body .container .con-right {
+  flex: 3;
+  padding-left: 20px;
+}
+body .container .con-right .order {
+  height: 146px;
+}
+body .container .con-right .order .inner .fifter {
+  height: 20px;
+  font-size: 18px;
+  line-height: 20px;
+  color: #1950C4;
+  margin-bottom: 24px;
+}
+body .container .con-right .order .inner .fifter ul li {
+  float: left;
+  padding: 0 20px;
+  cursor: pointer;
+  border-left: 2px solid #00F2F1;
+}
+body .container .con-right .order .inner .fifter ul li:nth-child(1) {
+  padding-left: 0;
+  border-left: 0;
+}
+body .container .con-right .order .inner .fifter ul .active {
+  color: #fff;
+}
+body .container .con-right .order .inner .data {
+  display: flex;
+}
+body .container .con-right .order .inner .data .item {
+  float: left;
+  flex: 1;
+}
+body .container .con-right .order .inner .data .item h4 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+body .container .con-right .order .inner .data .item span {
+  color: #4C9BFD;
+}
+body .container .con-right .order .inner .data .item span i {
+  color: #ED3F35;
+}
+body .container .con-right .order .inner .data .item:nth-child(2) i {
+  color: #EACF19;
+}
+body .container .con-right .sales {
+  height: 245px;
+  margin: 20px 0 ;
+}
+body .container .con-right .sales .caption h3 {
+  float: left;
+  font-size: 20px;
+  margin-right: 15px;
+}
+body .container .con-right .sales .caption ul {
+  float: left;
+  color: #098DC0;
+  height: 20px;
+  margin-top: 6px;
+  border-left: 2px solid #00F2F1;
+}
+body .container .con-right .sales .caption ul li {
+  float: left;
+  font-size: 16px;
+  margin-left: 24px;
+  padding: 0 2px;
+  cursor: pointer;
+}
+body .container .con-right .sales .caption ul .active {
+  color: #fff;
+  background-color: #4C9BFD;
+  border-radius: 2px;
+}
+body .container .con-right .wrap {
+  height: 230px;
+  display: flex;
+}
+body .container .con-right .wrap .channel {
+  flex: 1;
+  margin-right: 20px;
+}
+body .container .con-right .wrap .channel h3 {
+  font-size: 20px;
+  height: 36px;
+  line-height: 36px;
+}
+body .container .con-right .wrap .channel .data {
+  height: 70px;
+  display: flex;
+  margin-top: 10px;
+}
+body .container .con-right .wrap .channel .data .item {
+  height: 100%;
+  flex: 1;
+}
+body .container .con-right .wrap .channel .data .item h4 {
+  font-size: 28px;
+}
+body .container .con-right .wrap .channel .data .item h4 small {
+  font-size: 16px;
+}
+body .container .con-right .wrap .channel .data .item span {
+  color: #4C9BFD;
+  font-size: 14px;
+}
+body .container .con-right .wrap .channel .data .item:nth-child(2) {
+  margin-left: 70px;
+}
+body .container .con-right .wrap .quarter {
+  flex: 1;
+}
+body .container .con-right .wrap .quarter .inner h3 {
+  font-size: 20px;
+  height: 40px;
+  line-height: 40px;
+}
+body .container .con-right .wrap .quarter .inner .chart {
+  height: 80px;
+  position: relative;
+}
+body .container .con-right .wrap .quarter .inner .chart .gauge {
+  height: 100%;
+}
+body .container .con-right .wrap .quarter .inner .chart .lable {
+  font-size: 30px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -30%);
+}
+body .container .con-right .wrap .quarter .inner .chart .lable small {
+  font-size: 16px;
+}
+body .container .con-right .wrap .quarter .inner .data {
+  display: flex;
+}
+body .container .con-right .wrap .quarter .inner .data .item {
+  flex: 1;
+}
+body .container .con-right .wrap .quarter .inner .data .item h4 {
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+body .container .con-right .wrap .quarter .inner .data .item span {
+  color: #4C9BFD;
+}
+body .container .con-right .hot {
+  height: 280px;
+  margin: 20px 0 ;
+}
+body .container .con-right .hot .inner {
+  display: flex;
+}
+body .container .con-right .hot .inner .all {
+  flex: 3;
+  height: 100%;
+  text-align: center;
+}
+body .container .con-right .hot .inner .all h3 {
+  font-size: 18px;
+}
+body .container .con-right .hot .inner .all li {
+  font-size: 16px;
+  margin-top: 25px;
+}
+body .container .con-right .hot .inner .all li i {
+  font-size: 30px;
+  vertical-align: middle;
+  margin: 0 10px;
+}
+body .container .con-right .hot .inner .province {
+  flex: 7;
+  height: 100%;
+}
+body .container .con-right .hot .inner .province h3 {
+  font-size: 18px;
+}
+body .container .con-right .hot .inner .province .data {
+  margin-top: 10px;
+  display: flex;
+}
+body .container .con-right .hot .inner .province .data .sup {
+  flex: 1;
+  padding-left: 30px;
+}
+body .container .con-right .hot .inner .province .data .sup li {
+  color: #4995f4;
+  height: 30px;
+  line-height: 30px;
+  font-size: 14px;
+}
+body .container .con-right .hot .inner .province .data .sup li span:nth-child(1) {
+  float: left;
+}
+body .container .con-right .hot .inner .province .data .sup li span:nth-child(2) {
+  float: right;
+}
+body .container .con-right .hot .inner .province .data .sup .active {
+  color: #a3c6f2;
+  background-color: rgba(10, 67, 188, 0.2);
+}
+body .container .con-right .hot .inner .province .data .sup:nth-child(2) {
+  background-color: rgba(10, 67, 188, 0.2);
+  padding: 0px 15px;
+}

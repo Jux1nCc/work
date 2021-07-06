@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0, viewport-fit=cover">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="msapplication-tap-highlight" content="no">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Cache-Control" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <title>铢铢APP - 更自然的找到真爱</title>
+  <link rel="shortcut icon" href="favicon.ico">
+  <link rel="stylesheet" href="css/comm.css">
+  <link rel="stylesheet" href="css/index.css">
+</head>
+
+<body>
+  <div class="page">
+    <div id="head"></div>
+    <div class="wrap">
+      <ul id="dynamicPageWrap">
+      </ul>
+      <div id="pageBtnPage">
+        <button class="popup" onclick="pageEvent(this,'dynamic')">查看更多</button>
+      </div>
+      <div id="back-to-top" class="popup"></div>
+    </div>
+    <footer></footer>
+  </div>
+</body>
+<script src="js/rem.js"></script>
+<script src="js/config.js"></script>
+<script src="js/jquery.min.js"></script>
+<script src="layui/layui.js"></script>
+<script src="js/data.js"></script>
+<script src="js/index.js"></script>
+<script>
+  (function () {
+    // 判断是否显示加载更多按钮
+    if (dynamicArr.length > 6) {
+      $('#pageBtnPage button').removeClass('popup')
+    }
+    // 监听屏幕滚动 展示回到顶部按钮
+    $(window).scroll(function () {
+      if ($(window).scrollTop() > 100) {
+        $("#back-to-top").fadeIn(500);
+      }
+      else {
+        $("#back-to-top").fadeOut(500);
+      }
+    });
+
+    $("#back-to-top").click(function () {
+      $('body,html').animate({ scrollTop: 0 }, 100);
+      return false;
+    });
+  })();
+</script>
+
+</html>

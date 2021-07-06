@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .el-row {
+        margin-bottom: 20px;
+    }
+    .el-col {
+        border-radius: 4px;
+    }
+    .bg-purple-dark {
+        background: #99a9bf;
+    }
+    .bg-purple {
+        background: #d3dce6;
+    }
+    .bg-purple-light {
+        background: #e5e9f2;
+    }
+    .grid-content {
+        border-radius: 4px;
+        min-height: 36px;
+    }
+    .row-bg {
+        padding: 10px 0;
+        background-color: #f9fafc;
+    }
+    </style>
+<body>
+    <div id="app">
+        <!-- <el-input v-model="input" placeholder="请输入内容" prefix-icon="el-icon-user"></el-input>
+        <el-input v-model="password" placeholder="请输入内容" prefix-icon="el-icon-lock"  show-password></el-input>
+        <el-row>
+            <el-col :span="18"><div class="grid-content bg-purple"></div></el-col>
+            <el-col :span="6"><div class="grid-content bg-purple-light"></div></el-col>
+        </el-row> -->
+        {{checked}}
+        <!-- <label>
+            选项1
+            <input type="checkbox" name="" id="" value="1" v-model="msg">
+        </label>
+        <label>
+            选项2
+            <input type="checkbox" name="" id="" value="2" v-model="msg">
+        </label>
+        <label>
+            选项3
+            <input type="checkbox" name="" id="" value="3" v-model="msg">
+        </label>
+        <label>
+            选项4
+            <input type="checkbox" name="" id="" value="4" v-model="msg">
+        </label> -->
+        <el-checkbox v-model="checked">备选项</el-checkbox>
+    </div>
+    <script src="./vue.js"></script>
+    <!-- 引入样式 -->
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <!-- 引入组件库 -->
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+    <script>
+        var vm = new Vue({
+            el :'#app',
+            data:{
+                // input : '123',
+                // password : ''
+                checked : ''
+            }
+        })
+    </script>
+</body>
+
+</html>

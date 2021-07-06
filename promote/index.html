@@ -1,0 +1,283 @@
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0, viewport-fit=cover">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="msapplication-tap-highlight" content="no">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Cache-Control" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <title></title>
+  <link rel="stylesheet" href="http://activity.folkcam.cn/common/layer/theme/default/layer.css">
+  <link rel="stylesheet" href="http://activity.folkcam.cn/common/comm.css">
+  <link rel="stylesheet" href="./index.css?v=202010141005" as="style">
+</head>
+
+<body>
+  <!-- 主播端 -->
+  <div class="page page-live font-family">
+    <div class="act-time">活动时间: 10月16日-11月20日</div>
+    <header class="head">
+    </header>
+    <div class="wrap time font-family">
+      <div class="red-line time-red-left"></div>
+      <div class="red-line time-red-right"></div>
+      <div class="yellow-line time-yellow-left"></div>
+      <div class="yellow-line time-yellow-right"></div>
+      <span class="left"></span>
+      <span class="right"></span>
+      <div class="left-line line">
+        <span></span>
+      </div>
+      <div class="right-line line">
+        <span></span>
+      </div>
+      <div class="shadow">
+        <div class="time-title">单场开播达时长，可领奖励</div>
+        <p class="time-title">(每日限领取1份, 100<span class="appUnit">收益积分</span>=1元)</p>
+        <ul>
+          <li class="time-items column">
+            <div class="item-title">随机聊天气泡*3天</div>
+            <div class="item-img"></div>
+            <div class="item-type">10分钟奖励</div>
+          </li>
+          <li class="time-items column">
+            <div class="item-title">200<span class="appUnit">收益积分</span></div>
+            <div class="item-img"></div>
+            <div class="item-type">20分钟奖励</div>
+          </li>
+          <li class="time-items column">
+            <div class="item-title">500<span class="appUnit">收益积分</span></div>
+            <div class="item-img"></div>
+            <div class="item-type">40分钟奖励</div>
+          </li>
+          <li class="time-items column">
+            <div class="item-title">3000<span class="appUnit">收益积分</span></div>
+            <div class="item-img"></div>
+            <div class="item-type">120分钟奖励</div>
+          </li>
+          <li class="time-items column">
+            <div class="item-title">2000<span class="appUnit">收益积分</span></div>
+            <div class="item-img"></div>
+            <div class="item-type">90分钟奖励</div>
+          </li>
+          <li class="time-items column">
+            <div class="item-title">1000<span class="appUnit">收益积分</span></div>
+            <div class="item-img"></div>
+            <div class="item-type">60分钟奖励</div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="wrap progress font-family">
+      <span class="left"></span>
+      <span class="right"></span>
+      <i></i>
+      <div class="red-line progress-red-left"></div>
+      <div class="red-line progress-red-right"></div>
+      <div class="yellow-line progress-yellow-left"></div>
+      <div class="yellow-line progress-yellow-right"></div>
+      <div class="shadow">
+        <div class="progress-title">当前进度</div>
+        <p class="played played1">本场已开播<span class="play-time">0分钟</span>,可领 <span class="receive">暂无</span></p>
+        <p class="played popup played2">您今日已领取奖励 <span class="receive">暂无</span></p>
+        <p class="playing playing1">再播 <span class='play-timing'>10</span> 分钟，即可领取<span class="receiving">随机聊天气泡</span>
+        </p>
+        <p class="playing popup playing2">再开播2小时就可免费拿30元!</p>
+        <button class="disabled award-btn font-family" onclick="getAward()">立即领取聊天气泡</button>
+      </div>
+    </div>
+    <div class="wrap rule font-family">
+      <div class="shadow">
+        <div class="rule-title">规则说明</div>
+        <p>1、每天开播拿红包, 单次开播达20分钟、40分钟、60分钟、90分钟、120分钟时可领不同金额；</p>
+        <p>2、<span class="orange">每日只可领取一次开播奖励，请尽可能开播更长时间后再领取奖励。</span>(如：开播40分钟时领取了500<span
+            class="appUnit">收益积分</span>，当天再达到60分钟时没有奖励)；</p>
+        <p>3、活动进度每天24点清零；</p>
+        <p>4、活动期间如有主播因挂机、镜头前无人、替播等违反直播规范的行为, 被平台给予冻结、关闭直播间等处罚的，该用户当天进度将被清零。</p>
+        <div class="tips">
+          <p>温馨提示：</p>
+          <p>1、聊天气泡等装扮奖励发放后，请在"我-更多-个性装扮"里手动选择使用；</p>
+          <p>2、本活动起止时间、奖励发放时间、奖励有效时间均以北京时间为准。</p>
+        </div>
+      </div>
+    </div>
+    <footer class="foot">
+      <p class="isApple">本活动奖励由<span class="appName">觅伊</span>平台提供，与苹果公司无关。</p>
+      <p>活动最终解释权归<span class="appName">觅伊</span>所有</p>
+    </footer>
+  </div>
+  <!-- 用户端 -->
+  <div class="page page-man popup font-family">
+    <div class="act-time">活动时间: 活动时间: 10月16日-11月20日</div>
+    <header class="head">
+    </header>
+    <div class="wrap look">
+      <div class="red-line look-red-left"></div>
+      <div class="red-line look-red-right"></div>
+      <div class="yellow-line look-yellow-left"></div>
+      <div class="yellow-line look-yellow-right"></div>
+      <span class="left"></span>
+      <span class="right"></span>
+      <div class="left-line line">
+        <span></span>
+      </div>
+      <div class="right-line line">
+        <span></span>
+      </div>
+      <div class="shadow">
+        <div class="look-title">看直播拿奖励</div>
+        <p class="look-title2">每日累计看直播达时长，可领取奖励</p>
+        <ul class="look-time">
+          <li>0</li>
+          <li>10分钟</li>
+          <li>20分钟</li>
+          <li>40分钟</li>
+        </ul>
+        <div class="look-progress">
+          <div class="progress-wrap">
+            <ul class="progress-line flexbox">
+              <li></li>
+              <li></li>
+              <li></li>
+            </ul>
+          </div>
+        </div>
+        <ul class="look-award">
+          <li class="column">
+            <div class="award-img column">
+              <div class="img-box flexbox">
+                <div class="img img-car"></div>
+              </div>
+              <div class="img-title">随机进场特效3天</div>
+            </div>
+            <div class="award-btn miss" onclick="userGetAward(1,this, 0)">立即领取</div>
+          </li>
+          <li class="column">
+            <div class="award-img column">
+              <div class="img-box flexbox">
+                <div class="img img-10-2"></div>
+              </div>
+              <div class="img-title">10减2元充值券</div>
+            </div>
+            <div class="award-btn miss" onclick="userGetAward(2,this, 0)">立即领取</div>
+          </li>
+          <li class="column">
+            <div class="award-img column">
+              <div class="img-box flexbox">
+                <div class="img img-85"></div>
+              </div>
+              <div class="img-title">85折充值券</div>
+            </div>
+            <div class="award-img column">
+              <div class="img-box flexbox">
+                <div class="img img-vip"></div>
+              </div>
+              <div class="img-title"><span class="appGoldVip">黄金会员</span>3天</div>
+            </div>
+            <div class="award-btn miss" onclick="userGetAward(3,this, 0)">立即领取</div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="wrap comment">
+      <span class="left"></span>
+      <span class="right"></span>
+      <div class="red-line comment-red-left"></div>
+      <div class="red-line comment-red-right"></div>
+      <div class="yellow-line comment-yellow-left"></div>
+      <div class="yellow-line comment-yellow-right"></div>
+      <div class="shadow">
+        <div class="comment-title">评论拿奖励</div>
+        <p>发送直播评论达30条, 且每条≥10个字, 可领<span class="appGift">直播礼物</span> “口红”*5个</p>
+        <div class="comment-progress flexbox">
+          发送评论
+          <div class="comment-pro-box">
+            <span>0/30</span>
+            <div class="comment-pro-wrap"></div>
+          </div>
+          <div class="pro-btn miss" onclick="userGetAward(4,this, 0)">立即领奖</div>
+        </div>
+      </div>
+    </div>
+    <div class="wrap rule">
+      <div class="shadow">
+        <div class="rule-title">规则说明</div>
+        <p>1、每天观看直播即可领取奖励, 累计看播10分钟、20分钟、40分钟各领取一次；</p>
+        <p>2、每天发送直播间评论也可领取奖励, 评论包含普通评论、高级评论和尊贵弹幕；</p>
+        <p>3、活动进度每天24点清零；</p>
+        <p>4、礼物奖励将发放至<span class="appBag">直播间背包</span>，充值券奖励将发放至“我的钱包-包裹”, 有效期均为2天。<span
+            class="appGoldVip">黄金会员</span>奖励将自动到账（如果您已是<span class="appSliverVip">白银会员</span>，将奖励4天<span
+            class="appSliverVip">白银会员</span>， 系统为您自动延期）；</p>
+        <div class="tips">
+          <p>温馨提示：</p>
+          <p>1、进场特效等装扮奖励发放后，请在"我-更多-个性装扮"里手动选择使用；</p>
+          <p>2、本活动起止时间、奖励发放时间、奖励有效时间均以北京时间为准；</p>
+          <p>3、同一设备视为同一用户, 每日仅可参与一次。</p>
+        </div>
+      </div>
+    </div>
+    <footer class="foot">
+      <p class="isApple">本活动奖励由<span class="appName">觅伊</span>平台提供，与苹果公司无关。</p>
+      <p>活动最终解释权归<span class="appName">觅伊</span>所有</p>
+    </footer>
+  </div>
+  <!-- 弹窗 -->
+  <div class="dialog font-family">
+    <!-- 是否领取 -->
+    <div id="isreceive" class="popup">
+      <div class="isreceive-main flexbox column between">
+        <div class="isreceive-img"></div>
+        <span>随机聊天气泡</span>
+      </div>
+      <p>继续直播<span class="rec-time">10</span>分钟，可多获得<span class="rec-award">200</span><span class="appUnit">收益积分</span>！
+      </p>
+      <button class="dialog-ok dialog-submit" onclick="submit()"></button>
+      <button class="dialog-ok" onclick="layer.closeAll()"></button>
+      <button class="dialog-close"></button>
+    </div>
+    <!-- 领取成功 -->
+    <div id="received" class="popup">
+      <p>“千里共婵娟”文字气泡x3天</p>
+      <div class="received-main flexbox column between">
+        <div class="received-img"></div>
+        <span>记得去「<span>我-更多-个性装扮</span>」使用~</span>
+      </div>
+      <div class="look-alive">多多看直播，福利都带走</div>
+      <button class="dialog-ok" onclick="layer.closeAll()"></button>
+    </div>
+    <!-- 10-2 -->
+    <div id="discount10-2" class="popup">
+      <p>可在“我-更多-我的钱包-包裹”里查看</p>
+      <div class="look-alive">多多看直播，福利都带走</div>
+      <button class="dialog-ok  font-family" onclick="layer.closeAll()">我知道啦</button>
+    </div>
+    <!-- 85 + vip -->
+    <div id="discount85" class="popup">
+      <span><span class="appGoldVip">黄金会员</span>3天</span>
+      <div class="vip-img"></div>
+      <p>提示：<span class="appGoldVip">黄金会员</span>奖励已到账，如果您已是<span class="appSliverVip">白银会员</span>，<br>将奖励4天<span
+          class="appSliverVip">白银会员</span>，系统为您自动延期。<br>充值券有效期2天，请及时使用。</p>
+      <button class="dialog-ok  font-family" onclick="layer.closeAll()">我知道啦</button>
+    </div>
+  </div>
+</body>
+<script src="http://activity.folkcam.cn/common/jquery.min.js"></script>
+<script src="http://activity.folkcam.cn/common/polyfill.js"></script>
+<script src="http://activity.folkcam.cn/common/layer/layer.js"></script>
+<script src="http://activity.folkcam.cn/common/app.js"></script>
+<script src="http://activity.folkcam.cn/common/rem.js"></script>
+<script src="http://activity.folkcam.cn/common/config.js"></script>
+<script src="http://activity.folkcam.cn/common/moment.js"></script>
+<script src="./index.js?v=202010131900"></script>
+<script src="https://cdn.bootcss.com/vConsole/3.3.0/vconsole.min.js"></script>
+<script>
+  var vConsole = new VConsole();
+  console.log(window.location.href);
+</script>
+
+</html>

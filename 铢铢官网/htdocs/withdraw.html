@@ -1,0 +1,348 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>提现</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+    <meta name="keyWords" content="关键词">
+    <meta name="description" content="描述">
+
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/pay.css">
+    <link rel="stylesheet" href="css/withdraw.css" />
+    
+    <script src="js/jquery-2.1.4.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/common.js"></script>
+</head>
+<body>
+    <!-- 开始 提现 -->
+    <div class="c-cash-wrap">
+        <div class="c-cash-content">
+            <!-- 开始 头部 -->
+             <div class="c-cash-header">
+                <p>
+                    *温馨提示*：您在咨聊APP官网都能进行提现，提交提现申请后，您可以到咨聊APP“我的-账单明细”中查询到提现记录。
+                </p>
+            </div>
+            <!-- 头部 结束 -->
+            <!-- 开始 身体 -->
+            <div class="c-rechange-body" style="padding-top: 65px;">
+                <div class="c-user-msg">
+                    <div>
+                        <span class="l_sesame_head_img"><i><img src="" alt=""></i></span>
+                        <div class="c-user-id">
+                            <p class="l_sesame_head_nam"><label></label>(咨聊ID：<span></span>)</p>
+                            <p class="l_pay_balan">可提现余额：<span></span>聊币</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="c-cash-user">
+                    <form action="">
+                        <label for="" id="">
+                            <ul>
+                                <li>
+                                    <span>真实姓名</span>
+                                    <div><input type="text" placeholder="请填写真实姓名" class="Unam" minlength="2" maxlength="20"></div>
+                                </li>
+                                <li>
+                                    <span>支付宝账号</span>
+                                    <div><input type="text"  placeholder="请填写支付宝账号" class="Upha" maxlength="50" onkeyup="value=value.replace(/[\u4e00-\u9fa5]/ig,'')" ></div>
+<!--                                     <div><input type="text"  placeholder="请填写支付宝账号" class="Upha" maxlength="50" onkeyup="value=value.replace(/[\W]/g,'') " onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))"></div> -->
+                                </li>
+                                <li>
+                                    <span>验证码</span>
+                                    <div class="c-get-code">
+                                        <div><input type="text" class="Ucod"  placeholder="将发送到170****1234"></div>
+                                        <span><input type="button" class="l_withd_code" value="获取验证码"></span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <span>提现聊币</span>
+                                    <div class="c-cash-num">
+                                        <div><input class="Uwit" placeholder="请填写提现聊币数量" type="number" minlength="50" maxlength="5000" ></div>
+                                        <span class="l_withd_tx"><input type="button" value="全部提现"></span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <span>到账金额</span>
+                                   <input type="number" class="Umon" placeholder="0元" readonly="readonly" onkeyup="this.value=this.value.replace(/^ +| +$/g,'')">
+                                </li>
+                            </ul>
+                        </label>
+                    </form>
+                    <!-- 未绑定手机账号的时候出现 -->
+                    <!-- <p class="c-cash-error-show">您的账号还未绑定，请前往咨聊APP操作</p> -->
+                </div>
+                <div class="c-cash-btn">
+                    <button>立即申请</button>
+                </div>
+            </div>
+            <!-- 身体 结束 -->
+            <!-- 开始 脚注 -->
+            <div class="c-cash-footer">
+                <p><em>提现规则</em></p>
+                <p>
+                  1、课程收益或推荐收益需大于等于50聊币才能发起提现；
+                </p>
+                <p>
+                    2、课程收益提现为每周的周四统一处理，推荐收益提现为每月的25日统一处理，如遇休息日、法定节假日，则提现时间延迟至上班的第一天处理；
+                </p>
+                <p>
+                    3、提现按1聊币兑现1元计算，最终金额保留两位小数；
+                </p>
+                <p>
+                    4、提现到支付宝每笔收取0.5%元，最少2元/笔，最高25元封顶（该费用由支付宝收取）；
+                </p>
+                <p>
+                    5、单笔提现聊币数50~5000聊币，单日限额5000聊币；
+                </p>
+                <p>
+                   6、提现申请时验证码将发送到该账号绑定的手机号，请先到咨聊APP绑定手机号再进行提现操作。
+                </p>
+                
+            </div>
+            <!-- 脚注 结束 -->
+        </div>
+    </div>
+    <!-- 提现 结束 -->
+</body>
+<script>
+	
+	
+	$(function(){
+		customerId = getURLParameter("customerId");
+		sessionStorage.setItem('customerId',customerId)
+		if(sessionStorage.getItem('customerId')!=null){
+    		$.get("/api/cashOut/findMyCapital",{"customerId":sessionStorage.getItem('customerId')},function(data){
+    			console.log(data);
+    			sessionStorage.setItem("gainsBal",data.data.gainsBal)//可提现收益
+    			sessionStorage.setItem("targetName",data.data.enterpriseName)//用户名
+    			sessionStorage.setItem("mobile",data.data.mobile)
+    			sessionStorage.setItem("photo",data.data.photo)
+				if(data.data.enterpriseName == null){
+					$('.Unam').attr("placeholder","请输入真实姓名")
+	        	}else{
+	        		$('.Unam').val(sessionStorage.getItem('targetName'));//姓名
+	        	}
+// 	        	$('.Upha').val(sessionStorage.getItem('targetAcct'));//支付宝账号
+				if(data.data.targetAcct == ""){
+					$('.Upha').attr("placeholder","请输入支付宝账号")
+				}else{
+					$('.Upha').val(data.data.targetAcct);
+				}
+	        	$(".l_sesame_head_nam label").html(data.data.nickName);//昵称
+	        	$(".l_sesame_head_nam span").html(data.data.customerCode);//咨聊id
+	        	$(".l_pay_balan span").html(data.data.gainsBal);//可提现金额
+	        	$('.l_sesame_head_img img').attr('src',data.data.photo)
+// 	        	$('.l_sesame_head_img img').attr("src",data.data.photo)
+				var mobile = sessionStorage.getItem("mobile")
+				console.log(mobile)
+	        	var mobile ="发送到"+ data.data.mobile.substring(0, 3) + "****" + data.data.mobile.substring(7, 11);
+        		$(".Ucod").attr('placeholder',mobile);
+    		});
+	
+			
+    	}
+    	
+    	
+        //支付方式选择
+        $('.l_recharge_con1 ul li').click(function(){
+            $(this).addClass('on').siblings().removeClass('on');
+        });
+        //充值金额币选择
+        $('.l_recharge_con2 .l_money').click(function(){
+            $(this).parent('li').addClass('on').siblings().removeClass('on');
+        });
+
+        //点击提现规则跳锚点
+        $('#scroll_l').click(function(){
+            var height = $('.l_withd_rule').offset().top; 
+            $('body,html').animate({
+                scrollTop: height - 150
+            }, 500);
+        });
+        
+        //点击获取验证码
+        $('.l_withd_code').click(function(){
+        	var phone =sessionStorage.getItem('mobile');
+//      	alert(phone);
+//      	$.post("/api/validateCode/sendCode",{"account":phone,"specifier":4},function(data){
+//      		//specifier   0.注册，1.登录确认，2.忘记密码，4.活动，5.身份验证，6.提现，8.绑定手机，9.异常登录10.修改手机号，11.绑定邮箱，12.修改邮箱
+//      		console.log(data)
+//      		if(data.code==0&&result==true){
+//      			$(".l_withd_code button").html("发送成功");
+//      		}
+//      	})
+		$.post("/api/validateCode/sendCode",{"account":phone,"specifier":6},function(data){
+        		//specifier   0.注册，1.登录确认，2.忘记密码，4.活动，5.身份验证，6.提现，8.绑定手机，9.异常登录10.修改手机号，11.绑定邮箱，12.修改邮箱
+        		console.log(data)
+        		if(0==data.code){
+        			$(".l_withd_code").val("发送成功");
+        		}else{
+        			alert(data.message)
+        		}
+        	})
+        })
+        
+//输入提现金额触发事件
+        $(".Uwit").bind("input propertychange",function(){
+        	var Uwit = new Number($('.Uwit').val());
+        	//获取可提现收益
+        	var cashAmt = new Number(sessionStorage.getItem('gainsBal'));
+        	console.log(cashAmt)
+        	if(Uwit<=2){
+        		$(".Umon").val("0");
+        	}
+        	if(cashAmt<50){
+        		alert("可提现余额不足")
+        		$(".Uwit").val("0.00");
+        		$(".Umon").val("0.00");
+        	}else{
+        		//可提现余额充足
+        		if(Uwit<50&&Uwit>2&&Uwit<cashAmt){
+//      			$(".Uwit").val("50.00")
+//      			$(".Umon").attr("placeholder",2+"元")
+        			$(".Umon").val(new Number(Uwit-2).toFixed(2));
+        			
+        		}
+        		if(Uwit>new Number(5000)){
+        			//alert("输入地金额大于五千")
+        			$(".Uwit").val("5000")
+//      			$(".Umon").attr("placeholder",25+"元")
+        			$(".Umon").val(4975);
+        		}
+        		//正常计算提现费用
+        		if(Uwit>=50&&Uwit<=5000){
+        			if(Uwit>cashAmt){
+            			$(".Uwit").val(cashAmt);
+            		}
+        			
+        			var Uwit = new Number($('.Uwit').val());
+        			var money = Uwit*0.005;
+        			if(money<=2){
+//      				$(".Umon").attr("placeholder",2+"元")
+        				$(".Umon").val(new Number(Uwit-2).toFixed(2));
+        			}
+        			if(money>=25){
+//      				$(".Umon").attr("placeholder",25+"元")
+        				$(".Umon").val(new Number(Uwit-25).toFixed(2));
+        			}
+        			if(money>2&&money<25){
+        				
+						money = Math.round(parseFloat(money) * 100) / 100;
+						if (money.toString().indexOf(".") < 0) {
+							money = money.toString() + ".00";
+						}
+        				
+//      				$(".Umon").attr("placeholder",money+"元")
+        				$(".Umon").val(new Number(Uwit-money).toFixed(2));
+        			}
+        		}
+        	}
+//      	$(".Umon").attr("placeholder",11+"元")
+        	
+        });
+        //点击全部提现
+        $(".l_withd_tx").click(function(){
+        	
+        	//获取可提现收益
+        	var cashAmt = sessionStorage.getItem('gainsBal');
+        	console.log(cashAmt)
+        	if(cashAmt<50){
+        		alert("可提现余额不足");
+        		$(".Uwit").val("0.00");
+        		$(".Uwit").val("0.00");
+        	}
+        	if(cashAmt>5000){
+        		$(".Uwit").val("5000.00");
+        		$(".Umon").val(4975);
+        	}if(cashAmt>=50&&cashAmt<=5000){
+         		var money = cashAmt*0.002;
+        		if(money>=2&&money<=25){
+	        		$(".Uwit").val(cashAmt);
+	        		$(".Umon").val(new Number(cashAmt-money).toFixed(2));
+        		}
+        		if(money<2){
+        			$(".Uwit").val(cashAmt);
+        			$(".Umon").val(new Number(cashAmt-2).toFixed(2));
+        		}
+        		if(money>25){
+        			$(".Uwit").val("5000");
+	        		$(".Umon").val(new Number(cashAmt-25).toFixed(2));
+        		}
+        	}
+        });
+        
+        //点击请求认证
+        $('.c-cash-btn').click(function(){
+        	var Unam = $('.Unam').val();//姓名
+        	var Upha =$('.Upha').val();//支付宝账号
+        	var Ucod = $(".Ucod").val();//验证码
+        	var Uwit = $('.Uwit').val();//提现聊币
+        	var Umon = $(".Umon").val();//实际到账金额
+        	//校验验证码
+          	$.post("/api/validateCode/check",{"account":sessionStorage.getItem('mobile'),"specifier":6,"code":Ucod},function(data){
+          		console.log(data)
+          		if(data.result==false){
+          			alert("验证码不一致")
+          		}else{
+        			//验证通过，提现
+        			var customerId = sessionStorage.getItem('customerId');
+        			var targetAcct = sessionStorage.getItem('targetAcct')
+        			var targetName = sessionStorage.getItem('targetName');
+        			//console.log("customerId: " + customerId + ", amt: " + Umon + ", targetAcct:  " + Upha + ", targetName:  " +Unam)
+        			var reg =  /\S/;
+        			if( (!reg.test(Unam)) || (!reg.test(Upha)) ){
+        				alert("姓名支付宝账号不能为空")
+        			} else{
+	        			$.post("/api/cashOut/addWithZhiFuBao",{
+	        				"customerId":customerId,
+	        				"amt":Uwit,
+	        				"targetAcct":Upha,
+	        				"targetName":Unam,
+	        				"TargetType":2
+	        			},function(data){
+// 	        				alert(data.code)
+	        				if(data.code==0){
+		        				window.location.href="cash_success.html"
+	        				}else{
+	        					alert(data.data)
+	        				}
+	        			})
+        			}
+        		}
+        	});
+        	
+        })
+    })
+</script>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

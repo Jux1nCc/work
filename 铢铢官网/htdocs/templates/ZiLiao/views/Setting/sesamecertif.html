@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>芝麻认证</title>
+		<link rel="stylesheet" href="../../public/css/style.css">
+		<link rel="stylesheet" href="../../package/layui/css/layui.css" />
+
+		<script type="text/javascript" src="../../package/layui/layui.js"></script>
+		<script src="../../public/js/public/jquery.min.js"></script>
+		<script src="../../public/js/public/jquery.cookie.min.js"></script>
+		<script src="../../public/js/index.js"></script>
+	</head>
+	<body>
+		<div id="Sesamecertif_User">
+			<div class="Sesamecertif_title">
+				<a href="javascript:history.go(-1)" class="cert_return_btn" ><img src="../../img/backoff.png">返回</a>
+				<h3>芝麻认证</h3>
+			</div>
+			<div class="Sesamecertif_content">
+				<p class="Sesamecertif_content_pream">请您进行实名信息认证，您的个人信息将受<a style="color: #1DA0F2;text-decoration: underline;" href="../privacy.html" target="_blank">《咨聊用户隐私政策》</a>保护。</p>
+				<div class="Sesamecertif_info_name">
+					<label class="lable_title" >真实姓名：</label>
+					<div class="input_w340">
+						<input type="text" id="name" maxlength="20"/>
+						<label class="prompt-hint" id="namehint"></label>
+					</div>
+				</div>
+				
+				<div class="Sesamecertif_info_name">
+					<label class="lable_title">身份证号：</label>
+					<div class="input_w340">
+						<input type="text" id="number" maxlength="18" />
+						<label class="prompt-hint" id="numberhint"></label>
+						
+					</div>
+				</div>
+				<p class=""><a href="javascript:;" id="Get_address">提交</a></p>
+			</div>
+			<div id="Sesamecertif_QRcode" style="text-align: center;">
+				<a id="Sesam_codeclose">取消</a>
+				<div style="margin-top: 50px;">
+					<p style="color: #1DA0F2;">芝麻认证</p>
+					<p style="padding: 40px;">您好，电脑端芝麻信用认证还在对接中，请您在应用市场下载“咨聊”app，登陆后再“我-专家工作台”进行认证。</p>
+					<img src="" id="Sesam_QRcodeurl">
+					<p>请使用支付宝扫码完成认证</p>
+				</div>
+				
+			</div>
+		</div>
+	</body>
+	
+	<script>
+		$(document).ready(function(){
+ 			if(navigator.userAgent.indexOf('.MSIE') > 0) {
+				//普通用户资料修改 -->用户昵称
+				$("#Sesamecertif_User").on("input propertychange", "#name", function() {
+					fun.inputdelay("realname", "真实姓名");
+				});
+				
+				$("#Sesamecertif_User").on("input propertychange", "#number", function() {
+					fun.inputdelay("number", "身份证");
+				});
+		
+				
+			} else {
+				$("#Sesamecertif_User").on("input oninput", "#name", function() {
+					fun.inputdelay("name", "真实姓名");
+				})
+				
+				$("#Sesamecertif_User").on("input oninput", "#number", function() {
+					fun.inputdelay("number", "身份证");
+				})
+				
+			}
+		})
+		
+	
+	</script>
+</html>

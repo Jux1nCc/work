@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- v-html:类似innerHTML
+    用法: v-html="一句话表达式"
+    作用：富文本（带标签的字符串）解析（将内容以html结构进行解析）
+    -->
+    <div id="app">
+      <div v-text="msg"></div>
+      <div v-html="msg"></div>
+    </div>
+    <script src="./vue.js"></script>
+    <script>
+      new Vue({
+        el: "#app",
+        data: {
+          msg: "<h1>这是一个寂寞的天</h1>",
+        },
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0, viewport-fit=cover">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="msapplication-tap-highlight" content="no">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Cache-Control" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <title>首充送豪礼</title>
+  <link rel="stylesheet" href="http://activity.folkcam.cn/common/comm.css">
+  <link rel="stylesheet" href="http://activity.folkcam.cn/common/swiper.min.css">
+  <link rel="stylesheet" href="http://activity.folkcam.cn/common/layer/theme/default/layer.css">
+  <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+  <div class="page">
+    <header></header>
+    <div class="rule-btn" onclick="toRule()"></div>
+    <ul class="wrap">
+      <li class="wrap-6">
+        <div class="title"></div>
+        <div class="close-btn" flag='1' onclick="closeWrap(this,6)"></div>
+        <div class="slide-wrap">
+          <div class="award-text isApple popup">
+            <i></i>
+            <p class="red-text"><img src="images/diamond_2.png"><span class="award-diamond">420</span>钻石+额外专享大礼包</p>
+          </div>
+          <ul class="award-wrap flexbox">
+            <li class="award-item">
+              <div class="award-item-num">x3个</div>
+              <div class="award-img">
+                <img src="images/meteor.png">
+              </div>
+              <div class="award-name">对流星许愿</div>
+              <div class="award-price">(20钻石)</div>
+            </li>
+            <li class="award-item">
+              <div class="award-item-num">有效期3天</div>
+              <div class="award-img">
+                <img src="images/car_1.png">
+              </div>
+              <div class="award-name">寻爱单车</div>
+              <div class="award-price">进场特效</div>
+            </li>
+          </ul>
+          <i></i>
+          <div class="recharge-wrap flexbox">
+            <p>充<span class="red-text"><span class="pay-money">6</span>元</span>, 立马得福利</p>
+            <img src="images/charge_btn_1.png" onclick="toPay(6)">
+          </div>
+        </div>
+        <p class="slide-text popup">礼包内容已被折叠</p>
+      </li>
+      <li class="wrap-18 isAndroid popup">
+        <div class="title"></div>
+        <div class="close-btn" flag='1' onclick="closeWrap(this,18)"></div>
+        <div class="slide-wrap">
+          <ul class="award-wrap flexbox">
+            <li class="award-item">
+              <div class="award-item-num">x5个</div>
+              <div class="award-img">
+                <img src="images/meteor.png">
+              </div>
+              <div class="award-name">对流星许愿</div>
+              <div class="award-price">(20钻石)</div>
+            </li>
+            <li class="award-item">
+              <div class="award-item-num">有效期3天</div>
+              <div class="award-img">
+                <img src="images/car_1.png">
+              </div>
+              <div class="award-name">寻爱单车</div>
+              <div class="award-price">进场特效</div>
+            </li>
+            <li class="award-item">
+              <div class="award-item-num">有效期3天</div>
+              <div class="award-img">
+                <img src="images/vip_1.png">
+              </div>
+              <div class="award-name">白银贵族</div>
+            </li>
+          </ul>
+          <i></i>
+          <div class="recharge-wrap flexbox">
+            <p>充<span class="red-text"><span class="pay-money">18</span>元</span>, 立马得福利</p>
+            <img src="images/charge_btn_1.png" onclick="toPay(18)">
+          </div>
+        </div>
+        <p class="slide-text popup">礼包内容已被折叠</p>
+      </li>
+      <li class="wrap-25 isApple popup">
+        <div class="title"></div>
+        <div class="close-btn" flag='1' onclick="closeWrap(this,25)"></div>
+        <div class="slide-wrap">
+          <div class="award-text">
+            <i></i>
+            <p class="red-text"><img src="images/diamond_2.png"><span class="award-diamond">1750</span>钻石+额外专享大礼包</p>
+          </div>
+          <ul class="award-wrap flexbox">
+            <li class="award-item">
+              <div class="award-item-num">x7个</div>
+              <div class="award-img">
+                <img src="images/meteor.png">
+              </div>
+              <div class="award-name">对流星许愿</div>
+              <div class="award-price">(20钻石)</div>
+            </li>
+            <li class="award-item">
+              <div class="award-item-num">有效期7天</div>
+              <div class="award-img">
+                <img src="images/car_1.png">
+              </div>
+              <div class="award-name">寻爱单车</div>
+              <div class="award-price">进场特效</div>
+            </li>
+            <li class="award-item">
+              <div class="award-img">
+                <img src="images/ticket.png">
+              </div>
+              <div class="award-name">充值券</div>
+              <div class="award-price">(30元送300钻)</div>
+            </li>
+            <li class="award-item">
+              <div class="award-item-num">有效期7天</div>
+              <div class="award-img">
+                <img src="images/vip_1.png">
+              </div>
+              <div class="award-name">白银贵族</div>
+            </li>
+          </ul>
+          <i></i>
+          <div class="recharge-wrap flexbox">
+            <p>充<span class="red-text"><span class="pay-money">25</span>元</span>, 立马得福利</p>
+            <img src="images/charge_btn_1.png" onclick="toPay(25)">
+          </div>
+        </div>
+        <p class="slide-text popup">礼包内容已被折叠</p>
+      </li>
+      <li class="wrap-30 isAndroid popup">
+        <div class="title"></div>
+        <div class="close-btn" flag='1' onclick="closeWrap(this,30)"></div>
+        <div class="slide-wrap">
+          <ul class="award-wrap flexbox">
+            <li class="award-item">
+              <div class="award-item-num">x7个</div>
+              <div class="award-img">
+                <img src="images/meteor.png">
+              </div>
+              <div class="award-name">对流星许愿</div>
+              <div class="award-price">(20钻石)</div>
+            </li>
+            <li class="award-item">
+              <div class="award-item-num">有效期7天</div>
+              <div class="award-img">
+                <img src="images/car_1.png">
+              </div>
+              <div class="award-name">寻爱单车</div>
+              <div class="award-price">进场特效</div>
+            </li>
+            <li class="award-item">
+              <div class="award-img">
+                <img src="images/ticket.png">
+              </div>
+              <div class="award-name">充值券</div>
+              <div class="award-price">(30元送300钻)</div>
+            </li>
+            <li class="award-item">
+              <div class="award-item-num">有效期7天</div>
+              <div class="award-img">
+                <img src="images/vip_1.png">
+              </div>
+              <div class="award-name">白银贵族</div>
+            </li>
+          </ul>
+          <i></i>
+          <div class="recharge-wrap flexbox">
+            <p>充<span class="red-text"><span class="pay-money">30</span>元</span>, 立马得福利</p>
+            <img src="images/charge_btn_1.png" onclick="toPay(30)">
+          </div>
+        </div>
+        <p class="slide-text popup">礼包内容已被折叠</p>
+      </li>
+      <li class="wrap-40 isApple popup">
+        <div class="title"></div>
+        <div class="close-btn" flag='1' onclick="closeWrap(this,40)"></div>
+        <div class="slide-wrap">
+          <div class="award-text">
+            <i></i>
+            <p class="red-text"><img src="images/diamond_2.png"><span class="award-diamond">2800</span>钻石+额外专享大礼包</p>
+          </div>
+          <ul class="award-wrap flexbox">
+            <li class="award-item">
+              <div class="award-item-num">x7个</div>
+              <div class="award-img">
+                <img src="images/meteor.png">
+              </div>
+              <div class="award-name">对流星许愿</div>
+              <div class="award-price">(20钻石)</div>
+            </li>
+            <li class="award-item">
+              <div class="award-item-num">x2个</div>
+              <div class="award-img">
+                <img src="images/cat.png">
+              </div>
+              <div class="award-name">就想摸摸你</div>
+              <div class="award-price">(199钻石)</div>
+            </li>
+            <li class="award-item">
+              <div class="award-item-num">有效期7天</div>
+              <div class="award-img">
+                <img src="images/car_2.png">
+              </div>
+              <div class="award-name">红色保时捷</div>
+              <div class="award-price">进场特效</div>
+            </li>
+            <li class="award-item">
+              <div class="award-item-num">有效期7天</div>
+              <div class="award-img">
+                <img src="images/vip_2.png">
+              </div>
+              <div class="award-name">黄金贵族</div>
+            </li>
+          </ul>
+          <i></i>
+          <div class="recharge-wrap flexbox">
+            <p>充<span class="red-text"><span class="pay-money">40</span>元</span>, 立马得福利</p>
+            <img src="images/charge_btn_1.png" onclick="toPay(40)">
+          </div>
+        </div>
+        <p class="slide-text popup">礼包内容已被折叠</p>
+      </li>
+      <li class="wrap-50 isAndroid popup">
+        <div class="title"></div>
+        <div class="close-btn" flag='1' onclick="closeWrap(this,50)"></div>
+        <div class="slide-wrap">
+          <ul class="award-wrap flexbox">
+            <li class="award-item">
+              <div class="award-item-num">x7个</div>
+              <div class="award-img">
+                <img src="images/meteor.png">
+              </div>
+              <div class="award-name">对流星许愿</div>
+              <div class="award-price">(20钻石)</div>
+            </li>
+            <li class="award-item">
+              <div class="award-item-num">x2个</div>
+              <div class="award-img">
+                <img src="images/cat.png">
+              </div>
+              <div class="award-name">就想摸摸你</div>
+              <div class="award-price">(199钻石)</div>
+            </li>
+            <li class="award-item">
+              <div class="award-item-num">有效期7天</div>
+              <div class="award-img">
+                <img src="images/car_2.png">
+              </div>
+              <div class="award-name">红色保时捷</div>
+              <div class="award-price">进场特效</div>
+            </li>
+            <li class="award-item">
+              <div class="award-item-num">有效期7天</div>
+              <div class="award-img">
+                <img src="images/vip_2.png">
+              </div>
+              <div class="award-name">黄金贵族</div>
+            </li>
+          </ul>
+          <i></i>
+          <div class="recharge-wrap flexbox">
+            <p>充<span class="red-text"><span class="pay-money">50</span>元</span>, 立马得福利</p>
+            <img src="images/charge_btn_1.png" onclick="toPay(50)">
+          </div>
+        </div>
+        <p class="slide-text popup">礼包内容已被折叠</p>
+      </li>
+      <li class="wrap-98">
+        <div class="title"></div>
+        <div class="close-btn" flag='1' onclick="closeWrap(this,98)"></div>
+        <div class="slide-wrap">
+          <div class="award-text isApple popup">
+            <i></i>
+            <p class="red-text"><img src="images/diamond_2.png"><span class="award-diamond">6860</span>钻石+额外专享大礼包</p>
+          </div>
+          <ul class="award-wrap flexbox">
+            <li class="award-item">
+              <div class="award-item-num">x3个</div>
+              <div class="award-img">
+                <img src="images/cat.png">
+              </div>
+              <div class="award-name">就想摸摸你</div>
+              <div class="award-price">(199钻石)</div>
+            </li>
+            <li class="award-item">
+              <div class="award-item-num">x4个</div>
+              <div class="award-img">
+                <img src="images/heart.png">
+              </div>
+              <div class="award-name">爱你小心心</div>
+              <div class="award-price">(199钻石)</div>
+            </li>
+            <li class="award-item">
+              <div class="award-item-num">有效期14天</div>
+              <div class="award-img">
+                <img src="images/car_3.png">
+              </div>
+              <div class="award-name">兰博基尼</div>
+              <div class="award-price">进场特效</div>
+            </li>
+            <li class="award-item">
+              <div class="award-item-num">有效期14天</div>
+              <div class="award-img">
+                <img src="images/vip_2.png">
+              </div>
+              <div class="award-name">黄金贵族</div>
+            </li>
+          </ul>
+          <i></i>
+          <div class="recharge-wrap flexbox">
+            <p>充<span class="red-text"><span class="pay-money">98</span>元</span>, 立马得福利</p>
+            <img src="images/charge_btn_2.png" onclick="toPay(98)">
+          </div>
+        </div>
+        <p class="slide-text popup">礼包内容已被折叠</p>
+      </li>
+      <li class="wrap-298">
+        <div class="title"></div>
+        <div class="close-btn" flag='1' onclick="closeWrap(this,298)"></div>
+        <div class="slide-wrap">
+          <div class="award-text isApple popup">
+            <i></i>
+            <p class="red-text"><img src="images/diamond_2.png"><span class="award-diamond">20860</span>钻石+额外专享大礼包</p>
+          </div>
+          <ul class="award-wrap flexbox">
+            <li class="award-item">
+              <div class="award-item-num">x11个</div>
+              <div class="award-img">
+                <img src="images/lollipop.png">
+              </div>
+              <div class="award-name">爱意棒棒糖</div>
+              <div class="award-price">(399钻石)</div>
+            </li>
+            <li class="award-item">
+              <div class="award-item-num">x5次</div>
+              <div class="award-img">
+                <img src="images/blind.png">
+              </div>
+              <div class="award-name">直播间</div>
+              <div class="award-price">免费抽盲盒</div>
+            </li>
+            <li class="award-item">
+              <div class="award-item-num">有效期30天</div>
+              <div class="award-img">
+                <img src="images/car_4.png">
+              </div>
+              <div class="award-name">劳斯莱斯幻影</div>
+              <div class="award-price">进场特效</div>
+            </li>
+            <li class="award-item">
+              <div class="award-item-num">有效期21天</div>
+              <div class="award-img">
+                <img src="images/vip_2.png">
+              </div>
+              <div class="award-name">黄金贵族</div>
+            </li>
+          </ul>
+          <i></i>
+          <div class="recharge-wrap flexbox">
+            <p>充<span class="red-text"><span class="pay-money">298</span>元</span>, 立马得福利</p>
+            <img src="images/charge_btn_2.png" onclick="toPay(298)">
+          </div>
+        </div>
+        <p class="slide-text popup">礼包内容已被折叠</p>
+      </li>
+      <li class="wrap-488">
+        <div class="title"></div>
+        <div class="close-btn" flag='1' onclick="closeWrap(this,488)"></div>
+        <div class="slide-wrap">
+          <div class="award-text isApple popup">
+            <i></i>
+            <p class="red-text"><img src="images/diamond_2.png"><span class="award-diamond">34160</span>钻石+额外专享大礼包</p>
+          </div>
+          <ul class="award-wrap flexbox">
+            <li class="award-item">
+              <div class="award-item-num">x14个</div>
+              <div class="award-img">
+                <img src="images/flower.png">
+              </div>
+              <div class="award-name">爱意绽放</div>
+              <div class="award-price">(520钻石)</div>
+            </li>
+            <li class="award-item">
+              <div class="award-item-num">x10次</div>
+              <div class="award-img">
+                <img src="images/blind.png">
+              </div>
+              <div class="award-name">直播间</div>
+              <div class="award-price">免费抽盲盒</div>
+            </li>
+            <li class="award-item">
+              <div class="award-item-num">有效期30天</div>
+              <div class="award-img">
+                <img src="images/car_5.png">
+              </div>
+              <div class="award-name">飞马腾云</div>
+              <div class="award-price">进场特效</div>
+            </li>
+            <li class="award-item">
+              <div class="award-item-num">有效期30天</div>
+              <div class="award-img">
+                <img src="images/vip_2.png">
+              </div>
+              <div class="award-name">黄金贵族</div>
+            </li>
+          </ul>
+          <i></i>
+          <div class="recharge-wrap flexbox">
+            <p>充<span class="red-text"><span class="pay-money">488</span>元</span><span
+                class="isAndroid popup">及以上</span>,
+              立马得福利</p>
+            <img src="images/charge_btn_2.png" onclick="toPay(488)">
+          </div>
+        </div>
+        <p class="slide-text popup">礼包内容已被折叠</p>
+      </li>
+    </ul>
+    <footer>充值遇到问题，请<a href="#">联系客服</a></footer>
+  </div>
+  <div class="dialog">
+    <div id="isLogin" class="popup">
+      <div class="main">
+        <img class="isLogin-title" src="images/login_img.png">
+        <h2>呀！您还没有登录账号</h2>
+        <button onclick="jumpToMe()" class="flexbox">立即登录</button>
+        <p>登录后即可参与活动哦～</p>
+      </div>
+      <div class="close">
+        <img src="images/close.png" onclick="layer.closeAll()">
+      </div>
+    </div>
+    <div id="rulePage" class="popup">
+      <div class="close_wrap"><img src="images/close.png" onclick="layer.closeAll()"></div>
+      <div class="main">
+        <div class="main-title"></div>
+        <div class="main-text">
+          <h6>1、充值对应的档位，即可领取档位对应的超值礼包；</h6>
+          <h6>2、可参与用户：从未在觅伊上充值的用户，首次充值时可享受活动优惠；</h6>
+          <h6>3、可参与次数：每个账户仅能参与一次优惠福利（同一觅伊号，同一设备都属于同一账户）；</h6>
+          <h6>4、本充值福利仅限在此活动页面充值有效。其他渠道的充值无法获得；</h6>
+          <h6>5、礼包奖励在充值成功后立即发放：</h6>
+          <p>① 礼物发送至背包，可在送礼时切换到“背包礼物”去使用，有效期30天；</p>
+          <p>② 充值优惠券发放至“我的钱包-优惠券”，有效期7天；</p>
+          <p>③ 进场特效发放至“个性装扮-已获得”，需要手动选择使用、停用；</p>
+          <p>④ 直播间免费抽盲盒次数可以在直播间找到“幸运盲盒”<img style="width: 0.38rem;height: 0.41rem;vertical-align: text-bottom;"
+              src="images/blind_1.png" />，享受免费抽对应次数；
+          </p>
+          <p>⑤ 贵族体验的权益可至“我-贵族中心”查看。</p>
+          <span style="color: #999999;">（如果奖励的贵族与您已经购买的贵族不同，那么奖励的贵族体验天数将等值折算成您已购买的贵族天数，并自动为您延期。）</span>
+          <h6 class="isApple popup">6、本活动与苹果公司无关。</h6>
+          <h6><span class="isAppleNum">6</span>、本平台在法律允许的范围内享有此活动的解释权。</h6>
+        </div>
+      </div>
+    </div>
+    <div id="paySuccess" class="popup">
+      <div class="main">
+        <div class="title"></div>
+        <h1>充值成功</h1>
+        <button onclick="goBack()" class="flexbox">去聊天</button>
+        <p>提示：对应的奖励已经全部发放，<br />记得及时享受权益哦！</p>
+      </div>
+      <div class="close"><img src="images/close.png" onclick="layer.closeAll()"></div>
+    </div>
+    <div id="payWaysOne" class="popup">
+      <div class="main">
+        <h1>请选择支付方式</h1>
+        <div class="main-payWays column">
+          <div class="alipay flexbox">
+            <div class="pay-ways-logo-wrap flexbox"><i class="alipay-logo"></i>支付宝支付<img
+                src="images/discounts_icon.png"></div>
+            <div class="pay-ways-diamond-wrap flexbox">
+              <i class="diamond isSelect"></i>
+              <span class="alipay-money">600钻石</span>
+              <div class="select-icon isSelect" onclick="selectPayWays(this,1)"></div>
+            </div>
+          </div>
+          <i class="line"></i>
+          <div class="wechat flexbox">
+            <div class="pay-ways-logo-wrap flexbox isSelect"><i class="wechat-logo"></i>微信支付</div>
+            <div class="pay-ways-diamond-wrap flexbox">
+              <i class="diamond"></i>
+              <span class="alipay-money">420钻石</span>
+              <div class="select-icon" onclick="selectPayWays(this,0)"></div>
+            </div>
+          </div>
+        </div>
+        <div class="welfare">
+          <h3 class="title">享受以下额外福利</h3>
+          <ul class="flexbox" style="height: 1.9rem;justify-content: space-around;">
+            <li class="award-item">
+              <div class="award-item-num">x7个</div>
+              <div class="award-img">
+                <img src="images/meteor.png">
+              </div>
+              <div class="award-name">对流星许愿</div>
+              <div class="award-price">(20钻石)</div>
+            </li>
+          </ul>
+        </div>
+        <button onclick="toPayAndroid(this)" payway="alipay" class="flexbox"><span><i>¥</i>6</span>确认支付</button>
+        <p>温馨提示：支付宝充值有赠送（1元=70钻石+赠送30钻石），微信充值钻石较少（1元=70钻石）</p>
+      </div>
+      <div class="close"><img src="images/close.png" onclick="layer.closeAll()"></div>
+    </div>
+    <div id="payWaysTwo" class="popup">
+      <div class="main">
+        <h1 style="margin-bottom: .4rem;">请选择充值方式及档位</h1>
+        <div class="pay-ways-select flexbox">
+          <div class="alipay pay-ways-logo-wrap flexbox isSelect" onclick="selectPayWaysA(this,1)"><i
+              class="alipay-logo"></i>支付宝支付</div>
+          <div class="wechat pay-ways-logo-wrap flexbox" onclick="selectPayWaysA(this,0)"><i
+              class="wechat-logo"></i>微信支付</div>
+        </div>
+        <ul class="pay-money-select">
+          <li class="flexbox">
+            <div class="pay-money-li-diamond flexbox">
+              <i class="diamond"></i>
+              <span class="diamond-text diamond-text-alipay">48800钻石</span>
+              <span class="diamond-text diamond-text-wechat popup">34160钻石</span>
+            </div>
+            <div class="pay-money-li-money flexbox">
+              <span class="money-text">¥488</span>
+              <div class="select-icon isSelect" onclick="selectPayMoney(this)"></div>
+            </div>
+          </li>
+          <li class="flexbox">
+            <div class="pay-money-li-diamond flexbox">
+              <i class="diamond"></i>
+              <span class="diamond-text diamond-text-alipay">99800钻石</span>
+              <span class="diamond-text diamond-text-wechat popup">69860钻石</span>
+            </div>
+            <div class="pay-money-li-money flexbox">
+              <span class="money-text">¥998</span>
+              <div class="select-icon" onclick="selectPayMoney(this)"></div>
+            </div>
+          </li>
+          <li class="flexbox">
+            <div class="pay-money-li-diamond flexbox">
+              <i class="diamond"></i>
+              <span class="diamond-text diamond-text-alipay">149800钻石</span>
+              <span class="diamond-text diamond-text-wechat popup">104860钻石</span>
+            </div>
+            <div class="pay-money-li-money flexbox">
+              <span class="money-text">¥1498</span>
+              <div class="select-icon" onclick="selectPayMoney(this)"></div>
+            </div>
+          </li>
+          <li class="flexbox">
+            <div class="pay-money-li-diamond flexbox">
+              <i class="diamond"></i>
+              <span class="diamond-text diamond-text-alipay">500000钻石</span>
+              <span class="diamond-text diamond-text-wechat popup">350000钻石</span>
+            </div>
+            <div class="pay-money-li-money flexbox">
+              <span class="money-text">¥5000</span>
+              <div class="select-icon" onclick="selectPayMoney(this)"></div>
+            </div>
+          </li>
+        </ul>
+        <button onclick="toPayAndroid(this)" payway="alipay" money="488" class="flexbox">确认支付</button>
+        <p>温馨提示：支付宝充值有赠送（1元=70钻石+赠送30钻石），微信充值钻石较少（1元=70钻石）</p>
+      </div>
+      <div class="close"><img src="images/close.png" onclick="layer.closeAll()"></div>
+    </div>
+  </div>
+</body>
+<script src="http://activity.folkcam.cn/common/rem.js"></script>
+<script src="http://activity.folkcam.cn/common/app.js"></script>
+<script src="http://activity.folkcam.cn/common/config.js"></script>
+<script src="http://activity.folkcam.cn/common/jquery.min.js"></script>
+<script src="http://activity.folkcam.cn/common/swiper.min.js"></script>
+<script src="http://activity.folkcam.cn/common/layer/layer.js"></script>
+<script src="index.js"></script>
+
+</html>

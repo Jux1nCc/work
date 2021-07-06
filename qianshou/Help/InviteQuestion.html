@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0, viewport-fit=cover">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="msapplication-tap-highlight" content="no">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Cache-Control" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <title>常见邀请问题</title>
+  <link rel="stylesheet" href="http://activity.folkcam.cn/common/comm.css">
+  <style type="text/css">
+    .wrap {
+      width: 100%;
+      height: 100vh;
+      overflow: auto;
+    }
+
+    .invite-award-q,
+    .invite-success-q {
+      width: 100%;
+      height: 1rem;
+      justify-content: space-between;
+      padding: 0 .3rem;
+      font-size: .3rem;
+      color: #333;
+    }
+
+    img {
+      transform: rotate(90deg)
+    }
+
+    @keyframes turnX {
+
+      0% {
+        transform: rotate(90deg);
+      }
+
+      100% {
+        transform: rotate(-90deg);
+      }
+
+    }
+
+    @-webkit-keyframes turnX {
+
+      0% {
+        transform: rotate(90deg);
+      }
+
+      100% {
+        transform: rotate(-90deg);
+      }
+
+    }
+
+    @keyframes turnY {
+
+      0% {
+        transform: rotate(-90deg);
+      }
+
+      100% {
+        transform: rotate(90deg);
+      }
+
+    }
+
+    @-webkit-keyframes turnY {
+
+      0% {
+        transform: rotate(-90deg);
+      }
+
+      100% {
+        transform: rotate(90deg);
+      }
+
+    }
+
+    .rotatex {
+      -webkit-animation: turnX .5s linear normal 1;
+      animation: turnX .5s linear normal 1;
+      transform: rotate(-90deg);
+    }
+
+    .rotatey {
+      -webkit-animation: turnY .5s linear normal 1;
+      animation: turnY .5s linear normal 1;
+      transform: rotate(90deg);
+    }
+
+    .invite-award-a,
+    .invite-success-a {
+      width: 100%;
+      padding: .2rem;
+      background-color: #eee;
+      font-size: .26rem;
+      line-height: 2;
+      letter-spacing: .05em;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <div class="wrap-content">
+      <div class="invite-award-q flexbox" onclick="openA(0)">邀请有奖怎么用<img src="images/arrow.png" alt=""></div>
+      <div class="invite-award-a popup">
+        1.您好，您可以多多邀请小哥哥小姐姐来我们平台脱单呢~邀请的方式是这样的：您打开铢铢，点击“我的”-“我的钱包”-“立即邀请”-“铢铢更自然地找到真爱！与相互喜欢的人免费畅聊、不看脸的走心模式更靠谱，已帮助众多单身男女找到真爱！点击查看>复制”可将您的推荐链接通过朋友圈、微信好友、QQ空间、QQ好友、新浪微博、短信、邮件等多种方式分享给对方。<br />
+        2.当别人下载注册成功后，并输入您的邀请码（您的邀请码可在“我的钱包”页面进行查看），您可复制成功后发送给到对方 ，对方在其铢铢app，打开“我的-系统设置-我的推荐人”输入您的推荐码，即可完成绑定。
+        3.如果您推荐的小哥哥小姐姐在我们平台注册成功后，您都会获得50铢铢币。
+      </div>
+      <div class="invite-success-q flexbox" onclick="openA(1)">邀请码绑定不成功<img src="images/arrow.png" alt=""></div>
+      <div class="invite-success-a popup">
+        很抱歉给您带来不便，目前只有安卓用户分享的链接是可以推荐码自动绑定的呢，如果您是苹果用户或者安卓用户出现绑定不成功的情况，您可以让对方输入您的邀请码进行绑定（您的邀请码可在“邀请有奖”页面进行查看，您可复制成功后发送给到对方），邀请码在对方账号注册的24小时内输入有效哦 ，对方在其觅伊app，打开“我的-系统设置-我的推荐人”输入您的邀请码，即可完成绑定。
+      </div>
+    </div>
+  </div>
+</body>
+<script src="http://activity.folkcam.cn/common/jquery.min.js"></script>
+<script src="http://activity.folkcam.cn/common/rem.js"></script>
+<script src="http://activity.folkcam.cn/common/config.js"></script>
+<script>
+  function openA(type) {
+    if (type) {
+      $('.invite-success-a').slideToggle()
+      if ($('.invite-success-q img').hasClass('rotatex')) {
+        $('.invite-success-q img').removeClass('rotatex').addClass('rotatey')
+      } else {
+        $('.invite-success-q img').removeClass('rotatey').addClass('rotatex')
+      }
+    } else {
+      $('.invite-award-a').slideToggle()
+      if ($('.invite-award-q img').hasClass('rotatex')) {
+        $('.invite-award-q img').removeClass('rotatex').addClass('rotatey')
+      } else {
+        $('.invite-award-q img').removeClass('rotatey').addClass('rotatex')
+      }
+    }
+  }
+</script>
+
+</html>

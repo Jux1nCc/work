@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- 
+        
+ forEach
+forEach:没返回值(undefined)，能改变原始数组,它的循环根本停不下来
+ map
+ 返回值=数组.map((item,index)=>{
+     return 值   它return什么，它的返回值就push什么，如果你不写return ,它就push(undefined)
+ })
+
+    -->
+    <script>
+      function runForEach() {
+        //   加一个b为它的id值
+        let arr = [
+          { a: 1, id: 0 },
+          { a: 2, id: 1 },
+          { a: 3, id: 2 },
+        ];
+        arr.forEach((item, index) => {
+          item.b = item.id;
+          return;
+        });
+        window.console.log(arr);
+      }
+      //   runForEach();
+      function runMap() {
+        let arr = [
+          { name: 1, id: 0 },
+          { name: 2, id: 1 },
+          { name: 3, id: 2 },
+        ];
+        // 我需求提取出里面的name,为一个独立的数据  [1,2,3]
+        let _arr = arr.map((item, index) => {
+          //   item.b = item.id;
+          //   if (item.name > 2) {
+          //     return item.name;
+          //   }
+        });
+        window.console.log(arr);
+      }
+      runMap();
+    </script>
+  </body>
+</html>

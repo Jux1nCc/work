@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- findIndex
+    作用：找到第一个相匹配数组数据的索引
+    用法：   返回值=数组.findIndex((item,index)=>{
+        item:数组每一项
+        index数组索引
+        return  boolean值
+        true:返回值=index 不再往下找
+        false:继续往下找，直到最后都没有任何一项为true  返回值=-1
+    })  
+    includes查找 数组与字符串中是否包含某个值
+    返回值=数组.includes(值)  
+    返回值是boolean值，如果数组包含后面的值，返回值=true   ,不包含返回值=false
+    字符串是同样用法
+    -->
+    <script>
+      let heroList = [
+        {
+          name: "塞拉斯",
+          story:
+            "作为一个出生于德玛西亚穷苦家庭的法师，虽然当时塞拉斯还只是一个少年，搜魔人还是将他终身监禁。他使用偷来的魔法杀害了场上所有人，除了饱受惊吓的拉克丝。塞拉斯不是以逃犯的身份离开搜魔人监狱，而是成为了法师反抗的代表。",
+          img: [
+            "http://ossweb-img.qq.com/images/lol/web201310/skin/big517000.jpg",
+            "http://ossweb-img.qq.com/images/lol/web201310/skin/big517001.jpg",
+          ],
+        },
+        {
+          name: "妮蔻",
+          story:
+            "妮蔻来自一个早已迷失的瓦斯塔亚部落。她可以借用别人的外表来伪装自己，融入人群，甚至通过影响别人的情绪状态，一瞬间就能化敌为友。没人知道妮蔻到底在哪儿——或者到底是谁，但是想要为难她的人会立刻见识到她的本色，感受原始的精神魔法倾泻在自己身上的痛苦。",
+          img: [
+            "http://ossweb-img.qq.com/images/lol/web201310/skin/big518000.jpg",
+            "http://ossweb-img.qq.com/images/lol/web201310/skin/big518001.jpg",
+          ],
+        },
+        {
+          name: "派克",
+          story:
+            "在比尔吉沃特的屠宰码头，颇有名气的鱼叉手派克葬身在一条巨大的琢珥鱼腹内……然而，他却回来了。他在家乡的阴街陋巷中徘徊着，用超自然的手段干脆残忍地解决那些鱼肉他人的恶棍——一座因捕猎怪物而自豪的城市如今发觉自己却成了狩猎的目标。",
+          img: [
+            "http://ossweb-img.qq.com/images/lol/web201310/skin/big555000.jpg",
+            "http://ossweb-img.qq.com/images/lol/web201310/skin/big555001.jpg",
+            "http://ossweb-img.qq.com/images/lol/web201310/skin/big555009.jpg",
+          ],
+        },
+        {
+          name: "卡莎",
+          story:
+            "在孩童时期就被虚空夺走的卡莎，凭着纯粹的固执和意志力活了下来。她的历练让她成为了一位夺命的猎手，或者也有人会称她为黑暗未来的使者。她与一副有生命的虚空生物甲壳形成了一种不得安宁的共生状态，而很快她就将面临一个重大的抉择，究竟是原谅那些称她为怪物的凡人并协力抵御压境的黑暗……还是干脆忘记，放任虚空吞噬这个已将她抛弃的世界。",
+          img: [
+            "http://ossweb-img.qq.com/images/lol/web201310/skin/big145000.jpg",
+            "http://ossweb-img.qq.com/images/lol/web201310/skin/big145001.jpg",
+            "http://ossweb-img.qq.com/images/lol/web201310/skin/big145014.jpg",
+            "http://ossweb-img.qq.com/images/lol/web201310/skin/big145015.jpg",
+            "http://ossweb-img.qq.com/images/lol/web201310/skin/big145016.jpg",
+            "http://ossweb-img.qq.com/images/lol/web201310/skin/big145017.jpg",
+          ],
+        },
+      ];
+      let _index = heroList.findIndex((item, index) => {
+        // return item.name.indexOf("卡123") != -1;
+        return item.name.includes("卡");
+      });
+      window.console.log(_index);
+      let arr = [1, 2, 3, 4, 5, 6];
+      //   找到第一项大于3的数的索引
+      let _arrIndex = arr.findIndex((item, index) => {
+        return item > 3;
+      });
+      alert(_arrIndex);
+    </script>
+  </body>
+</html>

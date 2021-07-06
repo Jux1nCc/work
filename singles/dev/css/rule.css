@@ -1,0 +1,246 @@
+.page{
+  position: relative;
+  width: 100%;
+  height: 26.56rem;
+  /* background: url('../image/bg_girl.png') no-repeat; */
+  background-size: 100%;
+}
+header{
+  width: 100%;
+  height: 4.89rem;
+}
+.rule-award{
+  position: relative;
+  width: 6.95rem;
+  height: 12.34rem;
+  margin: 0.85rem auto;
+  padding: 0.6rem 0;
+  border-radius: 0.18rem;
+  background-color: #7475fc;
+}
+.wrap-title{
+  position: absolute;
+  top: -0.35rem;
+  left: 32%;
+  width: 2.46rem;
+  height: 0.66rem;
+  border-radius: 0.08rem;
+  background-color: #7a3ff6;
+  box-shadow: 0.08rem 0.08rem #86e9e5;
+  color: #fff;
+  font-size: 0.36rem;
+  font-weight: 700;
+}
+.day-award{
+  position: relative;
+  width: 100%;
+  height: 5.68rem;
+}
+.day-award span{
+  color: #fff;  
+  font-size: 0.24rem;
+}
+.day-rank{
+  display: block;
+  width: 100%;
+  height: 0.9rem;
+  padding: 0.3rem 0 0 0.6rem;
+}
+.award-light{
+  position: absolute;
+  top: 1.45rem;
+  width: 0.29rem;
+  height: 2.38rem;
+  /* background: url('../image/lottery_icon.png') no-repeat;
+  background-size: 100% 100%; */
+  background-position-x: -3.5rem;
+}
+.light-left{
+  left: 1.5%;
+}
+.light-right{
+  right: 1.5%;
+}
+.award-title{
+  width: 2.12rem;
+  height: 0.33rem;
+  margin: 0 auto;
+  /* background: url(../image/girl_rule_icon.png) no-repeat; */
+  /* background-size: 100% 100%; */
+  background-position: 0 -1.65rem;
+  color: #fff;
+  font-size: 0.28rem;
+  font-weight: 700;
+  align-items: flex-start;
+}
+.award-wrap{
+  width: 5.8rem;
+  height: 2.93rem;
+  margin: 0 auto;
+  border-radius: 0.08rem;
+  background-color: #dcdfff;
+  justify-content: space-around;
+}
+.award-item{
+  width: 1.71rem;
+  height: 1.77rem;
+}
+.award-item .photo,
+.award-item .bubble{
+  width: 1.43rem;
+  height: 1.34rem;
+  /* background-color: #c7c7fc; */
+  border-top-left-radius: 0.08rem;
+  border-top-right-radius: 0.08rem;
+  box-shadow: inset 1px 1px 10px #babaff;
+}
+.award-item .photo{
+  background: url(../image/通话王头像框.png) no-repeat;
+  background-size: 100%;
+}
+.award-item .bubble-photo{
+  width: 100%;
+  height: 75%;
+  background: url(../image/通话王气泡.jpg) no-repeat;
+  background-size: 100%;
+}
+.award-item .photo-title,
+.award-item .bubble-title{
+  width: 2rem;
+  height: 0.43rem;
+  border-radius: 0.15rem;
+  background-color: #ee943b;
+  color: #fff;
+  font-size: 0.22rem;
+}
+.award-grant{
+  position: relative;
+  width: 100%;
+  /* height: 0.85rem; */
+  color: #fff;
+  margin-top: 0.3rem;
+  padding-left: 0.65rem;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.award-grant i{
+  position: absolute;
+  top: 1%;
+  left: 10%;
+  width: 0.27rem;
+  height: 0.25rem;
+  /* background: url('../image/gift_icon.png') no-repeat;
+  background-size: 100% 100%; */
+  background-position: -2.97rem -1.14rem;
+}
+.award-grant span{
+  font-size: 0.24rem;
+}
+.award-grant span:first-child{
+  padding-left: 0.45rem;
+}
+.award-grant span.appUnit{
+  padding-left: 0;
+}
+.award-line{
+  width: 5.75rem;
+  height: 0.02rem;
+  margin: 0 auto 0.4rem;
+  background: linear-gradient(90deg,rgba(255,255,255,.1),#adadfe,rgba(255,255,255,.1));
+}
+.all-award{
+  position: relative;
+  width: 100%;
+  height: 5.07rem;
+}
+.all-award .award-light{
+  top: 1rem;
+}
+table{
+  border-collapse:collapse;
+  width: 5.82rem;
+  height: 2.82rem;
+  margin: 0.47rem auto 0.3rem;
+}
+td{
+  font-size: 0.23rem;
+  color: #fff;
+}
+th{
+  font-size: 0.22rem;
+  color: #433e3d;
+  background-color: #6fefe9;
+}
+table, th, td{
+  border: 1px solid #fff;
+  text-align: center;
+  vertical-align: middle;
+}
+td span{
+  font-size: 0.23rem;
+}
+.rule-wrap{
+  position: relative;
+  width: 6.92rem;
+  height: 6.31rem;
+  margin: 0 auto;
+  border-radius: 0.18rem;
+  background-color: #dcdafc;
+  padding: 0.94rem 0.58rem 0.66rem 0.82rem;
+}
+.rule-wrap p,
+.rule-wrap span{
+  color: #686a71;
+  font-size: 0.23rem;
+  line-height: 0.34rem;
+}
+.rule-wrap p{
+  position: relative;
+  margin-bottom: 0.25rem;
+}
+.rule-wrap p i{
+  position: absolute;
+  top: 0.02rem;
+  left: -0.4rem;
+  width: 0.28rem;
+  height: 0.28rem;
+  margin-right: 0.2rem;
+  /* background: url(../image/1.png) no-repeat;
+  background-size: 100% 100%; */
+}
+/* .rule-wrap p:nth-child(3) i{
+  background: url(../image/2.png) no-repeat;
+  background-size: 100% 100%;
+}
+.rule-wrap p:nth-child(4) i{
+  background: url(../image/3.png) no-repeat;
+  background-size: 100% 100%;
+}
+.rule-wrap p:nth-child(5) i{
+  background: url(../image/4.png) no-repeat;
+  background-size: 100% 100%;
+} */
+.rule-wrap p .example{
+  font-size: 0.21rem;
+  color: #797b83;
+}
+footer{
+  width: 100%;
+  height: 1.3rem;
+  color: #fff;
+  font-size: 0.2rem;
+}
+.rule-wrap p i.csImg,
+.award-grant i.csImg,
+div.csImg{
+  background-size: 3.83rem 3.8rem;
+}
+.rule-wrap p i.rule-two{
+  background-position: -0.3rem 0;
+}
+.rule-wrap p i.rule-three{
+  background-position: -0.6rem 0;
+}
+.rule-wrap p i.rule-four{
+  background-position: -0.9rem 0;
+}

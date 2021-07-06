@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<head lang="zh-CN">
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="format-detection" content="telephone=no"/>
+<meta name="screen-orientation" content="portrait">
+<meta name="x5-orientation" content="portrait">
+<METAHTTP-EQUIV="Pragma" CONTENT="no-cache" />
+<METAHTTP-EQUIV="Cache-Control" CONTENT="no-cache" />
+<METAHTTP-EQUIV="Expires" CONTENT="0" />
+	<title>聊币提现</title>
+	<script type="text/javascript" language="javascript" src="../../view/assets/js/jquery-1.11.1.min.js"></script>
+	<script type="text/javascript" language="javascript" src="../../view/js/common.js?version=20170622"></script>
+  <link href="../../view/assets/css/withdraw.css" rel="stylesheet">
+  <link href="../../view/assets/css/publice.css" rel="stylesheet">
+  <style>
+.div_tip{padding-left: 10px; padding-top: 20px;font-size: 16px; color: #ff2222}
+.bottom_p{padding-left: 10px; padding-bottom: 40px;font-size: 14px; color: #a5a7aa }
+.balance h1, .balance header p, .btn { text-align: center }
+.btn, a { text-decoration: none }
+body { background: #fafafa }
+header { background: #fff }
+.balance h1 { margin: 0 15px; padding-top: 10px; height: 33px; font-size: 15px; line-height: 33px }
+.balance h2 { padding-top: 12px; height: 30px; color: #a5a7aa; line-height: 30px }
+.balance h3 { height: 46px; line-height: 46px; font-size: 18px; color: #a5a7aa }
+.balance header p { padding-bottom: 10px; font-size: 30px color:#000000; }
+.bor-top { border-top: 1px solid #e6e6e6 }
+.bor_btm { border-bottom: 1px solid #e6e6e6 }
+.pb-20 { padding-bottom: 20px }
+.box { display: -webkit-box }
+.box-flex { -webkit-box-flex: 1; box-flex: 1 }
+.form-item { margin-bottom: 10px }
+.form-item input { width: 100%; border-radius: 5px; outline: 0; border: none; padding: 0; box-sizing: border-box; -webkit-box-sizing: border-box; background: #fff }
+.btn { display: block; border-radius: 5px; font-size: 16px }
+select { -webkit-appearance: none }
+.btn-grey { color: #fff; background-color: #a5a7aa }
+.balance .btn-active { color: #fff; background-color: #000 }
+</style>
+<style>
+.form-item, .form-item input { font-size: 15px; height: 45px }
+.form-item { margin-bottom: 0; line-height: 45px; color: #555; overflow: hidden }
+.form-item label { display: block; width: 102px; text-indent: 15px }
+.form-item .class_getCode{ width: 100px; border-radius: 5px; 
+  margin:4px 10px;
+  display: block;
+  height: 37px;
+  line-height: 37px;
+  color: #fff;
+ background: #fd8d29;
+ text-align: center;}
+.box-flex { -webkit-box-flex: 1; box-flex: 1 }
+.btn-next { margin: 20px 10px 30px; height: 42px; line-height: 42px }
+.select-account { position: relative }
+.select-account select { position: absolute; top: 0; right: 0; width: 50px; height: 100%; opacity: 0; z-index: 10 }
+.select-account:after { content: ''; position: absolute; top: 50%; right: 16px; margin-top: -7px; width: 9px; height: 9px; border-left: 1px solid #000; border-bottom: 1px solid #000; -webkit-transform: rotate(-45deg); transform: rotate(-45deg) }
+</style>
+  </head>
+<body class="balance">
+    <section class="hj_account bor_btm">
+        <p>兔聊账户</p>
+        <p class="user"><span class="js_name"></span>(<span class="js_uid" id="js_uid"></span>)</p>
+        <p>
+            <a href="../../view/weixinopen/loginSelect.html" class="c_blue js_changAccount">更换账户</a>
+            <a href="javascript:void(0);" onclick="accountDetail()" class="c_blue">提现记录</a>
+        </p>
+    </section>
+    <header class="bor_btm">
+        <p>聊币余额</p>
+        <h2 class="js_balance"></h2>
+    </header>
+  <section class="space"></section>
+   <section class="">
+            <div class="form-item box bor_btm">
+                <label for="username" >真实姓名 </label>
+                <div class="box-flex">
+                    <input class="" type="text" placeholder="请输入支付宝真实姓名" id="factName" oninput="checkinput(event);">
+                </div>
+            </div>
+
+            <div class="form-item box bor_btm">
+                <label for="username">支付宝账号</label>
+                <div class="box-flex">
+                    <input class="" type="text"  placeholder="请输入支付宝账号" id="alipayNumber" oninput="checkinput(event);">
+                </div>
+            </div>
+          	
+          	<div class="form-item box bor_btm">
+                <label for="username">验证码</label>
+                <div class="box-flex">
+                    <input class="" type="number"  placeholder="请输入验证码" id="codeNumber" oninput="checkinput(event);" >
+                 
+                </div>
+                   <a href="javascript:getCode(this);" id="getcode_id" class="class_getCode" >获取验证码</a>
+            </div>
+            <div class="form-item box bor_btm">
+                <label for="username">提现聊币数</label>
+                <div class="box-flex">
+                    <input class="" type="number"  placeholder="请输入大于5000聊币的数量" id="wandou" oninput="checkinput(event);">
+                </div>
+            </div>
+            <div class="form-item box bor_btm">
+                <label for="username">到账金额</label>
+                <div class="box-flex">
+                    <input class=""  placeholder="0元" id="factCash" disabled="disabled" >
+                </div>
+            </div>
+               
+
+        </section>
+        <div class="div_tip" id="withdraw_tip"></div>
+        <a class="btn btn-next btn-grey" id="applyAlipay" href="javascript:withdraw();" onclick="return false;">申请提现</a>
+ <p class="bottom_p" >
+提现规则:<br/>
+1)满5000聊币才可提现<br/>
+2)100聊币可兑换1元,结果采用四舍五入,保留一位小数<br/>
+3)提现到支付宝每笔0.5%,最少2元/笔,最高25元封顶(该费用由支付宝收取)<br/>
+4)单笔提现金额5000~500000聊币,单日限额500000聊币<br/>
+5)提现3~5个工作日到账
+</p>
+</body>
+<script type="text/javascript">
+function checkinput(event){
+    var factName = document.getElementById("factName");
+    var alipayNumber = document.getElementById("alipayNumber");
+    var wandou = document.getElementById("wandou");
+    var factCash = document.getElementById("factCash");
+    var tip = document.getElementById("withdraw_tip");
+    var code =document.getElementById("codeNumber");
+   if(factName.value == ""){
+      tip.innerHTML = "真实姓名不能为空";
+      document.getElementById("applyAlipay").style.background= "#e6e6e6";
+       document.getElementById("applyAlipay").onclick = function(){
+            return false;
+        }
+    }else if(alipayNumber.value == ""){
+      tip.innerHTML = "支付宝账号不能为空";
+      document.getElementById("applyAlipay").style.background= "#e6e6e6";
+       document.getElementById("applyAlipay").onclick = function(){
+            return false;
+        }
+    }else if(code.value == ""){
+        tip.innerHTML = "验证码不能为空且只能为数字";
+        document.getElementById("applyAlipay").style.background= "#e6e6e6";
+         document.getElementById("applyAlipay").onclick = function(){
+              return false;
+          }
+      }else if(wandou.value == ""){
+        tip.innerHTML = "聊币数量不为空且只能为数字";
+        document.getElementById("applyAlipay").style.background= "#e6e6e6";
+         document.getElementById("applyAlipay").onclick = function(){
+              return false;
+          }
+    }else if(parseInt(wandou.value)<5000){
+      tip.innerHTML = "提现聊币数至少为5000";
+      document.getElementById("applyAlipay").style.background= "#e6e6e6";
+       document.getElementById("applyAlipay").onclick = function(){
+            return false;
+        }
+    }else if(parseInt(wandou.value)>500000){
+      tip.innerHTML = "提现聊币数最多为500000";
+      document.getElementById("applyAlipay").style.background= "#e6e6e6";
+       document.getElementById("applyAlipay").onclick = function(){
+            return false;
+        }
+    }else{
+      tip.innerHTML = "";
+       var factCash = document.getElementById("factCash");
+       var wandouNum = parseInt(wandou.value);
+       var money =Math.round(wandouNum)/100;
+       if (money*0.005<2){
+        factCash.value = (money-2)+"元";
+       }else if(money*0.005>25){
+        factCash.value = (money-25)+"元";
+       }else{
+        factCash.value = Math.round(money*9.95)/10+"元";
+       }
+       document.getElementById("applyAlipay").style.background= "#fd8329";
+       document.getElementById("applyAlipay").onclick = function(){
+            return true;
+        }
+    }
+  }
+function isRealNum(val){
+    // isNaN()函数 把空串 空格 以及NUll 按照0来处理 所以先去除
+    if(val === "" || val ==null){
+        return false;
+    }
+    if(!isNumber(val)){
+        return true;
+    }else{
+        return false;
+    }
+}   
+
+function IsNum(num){
+	 var reNum=/^\d*$/;
+	 return(reNum.test(num));
+}
+  function withdraw(){
+	  	var jwNumber = cid;
+	    var factName =  $("#factName").val();
+	    var alipayNumber =  $("#alipayNumber").val();
+	    var wandou =  $("#wandou").val();
+	    var factCash =  $("#factCash").val();
+	    var tip =  $("#withdraw_tip").val();
+	    var tip2 = document.getElementById("withdraw_tip");
+	    var code = $("#codeNumber").val();
+	    if(code && code != '' && code != null ){
+	    	if(code.length != 6){
+	    		tip2.innerHTML = "验证码错误，请先获取验证码";
+	    		return;
+	    	}
+	    	if(!IsNum(code)){
+	    		tip2.innerHTML = "验证码错误，请先获取验证码";
+	    		return;
+	    	}
+	    }else{
+	    	tip2.innerHTML = "验证码错误，请先获取验证码";
+	    	return;
+	    }
+		$.ajax({
+			url : "../../view/mobile/withdrawUser", // 新版JSAPI_ForVer3.X  
+			type : "POST",
+			data : {"customerId":jwNumber,"targetName":factName,"targetAcct":alipayNumber,"jwAmt":wandou,"amt":factCash,"remark":tip,"code":code,
+				"keyvalue":keyvalue,"openid":openid,"js_status":js_status,"cmobile":cmobile},
+			dataType : "json",
+			success : function(data) {
+				if(data.status=="ok"){
+					$.ajax({
+						url : "../../view/mobile/findByKeyValue", 
+						type : "POST",
+						data : {"keyValue":data.key},
+						dataType : "json",
+						success : function(data2) {
+							$(".js_balance").text(data2.gainsBal);
+							keyvalue = data2.key;
+							window.location.href="../../view/weixinopen/withdrawDetail.html?alipayNumber="+alipayNumber+"&wandou="+wandou+"&factCash="+factCash+"&cid="+cid;
+						},
+						error : function(x, h, e) {
+							tip2.innerHTML = "系统异常,请联系客服人员。";
+						}
+					});
+					
+// 					tip2.innerHTML = "您的申请已提交...";
+				}else{
+					tip2.innerHTML = data.message;
+				}
+			},
+			error : function(x, h, e) {
+				tip2.innerHTML = "系统异常,请联系客服人员。";
+			}
+		});
+  }
+  
+  var num=60;
+  function getCode(o){
+	  var tip2 = document.getElementById("withdraw_tip");
+	  $.ajax({
+			url : "../../view/mobile/sendCode", // 新版JSAPI_ForVer3.X  
+			type : "POST",
+			data : {"customerId":cid,"specifier":6,"account":cmobile},
+			dataType : "json",
+			success : function(data) {
+				if(data.code==0){
+					countSecond();
+				}else{
+					tip2.innerHTML = data.message;
+				}
+			},
+			error : function(x, h, e) {
+				alert("获取验证码失败,请联系客服人员。");
+			}
+		});
+  }
+  
+  var openid="";
+  var js_status=0;
+  var cid;
+  $(function() {
+	    cmobile= getURLParameter("cmobile");
+	    cid = getURLParameter("cid");
+	    if(getURLParameter("openid")){
+	    	openid = getURLParameter("openid");
+	    }
+	    js_status = getURLParameter("js_status");
+		$(".js_name").text(decodeURI(getURLParameter("cname")));
+		$(".js_uid").text(getURLParameter("cid"));
+		$(".js_balance").text(getURLParameter("bal"));
+		cname = decodeURI(getURLParameter("cname"));
+		var e = document.getElementsByTagName('li')[0]; 
+		keyvalue =  getURLParameter("key");
+		
+		$("#codeNumber").attr("placeholder",cmobile);
+  });
+  
+  var x = 60;
+  function countSecond()
+  {
+	  if(x>0){
+		  x = x-1;
+		  $(".class_getCode").text(x+"s 重新获取");
+		  $('.class_getCode').removeAttr('href');//去掉a标签中的href属性
+		  $('.class_getCode').removeAttr('onclick');//去掉a标签中的onclick事件
+// 		  $('.class_getCode').css("backgroud":"#e6e6e6");
+		  document.getElementById("getcode_id").style.background= "#e6e6e6";
+		  setTimeout("countSecond()", 1000);
+	  }else{
+		  x = 60;
+		  $(".class_getCode").text("获取验证码");
+		  $('.class_getCode').attr('href','javascript:getCode(this);');//去掉a标签中的href属性
+		  document.getElementById("getcode_id").style.background= "#fd8d29";
+// 		  $('.class_getCode').css("backgroud":"#fd8d29");
+// 		  $('.class_getCode').attr('onclick','getCode(this)');//去掉a标签中的onclick事件
+	  }
+     
+  }
+  function accountDetail(){
+	  window.location.href="../../view/weixinopen/myAccount.html?cid="+cid;
+  }
+</script>
+</html>

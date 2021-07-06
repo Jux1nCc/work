@@ -1,0 +1,2 @@
+;/*!web:page/privacy/index.js*/
+define("web:page/privacy/index",function(){$(function(){$("#clickItem").on("click",function(){$("#shadow").show(),$("#popupContainer").show(),setTimeout(function(){$("#shadow").addClass("shadow"),$("#popup").css({transform:"scale(1)",opacity:1})},0)}),$("#ok").on("click",function(){$("#popup").css({transform:"scale(0.6)",opacity:0}),$("#shadow").removeClass("shadow"),setTimeout(function(){$("#popupContainer").hide(),$("#shadow").hide()},300)})})});

@@ -1,0 +1,336 @@
+@font-face {
+  font-family: "PingFangMedium";
+  src: url("PingFangMedium.ttf");
+  font-weight: normal;
+  font-style: normal;
+  color: #333;
+}
+.body{
+  overflow-scrolling: touch;
+  -webkit-overflow-scrolling: touch;
+}
+.gray{
+  color: gray;
+}
+.red{
+  color: #ff50bf;
+}
+.blue{
+  color: #5986fb;
+}
+.orange{
+  color: #ff6947;
+}
+.act-explain{
+  width: 7.17rem;
+  background: #8c63ff;
+  border-radius: 0.3rem;
+  box-shadow: 0px 0px 0.3rem #ccc inset; 
+  margin: 0 auto;
+}
+.wrap{
+  width: 100%;
+  background:#5d28f0;
+  position: relative;
+  font-family: PingFangMedium;
+}
+.header{
+  width: 100%;
+  height: 6.98rem;
+  background: url(./image/banner.png) no-repeat;
+  background-size: 100%;
+}
+.des{
+  width: 1.86rem;
+  height: 0.77rem;
+  background: url(./image/description.png) no-repeat;
+  background-size: 100%;
+  position: fixed;
+  top: 5.7rem;
+  right: 0;
+  z-index: 999;
+}
+.task{
+  width: 7.16rem;
+  height: 8.5rem;
+  background: url(./image/taskbg.png) #8c63ff;
+  background-size: 100%;
+  border-radius: 0.3rem;
+  box-shadow: 0px 0px 0.3rem #ccc inset; 
+  margin: 0 auto 1.12rem;
+  padding-top: 3.4rem;
+  position: relative;
+}
+.task-title{
+  position: absolute;
+  width: 3.48rem;
+  height: 0.9rem;
+  left: 1.82rem;
+  top: -0.54rem;
+  background: url(./image/tasktitle.png) no-repeat;
+  background-size: 100%;
+}
+.task-people{
+  width: 90%;
+  height: 2.1rem;
+  position: absolute;
+  top: 0.4rem;
+  left: 0.2rem;
+  background: url(./image/person.png) no-repeat;
+  background-size: 100%;
+}
+.photo{
+  width: 1.93rem;
+  height: 2.36rem;
+  position: absolute;
+  left: 2.7rem;
+  top: 0.62rem;
+  background: url(./image/headwear.png) no-repeat;
+  background-size: 100%;
+}
+.photo-img{
+  width: 1.7rem;
+  height: 1.7rem;
+  position: absolute;
+  top: 0.51rem;
+  left: 0.1rem;
+  border-radius: 0.85rem;
+  overflow: hidden;
+}
+.photo-img>img{
+  width: 100%;
+  height: 100%;
+}
+.task-days{
+  width: 100%;
+  height: 3.9rem;
+  padding: 0 0.54rem;
+  color: #fff;
+  font-size: 14px;
+}
+.task-days>ul{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.task-days-item{
+  background: url(./image/tasknot.png) no-repeat;
+  background-size: 100%;
+  width: 1.35rem;
+  height: 1.68rem;
+  margin-top: 0.3rem;
+  margin-right: 0.22rem;
+}
+.task-days-item:nth-child(4),
+.task-days-item:last-child{
+  margin-right: 0;
+}
+.item-finished{
+  background: url(./image/taskfinish.png) no-repeat;
+  background-size: 100%;
+}
+.item-tasking{
+  background: url(./image/tasking.png) no-repeat;
+  background-size: 100%;
+}
+.item-date{
+  width: 1.28rem;
+  height: 1.08rem;
+  text-align: center;
+  line-height: 0.54rem;
+}
+.item-date p{
+  font-size: 16px;
+}
+.item-progress{
+  font-size: 14px;
+  color: #969696;
+  margin: 0.12rem 0.2rem;
+}
+.item-finished .item-progress{
+  color: #fe60c5;
+}
+.item-tasking .item-progress{
+  color: #62abdb;
+}
+.task-finished{
+  font-size: 16px;
+  line-height: 1.04rem;
+  text-align: center;
+  color: #fff;
+}
+.task-finished-text{
+  color: #ffe400;
+  font-size: 18px;
+}
+.today-task{
+  height: 8.5rem;
+  margin: 0 auto 0.6rem;
+  position: relative;
+}
+.today-task-title{
+  position: absolute;
+  width: 3.48rem;
+  height: 0.9rem;
+  left: 1.82rem;
+  top: -0.54rem;
+  background: url(./image/todaytaskhead.png) no-repeat;
+  background-size: 100%;
+}
+.today-task-card{
+  position: absolute;
+  padding: 0 0.22rem;
+  top: 0.9rem;
+  width: 100%;
+  height: 6.92rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.card-item{
+  width: 100%;
+  height: 2rem;
+  font-size: 0.28rem;
+  position: relative;
+  padding: 0.3rem 0.32rem 0.5rem;
+}
+.card-item1{
+  color: #ff50bf;
+}
+.card-item2{
+  color: #5986fb;
+}
+.card-item3{
+  color: #ff6947;
+}
+.card-item-title{
+  position: absolute;
+  width: 0.87rem;
+  height: 0.96rem;
+  left: 0.3rem;
+  top: -0.14rem;
+  color: #fff;
+  padding: 0.14rem 0.1rem;
+  font-size: 0.22rem;
+}
+.card-item1 .card-item-title{
+  background: url(./image/playtime.png) no-repeat;
+  background-size: 100%;
+}
+.card-item2 .card-item-title{
+  background: url(./image/newfan.png) no-repeat;
+  background-size: 100%;
+}
+.card-item3 .card-item-title{
+  background: url(./image/givecount.png) no-repeat;
+  background-size: 100%;
+}
+.card-item-head{
+  margin-bottom: 0.54rem;
+  margin-left: 0.98rem;
+  font-size: 14px;
+}
+.PK-count{
+  display: none;
+}
+.new-star{
+  display: none;
+}
+.card-item-process{
+  display: flex;
+  height: 0.4rem;
+  justify-content: space-between;
+}
+.card-item-process-bar{
+  width: 5.12rem;
+  height: 0.38rem;
+  padding: 0.06rem;
+  border-radius: 0.19rem;
+}
+.card-item1 .card-item-process-bar{
+  background-color: #fcbce5;
+}
+.card-item2 .card-item-process-bar{
+  background-color: #bdcffd;
+}
+.card-item3 .card-item-process-bar{
+  background-color: #ffc5b1;
+}
+.process-bar-item{
+  position: relative;
+  border-radius: 0.13rem;
+  width: 0.26rem;
+  height: 0.26rem;
+}
+.card-item1 .process-bar-item{
+  background-color: #f758bd;
+}
+.card-item2 .process-bar-item{
+  background-color: #5986fb;
+}
+.card-item3 .process-bar-item{
+  background-color: #ff6947;
+}
+.process-bar-circle{
+  position: absolute;
+  top: 0.05rem;
+  right: 0.05rem;
+  width: 0.16rem;
+  height: 0.16rem;
+  border: 0.02rem solid #ffff00;
+  border-radius: 0.08rem;
+}
+.card-item-process-text{
+  line-height: 0.4rem;
+  font-size: 14px;
+}
+.explain,
+.task-explain,
+.tips{
+  padding: 0.2rem;
+}
+.task-explain{
+  margin: 0.5rem auto;
+}
+.explain-contain{
+  width: 6.75rem;
+  color: #5d28f0;
+  font-size: 14px;
+  background-color: #fff;
+  border-radius: 0.1rem;
+  padding: 0.5rem 0.3rem;
+  line-height: 22px;
+}
+.explain-contain .m-top{
+  margin-top: 0.2rem;
+}
+.customer{
+  display: none;
+  width: 100%;
+  background: url(./image/cusbanner.png) no-repeat;
+  background-size: 100%;
+}
+.customer-header{
+  width: 100%;
+  height: 5.51rem;
+  background: url(./image/header.png) no-repeat;
+  background-size: 100%;
+  margin-bottom: 0.5rem;
+}
+.task-exp,
+.tips-title{
+  width: 2.98rem;
+  height: 0.44rem;
+  margin: 0 auto 0.2rem;
+  background: url(./image/taskexp.png) no-repeat;
+  background-size: 100%;
+}
+.tips-title{
+  background: url(./image/tips.png) no-repeat;
+  background-size: 100%;
+}
+footer{
+  text-align: center;
+  color: #fff;
+  line-height: 1.28rem;
+}

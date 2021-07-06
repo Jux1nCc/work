@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0, viewport-fit=cover">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="msapplication-tap-highlight" content="no">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Cache-Control" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <title>你好 新年</title>
+  <link rel="stylesheet" href="http://activity.folkcam.cn/common/layer/theme/default/layer.css">
+  <link rel="stylesheet" href="http://activity.folkcam.cn/common/comm.css">
+  <link rel="stylesheet" href="./css/index.css?v=006">
+</head>
+
+<body>
+  <div class="page page_1 popup">
+    <header class="lazy-img" data-src="./images/head.png">
+      <div class="head-time time-left">2020.12.23-12.31</div>
+      <div class="head-time time-right">2021.1.1-1.3</div>
+      <div class="head-node node-left">
+        <div class="node-item"></div>
+      </div>
+      <div class="head-node node-right">
+        <div class="node-item"></div>
+      </div>
+      <div class="head-progress">
+        <div class="hp-item">
+          <div class="hp-itemp"></div>
+        </div>
+      </div>
+      <div class="head-text text-left flexbox">
+        <div class="ht-text flexbox">寻找跨年对象</div>
+      </div>
+      <div class="head-text text-right flexbox">
+        <div class="ht-text flexbox">相约守护跨年</div>
+      </div>
+      <div class="rule-btn lazy-img" onclick="toRule()" data-src="./images/rule-btn.png"></div>
+    </header>
+    <div class="xunren">
+      <div class="xr-text huangyou">寻人一起跨年</div>
+      <div class="xr-item">1月1日前找到跨年陪伴者即可"跨年成功", 获得奖励</div>
+      <div class="xr-circle lazy-img" data-src="./images/circle_1.png"></div>
+    </div>
+    <div class="newYear-info is-prev">
+      <div class="ny-arrow lazy-img" data-src="./images/arrow.png"></div>
+      <div class="ny-item">
+        <div class="ny-text">
+          <p>1.每累计<span class="text-sexType">收到</span><span class="yellow">1<span class="appUnit">钻石</span>礼物</span>,
+            跨年守护值<span class="yellow">+1</span></p>
+          <p>2.每累计<span class="yellow">有效视频聊天1分钟</span>, 跨年守护值<span class="yellow">+100</span></p>
+        </div>
+        <div class="ny-goal flexbox">
+          至少还需:<span>100000</span>跨年守护值，即可跨年成功
+        </div>
+        <div class="ny-notJoin popup"></div>
+        <div class="ny-progress">与<span
+            class="progress-sexType">守护您的第一名男神</span>拥有的<b>跨年守护值大于等于<br />100000</b>，视为陪伴<b>“跨年成功”，并获得奖励。</b></div>
+        <div class="ny-info column">
+          <div class="info-title" onclick="toGuard()">
+            守护我的男神们
+            <div class="sanjiao"></div>
+          </div>
+          <div class="info-rank">排名 <span>99+</span></div>
+          <div class="info-item flexbox">
+            <div class="item-photo column">
+              <div class="photo">
+                <img src="./images/photo.jpg" class="photo-3 popup" onclick='toGuard()'>
+                <img src="./images/photo.jpg" class="photo-2 popup" onclick='toGuard()'>
+                <img src="./images/photo.jpg" class="photo-1 popup" onclick='toGuard()'>
+                <img src="./images/photo.jpg" class="photo-me alone" onclick='toGuard()'>
+                <span class="popup">...</span>
+              </div>
+              <div class="photo-text"><span class="guard-num">0</span>人正在守护我</div>
+            </div>
+            <div class="item-name column item-yes">
+              <div class="in-name"><span class="ellipsis fir-name">自己的昵称</span>和<span
+                  class="ellipsis sec-name">昵称四个字</span>拥有</div>
+              <div class="in-value"><span>0</span>跨年守护值</div>
+              <div class="in-prev">距榜单上一名守护值差：<span>暂无</span></div>
+            </div>
+          </div>
+          <div class="info-btn info-fir flexbox popup" onclick='toGuard()'>
+            <span>点</span>
+            <span>击</span>
+            <span>修</span>
+            <span>改</span>
+            <span>榜</span>
+            <span>单</span>
+            <span>情</span>
+            <span>侣</span>
+            <span>名</span>
+          </div>
+          <div class="info-btn info-sec flexbox" onclick='toGuard()'>点击修改榜单情侣名</div>
+        </div>
+        <div class="ny-btn column popup">
+          <div class="join-btn flexbox" onclick="joinNewYear(1)">参与跨年</div>
+          <div class="btn-text">你不点我, 我就不能给你统计任务进度哟</div>
+        </div>
+      </div>
+    </div>
+    <div class="newYear-info is-next popup">
+      <div class="ny-item">
+        <div class="ny-info column">
+          <div class="info-title">
+            守护我的男神们
+            <div class="sanjiao"></div>
+          </div>
+          <div class="info-rank">排名 <span>99+</span></div>
+          <div class="info-item flexbox">
+            <div class="item-photo column">
+              <div class="photo">
+                <img src="./images/photo.jpg" class="photo-3 popup" onclick='toGuard()'>
+                <img src="./images/photo.jpg" class="photo-2 popup" onclick='toGuard()'>
+                <img src="./images/photo.jpg" class="photo-1 popup" onclick='toGuard()'>
+                <img src="./images/photo.jpg" class="photo-me alone" onclick='toGuard()'>
+                <span class="popup">...</span>
+              </div>
+              <div class="photo-text"><span class="guard-num">0</span>人正在守护我</div>
+            </div>
+            <div class="item-name column">
+              <div class="in-name"><span class="ellipsis fir-name">自己的昵称</span>和<span
+                  class="ellipsis sec-name">昵称四个字</span>拥有</div>
+              <div class="in-value"><span>1,100,000</span>跨年守护值</div>
+              <div class="in-prev">距榜单上一名守护值差：<span>暂无</span></div>
+            </div>
+          </div>
+          <div class="info-btn info-fir flexbox popup" onclick='toGuard()'>
+            <span>点</span>
+            <span>击</span>
+            <span>修</span>
+            <span>改</span>
+            <span>榜</span>
+            <span>单</span>
+            <span>情</span>
+            <span>侣</span>
+            <span>名</span>
+          </div>
+          <div class="info-btn info-sec flexbox" onclick='toGuard()'>点击修改榜单情侣名</div>
+        </div>
+        <div class="ny-btn column popup">
+          <div class="info-title">
+            守护我的男神们
+            <div class="sanjiao"></div>
+          </div>
+          <div class="join-btn flexbox" onclick="joinNewYear(1)">参与跨年</div>
+          <div class="btn-text">你不点我, 我就不能给你统计任务进度哟</div>
+        </div>
+      </div>
+    </div>
+    <div class="glory-rank">
+      <div class="gr-circle lazy-img" data-src="./images/circle_2.png"></div>
+      <div class="glory-title flexbox">
+        <div class="glory-text column">
+          <span class="gt-title">跨年成功荣耀榜</span>
+          <span>率先“跨年成功”的前10名女用户</span>
+          <span>携手其陪伴者上榜，在你身边，陪你跨年</span>
+        </div>
+        <div class="rank-icon lazy-img" data-src="./images/medal.png"></div>
+      </div>
+      <div class="glory-wrap flexbox">
+      </div>
+      <div class="glory-empty">暂时无人上榜</div>
+    </div>
+    <div class="guard-rank">
+      <div class="glory-title flexbox">
+        <div class="glory-text column">
+          <span class="gt-title">跨年守护榜</span>
+          <span>按照女用户与守护她第一名男神拥有的</span>
+          <span>跨年守护值进行排列。</span>
+          <span>榜单每日更新，每日前10名可获终极大奖！</span>
+        </div>
+        <div class="rank-icon"></div>
+      </div>
+      <div class="guard-item">
+        <div class="gi-title flexbox">
+          <span>排名</span>
+          <span class="gi-qlName">情侣名</span>
+          <span class="gi-value">跨年守护值</span>
+          <i class="gi-i-left"></i>
+          <i class="gi-i-right"></i>
+        </div>
+        <div class="gi-wrap">
+          <ul>
+            <li class="flexbox">
+              <div class="li-rank"><img src="./images/guard_1.png"></div>
+              <div class="li-name">
+                <div class="li-name-girl flexbox">虚位以待</div>
+                <div class="li-name-boy flexbox">虚位以待</div>
+                <i class="li-icon-left"></i>
+                <i class="li-icon-right"></i>
+              </div>
+              <div class="li-value column">
+                <p><span class="lv-value">0</span> 守护值</p>
+                <p><span class="lv-num">0</span> 人想要守护她</p>
+              </div>
+              <i class="li-border"></i>
+            </li>
+            <li class="flexbox">
+              <div class="li-rank"><img src="./images/guard_2.png"></div>
+              <div class="li-name">
+                <div class="li-name-girl flexbox">虚位以待</div>
+                <div class="li-name-boy flexbox">虚位以待</div>
+                <i class="li-icon-left"></i>
+                <i class="li-icon-right"></i>
+              </div>
+              <div class="li-value column">
+                <p><span class="lv-value">0</span> 守护值</p>
+                <p><span class="lv-num">0</span> 人想要守护她</p>
+              </div>
+              <i class="li-border"></i>
+            </li>
+            <li class="flexbox">
+              <div class="li-rank"><img src="./images/guard_3.png"></div>
+              <div class="li-name">
+                <div class="li-name-girl flexbox">虚位以待</div>
+                <div class="li-name-boy flexbox">虚位以待</div>
+                <i class="li-icon-left"></i>
+                <i class="li-icon-right"></i>
+              </div>
+              <div class="li-value column">
+                <p><span class="lv-value">0</span> 守护值</p>
+                <p><span class="lv-num">0</span> 人想要守护她</p>
+              </div>
+              <i class="li-border"></i>
+            </li>
+            <li class="look-more popup" onclick='lookMore(this)'>点击查看更多<img src="./images/more.png"></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <footer>一本活动最终解释权归<span class="appName">觅伊</span>所有一</footer>
+  </div>
+  <div class="page page_2"></div>
+  <div class="dialog">
+    <div id="toLogin" class="to-login popup">
+      <button onclick="jumpToMe()" class="toLogin-btn"></button>
+      <button class="dialog-close" onclick="goHistory()"></button>
+    </div>
+    <div id="guideBoy" class="guide-wrap popup">
+      <button onclick="joinNewYear(0)" class="guide-btn animation">立即进入跨年 !</button>
+      <button class="dialog-close" onclick="layer.closeAll()"></button>
+    </div>
+    <div id="guideGirl" class="guide-wrap popup">
+      <button onclick="joinNewYear(0)" class="guide-btn animation">点击参与跨年 !</button>
+      <button class="dialog-close" onclick="layer.closeAll()"></button>
+    </div>
+    <div id="getAward" class="get-award popup">
+      <div class="award-photo">
+        <img src="">
+      </div>
+      <button onclick="layer.closeAll()" class="award-btn"></button>
+      <div class="award-text">
+        <p>提示：头像框已发放至</p>
+        <p>“<span class="appDress">我-更多-个性商城-已有装扮</span>”中，记得去点击使用!</p>
+      </div>
+      <button class="dialog-close" onclick="layer.closeAll()"></button>
+    </div>
+  </div>
+</body>
+<script src="http://activity.folkcam.cn/common/jquery.min.js"></script> 
+<script src="http://activity.folkcam.cn/common/layer/layer.js"></script>
+<script src="https://activity.folkcam.cn/common/createBar.js"></script>
+<script src="http://activity.folkcam.cn/common/app.js"></script>
+<script src="http://activity.folkcam.cn/common/rem.js"></script>
+<script src="http://activity.folkcam.cn/common/config.js?v=2020"></script>
+<script src="./js/index.js?v=006"></script>
+</html>

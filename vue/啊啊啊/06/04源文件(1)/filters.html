@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- 过滤器基本使用
+        作用：字符加工
+    定义：filters:{
+         过滤器方法名(参数){
+             //该方法里面不能使用this
+             retun 值
+         }
+    }
+    调用：  只适用于{{}}和v-bind
+       {{参数 | 过滤器方法名 }}
+    
+    -->
+    <div id="app">
+      <!-- 刘德华 & 张学友 -->
+      {{arr | filterName}}
+    </div>
+    <script src="./vue.js"></script>
+    <script>
+      new Vue({
+        el: "#app",
+        data: {
+          arr: [{ name: "刘德华" }, { name: "张学友" }],
+        },
+        filters: {
+          filterName(temp) {
+            let _arr = temp.map((item) => {
+              return item.name;
+            });
+            // ["刘德华" , "张学友"]
+            return _arr.join(" & ");
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

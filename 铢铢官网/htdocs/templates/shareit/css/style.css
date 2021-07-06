@@ -1,0 +1,723 @@
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr, acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong, sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption, tbody,tfoot,thead,tr,th,td{border:0;outline:0;vertical-align:baseline; background:transparent;margin:0;padding:0;}
+body{line-height:1;}
+ol,ul{list-style:none;}
+blockquote,q{quotes:none;}
+blockquote:before,blockquote:after,q:before,q:after{content:none;}
+:focus{outline:0;}
+ins{text-decoration:none;}
+del{text-decoration:line-through;}
+table{border-collapse:collapse;border-spacing:0;}
+
+
+
+/*头部*/
+.hd{
+	width: 100%;
+}
+
+.header{
+	height: 3.7rem;
+	background: #fff;
+	margin-top: 1rem;
+	
+}
+
+
+.header_logo{
+	float: left;
+	margin-left: 2%;
+}
+
+.db_logo{
+	width:2.5rem;
+	height: 2.5rem;
+	float: left;
+}
+
+.db_logo img{
+	width: 100%;
+}
+
+.db_logowz{
+	float: left;
+	margin-left: 0.5rem;
+	margin-top: 0.2rem;
+}
+
+.db_logowz img{
+	width: 2rem;
+	height: 1.13rem;
+}
+
+.db_logowz p{
+	font-size: 12px;
+	margin-top: 0.2rem;
+	color: rgba(153, 153, 153, 1);
+	font-family: PingFangSC-regular;
+
+}
+
+.dh_jump{
+	float: right;
+    margin-right: 2%;
+    width: 3.75rem;
+    height: 1.58rem;
+    border: 1px solid #1DA0F2;
+    text-align: center;
+    border-radius: 5px;
+    padding-top: 0.3rem;
+    margin-top: 0.5rem;
+}
+
+.dh_jump a{
+	text-decoration: none;
+	font-size: 14px;
+	background-color: rgba(255, 255, 255, 0);
+	color: rgba(54, 166, 249, 1);
+	font-family: Microsoft Yahei;
+
+}
+
+
+
+
+/*专家资料*/
+.expert_info{
+	height: 15.13rem;
+	background: #fff;
+	margin-top: 0.5rem;
+	width: 100%;
+	text-align: center;
+}
+
+.info_avatar{
+	width: 6.25rem;
+	height: 6.25rem;
+	border-radius: 50%;
+	margin: 2rem auto 1rem;
+	
+}
+
+.info_avatar img{
+	background-size:100% 100% ;
+	border-radius: 50%;
+	width: 6.25rem;
+	height: 6.25rem;
+}
+
+.info_name{
+	color: rgba(16, 16, 16, 1);
+	font-size: 1.13rem;
+	font-family: PingFangSC-regular;
+
+}
+
+.info_Introduction{
+	color: rgba(153, 153, 153, 1);
+	font-size: 0.88rem;
+	text-align: center;
+	font-family: PingFangSC-regular;
+	margin-top: 1rem;
+
+}
+.info_jump{
+	margin-top: 1rem;
+}
+
+.info_jump a{
+	text-decoration: none;
+	width:90%;
+	height: 2.56rem;
+	display: block;
+	line-height: 3;
+	border-radius: 0.25rem;
+	background-color: rgba(54, 166, 249, 1);
+	color: rgba(255, 255, 255, 1);
+	font-size: 0.88rem;
+	text-align: center;
+	font-family: Arial;
+	border: 1px solid rgba(255, 255, 255, 0);
+	margin: 0 auto;
+}
+
+
+.exepert_introduction{
+	width: 100%;
+}
+
+
+
+.introdu_title{
+    text-align: center;
+    padding-top: 10px;
+    position: relative;
+	color: rgba(0, 0, 0, 1);
+	font-size: 1rem;
+	font-family: PingFangSC-regular;
+
+}
+.introdu_title::before{
+    content: "";
+    display: block;
+    width: 40vw;
+    height: 1px;
+    background: #333;
+    position: absolute;
+    left: 60%;
+    margin-left: -30vw;
+    top: 18px;
+}
+.introdu_title span{
+    padding: 0 10px;
+    background: #fff;
+    position: relative;
+    z-index: 2;
+}
+
+.exepert_introduction p{
+	width: 90%;
+color: rgba(16, 16, 16, 1);
+font-size: 1rem;
+font-family: PingFangSC-regular;
+margin: 0.5rem auto;
+line-height: 1.5;
+}
+
+#introd_expand{
+	    border: 0;
+    /* background: #fff; */
+    color: #999;
+    margin: 0.7rem 0;
+    width: 100%;
+    display: block;
+    text-align: center;
+    font-size: 14px;
+}
+
+.exepert_course{
+	width: 100%;
+}
+
+.course_li{
+	width: 90%;
+	margin: 0 auto;
+}
+
+.course_li ul li{
+	list-style: none;
+    height: 4.5rem;
+    border-bottom: 1px solid #eee;
+    padding-top: 1rem;
+}
+
+.course_img{
+	width: 3.75rem;
+	height: 3.75rem;
+	float: left;
+}
+
+
+
+.course_title{
+	margin-top: 0.5rem;
+	font-size: 16px;
+}
+
+.coures_content{
+	margin-top: 0.5rem;
+	font-size: 14px;
+	color: rgba(153, 153, 153, 1);
+	
+}
+
+.course_li ul li  a{
+	text-decoration: none !important;
+	color: rgba(16, 16, 16, 1);
+}
+
+.course_li ul li p span{
+	
+	margin-left: 0.5rem;
+}
+
+.coures_jump{
+	width: 90%;
+	height: 2.5rem;
+	margin: 0.5rem auto;
+	border: 1px solid #1DA0F2;
+	color: #1DA0F2;
+	text-align: center;
+	line-height: 2.5;
+}
+
+.coures_content span{
+	width: 25%;
+	float: left;
+}
+
+
+/*专辑*/
+.ablum_data{
+	height: 15.13rem;
+	background: #fff;
+	margin-top: 0.5rem;
+	width: 100%;
+	text-align: center;
+}
+
+.data_avatar{
+	width: 6.25rem;
+	height: 6.25rem;
+	border-radius: 25%;
+	margin: 2rem auto 1rem;
+	
+}
+
+.data_avatar_img{
+	background-size:100% 100% ;
+	border-radius: 10%;
+	width: 6.25rem;
+	height: 6.25rem;
+}
+
+.data_name{
+	width: 75%;
+	color: rgba(54, 166, 249, 1);
+	font-size: 1.13rem;
+	margin:0.5rem auto;
+	font-family: PingFangSC-bold;
+
+}
+
+.avatar_play{
+	width: 1rem;
+    height: 1rem;
+    position: relative;
+    z-index: 99;
+        bottom: 1.3rem;
+    right: 1.7rem;
+}
+
+.data_Introduction{
+
+color: rgba(16, 16, 16, 1);
+font-size: 1rem;
+text-align: center;
+font-family: PingFangSC-bold;
+
+}
+
+.ablum_num{
+	    height: 1.5rem;
+    font-size: 0.75rem;
+    display: block;
+    position: relative;
+    bottom: 2.7rem;
+    color: #fff;
+    border-radius: 0px 0rem 10px 10px;
+    text-align: center;
+    border: 0.06px solid rgba(255, 255, 255, 0);
+    background-color: rgba(0,0,0,0.3);
+}
+
+.ablum_num span {
+	    position: relative;
+    top: 0.3rem;
+}
+
+.ablum_num img{
+	width: 1.13rem;
+	height: 1.13rem;
+	    width: 1.13rem;
+    height: 1.13rem;
+    position: relative;
+    top: 0.2rem;
+    right: 0.2rem;
+}
+
+.ablum_course{
+	width: 90%;
+	margin: 0 auto;
+}
+
+.ablum_course ul li{
+	list-style: none;
+    height: 5rem;
+    border-bottom: 1px solid #eee;
+        padding: 1rem 0.5rem 0;
+}
+
+.ablum_course ul li label{
+	height: 4.5rem;
+	float: left;
+	width: 10%;
+	line-height: 2.5;
+}
+
+.ablum_course ul li p{
+	width: 90%;
+	float: left;
+	line-height: 1.5;
+}
+
+.ablun_course_title{
+	font-size: 16px;
+	
+}
+
+.ablun_coures_content{
+	font-size: 12px;
+	color: #999;
+	margin-top: 0.5rem;
+}
+
+.ablun_coures_content span{
+	width: 30%;
+	float: left;
+}
+
+.ablun_coures_content img{
+	position: relative;
+    top: 0.1rem;
+    right: 0.2rem;
+}
+
+
+#ablun_course_price{
+	border: 1px solid #1DA0F2;
+	color: #1DA0F2;
+	width:2.5rem !important;
+	height: 1.06rem !important;
+	text-align: center;
+}
+
+.cour_title{
+	width: 60%;
+	float: left;
+}
+
+.cur_time{
+	float: right;
+	font-size:0.75rem ;
+	color: #999;
+}
+
+#commentList li{
+	    border-bottom: 1px solid #eee;
+    width: 90%;
+    margin: 1rem auto;
+}
+
+#commentList li p{
+	    margin: 0.7rem 0 1rem 0;
+}
+.comm_name{
+	    float: right;
+    font-size: 12px;
+    color: #999;
+    position: relative;
+    right: 10px;
+    bottom: 5px;
+   
+}
+
+#courses_jump{
+	height: 3.13rem;
+	background: #1DA0F2;
+	color: #fff;
+	text-align: center;
+	display: block;
+	 line-height: 3;
+}
+
+#commentList img{
+	width: 1.25rem;
+	height: 1.25rem;
+	border-radius: 25px;
+    position: relative;
+        top: 5px;
+    left: 5px;
+}
+/*课程*/
+.J_prismPlayer_play{
+	width: 100%;
+	height: 13.13rem !important;
+	background: #F9F2F4;
+}
+
+
+.courese_title_play{
+	text-align: center;
+	margin: 1.5rem 0;
+	font-size: 16px;
+}
+
+.courese_is{
+	border: 1px solid #1DA0F2;
+	color: #1DA0F2;
+	font-size: 14px;
+	margin-right: 0.5rem;
+}
+
+.courese_jump a{
+	background: #1DA0F2;
+    width: 90%;
+    height: 2.56rem;
+    display: block;
+    text-align: center;
+    color: #fff;
+    line-height: 2.5;
+    border-radius: 5px;
+    margin: 0.5rem auto;
+}
+
+.courese_ablum{
+	width: 90%;
+	margin: 0.5rem auto;
+	border-bottom: 1px solid #eee;
+	height: 4.5rem;
+}
+
+.courese_ablum img{
+	width: 3.75rem;
+	height: 3.75rem;
+	float: left;
+	
+}
+
+.courese_ablum p{
+	margin-top: 0.5rem;
+	position: relative;
+    top: 0.5rem;
+    left: 0.5rem;
+}
+
+.coures_title{
+	font-size: 16px;
+}
+
+.coures_name{
+	font-size: 14px;
+	color: #999;
+}
+
+
+.courese_lists{
+	width: 90%;
+	margin: 0 auto;
+}
+#courese_list_show li{
+	padding: 0 0.5rem;
+	list-style: none;
+    height: 5rem;
+    border-bottom: 1px solid #eee;
+    padding-top: 1rem;
+}
+
+#courese_list_show li label{
+	height: 4.5rem;
+	float: left;
+	width: 10%;
+	line-height: 2.5;
+}
+
+#courese_list_show li p{
+	width: 90%;
+	float: left;
+	line-height: 1.5;
+}
+
+
+#download_btn{
+	/* height: 3.2rem;
+	position: fixed;
+	bottom: 0px;
+	width: 100%;
+	border: 0;
+	background: #fa4b4b;
+	color: #fff;
+	font-weight: 600;
+	font-size: 18px;
+	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif */
+}
+
+.expert_art{
+	width: 2.5rem;
+	height: 2.5rem;
+	border-radius: 25px;
+	float: left;
+}
+
+.expert_arts{
+	width: 2.5rem;
+	height: 2.5rem;
+	border-radius: 25px;
+	float: left;
+}
+
+.expert_name{
+	font-size: 16px;
+	font-weight: 600;
+	position: relative;
+	top: 0.3rem;
+	left: 0.5rem;
+}
+
+.expert_title{
+	font-size: 14px;
+	color: #999;
+	position: relative;
+	top: 0.5rem;
+	left: 0.5rem;
+}
+
+.content{
+    background: #eee;
+    padding: 1.5rem 1rem;
+}
+
+/* .content_img img{
+	width: 30%;
+    margin-left: 2%;
+    margin-top: 2%;
+} */
+
+.content_attention{
+	margin: 1.5rem 1rem;
+}
+
+.content_attention span{
+	color: #999;
+    font-size: 14px;
+}
+
+.content_attention label{
+	float: right;
+	color: #999;
+	font-size: 14px;
+	margin-left: 1rem
+}
+
+.hot_review_art{
+	width: 2.5rem;
+	height: 2.5rem;
+	float: left;
+	border-radius: 25px
+}
+.hot_contern{
+	margin: 2rem 0 0 3rem;
+	border-bottom: 1px solid #eee;
+}
+.hot_name{
+    position: relative;
+	top: 0.3rem;
+	color: #999;
+    left: 0.5rem;
+}
+
+.hot_name label{
+	float: right;
+	position: relative;
+	bottom: 0.2rem;
+	right: 0.5rem;
+}
+
+.user_content{
+	line-height: 1.5;
+	margin: 1.5rem 1rem 0.5rem;
+	/* color:#1DA1F2; */
+}
+
+.hot_name label span{
+	position: relative;
+    /* bottom: 0.5rem; */
+}
+
+.hot_name label img{
+	width: 1.5rem;
+	margin-right: 0.5rem;
+	height: 1.5rem;
+}
+
+.hot_time{
+	margin: 0.7rem 0;
+    color: #999;
+    font-size: 14px;
+}
+
+.content_img{
+	margin-top: 2rem;
+	
+}
+
+.content_img label{
+	width: 34%;
+	/* height: 7rem; */
+	display: inline-block;
+	margin-left: 2%;
+
+}
+
+.content_img label img{
+    width: 100%;
+    height: 100%;
+}
+
+
+#original_text{
+	
+	margin-top: 2rem;
+	/* line-height: 1.5; */
+}
+
+.indrod_more{
+	border: 0;
+    /* background: #fff; */
+    color: #1DA1F2 !important;
+    margin: 0 !important;
+    /* margin-bottom: 1rem; */
+    position: relative;
+    width: 100%;
+    bottom: 1rem;
+    right: 0.5rem;
+    text-align: right !important;
+    font-size: 14px;
+}
+
+.video_img{
+	width: 50%;
+}
+
+.video_play{
+	position: absolute;
+    left: 23%;
+    bottom: 42%;
+}
+
+.J_prismPlayer_max{
+	width: 100% !important;
+	height: 100% !important;
+	position: absolute;
+	z-index: 999 !important;
+	display: none;
+	top: 0
+}
+
+#J_prismPlayer{
+	width: 100% !important;
+	height: 100% !important;
+}
+
+.j_close{
+	float: right;
+    z-index: 9999;
+    position: relative;
+    width: 1.5rem;
+	height: 1.5rem;
+	right: 1rem;
+    top: 1rem;
+}
+
+.j_close img{
+	width: 100%;
+}

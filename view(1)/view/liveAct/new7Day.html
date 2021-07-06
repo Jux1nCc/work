@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<!--<script src="//cdn.jsdelivr.net/npm/eruda"></script>
+	<script>eruda.init();</script>-->
+	<meta http-equiv="Content-Type" charset="UTF-8">
+	<meta name="keywords" content="">
+	<meta name="description" content="">
+	<meta name="viewport"
+		content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,initial-scale=1.0" />
+	<meta name="format-detection" content="telephone=no,email=no" />
+	<link rel="stylesheet" href="//activity.folkcam.cn/common/comm.css">
+	<style type="text/css">
+		:focus {
+			outline: 0;
+		}
+
+		ins {
+			text-decoration: none;
+		}
+
+		del {
+			text-decoration: line-through;
+		}
+
+		table {
+			border-collapse: collapse;
+			border-spacing: 0;
+		}
+
+		.inp_back {
+			background: url(img/bg.png) no-repeat;
+			background-size: 100% 100%;
+			height: 100vh;
+			padding-top: 0.1px;
+		}
+
+		.inp_num {
+			width: 50%;
+			margin: 0 auto;
+			height: 10%;
+			text-align: center;
+			position: relative;
+			top: 30%;
+			background: url(img/borderBg.png);
+			background-size: 100% 100%;
+		}
+
+		.num_span {
+			width: 20%;
+			height: 55%;
+			display: inline-block;
+		}
+
+		.num_span img {
+			width: 100%;
+			height: 100%;
+		}
+
+		.num_span img.left {
+			float: left;
+		}
+
+		.num_span img.right {
+			float: right;
+		}
+
+		.inp_people {
+			width: 50%;
+			margin: 0 auto;
+			height: 10%;
+			text-align: center;
+			position: relative;
+			top: 39.7%;
+			background: url(img/borderBg.png);
+			background-size: 100% 100%;
+		}
+
+		.inp_new {
+			width: 66%;
+			margin: 0 auto;
+			height: 10%;
+			text-align: center;
+			position: relative;
+			top: 50%;
+			background: url(img/borderBg.png);
+			background-size: 100% 100%;
+		}
+
+		.inp_day {
+			width: 85%;
+			margin: 0 auto;
+			height: 7%;
+			text-align: center;
+			position: relative;
+			top: 56%;
+			background: url(img/day.png);
+			background-size: 100% 100%;
+		}
+
+		.num_days {
+			width: 9%;
+			height: 70%;
+			display: inline-block;
+			position: absolute;
+			bottom: 12%;
+			right: 30%;
+		}
+
+		.num_days img {
+			width: 100%;
+			height: 100%;
+		}
+
+		.complete {
+			height: 70%;
+			display: block;
+			width: 50%;
+			margin: 0 auto;
+			background: white url(img/complete.png) no-repeat;
+			background-size: 100% 100%;
+		}
+	</style>
+	<script src="//activity.folkcam.cn/common/jquery.min.js"></script>
+	<script type="text/javascript">
+		var complete = "<span class='complete'></span>";
+		//根据QueryString参数名称获取值 
+		function getQueryStringByName(name) {
+			var result = location.search.match(new RegExp("[\?\&]" + name + "=([^\&]+)", "i"));
+			if (result == null || result.length < 1) {
+				return "";
+			}
+			return result[1];
+		}
+
+		function insertStr(soure, start, newStr) {
+			return soure.slice(0, start) + newStr + soure.slice(start);
+		}
+
+		function getRedNum(num) {
+			return getNum(num, 2);
+		}
+
+		function getBlueNum(num) {
+			return getNum(num, 1);
+		}
+
+		function getNum(num, type) {
+			var numStr = num + "";
+			var len = numStr.length;
+			if (len >= 4) {
+				numStr = numStr.substr(0, len - 2) + "k";
+				numStr = insertStr(numStr, len - 3, ".");
+				len = numStr.length;
+			}
+
+			var width = 100 / len;
+			var h5 = "";
+			for (var i = 0; i < len; i++) {
+				h5 += getTmp(width, type, type == 1 ? numStr.charAt(i) : numStr.charAt(len - i - 1));
+			}
+			return h5;
+		}
+
+		function getTmp(width, type, num) {
+			if (num == ".") {
+				num = "point";
+			}
+			if (type == 1) {
+				return '<img style="width: ' + width + '%" class="left" src="img/blue/' + num + '.png">';
+			} else {
+				return '<img style="width: ' + width + '%" class="right" src="img/red/' + num + '.png">';
+			}
+		}
+
+		function init() {
+			var streamId = getQueryStringByName("streamId");
+			var customerId = getQueryStringByName("customerId");
+			if (streamId && customerId) {
+				try {
+					$.get("/api/liveAct/getActTaskSchedule", { streamId: streamId, customerId: customerId }, function (data) {
+						if (data.result) {
+							var taskSchedule = data.data;
+							$("#doDay").attr("src", "img/red/" + taskSchedule.taskDay + ".png");
+							if (taskSchedule.goalAddFansCnt == taskSchedule.currAddFansCnt) {
+								$(".inp_num").html(complete);
+							} else {
+								$("#addFansCnt").html(getBlueNum(taskSchedule.goalAddFansCnt));
+								$("#addFansCntVal").html(getRedNum(taskSchedule.currAddFansCnt));
+							}
+							if (taskSchedule.goalRewardCustCnt == taskSchedule.currRewardCustCnt) {
+								$(".inp_people").html(complete);
+							} else {
+								$("#rewardCustCnt").html(getBlueNum(taskSchedule.goalRewardCustCnt));
+								$("#rewardCustCntVal").html(getRedNum(taskSchedule.currRewardCustCnt));
+							}
+							if (taskSchedule.goalAddStarValue == taskSchedule.currAddStarValue) {
+								$(".inp_new").html(complete);
+							} else {
+								$("#addStarValue").html(getBlueNum(taskSchedule.goalAddStarValue));
+								$("#addStarValueVal").html(getRedNum(taskSchedule.currAddStarValue));
+							}
+						} else {
+							console.log("当前未参加活动");
+						}
+					});
+				} catch (e) {
+					console.error(e)
+				}
+				setTimeout(init, 60000);
+			}
+		}
+		$(function () {
+			init();
+		});
+	</script>
+</head>
+
+<body>
+	<div class="inp_back">
+		<div class="inp_num flexbox around">
+			<span class="num_span" id="addFansCntVal"><img class="left" src="img/red/0.png"></span>
+			<span class="num_span" id="addFansCnt"><img class="right" src="img/blue/0.png" /></span>
+		</div>
+		<div class="inp_people flexbox around">
+			<span class="num_span" id="rewardCustCntVal"><img class="left" src="img/red/0.png"></span>
+			<span class="num_span" id="rewardCustCnt"><img class="right" src="img/blue/0.png" /></span>
+		</div>
+
+		<div class="inp_new flexbox around">
+			<span class="num_span" id="addStarValueVal"><img class="left" src="img/red/0.png"></span>
+			<span class="num_span" id="addStarValue"><img class="right" src="img/blue/0.png" /></span>
+		</div>
+
+		<div class="inp_day">
+			<img class="num_days" id="doDay" src="img/red/0.png" /></span>
+		</div>
+	</div>
+</body>
+
+</html>

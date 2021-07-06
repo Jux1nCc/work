@@ -1,0 +1,27 @@
+
+<!-- template 创建模版 name 定义名称 -->
+<template name="headline_tem" >
+  <!-- 使用传递的数据 -->
+  <!-- block  for循环可以创建一个或者多个组件 -->
+  <block wx:for="{{array}}" wx:for-item="data" wx:key="1">
+    
+    <view class="item" bindtap="seeDetail" id="{{index}}">
+      <view>
+        <image src="{{data.img}}" style="width:150rpx;height:106rpx;"></image>
+      </view>
+      <!-- 文字描述 -->
+      <view class="desc">
+        <view class="title">{{data.title}}</view>
+        <view class="count">
+          <view>{{data.type}}</view>
+          <view class="liulan">{{data.liulan}}</view>
+          <view class="pinglun">{{data.pinglun}}</view>
+        </view>
+      </view>
+    </view>
+
+    <!--  分割线 -->
+    <view class="hr2"></view>
+
+  </block>
+</template>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0, viewport-fit=cover">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="msapplication-tap-highlight" content="no">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Cache-Control" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <title>建议有奖</title>
+  <link rel="stylesheet" href="http://activity.folkcam.cn/common/comm.css">
+  <link rel="stylesheet" href="./advice.css?v=006">
+</head>
+
+<body>
+  <div class="wrap">
+    <div class="main">
+      <div class="dec">
+        <p>为了更好地给大家提供优质的服务，请你向我们提出优化“铢铢”的宝贵建议。建议一经采纳，我们将向你发放奖品以表我们的谢意。</p>
+        <p class="middle">活动时间：长期有效</p>
+        <p>奖项设置：</p>
+        <p>一等奖（1名）：iPhone SE 一台</p>
+        <p>二等奖（2名）：OPPO Find X3 一台</p>
+        <p>三等奖（10名）：500 铢铢币</p>
+        <p class="apple">（该活动与苹果公司无关）</p>
+      </div>
+      <div class="input-main">
+        <div class="name-item">
+          <h1>姓名</h1>
+          <input type="text" id="name" placeholder="请输入您的姓名（必填）" oninput="isCanSubmit()" maxlength="20">
+        </div>
+        <div class="phone-item">
+          <h1>电话号码</h1>
+          <input type="text" placeholder="请输入您的电话号码（必填）" id="photoCode" oninput="isCanSubmit()" maxlength="15">
+        </div>
+        <div class="datail-item">
+          <h1>建议详情</h1>
+          <textarea name="suggestText" id="suggestText" cols="39" rows="7" maxlength="1024" placeholder="请输入您的建议（必填）"
+            oninput="isCanSubmit()" maxlength="500"></textarea>
+        </div>
+        <div class="photo-item">
+          <h1 style="position: absolute; top: 0; left: 0;">图片附件<span>（请选择图片、最多9张）</span></h1>
+          <div class="photo-wrap">
+            <!-- <div class="photo-pic"></div>
+            <div class="photo-pic"></div>
+            <div class="photo-pic"></div>
+            <div class="photo-pic"></div>
+            <div class="photo-pic"></div>
+            <div class="photo-pic"></div> -->
+            <div class="uploading">
+              <input type="file" accept='image/*' multiple="true" name="files[]" id="uploadPic" style="display: none;">
+              <img src="images/add_photo.png" id="addMyPic">
+              <span id="picText">添加照片</span>
+            </div>
+          </div>
+        </div>
+        <div class="btn-item gray flexbox" onclick="submit()">提交反馈</div>
+      </div>
+    </div>
+  </div>
+</body>
+<script src="http://activity.folkcam.cn/common/jquery.min.js"></script>
+<script src="http://activity.folkcam.cn/common/rem.js"></script>
+<script src="http://activity.folkcam.cn/common/config.js"></script>
+<script src="http://activity.folkcam.cn/common/layer/layer.js"></script>
+<script src="http://activity.folkcam.cn/common/createBar.js"></script>
+<script src="LocalResizeIMG.js"></script>
+<script src="mobile-detect.min.js"></script>
+<!-- <script src="https://activity.folkcam.cn/common/vconsole.min.js"></script> -->
+<script>
+  // var vConsole = new VConsole()
+  // console.log(window.location.href)
+  var arr = new Array();
+  var imgID = 0
+  $('#uploadPic').localResizeIMG({
+    width: 1024,
+    quality: .8,
+    success: function (result) {
+      if (arr.length >= 9) {
+        layer.msg('亲，最多只能上传9张')
+        return
+      }
+      var img = new Image();
+      img.src = result.base64;
+      img.className = 'realPic';
+      arr.push(result.base64);
+      var str = '<div class="up-photo up-photo-' + imgID + '" baseStr = ' + result.base64 + ' ><i onclick="remove(this)"></i></div>'
+      $('.photo-wrap').append(str);
+      $('.up-photo.up-photo-' + imgID).append(img);
+      imgID++
+      isCanSubmit()
+    }
+  });
+  function convertBase64UrlToBlob(urlData) {
+    var bytes = window.atob(urlData.split(',')[1]);//去掉url的头，并转换为byte
+    //处理异常,将ascii码小于0的转换为大于0
+    var ab = new ArrayBuffer(bytes.length);
+    var ia = new Uint8Array(ab);
+    for (var i = 0; i < bytes.length; i++) {
+      ia[i] = bytes.charCodeAt(i);
+    }
+    return new Blob([ab], { type: 'image/png' });
+  }
+  Array.prototype.contains = function (needle) {
+    for (i in this) {
+      if (this[i].indexOf(needle) > 0)
+        return i;
+    }
+    return -1;
+  }
+  var device_type = navigator.userAgent; //获取userAgent信息
+  var md = new MobileDetect(device_type); //初始化mobile-detect
+  var os = md.os(); //获取系统
+  var model = ""; // 手机型号
+  if (os == "iOS") { //ios系统的处理
+    os = md.os() + md.version("iPhone");
+    model = md.mobile();
+  } else if (os == "AndroidOS") { //Android系统的处理
+    os = md.os() + md.version("Android");
+    var sss = device_type.split(";");
+    var i = sss.contains("Build/");
+    if (i > -1) {
+      model = sss[i].substring(0, sss[i].indexOf("Build/"));
+    }
+  }
+</script>
+<script src="advice.js?v=55"></script>
+
+</html>

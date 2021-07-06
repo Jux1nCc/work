@@ -1,0 +1,233 @@
+<html style="font-size: 48px;">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <title>更换手机号</title>
+    <link rel="stylesheet" href="http://activity.folkcam.cn/common/layer/theme/default/layer.css" id="layuicss-layer">
+    <link rel="stylesheet" href="font-awesome.min.css">
+    <link rel="stylesheet" href="http://activity.folkcam.cn/common/comm.css">
+    <style type="text/css">
+        .wrap {
+            width: 100%;
+            height: 100vh;
+            color: #666;
+            background-color: #F2F2F2;
+            padding-top: 0.1px;
+            font-family: PingFangMedium;
+        }
+
+        @font-face {
+            font-family: "PingFangMedium";
+            src: url("../common/PingFangMedium.ttf");
+            font-weight: bold;
+            font-style: normal;
+            color: #000;
+        }
+
+
+        header {
+            width: 80%;
+            margin: 10px auto;
+            height: 1.2rem;
+            line-height: 1.5;
+            color: #000;
+            font-weight: 600;
+        }
+
+        .contain,
+        .phone-write,
+        .verify {
+            height: 50px;
+            border-radius: 30px;
+            width: 90%;
+            margin: 15px auto 30px;
+            background: #fff;
+            border: 1px solid #666;
+            padding: 5px;
+        }
+
+        .phone-write p,
+        .verify>span {
+            display: block;
+            width: 20%;
+            text-align: center;
+        }
+
+        .verify>span {
+            font-size: 26px;
+            color: #0cccee
+        }
+
+        hr {
+            width: 0;
+            border: 0;
+            height: 70%;
+            border-left: 1px solid #999;
+        }
+
+        input {
+            width: 70%;
+            border: none;
+            font-size: 14px;
+        }
+
+        .verify input {
+            width: 50%;
+        }
+
+        select {
+            width: 40%;
+            border: none;
+            background: #fff;
+            font-size: 14px;
+            color: #380991;
+        }
+
+        button {
+            display: block;
+            width: 90%;
+            margin: 0 auto;
+            height: 40px;
+            border-radius: 20px;
+            border: none;
+            background: linear-gradient(to right, #b285f4, #6e74eb);
+            font-size: 18px;
+            color: #fff;
+        }
+
+        .contain p {
+            width: 20%;
+        }
+
+        .contain p span:first-of-type,
+        .phone-write p span:first-of-type {
+            color: #380991;
+        }
+
+        .contain p span:last-of-type {
+            color: #137adb;
+        }
+
+        .icon-bottom {
+            border: solid #137adb;
+            border-width: 0 2px 2px 0;
+            display: inline-block;
+            padding: 4px;
+            transform: rotate(45deg);
+            -webkit-transform: rotate(45deg);
+            margin-left: 5px;
+            margin-bottom: 3px;
+        }
+
+        #openSelect ul {
+            width: 100%;
+            height: 100%;
+        }
+
+        #openSelect ul li {
+            display: block;
+            width: 100%;
+            height: 55px;
+            line-height: 55px;
+            font-size: 18px;
+            font-weight: 600;
+            background: #fff;
+            border-bottom: 1px solid #e4e1e1;
+            padding-left: 20px;
+        }
+
+        #openSelect {
+            display: none;
+        }
+
+        .send-verify {
+            width: 22%;
+            height: 28px;
+            line-height: 28px;
+            border-radius: 12px;
+            text-align: center;
+            background: linear-gradient(to right, #85F0C9, #78D3EA);
+            font-weight: 600;
+            color: #333;
+        }
+
+        .bind-phone {
+            display: none;
+        }
+
+        .layui-layer[type="page"] {
+            top: 0 !important;
+            background: #ccc !important
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <script src="http://activity.folkcam.cn/common/jquery.min.js"></script>
+        <script src="http://activity.folkcam.cn/common/rem.js"></script>
+        <script src="http://activity.folkcam.cn/common/createBar.js"></script>
+        <script>
+            $bar.setBar({ bg: '#fff', font: '#000' }, {
+                type: 1,
+                detail: ''
+            }, {})
+        </script>
+        <div class="wrap-content">
+            <div class="change-phone">
+                <header class="column">请输入完整的手机号来验证您的身份：</header>
+                <div class="contain flexbox around">
+                    <p onClick="openSelect()" class="flexbox"><span class="select-li">+86</span><span
+                            class="icon-bottom "></span></p>
+                    <hr>
+                    <input type="text" type='number' pattern="[0-9]*" class="old-phone" placeholder="您的手机号：*******3652"
+                        onchange="updateBtn()">
+                </div>
+                <button onclick="goNext()" class="next-btn">下一步</button>
+            </div>
+            <div class="bind-phone">
+                <header class="flexbox">若长时间未收到短信验证码，请查看手机是否开启了短信拦截功能</header>
+                <div class="column">
+                    <div class="phone-write flexbox around">
+                        <p onClick="openSelect()" class="flexbox"><span class="select-li">+86</span><span
+                                class="icon-bottom "></span></p>
+                        <hr>
+                        <input class="new-phone" type="text" type='number' pattern="[0-9]*" placeholder="请输入手机号"
+                            onchange="updateNewBtn()">
+                    </div>
+                    <div class="verify flexbox around">
+                        <span class="fa fa-lock"></span>
+                        <hr>
+                        <input type="text" class="new-phone-verify" placeholder="请输入验证码" onchange="updateNewBtn()"
+                            oninput="if(value.length>6) value=value.slice(0, 6)" maxlength="6">
+                        <p class="send-verify" onclick="sendVerify()">发验证码</p>
+                    </div>
+                </div>
+                <button class="new-btn" onclick="submitOk()">确定</button>
+            </div>
+        </div>
+    </div>
+    <div id="openSelect">
+        <ul>
+            <li value="61">澳大利亚 +61</li>
+            <li value="1">加拿大 +1</li>
+            <li value="1">美国 +1</li>
+            <li value="60">马来西亚 +60</li>
+            <li value="65">新加坡 +65</li>
+            <li value="62">印度尼西亚 +62</li>
+            <li value="86">中国 +86</li>
+            <li value="853">中国澳门 +853</li>
+            <li value="886">中国台湾 +886</li>
+            <li value="852">中国香港 +852</li>
+        </ul>
+    </div>
+</body>
+<script src="http://activity.folkcam.cn/common/layer/layer.js"></script>
+<script src="http://activity.folkcam.cn/common/config.js"></script>
+<script src="cash.js"></script>
+
+</html>

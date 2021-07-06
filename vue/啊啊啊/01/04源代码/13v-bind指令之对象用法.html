@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    .box {
+      width: 300px;
+      height: 300px;
+      background-color: #f00;
+      transition: all 0.5s;
+    }
+    .active {
+      width: 600px;
+      height: 600px;
+      background-color: #0f0;
+    }
+  </style>
+  <body>
+    <!-- v-bind对象用法
+    用法:  :class="{class类名:boolean值}"
+           true:它所在标签会使用它对应class类名
+           flase:不使用它所对应的class类名
+    作用：控制class类的使用与不使用    
+    -->
+    <div id="app">
+      <button @click="bol=!bol">点我啊</button>
+      <div :class="{active:bol,box:true}"></div>
+    </div>
+    <script src="./vue.js"></script>
+    <script>
+      new Vue({
+        el: "#app",
+        data: {
+          bol: true,
+        },
+      });
+    </script>
+  </body>
+</html>

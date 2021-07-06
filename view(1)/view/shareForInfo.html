@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+<head lang="zh-CN">
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="renderer" content="webkit">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+<!-- <script src="http://apps.bdimg.com/libs/jquery/1.6.4/jquery.min.js"></script> -->
+<!-- <script -->
+<!-- 	src="http://apps.bdimg.com/libs/jquerymobile/1.4.5/jquery.mobile-1.4.5.min.js"></script> -->
+<script type="text/javascript"
+	src="../view/assets/js/jquery-1.11.1.min.js"></script>
+<script type="text/javascript"
+	src="http://web.cdn.openinstall.io/api/javascripts/sdk.min.js"></script>	
+
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style"
+	content="black-translucent">
+<title>兔聊一对一视频聊天</title>
+<style type="text/css">
+* {
+	margin: 0;
+	padding: 0;
+}
+
+html, body {
+	height: 100%;
+	width: 100%;
+}
+
+.back {
+	height: 100%;
+	width: 100%;
+	display: block;
+	background-image: url("../view/assets/img/backImg.png");
+	background-repeat: no-repeat;
+	background-size: 100%;
+}
+
+.download {
+	position: fixed;
+	left: 30%;
+	bottom: 10px;
+	width: 40%;
+	height: 10%;
+	background-position: bottom center;
+	background-repeat: no-repeat;
+	background-image: url("../view/assets/img/downLoad.png");
+	z-index: 9999;
+	background-size: 100%;
+}
+
+.binding {
+	position: fixed;
+	left: 25%;
+	bottom: 10%;
+	width: 50%;
+	height: 15%;
+	z-index: 9999;
+}
+
+.cparea {
+	text-align: center;
+	font-family: Microsoft Yahei;
+	margin: -2px 0 0;
+}
+
+.kwd {
+	display: inline-block;
+	color: #272727;
+	background-color: #fff;
+	font-size: 1.1875em;
+	font-size: 1.1875em;
+	padding: .75em 1em;
+	border: 1px dashed #e60012;
+	-webkit-user-select: element;
+	margin: 2px;
+}
+
+.kwd span {
+	display: block;
+	border: 1px solid #fff;
+}
+
+.kdes {
+	display: inline-block;
+	color: #fff;
+	font-size: .875em;
+	padding-top: 0;
+}
+.photo {
+	height: 50%;
+	width: 100%;
+	display: block;
+}
+.photoClass {
+	height: 100%;
+	width: 100%;
+	background-repeat: no-repeat;
+	background-size: 100%;
+}
+.userInfo{
+	border: 1px dashed #e60012;
+	padding-top: 10%;
+	padding-left: 5%;
+	width: 95%;
+	height: 50%;
+}
+font{
+	text-align: center;
+	font-family: Microsoft Yahei;
+}
+</style>
+</head>
+<body>
+<!-- 	<canvas class="back">你的浏览器不支持Canvas,请使用更高级的浏览器！ -->
+<!--  	</canvas> -->
+	<div class="photo">
+		<img class="photoClass" src="http://jwmedia-oss.oss-cn-shenzhen.aliyuncs.com/rab-picture/image/201701182056577528874407230187977.png" >
+	</div>
+	<div class="userInfo">
+		<font style="font-weight: bold;">兔聊号:</font><font id="customerId">11140 </font>
+		<font style="font-weight: bold;">年龄:</font><font  id="age">26</font>
+		<font style="font-weight: bold;">职业:</font><font  id="job">软件工程师</font>
+		<font style="font-weight: bold;">个性签名:</font><font id="job">我爱上了你,你爱上了他我爱上了你,你爱上了他我爱上了你,你爱上了他我爱上了你,你爱上了他我爱上了你,你爱上了他</font>
+	</div>
+<!-- 	<div class="binding"> -->
+<!-- 		<div class="cparea"> -->
+<!-- 			<div class="kwd" id="kwd"> -->
+<!-- 				<span></span> -->
+<!-- 			</div> -->
+<!-- 		</div> -->
+<!-- 		<div class="cparea"> -->
+<!-- 			<span class="kdes">(长按可复制邀请码)</span> -->
+<!-- 		</div> -->
+<!-- 	</div> -->
+<!-- 	<canvas class="download" onclick="downClick();"></canvas> -->
+	<script type="text/javascript">
+		//使用jQuery mobile的tapHold事件模拟手机系统longTap手势激活复制
+		$("#kwd")
+				.bind(
+						"taphold",
+						function() { //不支持iPhone/iTouch/iPad Safari  
+							var doc = document, text = doc
+									.getElementById("kwd"), range, selection;
+							if (doc.body.createTextRange) {
+								range = document.body.createTextRange();
+								range.moveToElementText(text);
+								range.select();
+							} else if (window.getSelection) {
+								selection = window.getSelection();
+								range = document.createRange();
+								range.selectNodeContents(text);
+								selection.removeAllRanges();
+								selection.addRange(range);
+							} else {
+								alert("浏览器不支持长按复制功能");
+							}
+						});
+		var openInstall;
+		window.onload = function() {
+			var url = window.location;
+		    var code = getUrlParam(url,'code');
+		    var codeSpan = document.getElementById("kwd");
+		    codeSpan.innerHTML = code;
+			
+			//注:通过渠道短链接访问本页面时，无需手动指定channelCode参数，
+			//平台可自动获取对应的渠道编号，完成渠道统计
+			var config = {
+				//必填，创建应用时分配的唯一ID，用于标识你的APP应用
+				appKey : 'bmhy9f'
+			};
+			//需要向app传递的json数据，可随意定义格式
+			var str = "";
+			str = getUrlParam(url,'code');
+			if (str && str.indexOf('*') > -1) {
+				str = str.substring(str.indexOf('*') + 1, str.lastIndexOf('*'));
+			} else if (str && str.indexOf('%2A') > -1) {
+				str = str.substring(str.indexOf('%2A') + 1, str
+						.lastIndexOf('%2A'));
+			}
+			// 			alert(str);
+			var params = {
+				"shareId" : str
+			};
+
+			//初始化，向服务器异步获取应用配置信息，应尽早运行完成初始化;如有特殊需求，也创建多个OpenInstall对象
+			openInstall = new OpenInstall(config, params);
+		}
+
+		//获取Url的参数
+		function getUrlParam(url, name) {
+			var pattern = new RegExp("[?&]" + name + "\=([^&]+)", "g");
+			var matcher = pattern.exec(url);
+			var items = null;
+			if (matcher != null) {
+				try {
+					items = decodeURIComponent(decodeURIComponent(matcher[1]));
+				} catch (e) {
+					try {
+						items = decodeURIComponent(matcher[1]);
+					} catch (e) {
+						items = matcher[1];
+					}
+				}
+			}
+			return items;
+		}
+
+		function downClick() {
+			var fallbackHandler = null;
+			//调用wakeupOrInstall方法后，将根据应用配置进入启动/安装的流程。
+			openInstall.wakeupOrInstall(fallbackHandler);
+			// 			alert("点击按钮");
+		}
+	</script>
+</body>
+</html>

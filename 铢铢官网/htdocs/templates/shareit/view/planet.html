@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>营销大咖都在这里！</title>
+		<meta name="keywords" content="">
+		<meta name="description" content="">
+		<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,initial-scale=1.0" />
+		<meta name="format-detection" content="telephone=no,email=no" />
+        <link rel="stylesheet" href="../css/style.css" />
+        <link rel="stylesheet" href="https://g.alicdn.com/de/prismplayer/2.8.0/skins/default/aliplayer-min.css" />
+		<script src="../js/jquery-2.1.4.min.js"></script>
+		<script src="../js/common.js"></script>
+		<script type="text/javascript" charset="UTF-8" src="//res.cdn.openinstall.io/openinstall.js"></script>
+		<script src="https://res2.wx.qq.com/open/js/jweixin-1.4.0.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+        <script charset="utf-8" charset="utf-8" type="text/javascript" src="https://g.alicdn.com/de/prismplayer/2.8.0/aliplayer-min.js" ></script>
+ 	<script charset="utf-8" type="text/javascript" src="https://g.alicdn.com/de/prismplayer/2.8.0/aliplayer-h5-min.js"></script>
+		<script>
+			window.onload=function(){
+			    document.getElementById('z_indexs').style.display = "block"
+			}
+		</script>
+	</head>
+
+	<body>
+		<div style="position: absolute;background: #FFF;width: 100%;height: 100%;top: 0;z-index: 999;display: none;" id="z_indexs"></div>
+        <div class="exepert hd">
+            <div class="header">
+                <div class="header_logo">
+                    <label class="db_logo">
+                        <img src="../img/logo.png">
+                    </label>
+                    <label class="db_logowz">
+                        <img src="../img/logowenz.png" >
+                        <p>打开APP收藏、下载</p>
+                    </label>
+                </div>
+                <div class="dh_jump">
+                    <a id="download_btn" onclick="clickEvent()">打开</a>
+                </div>
+            </div>
+            <div style="border-top: 1px solid #eee;">
+                <div>
+                    <div>
+                        <div class="expert_artcon" style="margin: 1.5rem 0 1.5rem 1rem;">
+                            <img class="expert_art">
+                            <p class="expert_name"></p>
+                            <p class="expert_title"></p>
+                        </div>
+                        <div class="user_content"> </div>
+                        <div class="content">
+                            <div>
+                                <img class="expert_arts"><label style="color:#1DA1F2;position: relative;top: 0.5rem;left: 0.5rem;"><span class="user_add">@</span><span class="name_cent"></span></label>&nbsp;&nbsp;
+                                <p id="original_text"></p>
+                                <span id="introd_expand" class="indrod_more" >全文</span>
+                                <span id="shower" style="display: none;"></span>
+                            </div> 
+                            <div class="content_img" id="list_img" > </div>
+                            <div id="content_video"><img src="../img/start_big_fff.png" class="video_play"></div>
+                        </div>
+                    </div>
+                    <div class="content_attention">
+                        <span class="createTime">3-25 15:45</span>
+                        <label>赞 <span class="praiseCnt"></span></label>
+                        <label>评论 <span class="commentCnt"></span></label>
+                        <label>转发 <span class="flowCnt"></span></label>
+                    </div>
+                </div>
+                <div style=" background: #eee; width: 100%; height: 0.5rem;"></div>
+                <div style="margin:1.5rem 1rem" class="list_hot">
+                    <p style="text-align:center">——热门评论——</p>
+                    <div id="hot_review"> </div>
+                    
+                </div>
+            </div>
+
+        </div>
+        <div class="J_prismPlayer_max">
+            <div class="j_close"><img src="../img/delect.png"></div>
+            <div id="J_prismPlayer"></div>
+        </div>
+       
+	</body> 
+	<script>
+		$(document).ready(function() {
+			customerId = getURLParameter("customerId");
+            //var customerId = 1000001;
+            //var customerId = 10120173;
+            sessionStorage.setItem('customerId', customerId)
+            //var actionId = 10001428;//有转发
+            //var actionId = 10001452; //有转发
+            //var actionId = 10001430 //没有转发
+
+            //var actionId = 10001465 //视频
+			actionId = getURLParameter("actionId");
+			var imgUrl;
+			if(sessionStorage.getItem('customerId') != null) {
+				$.get("/api/action/findActionDetails",{
+                    "actionId" : actionId,
+                    "customerId" :customerId,
+                    "apiVersion" : 3
+                },function(data){
+                    var openAll = 0;
+                    if(data.result == true && data.code == 0) {
+                        document.getElementById('z_indexs').style.display = "none"
+                        //console.log(data)
+                        var isFlow = data.data.isFlow;
+                        //console.log(isFlow)
+                        var createTimes = data.data.createTime;
+                        var date = new Date(createTimes);
+                        var Y = date.getFullYear() + '-';
+                        var M = (date.getMonth()+1 < 10 ? '0'+(date.getMonth()+1) : date.getMonth()+1) + '-';
+                        var D = date.getDate() + ' ';
+                        var h = date.getHours() + ':';
+                        var m = date.getMinutes() + ':';
+                        var s = date.getSeconds();
+                        var createTime = Y+M+D+h+m+s; 
+                        $(".createTime").text(createTime);
+                        $(".praiseCnt").text(data.data.praiseCnt);
+                        $(".commentCnt").text(data.data.commentCnt)
+                        $(".flowCnt").text(data.data.flowCnt)
+
+                        if(isFlow == 0){ //没有转发
+                            $(".expert_arts").css("display","block");
+                            $(".user_add").css("display","none");
+                            $(".expert_artcon").css("display","none");
+                            $(".user_content").css("display","none");
+                            $(".content").css("background","white");
+                            $(".expert_arts").attr("scr",data.data.photo);
+                            $(".name_cent").text(data.data.nickName);
+                            var actionTitle = data.data.actionTitle;
+                            //console.log(actionTitle)
+                            $("#original_text").text(actionTitle);
+                            $("#original_text").css("line-height","1.5");
+                            var actionPhoto = data.data.actionPhoto;
+                            var videoId = data.data.videoId;
+                           // console.log(videoId)
+                            if(videoId == null){
+                                $("#list_img").css("display","block")
+                                $("#content_video").css("display","none")
+                                var phones = new Array();
+                                phones = actionPhoto.split(",");
+                                // console.log(phones);
+                                for(var i = 0; i < phones.length; i++){
+                                // console.log(i)
+                                    var str = "<label><img src='"+phones[i]+"'></label>";
+                                    $("#list_img").append(str)
+                                }
+                            } else {
+                                $("#content_video").css("display","block")
+                                $("#list_img").css("display","none")
+                                $("#content_video").append("<img src='"+data.data.actionPhoto+"' class='video_img'>")
+                                $("#content_video").click(function(){
+                                    $(".J_prismPlayer_max").css("display","block")
+
+                                    fun.playVideoList(videoId);
+                                })
+                                $(".j_close").click(function(){
+                                    $(".J_prismPlayer_max").css("display","none")
+                                })
+                               
+
+                            }
+
+                            
+                            var target = document.getElementById('original_text');    
+                           // console.log(target)
+                            var shower = document.getElementById('shower');
+                            var btn = document.getElementById('introd_expand') //点击事件
+                            function countLines(ele) {
+                                //console.log(ele)
+                                var styles = window.getComputedStyle(ele, null);
+                                var lh = parseInt(styles.lineHeight, 10);
+                                var h = parseInt(styles.height, 10);
+                                var lc = Math.round(h / lh); //这个是行数
+                                // console.log(h)
+                                // console.log(lh)
+                                // console.log('line count:', lc, 'line-height:', lh, 'height:', h);
+                                return lc;
+                            }
+
+                            function change() {
+                                shower.innerHTML = countLines(target);
+
+                            }
+                            window.onresize = change;
+                            change();
+                            var line = $("#shower").val();
+                           // console.log(countLines(target))   //这里是总行数
+                            var totalLine = countLines(target);
+                            if(totalLine > 4) { //这里是总行数大于10行的
+                                btn.style.display = "block";
+                                btn.innerHTML = countLines(target) > 4 ? "全文" : "";
+                                target.innerHTML = data.data.actionTitle.substring(0, (4 / totalLine) * data.data.actionTitle.length); //按比例显示，总是显示十行，那就显示 10除以总行数的长度这么多字符串 
+                                btn.onclick = function() {
+                                    if(openAll == 0) { //默认点击
+                                        openAll = 1;
+                                        target.innerHTML = data.data.actionTitle;
+                                        
+                                    } else {
+                                        openAll = 0;
+                                        target.innerHTML = data.data.actionTitle.substring(0, (4 / totalLine) * data.data.actionTitle.length);
+                                       
+                                    }
+                                }
+                            } else { //小于等于10行
+                                btn.style.display = "none"
+                                target.innerHTML = data.data.actionTitle;
+                            }
+                            
+                            
+
+
+
+
+                            
+
+                        
+                        } else{
+                            var datas = data.data;
+                            $(".expert_arts").css("display","none");
+                            $(".expert_artcon").css("display","block");
+                            $(".user_content").css("display","block");
+                            $(".expert_art").attr('src',datas.photo);
+                            $(".user_content").text(datas.actionTitle)
+                            $(".expert_name").text(datas.nickName);
+                            $(".expert_title").text(datas.job);
+                            $("#original_text").text(datas.flowAction.actionTitle);
+                            $(".name_cent").text(datas.flowAction.nickName);
+                            $("#original_con").text(datas.flowAction.actionTitle)
+                            var target = document.getElementById('original_text');    
+                           // console.log(target)
+                            var shower = document.getElementById('shower');
+                            var btn = document.getElementById('introd_expand') //点击事件
+                            function countLines(ele) {
+                                //console.log(ele)
+                                var styles = window.getComputedStyle(ele, null);
+                                var lh = parseInt(styles.lineHeight, 10);
+                                var h = parseInt(styles.height, 10);
+                                var lc = Math.round(h / lh); //这个是行数
+                                // console.log(h)
+                                // console.log(lh)
+                                // console.log('line count:', lc, 'line-height:', lh, 'height:', h);
+                                return lc;
+                            }
+
+                            function change() {
+                                shower.innerHTML = countLines(target);
+
+                            }
+                            window.onresize = change;
+                            change();
+                            var line = $("#shower").val();
+                           // console.log(countLines(target))   //这里是总行数
+                            var totalLine = countLines(target);
+                            if(totalLine > 4) { //这里是总行数大于10行的
+                                btn.style.display = "block";
+                                btn.innerHTML = countLines(target) > 4 ? "全文" : "";
+                                target.innerHTML = data.data.actionTitle.substring(0, (4 / totalLine) * data.data.actionTitle.length); //按比例显示，总是显示十行，那就显示 10除以总行数的长度这么多字符串 
+                                btn.onclick = function() {
+                                    if(openAll == 0) { //默认点击
+                                        openAll = 1;
+                                        target.innerHTML = data.data.actionTitle;
+                                        
+                                    } else {
+                                        openAll = 0;
+                                        target.innerHTML = data.data.actionTitle.substring(0, (4 / totalLine) * data.data.actionTitle.length);
+                                       
+                                    }
+                                }
+                            } else { //小于等于10行
+                                btn.style.display = "none"
+                                target.innerHTML = data.data.flowAction.actionTitle;
+                            }
+                        
+                            var actionPhoto = datas.flowAction.actionPhoto;
+                            //console.log(actionPhoto);
+                            var videoId = datas.flowAction.videoId;
+
+                            //console.log(videoUrl)
+                            if(videoId == null){
+                                $("#list_img").css("display","block")
+                                $("#content_video").css("display","none")
+                                var phones = new Array();
+                                phones = actionPhoto.split(",");
+                                //console.log(phones);
+                                for(var i = 0; i < phones.length; i++){
+                                // console.log(i)
+                                    var str = "<label><img src='"+phones[i]+"'></label>";
+                                    $("#list_img").append(str)
+                                }
+                            } else {
+                                $("#list_img").css("display","none")
+                                $("#content_video").css("display","block")
+                                $("#content_video").append("<img src='"+data.data.actionPhoto+"' class='video_img'>")
+                                $("#content_video").click(function(){
+                                    $(".J_prismPlayer_max").css("display","block")
+
+                                    fun.playVideoList(videoId);
+                                })
+                                $(".j_close").click(function(){
+                                    $(".J_prismPlayer_max").css("display","none")
+                                })
+
+                            }
+                        }
+                    }
+                   
+                })
+
+                $.get("/api/action/findAssessmentList",{
+                    "actionId" : actionId,
+                    "pageIndex" : 1 ,
+                    "pageItemCount" : 3,
+                    "customerId" :customerId,
+                    "apiVersion" : 3
+                },function(data){
+
+                    var datas = data.data;
+                    //console.log(datas)
+                    if( datas == 0 ){
+                        $(".list_hot").css("display","none")
+                    } else{
+                        for(var i = 0; i <datas.length; i++){
+                            var commentTimes = datas[i].commentTime;
+                            var date = new Date(commentTimes);
+                            var Y = date.getFullYear() + '-';
+                            var M = (date.getMonth()+1 < 10 ? '0'+(date.getMonth()+1) : date.getMonth()+1) + '-';
+                            var D = date.getDate() + ' ';
+                            var h = date.getHours() + ':';
+                            var m = date.getMinutes() + ':';
+                            var s = date.getSeconds();
+                            var commentTime = Y+M+D+h+m+s;
+                            var str = "<div>"
+                                str += " <img src='"+datas[i].photo+"' class='hot_review_art'>"
+                                str += "<p class='hot_name'><span>"+datas[i].nickName+"</span><label><img src='../img/zan.png'><span>"+datas[i].praiseCnt+"</span></label></p>"
+                                str += "<div class='hot_contern'>"
+                                str += "<p>"+datas[i].commentContent+"</p>"
+                                str += "<p class='hot_time'>"+commentTime+"</p>"
+                                str += " </div>"
+                                str += " </div>"
+                                str += " </div>"
+                            $("#hot_review").append(str)
+                        }
+                    }
+                   
+                })
+			
+
+			}
+
+			
+
+			var url = encodeURIComponent(location.href.split('#')[0]);  
+			var data = getCookie("dataName");
+			//console.log(data)
+			var timestamp = null;
+			var nonceStr = null;
+			var signature = null;
+			if(data != null || data != undefined) {
+				var signArray = data.split(",");
+				timestamp = signArray[0];
+				nonceStr = signArray[1];
+				signature = signArray[2];
+
+			}
+			//console.log(signature)
+			if(timestamp == null || signature == null || nonceStr == null) {
+				$.get("/getSignature", {
+						"url": url   //也就是这个
+					},
+					function(data) {
+						console.log(data)
+						timestamp = data.data.timestamp;
+						nonceStr = data.data.nonceStr;
+						signature = data.data.signature;
+						var saveData = timestamp + "," + nonceStr + "," + signature;
+						saveCookie("dataName", saveData, 2);
+
+						wx.config({
+							debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的onMenuShareAppMessage参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+							appId: 'wx74bf89427d4f03a6', // 必填，企业号的唯一标识，此处填写企业号corpid
+							timestamp: timestamp, // 必填，生成签名的时间戳
+							nonceStr: nonceStr, // 必填，生成签名的随机串
+							signature: signature, // 必填，签名，见附录1
+							jsApiList: [
+								'onMenuShareTimeline',
+								'onMenuShareAppMessage',
+								'onMenuShareQZone',
+								'onMenuShareQQ',
+								'onMenuShareWeibo'
+							] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+						});
+
+					});
+
+			} else { //3个都有值，直接执行下一步
+				wx.config({
+					debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的onMenuShareAppMessage参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+					appId: 'wx74bf89427d4f03a6', // 必填，企业号的唯一标识，此处填写企业号corpid
+					timestamp: timestamp, // 必填，生成签名的时间戳
+					nonceStr: nonceStr, // 必填，生成签名的随机串
+					signature: signature, // 必填，签名，见附录1
+					jsApiList: [
+						'onMenuShareTimeline',
+						'onMenuShareAppMessage',
+						'onMenuShareQZone',
+						'onMenuShareQQ',
+						'onMenuShareWeibo'
+					] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+				});
+
+			}
+
+			if(imgUrl == null) {
+				imgUrl = 'https://livegle-video-test.oss-cn-shenzhen.aliyuncs.com/livegle-Person/PhotoAlbum/15238715193011801152036022770.jpeg'
+				
+			}
+
+			//https://other.expertol.cn/shareit/view/expert.html?code=83fe94e9&customerId=1000010   那这个呢  刚刚那个是给后台的，这个不清楚，一步一步测
+			var muUrl =  location.href.split('#')[0]; 
+			wx.ready(function() {
+				
+				wx.onMenuShareTimeline({
+					title: '营销大咖都在这里！', // 分享标题
+					desc: '我已加入，邀你一起成长', // 分享描述
+					link: muUrl, // 分享链接
+					imgurl: imgUrl, // 分享图标
+					type: '', // 分享类型,music、video或link，不填默认为link
+					dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+					success: function() {
+						// 用户确认分享后执行的回调函数
+					},
+					cancel: function() {
+						// 用户取消分享后执行的回调函数
+					}
+				});
+
+				wx.onMenuShareAppMessage({
+					title: '营销大咖都在这里!', // 分享标题
+					desc: '我已加入，邀你一起成长', // 分享描述
+					link: muUrl, // 分享链接
+					imgurl: imgUrl, // 分享图标
+					type: 'link', // 分享类型,music、video或link，不填默认为link
+					dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+					success: function() {
+						// 用户确认分享后执行的回调函数
+					},
+					cancel: function() {
+						// 用户取消分享后执行的回调函数
+					}
+				});
+
+				wx.onMenuShareQQ({
+					title: '营销大咖都在这里!', // 分享标题
+					desc: '我已加入，邀你一起成长', // 分享描述
+					link: muUrl, // 分享链接
+					imgurl: imgUrl, // 分享图标
+					type: 'link', // 分享类型,music、video或link，不填默认为link
+					dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+					success: function() {
+						// 用户确认分享后执行的回调函数
+					},
+					cancel: function() {
+						// 用户取消分享后执行的回调函数
+					}
+				});
+				//分享到腾讯微博
+				wx.onMenuShareWeibo({
+					title: '营销大咖都在这里!', // 分享标题
+					desc: '我已加入，邀你一起成长', // 分享描述
+					link: muUrl, // 分享链接
+					imgurl: imgUrl, // 分享图标
+					type: 'link', // 分享类型,music、video或link，不填默认为link
+					dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+					success: function() {
+						// 用户确认分享后执行的回调函数
+					},
+					cancel: function() {
+						// 用户取消分享后执行的回调函数
+					}
+				});
+				//分享到QQ空间
+				wx.onMenuShareQZone({
+					title: '营销大咖都在这里!', // 分享标题
+					desc: '我已加入，邀你一起成长', // 分享描述
+					link: muUrl, // 分享链接
+					imgurl: imgUrl, // 分享图标
+					type: 'link', // 分享类型,music、video或link，不填默认为link
+					dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+					success: function() {
+						// 用户确认分享后执行的回调函数
+					},
+					cancel: function() {
+						// 用户取消分享后执行的回调函数
+					}
+
+				})
+			})
+		})
+
+		function saveCookie(dataName, data, closeHours) {
+
+			var str = dataName + "=" + escape(data);
+
+			//为0时不设定过期时间，浏览器关闭时cookie自动消失    
+			if(closeHours > 0) {
+				var date = new Date();
+				var ms = closeHours * 3600 * 1000;
+				date.setTime(date.getTime() + ms);
+				str += "; expires=" + date.toString();
+			}
+			document.cookie = str;
+
+		}
+
+		function getCookie(dataName) {
+
+			var arrstr = document.cookie.split("; ");
+
+			for(var i = 0; i < arrstr.length; i++) {
+				var temp = arrstr[i].split("=");
+
+				if(temp[0] == dataName) {
+
+					return unescape(temp[1]);
+				} else {
+					continue;
+				}
+
+			}
+		}
+        
+        var fun = {
+            playVideoList: function(vid){
+                $.post("/api/app/ParameterManagement/getVideoAdderss",{
+                    "vid" :vid
+                },function(data){
+                    console.log(data)
+                    var PlayInfo = data.data.PlayInfoList.PlayInfo;
+                    for (var i = 0 ;i < PlayInfo.length; i++){
+                        var Encrypt = data.data.PlayInfoList.PlayInfo[i].Encrypt;
+                        var EncryptType = data.data.PlayInfoList.PlayInfo[i].EncryptType;
+                        var PlayURL = data.data.PlayInfoList.PlayInfo[i].PlayURL;
+                        
+                    }
+                        // console.log(EncryptType) //加密类型
+                        // console.log(Encrypt) //
+                        // console.log(PlayURL)
+                        if(EncryptType == 'AliyunVoDEncryption'){ //私有加密
+                            $.post("/api/app/ParameterManagement/getVideoEvidence",{
+                                "vid":vid
+                            },function(data){
+                                // console.log(data.data.playAuth)
+                                player = new Aliplayer({
+                                    id: "J_prismPlayer",
+                                    autoplay: true,
+                                    vid: vid,
+                                    playauth: data.data.playAuth,
+                                });
+                            })
+    //						
+                        } else if(EncryptType == 'HLSEncryption'){ //标准加密
+                            var player = new Aliplayer({
+                                id: 'J_prismPlayer',
+                                width: '100%',
+                                autoplay: true,
+                                //支持播放地址播放,此播放优先级最高
+                                source : PlayURL
+                            })
+                        } else { //不加密
+                            var player = new Aliplayer({
+                                id: 'J_prismPlayer',
+                                width: '100%',
+                                autoplay: true,
+                                //支持播放地址播放,此播放优先级最高
+                                source : PlayURL
+                            })
+    //						$("#J_prismPlayer").append("<embed src='"+PlayURL+"'></embed>")
+                        }
+                })
+            }
+        }
+		
+	</script>
+
+	<script type="text/javascript">
+		//openinstall初始化时将与openinstall服务器交互，应尽可能早的调用
+		/*web页面向app传递的json数据(json string/js Object)，应用被拉起或是首次安装时，通过相应的android/ios api可以获取此数据*/
+		//openinstall.js中提供的工具函数，解析url中的所有查询参数
+
+		function clickEvent() {
+			var data = OpenInstall.parseUrlParams();
+			new OpenInstall({
+				/*appKey必选参数，openinstall平台为每个应用分配的ID*/
+				appKey: "pb31xx",
+				/*可选参数，自定义android平台的apk下载文件名，只有apk在openinstall托管时才有效；个别andriod浏览器下载时，中文文件名显示乱码，请慎用中文文件名！*/
+				//apkFileName : 'com.fm.openinstalldemo-v2.2.0.apk',
+				/*可选参数，是否优先考虑拉起app，以牺牲下载体验为代价*/
+				//preferWakeup:true,
+				/*自定义遮罩的html*/
+				//mask:function(){
+				//  return "<div id='openinstall_shadow' style='position:fixed;left:0;top:0;background:rgba(0,255,0,0.5);filter:alpha(opacity=50);width:100%;height:100%;z-index:10000;'></div>"
+				//},
+				/*openinstall初始化完成的回调函数，可选*/
+				onready: function() {
+
+					var m = this;
+
+					/*在app已安装的情况尝试拉起app*/
+					m.schemeWakeup();
+					/*用户点击某个按钮时(假定按钮id为downloadButton)，安装app*/
+
+					m.wakeupOrInstall();
+
+				}
+			}, data);
+
+		}
+	</script>
+
+</html>

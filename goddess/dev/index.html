@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0, viewport-fit=cover">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="msapplication-tap-highlight" content="no">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Cache-Control" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <title>宠爱女神节</title>
+  <link rel="stylesheet" href="http://activity.folkcam.cn/common/layer/theme/default/layer.css">
+  <link rel="stylesheet" href="http://activity.folkcam.cn/common/comm.css">
+  <link rel="stylesheet" href="index.css?v=019" as="style">
+</head>
+
+<body>
+  <div class="page PingFang">
+    <header>
+      <div class="notice">
+        <div class="notice-item flexbox"></div>
+      </div>
+    </header>
+    <div class="rule-btn" onclick="openRule()"></div>
+    <!-- 示爱墙 -->
+    <div class="love-wrap flexbox">
+      <div class="love-wrap-left column">
+        <div class="lw-main flexbox">
+          <div class="lw-item">
+            <img src="./images/miao.png" alt="">
+          </div>
+        </div>
+        <span class="wallOneName">虚位以待</span>
+      </div>
+      <div class="love-wrap-right column">
+        <div class="lw-main flexbox">
+          <div class="lw-item">
+            <img src="./images/miao.png" alt="">
+          </div>
+        </div>
+        <span class="wallOneName">虚位以待</span>
+      </div>
+      <i></i>
+    </div>
+    <div class="text-wrap column">
+      <span>每小时全平台第一个收到“哄你入睡”礼物的用户</span>
+      <span>可以和送给自己礼物的用户一起霸占“高调示爱墙”</span>
+      <span>单笔送出≥19900<span class="appUnit">钻石</span>价值的礼物，可替换墙上用户！</span>
+    </div>
+    <!-- 宠爱墙 -->
+    <div class="pamper-wrap">
+      <div class="pamper-left"></div>
+      <div class="pamper-right"></div>
+      <div class="pamper-title"></div>
+      <div class="pamper-text column">
+        <span>收到“我在等你”礼物的用户和送出方可以一起上墙</span>
+        <span>每天展示前10对，根据送出时间顺序排列</span>
+      </div>
+      <div class="pamper-nav flexbox">
+        <div class="pamper-nav0 nav-1 ys-font" onclick="changePamperNav(this)">3月6日</div>
+        <div class="pamper-nav1 nav-2 ys-font" onclick="changePamperNav(this)">3月7日</div>
+        <div class="pamper-nav2 nav-2 ys-font" onclick="changePamperNav(this)">3月8日</div>
+      </div>
+      <div class="pamper-main flexbox">
+        <!-- <div class="pamper-item flexbox">
+          <div class="pi-left flexbox">
+            <div class="pi-item">
+              <img src="./images/miao.png" alt="">
+              <span class="flexbox">就四个字</span>
+            </div>
+          </div>
+          <div class="pi-right flexbox">
+            <div class="pi-item">
+              <img src="./images/miao.png" alt="">
+              <span class="flexbox">就四个字</span>
+            </div>
+          </div>
+          <i class="pi-heart"></i>
+        </div> -->
+        <div class="pamper-init flexbox">暂无人上榜！拭目以待</div>
+      </div>
+    </div>
+    <!-- 排行榜 -->
+    <div class="rank-wrap">
+      <div class="rank-nav flexbox">
+        <div class="rank-nav-1" onclick="changeNav(this, 1)"></div>
+        <div class="rank-nav-2 small" onclick="changeNav(this, 2)"></div>
+      </div>
+      <div class="rank-title column">
+        <span>按照活动期间<span class="title-nav">收到</span>指定礼物的积分排榜</span>
+        <span>积分前10名有机会获得大奖!</span>
+        <i></i>
+      </div>
+      <div class="rank-main">
+        <div class="rank-main-title flexbox">
+          <span>名次</span>
+          <span class="rmt-photo">头像</span>
+          <span class="rmt-name">昵称</span>
+          <span class="rmt-value">甜蜜值</span>
+        </div>
+        <div class="rank-main-item">
+          <ul>
+            <li class="rank-item flexbox">
+              <div class="li-num flexbox">
+                <img src="images/rank_no1.png" alt="">
+              </div>
+              <div class="li-photo">
+                <img src="images/miao.png" alt="">
+                <div class="li-photo-frame frame1"></div>
+              </div>
+              <span class="li-name">虚位以待</span>
+              <span class="li-value">暂时无人上榜</span>
+              <i></i>
+            </li>
+            <li class="rank-item flexbox">
+              <div class="li-num flexbox">
+                <img src="images/rank_no2.png" alt="">
+              </div>
+              <div class="li-photo">
+                <img src="images/miao.png" alt="">
+                <div class="li-photo-frame frame2"></div>
+              </div>
+              <span class="li-name">虚位以待</span>
+              <span class="li-value">暂时无人上榜</span>
+              <i></i>
+            </li>
+            <li class="rank-item flexbox">
+              <div class="li-num flexbox">
+                <img src="images/rank_no3.png" alt="">
+              </div>
+              <div class="li-photo">
+                <img src="images/miao.png" alt="">
+                <div class="li-photo-frame frame3"></div>
+              </div>
+              <span class="li-name">虚位以待</span>
+              <span class="li-value">暂时无人上榜</span>
+              <i></i>
+            </li>
+            <li class="look-more popup">点击查看更多</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="gift-wrap">
+      <!-- <div class="gift-title"></div>
+      <p class="gift-text">统计全平台范围的活动指定礼物</p>
+      <ul class="gift-main flexbox">
+        <li class="column">
+          <div class="li-item flexbox">
+            <div class="li-img"></div>
+          </div>
+          <span>甜心公主</span>
+        </li>
+        <li class="column">
+          <div class="li-item flexbox">
+            <div class="li-img"></div>
+          </div>
+          <span>比翼双飞</span>
+        </li>
+        <li class="column">
+          <div class="li-item flexbox">
+            <div class="li-img"></div>
+          </div>
+          <span>伴你左右</span>
+        </li>
+        <li class="column">
+          <div class="li-item flexbox">
+            <div class="li-img"></div>
+          </div>
+          <span>甜甜糖果车</span>
+        </li>
+        <li class="column">
+          <div class="li-item flexbox">
+            <div class="li-img"></div>
+          </div>
+          <span>烈焰红唇</span>
+        </li>
+      </ul> -->
+    </div>
+    <div class="mine-wrap flexbox">
+      <div class="mp-rank">暂无</div>
+      <div class="mp-photo">
+        <img src="images/miao.png" class="photo-1 popup" onclick='toMyList()'>
+        <img src="images/miao.png" class="photo-2 popup" onclick='toMyList()'>
+        <img src="images/miao.png" class="photo-3 popup" onclick='toMyList()'>
+        <span class="popup">...</span>
+      </div>
+      <div class="mp-value column">
+        <span class="mp-name">我的昵称</span>
+        <span class="mp-value-mine">0甜蜜值</span>
+        <span class="pre-value">距上一名甜蜜值差: <span class="mp-pre">暂无</span></span>
+      </div>
+    </div>
+    <footer></footer>
+  </div>
+  <div class="dialog PingFang">
+    <!-- 是否在app内打开 -->
+    <div id="openOutApp" class="popup">
+      <div class="open-text">活动需要在<br /><span class="appName">觅伊</span>APP内打开</div>
+      <span class="dir-text"><span class="appName">觅伊</span>，一款视频交友软件。1000万用户<br />在<span class="appName">觅伊</span>成功搭讪找到心仪的伴侣!</span>
+      <button class="dialog-ok" onclick="download()"></button>
+      <button class="dialog-close"></button>
+    </div>
+    <!-- 是否登录 -->
+    <div id="isLogin" class="popup">
+      <button class="dialog-ok isLogin-login" onclick="jumpToMe()"></button>
+      <button class="dialog-close isLogin-close"></button>
+    </div>
+  </div>
+</body>
+<script src="http://activity.folkcam.cn/common/jquery.min.js"></script>
+<script src="http://activity.folkcam.cn/common/layer/layer.js"></script>
+<script src="http://activity.folkcam.cn/common/app.js"></script>
+<script src="http://activity.folkcam.cn/common/rem.js"></script>
+<script src="http://activity.folkcam.cn/common/config.js"></script>
+<script src="http://activity.folkcam.cn/common/moment.js"></script>
+<script src="http://res.cdn.openinstall.io/openinstall.js"></script>
+<script src="index.js?v=030"></script>
+<script src="http://activity.folkcam.cn/common/vconsole.min.js"></script>
+<script>
+  var vConsole = new VConsole();
+  console.log(window.location.href);
+  // $config.dialogComm($('#actRule'), 'actRule')
+</script>
+</html>

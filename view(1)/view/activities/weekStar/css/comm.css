@@ -1,0 +1,87 @@
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {
+    border: 0;
+    outline: 0;
+    vertical-align: baseline;
+    background: transparent;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+a{
+    text-decoration: none;
+    color: #000;
+}
+li{
+    list-style-type: none;
+}
+.flexbox{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap
+}
+.column{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+}
+.start{
+    justify-content: flex-start
+}
+.around{
+    justify-content: space-around
+}
+.between{
+    justify-content: space-between;
+}
+.end{
+    justify-content: flex-end;
+}
+@keyframes CPAnimate{
+    from{transform:translate(0,0)}
+    to{transform:translate(0,10px)}
+}
+@keyframes changeAnimate{
+    0%{
+        transform:translate(0);
+    }
+    /* 50%{
+        transform: rotateY(180deg);
+    } */
+    100%{
+        transform:translate(60px);
+    }
+}
+/* 抖动效果 */
+@keyframes seconddiv{
+    10% {
+        transform: rotate(30deg);
+      }
+      20% {
+        transform: rotate(-20deg);
+      }
+      30% {
+        transform: rotate(10deg);
+      }
+      40% {
+        transform: rotate(-10deg);
+      }
+      50%,100% {
+        transform: rotate(0deg);
+      }
+}
+.textOverflow{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+@font-face {
+    font-family: 'PingFangBold';
+    src: url('PingFang Bold.ttf');
+    font-weight: normal;
+    font-style: normal;
+}

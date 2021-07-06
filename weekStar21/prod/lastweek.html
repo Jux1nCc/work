@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0, viewport-fit=cover">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="msapplication-tap-highlight" content="no">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Cache-Control" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <title>上周荣誉榜</title>
+  <link rel="stylesheet" href="http://activity.folkcam.cn/common/comm.css">
+  <link rel="stylesheet" href="http://activity.folkcam.cn/common/layer/theme/default/layer.css">
+  <style>
+    .page {
+      position: relative;
+      width: 100vw;
+      background: linear-gradient(#703efd, #e562ce);
+      padding-bottom: .7rem;
+    }
+
+    header {
+      width: 95%;
+      height: 6.65rem;
+      background-image: url(images/head.png);
+      background-size: 100% 100%;
+      margin-bottom: .5rem;
+    }
+
+    .back-home-btn,
+    .rule-btn {
+      position: absolute;
+      right: 0;
+      width: 1.38rem;
+      height: .66rem;
+      background-size: 100% 100%;
+      z-index: 99;
+    }
+
+    .back-home-btn {
+      top: 5rem;
+      background-image: url(images/back_homepage.png);
+    }
+
+    .rule-btn {
+      top: 6rem;
+      background-image: url(images/rule_btn.png);
+    }
+
+    .rank-page {
+      position: relative;
+      width: 6.95rem;
+      background-color: #511cb7;
+      border: 0.04rem solid #fede58;
+      border-top-left-radius: .26rem;
+      border-top-right-radius: .26rem;
+      margin: 0 auto .5rem;
+      padding: .65rem 0;
+    }
+
+    .rank-page-title {
+      position: absolute;
+      top: -.5rem;
+      left: -0.4%;
+      width: 6.93rem;
+      height: .85rem;
+      background-image: url(images/rank_homepage_title.png);
+      background-size: 100% 100%;
+      font-size: .3rem;
+      color: #d35400;
+      font-weight: 700;
+      text-align: center;
+      line-height: .68rem;
+    }
+
+    .gift-wrap {
+      width: 100%;
+      height: 1.6rem;
+      padding: 0 .74rem;
+      justify-content: space-between;
+    }
+
+    .gift-wrap li {
+      text-align: center;
+    }
+
+    .gift-wrap .gift-img {
+      width: 1.55rem;
+      height: 1.25rem;
+      border-radius: .2rem;
+    }
+
+    .gift-wrap .gift-img img {
+      width: 100%;
+      height: 100%;
+    }
+
+    .gift-wrap .gift-name {
+      font-size: .22rem;
+      color: #fff;
+    }
+
+    .rank-main {
+      padding-top: 1rem;
+      height: 21.2rem;
+    }
+
+    .rank-main li {
+      position: relative;
+      width: 6.27rem;
+      height: 1.72rem;
+      background-color: #864dfd;
+      border-radius: .1rem;
+      margin: 0 auto .25rem;
+      justify-content: space-around;
+      padding-right: .6rem;
+    }
+
+    .rank-main li.first-li {
+      height: 2.37rem;
+      background-color: #fdc737;
+      border-top-left-radius: 0.18rem;
+      border-top-right-radius: 0.18rem;
+      padding-right: 0;
+    }
+
+    .first-li .rank-item {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 1.72rem;
+      background-color: #ffccf7;
+      border-radius: .1rem;
+      justify-content: space-around;
+      padding-right: .6rem;
+    }
+
+    .first-li-title {
+      position: relative;
+      width: 100%;
+      height: .65rem;
+      justify-content: space-between;
+      padding: 0 .65rem;
+    }
+
+    .first-li-title span {
+      font-size: .32rem;
+      color: #d40bef;
+      font-weight: 700;
+    }
+
+    .first-li-title i {
+      position: absolute;
+      top: -120%;
+      left: 36%;
+      width: 1.79rem;
+      height: 1.43rem;
+      background-image: url(images/five_pointed.png);
+      background-size: 100% 100%;
+    }
+
+    .live-icon {
+      position: absolute;
+      bottom: 0;
+      left: 32%;
+      width: .8rem;
+      height: .32rem;
+      background: linear-gradient(#ff4aff, #fec24f);
+      border-radius: .2rem;
+      font-size: .2rem;
+      color: #fff;
+      z-index: 3;
+      text-align: center;
+      line-height: .32rem;
+    }
+
+    .star-icon {
+      position: absolute;
+      bottom: 0;
+      left: 22%;
+      width: .75rem;
+      height: .3rem;
+      background-color: #e1baff;
+      font-size: .22rem;
+      color: #fff;
+      border-radius: .3rem;
+      text-align: center;
+      line-height: .3rem;
+    }
+
+    .li-title {
+      position: absolute;
+      top: 5%;
+      left: 45%;
+      color: #ffdd70;
+      font-size: .24rem;
+      font-weight: 700;
+    }
+
+    .li-num {
+      width: .38rem;
+      height: .46rem;
+      font-size: .26rem;
+      color: #fff;
+      font-weight: 700;
+      text-align: center;
+      line-height: .46rem;
+    }
+
+    .li-num img {
+      width: 100%;
+      height: 100%;
+    }
+
+    .li-pic {
+      position: relative;
+    }
+
+    .li-pic img {
+      width: 1.25rem;
+      height: 1.25rem;
+      border: 0.06rem solid #f781ff;
+      border-radius: 50%;
+    }
+
+    .li-pic .crown {
+      position: absolute;
+      top: -10%;
+      left: -10%;
+      width: .66rem;
+      height: .41rem;
+      background-image: url(images/crown.png);
+      background-size: 100% 100%;
+      transform: rotate(-30deg);
+    }
+
+    .li-pic .live-icon {
+      left: 20%;
+    }
+
+    .li-info {
+      width: 2.2rem;
+      height: .7rem;
+      text-align: center;
+    }
+
+    .li-info div {
+      font-size: .24rem;
+      color: #fff;
+    }
+
+    .li-info span {
+      font-size: .24rem;
+    }
+
+    .first-li .li-info div {
+      color: #44307e;
+    }
+
+    .li-star {
+      position: relative;
+    }
+
+    .li-star img {
+      width: 1.25rem;
+      height: 1.25rem;
+      border-radius: 50%;
+      border: .06rem solid #ffe073;
+    }
+
+    #openOutApp {
+      width: 5.46rem;
+      height: 8.54rem;
+      background-image: url(images/miyi.png);
+      background-size: 100% 100%;
+      margin: 0 auto;
+    }
+
+    .to-download {
+      width: 2rem;
+      height: .64rem;
+      bottom: 40%;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page">
+    <header></header>
+    <div class="back-home-btn" onclick="toHomePage()"></div>
+    <div class="rule-btn" onclick="toRulePage()"></div>
+    <div class="rank-page">
+      <div class="rank-page-title">上周礼物周星榜</div>
+      <ul class="gift-wrap flexbox">
+        <li>
+          <div class="gift-img">
+            <img src="images/miao.png" alt="">
+          </div>
+          <span class="gift-name">礼物名字七个字</span>
+        </li>
+        <li>
+          <div class="gift-img">
+            <img src="images/miao.png" alt="">
+          </div>
+          <span class="gift-name">礼物名字七个字</span>
+        </li>
+        <li>
+          <div class="gift-img">
+            <img src="images/miao.png" alt="">
+          </div>
+          <span class="gift-name">礼物名字七个字</span>
+        </li>
+      </ul>
+      <ul class="rank-main">
+      </ul>
+    </div>
+  </div>
+  <div class="dialog">
+    <div id="openOutApp" class="popup">
+      <button class="dialog-ok to-download" onclick="download()"></button>
+      <button class="dialog-close login-close"></button>
+    </div>
+  </div>
+</body>
+<script src="http://activity.folkcam.cn/common/rem.js"></script>
+<script src="http://activity.folkcam.cn/common/app.js"></script>
+<script src="http://activity.folkcam.cn/common/config.js"></script>
+<script src="http://activity.folkcam.cn/common/jquery.min.js"></script>
+<script src="http://activity.folkcam.cn/common/layer/layer.js"></script>
+<script src="http://res.cdn.openinstall.io/openinstall.js"></script>
+<script>
+  var week = {
+    env: 'prod',
+    customerId: $config.getQueryStringByName("customerId"),
+    isFrom: $config.getQueryStringByName("isFrom"),
+    token: $config.getQueryStringByName("token"),
+    appType: $config.getQueryStringByName("appType"),
+    appBool: openInWebview(),// 是否app外打开
+    rank: null,
+    app: [{  //兔聊  
+      name: '兔聊',
+      downloadUrl: 'https://www.expertol.cn/',
+      appKey: 'bmhy9f',
+      vipName: '会员',
+      util: '聊币',
+      title: '发现身边的俊男美女，线上聊，线下约。快来找我吧，点击进入 >',
+      textContent: '发现身边“美”一刻',
+      umImage1: 'https://jw-yunying.oss-cn-shenzhen.aliyuncs.com/share/image/defaultShare.jpg'
+    },
+    { //觅伊
+      name: '觅伊',
+      downloadUrl: 'http://www.rklive888.com/',
+      appKey: 'c6xjxt',
+      vipName: '贵族',
+      util: '钻石',
+      title: '找对象 上觅伊',
+      textContent: '6000万人都在玩的交友APP',
+      umImage1: 'https://jw-yunying.oss-cn-shenzhen.aliyuncs.com/share/image/defaultShare.jpg'
+    }],
+    created: function () {
+      var parmas = {
+        customerId: week.customerId,
+        token: week.token,
+        type: 3,
+        page: 1,
+        pageSize: 10
+      }
+      $.ajax({
+        type: 'GET',
+        url: $config.toUrl(week.env, '/act/weekstar/v2/getRankCustomer'),
+        data: parmas,
+        dataType: 'json',
+        success: function (res) {
+          console.log(res)
+          if (res.result) {
+            week.rank = res.data.ranks
+            week.mounted(res.data)
+          } else {
+            $config.yfAlert(res.message)
+          }
+        },
+        error: function (error) {
+          layer.msg('网络异常', {
+            time: false,
+            shade: 0.5
+          })
+        }
+      })
+    },
+    mounted: function (data) {
+      for (var i = 0; i < 3; i++) {
+        $($('.gift-wrap .gift-img img')[i]).attr('src', data.gifts[i].giftImg + '?x-oss-process=image/resize,m_mfit,h_80,w_80')
+        $($('.gift-wrap .gift-name')[i]).text(data.gifts[i].giftName)
+      }
+      if (data.ranks && data.ranks.length > 0) {
+        for (var i = 0; i < data.ranks.length; i++) {
+          if (i) {
+            var str =
+              '<li class="flexbox">' +
+              '<div class="li-title ' + (i < 3 ? '' : 'popup') + '">第' + (i == 1 ? '二' : '三') + '名</div>' +
+              '<div class="li-num">' +
+              '<img class="' + (i < 3 ? '' : 'popup') + '" src="images/homepage_pic_' + (i == 0 ? '1' : (i == 1 ? '2' : '3')) + '.png">' + (i > 2 ? i + 1 : '') + '</div>' +
+              '<div class="li-pic">' +
+              '<div class="crown ' + (i < 3 ? '' : 'popup') + '"></div>' +
+              '<img src="' + data.ranks[i].photo + '?x-oss-process=image/resize,m_mfit,h_80,w_80">' +
+              '<div class="live-icon ' + (data.ranks[i].relationType == '-1' ? (week.customerId == data.ranks[i].customerId ? 'popup' : '') : (data.ranks[i].relationType == '3') ? '' : 'popup') + '" onclick="follow(this,' + data.ranks[i].customerId + ')">关注</div>' +
+              '</div>' +
+              '<div class="li-info">' +
+              '<div class="li-name">' + data.ranks[i].nickName + '</div>' +
+              '<div class="li-value">积分: <span>' + fmoney(data.ranks[i].gainGiftAmt) + '</span></div>' +
+              '</div>' +
+              '<div class="li-star">' +
+              '<img src="' + data.ranks[i].payPhoto + '?x-oss-process=image/resize,m_mfit,h_80,w_80">' +
+              '<div class="star-icon flexbox">星探</div>' +
+              '</div>' +
+              '</li>'
+          } else {
+            var str =
+              '<li class="first-li">' +
+              '<div class="first-li-title flexbox">' +
+              '<span>周星擂主</span>' +
+              '<span>造星大亨</span>' +
+              '<i></i>' +
+              '</div>' +
+              '<div class="rank-item flexbox">' +
+              '<div class="li-num">' +
+              '<img src="images/homepage_pic_1.png" alt="">' +
+              '</div>' +
+              '<div class="li-pic">' +
+              '<div class="crown"></div>' +
+              '<img src="' + data.ranks[i].photo + '?x-oss-process=image/resize,m_mfit,h_80,w_80">' +
+              '<div class="live-icon ' + (data.ranks[i].relationType == '-1' ? (week.customerId == data.ranks[i].customerId ? 'popup' : '') : (data.ranks[i].relationType == '3') ? '' : 'popup') + '" onclick="follow(this,' + data.ranks[i].customerId + ')">关注</div>' +
+              '</div>' +
+              '<div class="li-info">' +
+              '<div class="li-name">' + data.ranks[i].nickName + '</div>' +
+              '<div class="li-value">积分: <span>' + fmoney(data.ranks[i].gainGiftAmt) + '</span></div>' +
+              '</div>' +
+              '<div class="li-star">' +
+              '<img src="' + data.ranks[i].payPhoto + '?x-oss-process=image/resize,m_mfit,h_80,w_80">' +
+              '<div class="star-icon flexbox">星探</div>' +
+              '</div>' +
+              '</div>' +
+              '</li>'
+          }
+          $('.rank-main').append(str)
+        }
+      }
+    }
+  }
+  function toHomePage() {
+    if (!week.appBool) {
+      if (week.appType == 1) {
+        $('#openOutApp').css('background-image', 'url(images/tuliao.png)')
+      }
+      $config.dialogComm($('#openOutApp'), 'openOutApp')
+      return
+    }
+    window.history.go(-1)
+  }
+  function toRulePage() {
+    if (!week.appBool) {
+      if (week.appType == 1) {
+        $('#openOutApp').css('background-image', 'url(images/tuliao.png)')
+      }
+      $config.dialogComm($('#openOutApp'), 'openOutApp')
+      return
+    }
+    window.location.href = './rule.html?type=2'
+  }
+  function fmoney(s) {
+    s = parseFloat((s + "").replace(/[^\d\.-]/g, "")) + "";
+    var l = s.split(".")[0].split("").reverse();
+    t = "";
+    for (i = 0; i < l.length; i++) {
+      t += l[i] + ((i + 1) % 3 == 0 && (i + 1) != l.length ? "," : "");
+    }
+    return t.split("").reverse().join("");
+  }
+  function follow(that, id) {
+    if ($(that).text() == '已关注') return
+    var parmas = {
+      customerId: week.customerId,
+      token: week.token,
+      targetCustomerId: id,
+      relationType: 1
+    }
+    $.ajax({
+      type: 'POST',
+      url: $config.toUrl(week.env, '/act/zq/isAttention'),
+      data: parmas,
+      dataType: 'json',
+      success: function (res) {
+        if (res.result) {
+          $(that).text('已关注')
+          setTimeout(function () {
+            $(that).addClass('popup')
+          }, 3000)
+        } else {
+          layer.msg(res.message)
+        }
+      },
+      error: function (error) {
+        layer.msg('网络异常', {
+          time: false,
+          shade: 0.5
+        })
+      }
+    })
+  }
+  function download() {
+    layer.closeAll()
+    if ($config.browser.versions.android) {
+      window.location.href = week.app[week.appType - 1].downloadUrl
+    } else {
+      if (week.appType == 1) {
+        window.location.href = week.app[0].downloadUrl
+      } else {
+        var data = OpenInstall.parseUrlParams();//openinstall.js中提供的工具函数，解析url中的所有查询参数
+        new OpenInstall({
+          /*appKey必选参数，openinstall平台为每个应用分配的ID*/
+          appKey: week.app[1].appKey,
+          onready: function () {
+            var m = this;
+            /*在app已安装的情况尝试拉起app*/
+            m.schemeWakeup();
+            // 未安装时去Appstore
+            m.wakeupOrInstall();
+          }
+        })
+      }
+    }
+  }
+  function shareTc() {
+    var img = "http://miyiurl.rklive888.com/activities/weekstar21/dev/images/miao.png",
+      title = '礼物周星争夺战',
+      subtitle = '守擂周星, 做璀璨周星主播',
+      sharingState = 'weekstarsV2',
+      apptype = week.appType
+    var path = window.location.href.split('?')[0], url = '',
+      arr = window.location.href.split('?')[1].split('&'), result = [];
+    for (var i = 0; i < arr.length; i++) {
+      (function (index) {
+        var item = arr[index];
+        if (item.indexOf('customerId') < 0 && item.indexOf('token') < 0 && item.indexOf('isFrom') < 0) {
+          result.push(item)
+        }
+      })(i)
+    }
+    result.push('isFrom=h5');
+    query = result.join('&');
+    if (apptype) {
+      url = path + '?' + query + '&appType=' + apptype;
+    } else {
+      url = path + '?' + query;
+    }
+    if (browser.versions.android) {
+      client.jumpToShare(img, title, url, subtitle, sharingState);
+    } else {
+      window.webkit.messageHandlers.jumpToShare.postMessage({
+        img: img,
+        title: title,
+        url: url,
+        subtitle: subtitle,
+        type: sharingState,
+        shareLink: 0,
+      });
+    }
+  }
+  week.created()
+</script>
+
+</html>

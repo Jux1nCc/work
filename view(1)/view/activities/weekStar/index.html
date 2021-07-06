@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="x5-orientation" content="portrait" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="format-detection" content="telphone=no, email=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <title>点亮周星榜</title>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/index.js"></script>
+    <script src="js/rem.js"></script>
+    <link rel="stylesheet" href="css/comm.css">
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+<div class="wrap">
+    <div class="contain">
+            <div class="anchor column">
+                <img id="topAnchorPhoto" src="" alt="">
+                <p>主播: <span id="anchor-name" class="anchor-name"></span></p>
+            </div>
+            <div class="guard column">
+                <img id="topPayPhoto" src="" alt="">
+                <p>守护者: <span id="topPayName" class="guard-name"></span></p>
+            </div>
+            <div class="gift column">
+                <img id="topGiftImg" src="http://jw-version.oss-cn-shenzhen.aliyuncs.com/android/t_picture_new1567046722947.png" alt="">
+                <!--<p class="gift-name">爱你</p>-->
+            </div>
+    </div>
+    <div class="contain-list">
+        <div class="list-title">
+            <ul class="title-date flexbox"></ul>
+            <ul class="title-nav flexbox">
+                <li class="anchor-bang nav-active" onClick="onTraggerClass(1)">主播魅力榜</li>
+                <li class="guard-bang" onClick="onTraggerClass(2)">用户贡献榜</li>
+            </ul>
+        </div>
+        <ul class="list-date flexbox">
+            <li class="date-day date-active" onClick="onChangeWay(1)">日榜</li>
+            <li class="date-week" onClick="onChangeWay(2)">周榜</li>
+        </ul>
+        <div class="list-scroll">
+            <table class="anchor-table"></table>
+            <p class="anchor-more flexbox" onClick="getMore()">点击显示更多....</p>
+        </div>
+    </div>
+    <a class="skipBtn" href="rule.html"></a>
+</div>
+</body>
+</html>

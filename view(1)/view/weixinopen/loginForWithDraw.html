@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<head lang="zh-CN">
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="renderer" content="webkit">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style"
+	content="black-translucent">
+<meta name="format-detection" content="telephone=no" />
+<meta name="screen-orientation" content="portrait">
+<meta name="x5-orientation" content="portrait">
+<title>请登录</title>
+<link rel="stylesheet" type="text/css" href="../../view/assets/css/login.css" />
+<link rel="stylesheet" type="text/css" href="../../view/assets/css/publice.css" />
+<script type="text/javascript" language="javascript"
+	src="../../view/assets/js/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" language="javascript"
+	src="../../view/assets/js/md5.js"></script>
+<script type="text/javascript" language="javascript"
+	src="../../view/js/common.js"></script>	
+<script>
+	//判断屏幕宽度计算字号大小
+	(function(doc, win) {
+		var docEl = doc.documentElement, resizeEvt = 'orientationchange' in window ? 'orientationchange'
+				: 'resize', recalc = function() {
+			var clientWidth = docEl.clientWidth;
+			if (!clientWidth) {
+				return;
+			}
+			docEl.style.fontSize = 100 * (clientWidth / 375) + 'px';
+		};
+		if (!doc.addEventListener) {
+			return;
+		}
+		win.addEventListener(resizeEvt, recalc, false);
+		doc.addEventListener('DOMContentLoaded', recalc, false);
+		recalc();
+	})(document, window);
+</script>
+
+<style type="text/css">
+.form-sent {
+	margin-bottom: 0;
+}
+</style>
+</head>
+<body>
+	<div class="send-code">
+		<div class="form-hd">
+			<h2 class="form-tit">请登录您的兔聊号</h2>
+		</div>
+			<div class="form form-sent">
+				<div class="form-item">
+					<div class="txt">
+						<input type="number"
+							class="basic-ipt js_phone js_login js_login_phone_input"
+							placeholder="输入手机号" oninput="checkinput(event);" name="username"
+							id="username"></input>
+					</div>
+				</div>
+				<div class="form-item">
+					<div class="txt">
+						<input type="password"
+							class="basic-ipt js_key js_login_code_input" placeholder="输入登录密码"
+							oninput="checkinput(event);" name="password" id="password"></input>
+						<input type="hidden" name="hiddenpwd" id="hiddenpwd" />
+					</div>
+				</div>
+
+				<div style="height: 0.2rem">
+					<span class="js_login_warring red" id="js_warring"></span>
+				</div>
+			</div>
+
+			<div class="form-btn">
+				      <a href="javascript:void(0);"  onclick="login(this)" class="btn btn-primary submit js_submit js_login_submit" id="login_submit">登录</a>
+			</div>
+	</div>
+	<script type="text/javascript">
+		var mycode="";
+		/* $(function(){
+			$.ajax({
+				url : "../../view/account/checkUserLogin/", // 新版JSAPI_ForVer3.X  
+				type : "POST",
+				data : {},
+				dataType : "json",
+				success : function(data) {
+					if(data.un && data.pw){
+						test2(mycode,data.un,data.pw);	
+					}
+				},
+				error : function(x, h, e) {
+					alert("error");
+				}
+			});
+		}); */
+	
+		function checkinput(event) {
+			var un = document.getElementById("username");
+			var pw = document.getElementById("password");
+			if (un.value == "" || pw.value == "") {
+				document.getElementById("login_submit").style.background = "#e6e6e6";
+			} else {
+				document.getElementById("login_submit").style.background = "#fd8d29";
+			}
+		}
+		function login(o) {
+			var un = $("#username").val();
+			var pw = $("#password").val();
+			mycode = getURLParameter("code");
+			if (un.value == "" || pw.value == "") {
+				return false;
+			}
+			var password = hex_md5(pw);
+			var url = "../../view/mobile/mobileWithDraw";
+			var params = {};
+			params.mobile=un;
+			params.password=password;
+			params.mycode=mycode;
+			jQuery.ajax( {  
+		          type : 'POST',  
+		          contentType : 'application/json',  
+		          url : url,  
+		          data:JSON.stringify(params),//json序列化   
+		          datatype:"html", //此处不能省略   
+		          contentType: "application/json; charset=utf-8",//此处不能省略   
+		          success : function(data) {  
+// 		        	  $("html").html(data);
+		        	  if(data.status=="ok"){
+		        		  window.location.href="../../view/weixinopen/withdraw.html?cid="+data.customerId+"&cname="+data.nickName+"&bal="+data.rechargeBal+"&code="+data.code+"&cmobile="+data.cmobile+"&key="+data.key+"&js_status=4";	  
+		        	  }else if(data.status=="nobound"){
+		        		  window.location.href="../../view/weixinopen/withdraw.html?cid="+data.customerId;
+		        	  }else{
+		        		  $("#js_warring").text(data.message);
+		        	  }
+					
+		          },  
+		          error : function(data) {  
+		        	  location.href = "../../view/weixinopen/loginForWithDraw.html";
+		          }   
+		        });  
+		}
+		
+		function test2(o1,o2,o3){
+			var url = "../../view/account/userLogin2";
+			var params = {};
+			params.mobile=o2;
+			params.password=o3;
+			params.mycode=o1;
+			jQuery.ajax( {  
+		          type : 'POST',  
+		          contentType : 'application/json',  
+		          url : url,  
+		          data:JSON.stringify(params),//json序列化   
+		          datatype:"json", //此处不能省略   
+		          contentType: "application/json; charset=utf-8",//此处不能省略   
+		          success : function(data) {  
+		        	  if(data.status=="ok"){
+		        		  window.location.href="../../view/weixinopen/withdraw.html?cid="+data.customerId+"&cname="+data.nickName+"&bal="+data.rechargeBal+"&code="+data.code+"&cmobile="+data.cmobile+"&js_status=4";	  
+		        	  }else{
+		        		  window.location.href="../../view/weixinopen/loginForWithDraw.html";
+		        	  }
+					
+		          },  
+		          error : function(data) {  
+	        	    window.location.href="../../view/weixinopen/loginForWithDraw.html";
+		          }   
+		        });  
+		}
+		
+		function getURLParameter(param) {
+			var url = "";
+			try {
+				url = window.location.href;
+			} catch (e) {
+				url = document.URL;
+			}
+			for (;;) {
+				if (url.endWith && url.endWith('#')) {
+					url = url.substring(0, url.length - 1);
+				} else {
+					break;
+				}
+			}
+
+			var params = (url.substr(url.indexOf("?") + 1)).split("&");
+
+			if (params != null) {
+				for (var i = 0; i < params.length; i++) {
+					var strsName = params[i].substr(0, params[i].indexOf("="));
+					var strsValue = params[i]
+							.substr(params[i].indexOf("=") + 1);
+					if (strsName == param) {
+						return strsValue;
+					}
+				}
+			}
+			return "";
+		}
+	</script>
+
+
+</body>
+</html>

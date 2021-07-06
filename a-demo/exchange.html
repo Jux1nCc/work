@@ -1,0 +1,207 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>积分兑换钻石</title>
+    <link rel="stylesheet" href="http://activity.folkcam.cn/common/layer/theme/default/layer.css">
+    <link rel="stylesheet" href="http://activity.folkcam.cn/common/mui.min.css">
+    <link rel="stylesheet" href="http://activity.folkcam.cn/common/comm.css">
+    <link rel="stylesheet" href="./comm.css">
+    <style type="text/css">
+        .wrap {
+            width: 100%;
+            height: 100vh;
+            background-color: #F5F5F5;
+        }
+
+        header {
+            width: 100%;
+            padding: 5%;
+            box-sizing: border-box;
+            border-radius: 0 0 10px 10px;
+            background-color: #fff;
+        }
+
+        .input-want {
+            border: none;
+            height: 60px;
+            border-bottom: 1px solid #ccc;
+            width: 100%;
+            font-size: 24px;
+            border-radius: 0;
+        }
+
+        p {
+            color: #000;
+            margin: 0 5%
+        }
+
+        .integral-p {
+            color: #666
+        }
+
+        .input-tip {
+            margin: 13px 0 5px;
+        }
+
+        .input-tip b {
+            color: #3079FF
+        }
+
+        .input-warn {
+            margin: 12px 0 0 16px;
+        }
+
+        .wrap>p {
+            margin: 12px 0 0 16px;
+            line-height: 1.5;
+        }
+
+        button.apply {
+            width: 90%;
+            margin: 0 auto;
+            height: 45px;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            background: linear-gradient(to right, #b285f4, #6e74eb);
+            margin-top: 20px;
+        }
+
+        .rule-wrap {
+            margin-top: 10px;
+        }
+
+        .rule-wrap span {
+            color: #297BFE
+        }
+
+        #exchangeOK {
+            width: 80%;
+            margin: 0 auto;
+            background: #fff;
+            border-radius: 10px;
+            position: relative;
+            padding: 30px 10%;
+        }
+
+        #exchangeOK button {
+            width: 100%;
+            border: none;
+            height: 36px;
+            border-radius: 6px;
+        }
+
+        #exchangeOK button:first-of-type {
+            margin-top: 20px;
+            background: linear-gradient(to right, #25EAA4, #0CB7DF);
+            color: #fff;
+        }
+
+        #exchangeOK button:last-of-type {
+            margin-top: 10px;
+            border: 1px solid #333;
+            color: #333;
+            background: #fff;
+        }
+
+        #exchangeOK h1 {
+            text-align: center;
+            font-size: 16px
+        }
+
+        #exchangeOK p {
+            line-height: 1.8;
+            font-weight: 600;
+        }
+
+        #exchangeOK p:first-of-type {
+            margin-top: 20px;
+        }
+
+        input[type=color],
+        input[type=date],
+        input[type=datetime-local],
+        input[type=datetime],
+        input[type=email],
+        input[type=month],
+        input[type=number],
+        input[type=password],
+        input[type=search],
+        input[type=tel],
+        input[type=text],
+        input[type=time],
+        input[type=url],
+        input[type=week],
+        select,
+        textarea {
+            border: none;
+            height: unset;
+            margin-top: 10px;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .mui-popup-title+.mui-popup-text {
+            text-align: left
+        }
+
+        .mui-popup-title+.mui-popup-text p {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <script src="http://activity.folkcam.cn/common/jquery.min.js"></script>
+        <script src="http://activity.folkcam.cn/common/rem.js"></script>
+        <script src="http://activity.folkcam.cn/common/createBar.js"></script>
+        <script>
+            $bar.setBar({ bg: '#fff', font: '#000' }, {
+                type: 1,
+            }, {
+                title: '兑换记录',
+                fn: function () {
+                    if (bar.browser.versions.android) {
+                        client.jumpToShowRecord();
+                    } else {
+                        window.webkit.messageHandlers.jumpToShowRecord.postMessage({});
+                    }
+                }
+            })
+        </script>
+        <div class="wrap-content">
+            <header>
+                <p class="integral-p">兑换积分数</p>
+                <input class="input-want" type='number' pattern="[0-9]*" autofocus="autofocus" oninput="calculate()">
+                <p class="flexbox between input-tip">
+                    <span class="tip-warn">可兑换积分0.00</span>
+                    <span>到账: <b class=" result">0.00</b>钻石</span>
+                </p>
+            </header>
+            <p class="input-warn">单次兑换积分数必须是不小于100积分的整数。</p>
+            <p>积分可以兑换钻石，但是钻石不可以兑换积分，请谨慎操作。</p>
+            <p class="vipLevel">兑换<span></span>个月的<b>白银</b>贵族，您至少需要兑换<strong></strong>钻石</p>
+            <button onclick="changeok()" class="apply column" disabled>申请兑换</button>
+            <div class="flexbox rule-wrap">
+                <input type="checkbox" checked name="" id="" onchange="handleCheck()">
+                <p>我已阅读并同意<span
+                        onclick="window.location.href='http://miyiurl.rklive888.com/Income/withdrawrule.html'">兑换规则></span>
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="http://activity.folkcam.cn/common/mui.min.js"></script>
+<script src="http://activity.folkcam.cn/common/config.js"></script>
+<script src="http://activity.folkcam.cn/common/layer/layer.js"></script>
+<script src="./index.js?v=202103221630"></script>
+</html>

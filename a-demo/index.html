@@ -1,0 +1,300 @@
+<html style="font-size: 48px;">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <title>支付宝提现</title>
+    <link rel="stylesheet" href="http://activity.folkcam.cn/common/layer/theme/default/layer.css">
+    <link rel="stylesheet" href="http://activity.folkcam.cn/common/mui.min.css">
+    <link rel="stylesheet" href="http://activity.folkcam.cn/common/comm.css">
+    <link rel="stylesheet" href="./comm.css">
+    <style type="text/css">
+        body {
+            background-color: #F2F2F2;
+        }
+
+        p {
+            margin-bottom: unset;
+        }
+
+        .wrap {
+            width: 100%;
+            /* height: 100vh; */
+            color: #666;
+        }
+
+        header {
+            /* position: absolute;
+            top: 0;
+            left: 0%;
+            right: 0%; */
+            width: 100%;
+            /* background: linear-gradient(to right, #85F0C9, #78D3EA); */
+        }
+
+        .header-title h1 {
+            font-size: 18px;
+            color: #fff;
+            color: #000;
+            line-height: 2;
+            font-weight: 600;
+        }
+
+        .header-title p,
+        .header-title a {
+            line-height: 2;
+            color: #666;
+            cursor: pointer
+        }
+
+        .header-title button {
+            border: none;
+        }
+
+        .card {
+            width: 90%;
+            margin: 0 auto;
+            box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .05);
+            border-radius: 6px;
+            background: #fff;
+            padding: 5px 0;
+        }
+
+        .contain {
+            padding-top: 10px;
+            overflow: auto;
+        }
+
+        .bindAlipay {
+            padding: 0 2.5%;
+        }
+
+        .bindAlipay p {
+            height: 55px;
+        }
+
+        .bindAlipay p label {
+            width: 40%;
+            padding-left: 10px;
+        }
+
+        .bindAlipay input {
+            margin-right: 10px;
+            color: #666;
+            font-weight: 400;
+            border: none;
+            /* line-height: 3.5; */
+            font-size: 14px;
+        }
+
+        .bindAlipay p:first-of-type {
+            border-bottom: 1px solid #e4e1e1;
+        }
+
+        .verify {
+            margin-top: 20px;
+            height: 55px;
+        }
+
+        .verify p {
+            width: 22%;
+            text-align: center;
+        }
+
+        .verify p:last-of-type {
+            width: 28%;
+            color: #380991
+        }
+
+        .verify input {
+            width: 50%;
+            border: none;
+            padding: 0;
+            text-align: left;
+        }
+
+        .phone {
+            width: 85%;
+            margin: 0 auto;
+            line-height: 3;
+        }
+
+        .phone span {
+            font-size: 13px;
+        }
+
+        .phone span:last-of-type {
+            color: #380991
+        }
+
+        .money {
+            margin-top: 5px;
+        }
+
+        .money p {
+            /* line-height: 3.5; */
+            height: 55px;
+        }
+
+        .money p:first-of-type {
+            border-bottom: 1px solid #e4e1e1;
+            position: relative;
+        }
+
+        .money input {
+            border: none;
+            width: 75%;
+            position: relative;
+            font-size: 14px;
+        }
+
+        .money p span {
+            display: block;
+            width: 25%;
+            text-align: center;
+        }
+
+        .apply {
+            display: block;
+            width: 95%;
+            margin: 30px auto;
+            height: 50px;
+            border-radius: 10px;
+            border: none;
+            color: #fff;
+            background: linear-gradient(to right, #b285f4, #6e74eb);
+            font-size: 18px
+        }
+
+        .input-clear {
+            position: absolute;
+            right: 30px;
+            width: 20px;
+            height: 20px;
+            line-height: 20px;
+            border-radius: 50%;
+            background: #666;
+            color: #fff;
+            font-style: normal;
+            display: none;
+        }
+
+        .arrow-right {
+            border: solid #999;
+            border-width: 0 2px 2px 0;
+            display: inline-block;
+            padding: 4px;
+            transform: rotate(-45deg);
+            -webkit-transform: rotate(-45deg);
+        }
+
+        input[placeholder] {
+            font-size: 14px;
+            /* line-height: 3.5; */
+        }
+
+        .mui-input-row {
+            height: 55px;
+            margin-top: 15px;
+        }
+
+        .mui-checkbox input[type=checkbox],
+        .mui-radio input[type=radio] {
+            top: unset
+        }
+
+        input[type=color],
+        input[type=date],
+        input[type=datetime-local],
+        input[type=datetime],
+        input[type=email],
+        input[type=month],
+        input[type=number],
+        input[type=password],
+        input[type=search],
+        input[type=tel],
+        input[type=text],
+        input[type=time],
+        input[type=url],
+        input[type=week],
+        select,
+        textarea {
+            margin-bottom: unset;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <script src="http://activity.folkcam.cn/common/jquery.min.js"></script>
+        <script src="http://activity.folkcam.cn/common/rem.js"></script>
+        <script src="http://activity.folkcam.cn/common/createBar.js"></script>
+        <script>
+            $bar.setBar({ bg: '#8464FB', font: '#fff' }, {
+                type: 1,
+                detail: ''
+            }, {})
+        </script>
+        <div class="wrap-content">
+            <header>
+                <div class="header-title card column">
+                    <h1 class="withDraw-inter">0.00</h1>
+                    <p>当前积分</p>
+                    <button onclick="goRuleDetail()">提现规则>></button>
+                </div>
+                <p class="flexbox" style="margin-top: 10px;">100积分=1人民币</p>
+            </header>
+            <div class="contain">
+                <div class="bindAlipay card">
+                    <!--  onclick="goPay()" -->
+                    <p class="flexbox start"><label for="">真实姓名</label> <input type="text" class="bind-name"
+                            placeholder="请输入真实姓名" onchange="isEmpty()"></p>
+                    <p class="flexbox start"><label for="">支付宝账号</label><input type="text" class="bind-account"
+                            placeholder="请输入支付宝账号" onchange="isEmpty()"></p>
+                </div>
+                <div class="verify card flexbox around">
+                    <p>验证码</p>
+                    <!-- maxlength="6" -->
+                    <input class="verigy-write" type='number' pattern="[0-9]*" placeholder="请输入验证码"
+                        oninput="if(value.length>6) value=value.slice(0, 6)" onchange="checkCode()" maxlength="6">
+                    <p onclick="getVerify()" class="verify-count">获取验证码</p>
+                </div>
+                <div class="phone flexbox between">
+                    <p>验证码发送到<span class="user-phone">*******</span></p>
+                    <span onclick="changePhone()">更换手机号</span>
+                </div>
+                <div class="money card">
+                    <p class="flexbox start">
+                        <span>提现金额</span>
+                        <input type="text" class="money-write" type='number' pattern="[0-9]*" oninput="count()"
+                            placeholder="请输入提现金额" onchange="isEmpty()">
+                        <i class="input-clear column" onclick="clearInput()">X</i>
+                    </p>
+                    <p class="flexbox start">
+                        <span>到账金额</span>
+                        <input type="text" readonly class="money-get">
+                    </p>
+                </div>
+                <div class="sex0-show mui-input-row mui-checkbox card flexbox between">
+                    <label>满5元提现劵</label>
+                    <input id="selectCheck" name="checkbox1" value="Item 1" type="checkbox">
+                </div>
+                <button class="apply" onclick="doApply()" disabled>立即申请</button>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="http://activity.folkcam.cn/common/mui.min.js"></script>
+<script src="http://activity.folkcam.cn/common/config.js"></script>
+<script src="http://activity.folkcam.cn/common/layer/layer.js"></script>
+<script src="cash.js?v=007"></script>
+<!-- <script src="http://activity.folkcam.cn/common/vconsole.min.js"></script>
+<script>
+    var vConsole = new VConsole()
+    console.log(window.location.href);
+</script> -->
+
+</html>

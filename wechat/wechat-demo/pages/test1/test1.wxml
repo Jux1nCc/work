@@ -1,0 +1,4 @@
+<view>
+  <text> I'm {{name}}</text>
+  <button class="weui-btn weui-btn_primary" bind:tap="buttonHandler">点击</button>
+</view>

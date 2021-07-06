@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <div class="searchBox">
+      <input v-model="msg" type="text" @keyup.enter='search(msg)' />
+      <button @click='search(msg)'>搜索</button>
+    </div>
+    <span v-for="(item, index) in cityList" :key="index" v-text="item" @click='search(item)'></span>
+    <ul v-show="weaList.length != 0">
+      <li v-for="(item, index) in weaList" :key="index">
+        <div v-text="item.type"></div>
+        <div>{{ item.low }} - {{ item.high }}</div>
+        <div v-text="item.date"></div>
+      </li>
+    </ul>
+  </div>
+</body>
+<script src="../js/vue.js"></script>
+<script src="../js/axios.js"></script>
+<script>
+  new Vue({
+    el:"#app",
+    data(){
+      return{
+        cityList:['北京','上海','广州','深圳'],
+        weaList:[],
+        msg:'深圳'
+      }
+    },
+    methods:{
+      search(city){
+        axios({
+          url:'http://wthrcdn.etouch.cn/weather_mini',
+          params:{city}
+        }).then(res=>{
+          console.log(res);
+          this.weaList = res.data.data.forecast
+          this.msg = city
+        })
+      }
+    },
+    created(){
+      this.search(this.msg)
+    }
+  })
+</script>
+</html>

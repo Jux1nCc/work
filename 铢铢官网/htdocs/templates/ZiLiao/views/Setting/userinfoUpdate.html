@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>普通用户资料修改</title>
+		<link rel="stylesheet" href="../../public/css/style.css">
+		<link rel="stylesheet" href="../../package/layui/css/layui.css" />
+
+		<script type="text/javascript" src="../../package/layui/layui.js"></script>
+		<script src="../../public/js/public/jquery.min.js"></script>
+		<script src="../../public/js/index.js"></script>
+		<script src="../../public/js/public/city.js"></script>
+		<script src="../../public/js/setting/userinfoUpdata.js"></script>
+	</head>
+	<body>
+		<div id="Userinfo_update">
+			<div class="user_update_title">
+				<a href="javascript:history.go(-1)" class="cert_return_btn" ><img src="../../img/backoff.png">返回</a>
+				<h3>用户资料修改</h3>
+			</div>
+			<div class="user_update_info">
+				<div class="user_update_name">
+					<label class="lable_title">昵称：</label>
+					<div class="input_w340">
+						<input type="text" id="username" maxlength="10"/>
+						<label class="prompt-hint" id="usernamehint"></label>
+					</div>
+				</div>
+				<div class="user_update_sex">
+					<label class="lable_title">性别：</label>
+					<div class="checked_select">
+						<input type="radio" name="sex" value="1" title="男" id="man" checked="">男
+    					<input type="radio" name="sex" value="2" title="女" id="woman">女
+					</div>
+				</div>
+				<div class="user_update_name" style="height: 30px;">
+					<label class="lable_title">生日：</label>
+					<div class="input_w340">
+						<!--<input type="text" id="userbirthday"/>-->
+						<input type="text" class="layui-input" id="userbirthday"> 
+					</div>
+				</div>
+				
+				<div class="user_update_name">
+					<label class="lable_title">常驻城市：</label>
+					<div class="input_w340" onload="init()">
+						<select id="province" class="province" size=1 onchange="getCity()">
+							<option value="北京">北京</option>
+							<option value="上海市">上海市</option>
+							<option value="天津市">天津市</option>
+							<option value="重庆市">重庆市</option>
+							<option value="河北省">河北省</option>
+							<option value="山西省">山西省</option>
+							<option value="内蒙古自治区">内蒙古自治区</option>
+							<option value="辽宁省">辽宁省</option>
+							<option value="吉林省">吉林省</option>
+							<option value="黑龙江省">黑龙江省</option>
+							<option value="江苏省">江苏省</option>
+							<option value="浙江省">浙江省</option>
+							<option value="安徽省">安徽省</option>
+							<option value="福建省">福建省</option>
+							<option value="江西省">江西省</option>
+							<option value="山东省">山东省</option>
+							<option value="河南省">河南省</option>
+							<option value="湖北省">湖北省</option>
+							<option value="湖南省">湖南省</option>
+							<option value="广东省">广东省</option>
+							<option value="广西壮族自治区">广西壮族自治区</option>
+							<option value="海南省">海南省</option>
+							<option value="四川省">四川省</option>
+							<option value="贵州省">贵州省</option>
+							<option value="云南省">云南省</option>
+							<option value="西藏自治区">西藏自治区</option>
+							<option value="陕西省">陕西省</option>
+							<option value="甘肃省">甘肃省</option>
+							<option value="宁夏回族自治区">宁夏回族自治区</option>
+							<option value="青海省">青海省</option>
+							<option value="新疆维吾尔自治区">新疆维吾尔自治区</option>
+							<option value="香港">香港</option>
+							<option value="澳门">澳门</option>
+							<option value="台湾">台湾</option>
+							<option value="其他">其他</option>
+						</select>
+						<select id="userpermanent" class="userpermanent">
+							
+						</select>
+					</div>
+				</div>
+				
+				<div class="user_update_name">
+					<label class="lable_title">自我介绍：</label>
+					<div class="update_self_introduction">
+						<textarea id="userself" maxlength="500"></textarea>
+						<label class="prompt-hint" id="userselfhint"></label>
+					</div>
+				</div>
+				
+				<div class="user_update_submit">
+					<input type="submit" id="update_submit" value="保存资料"/>
+				</div>
+				
+				
+			</div>
+		</div>
+	</body>
+	<script>
+		layui.use('laydate', function(){
+		  	var laydate = layui.laydate;
+		  
+		  	//常规用法
+		  	laydate.render({
+		    elem: '#userbirthday',
+		    max:minDate()
+		  	});
+  		})
+		
+		function minDate(){
+		    var now = new Date();
+		    return now.getFullYear()+"-" + (now.getMonth()+1) + "-" + now.getDate();
+		}
+		
+		
+	</script>
+</html>

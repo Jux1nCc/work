@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>编辑专辑</title>
+		<link rel="stylesheet" href="../../public/css/style.css">
+		<link rel="stylesheet" href="../../package/layui/css/layui.css" />
+
+		<script type="text/javascript" src="../../package/layui/layui.js"></script>
+		<script src="../../public/js/public/jquery.min.js"></script>
+		<script src="../../public/js/public/jquery.cookie.min.js"></script>
+		<script src="../../public/js/index.js"></script>
+		<script src="../../public/js/course/albummodify.js"></script>
+	</head>
+	<body>
+		<div id="Modify_album">
+			<div class="Myalbum_edit_content">
+				<div class="Myalbum_edit_title">
+					<a href="javascript:history.go(-1)" class="cert_return_btn" ><img src="../../img/backoff.png">返回</a>
+					<h3>编辑专辑信息</h3>
+				</div>
+				<div class="Myalbum_edit_info">
+					<div class="Myalbum_edit_name">
+						<label class="lable_title">专辑标题</label>
+						<div class="edit_info_input">
+							<input type="text" placeholder="为你的专辑取一个漂亮的名字吧，不超过30个字哦。" id="albumename" maxlength="30" />
+							<label class="prompt-hint" id="albumenamehint"></label>
+						</div>
+						<p class="edit_info_prompt">建议用品牌/内容主题为专辑命名。如：30天手把手教你做运营</p>
+					</div>
+					
+					<div class="Myalbum_edit_cover">
+						<label class="lable_title">专辑封面图</label>
+						<div class="edit_info_upload">
+							<div class="layui-upload-list" id="Album_update">
+								 <input type="file" id="showImg" accept="image/*" name="pptPic">
+								
+							</div>
+							<!--<p id="demoText"></p>-->
+						</div>
+						<p class="edit_info_prompt">建议上传图片比例为1:1，图片尺寸为640*640px，图片格式为jpg或png，图片大小不大于3M/张；</p>
+					</div>
+					
+					<div class="Myalbun_edit_introd">
+						<label class="lable_title">简介：</label>
+						<div class="creat_edit_input">
+							<textarea placeholder="介绍你的专辑，让它充满吸引力。不超过500个字哦" id="Introduction" onkeyup="javascript:checkWord(this);" onmousedown="javascript:checkWord(this);" name="content" style="overflow-y: scroll"></textarea>
+							<label class="wordCheck">你还可以输入<span id="wordCheck">500</span>个字</label>
+							<label class="prompt-hint" id="Introductionhint" style="position: relative;right: 45px;float: right;bottom: 125px;"></label>
+						</div>
+					</div>
+					
+					<div class="Myalbun_edit_price">
+						<label class="lable_title">专辑价格：</label>
+						<div class="Myalbun_edit_input">
+							<input type="text" id="editprice" class="price" onkeyup="this.value=this.value.replace(/[^\d\.]/g,'')" onafterpaste="this.value=this.value.replace(/[^\d\.]/g,'')"/><span>聊币</span>
+							<label class="prompt-hint" id="editpricehint"></label>
+						</div>
+						<p class="edit_info_prompt">价格设置区间0~200聊币，设置为0，则默认观看专辑免费，<span style="color: red;">免费专辑不能再转为付费专辑。</span></p>
+					</div>
+					
+					<div class="creat_edit_type" style="height: 50px;">
+						<label class="lable_title">专辑类型：</label>
+						<div class="checked_select">
+							<input type="radio" name="video" value="0" title="音频内容" id="audio">音频内容
+	    					<input type="radio" name="video" value="1" title="视频内容" id="video">视频内容
+						</div>
+					</div>
+					
+					<div class="creat_edit_classification">
+						<label class="lable_title">选择分类：</label>
+						<div class="creat_edit_input" id="Myalbum_edit_input">
+							<button value="1" id="1" >新媒体</button>
+							<button value="2" id="2">SEO</button>
+							<button value="3" id="3">竞价排名</button>
+							<button value="4" id="4">渠道建设</button><br />
+							<button value="5" style="margin-left: 100px !important;margin-top: 10px;" id="5">品牌推广</button>
+							<button value="6" id="6">公关</button>
+							<button value="7" id="7">整合营销</button>
+							<button value="8" id="8">走向海外</button><br />
+							<button value="10" style="margin-left: 100px !important;margin-top: 10px;" id="10">博览</button>
+							<button value="9" id="9">产品</button>
+						</div>
+					</div>
+					
+					
+					<div class="Mycourse_edit_submit">
+						<input type="submit" id="Myalbum_submit" value="保存"/>
+						<a id="Myalbum_recharge" href="javascript:history.go(-1)"/> 取消</a>
+					</div>
+					
+				</div>
+			</div>
+			<div class="Mycourse_edit_prompt">
+				<h3>温馨提示</h3>
+				<p>关于标题，真的非常重要，如果你不知道如何起标题，请<a href="../Description/editTitle.html" target="_blank">点击这里</a></p>
+				<p>在这个刷脸的时代，没有一张合适的封面怎么能行？封面光是好看的图片也是不够的，还需要体现你专辑的个性与亮点哦。关于封面的更多姿势，请<a href="../Description/editImg.html" target="_blank">点击这里</a></p>
+			</div>
+		</div>
+	</body>
+	<script>
+		$(document).ready(function(){
+			var customerId = sessionStorage.getItem('customerId');
+			var unionId = location.href.split("Albummodify/")[0].split("?")[1];
+			console.log(customerId);
+			console.log(unionId);
+			$.post(base_url +"/api/curriculum/getAllCurrByUnionId", {  
+				"unionId": unionId,
+				"customerId": customerId,
+				"type":1
+			}, function(data) {   
+				console.log(data)
+				var curriculumList = data.data.curriculumList.length;
+				console.log(curriculumList);
+				if(curriculumList == 0){
+	//				$(".creat_edit_type").css("display","block");
+					
+					$("input[type='radio']").attr("disabled",false)
+				} else {
+					$("input[type='radio']").attr("disabled",true)
+				}
+			})
+		})
+	</script>
+</html>

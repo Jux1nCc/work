@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul id="ul1">
+        我是班长的小迷妹
+        <li>我是班长1</li>
+        <!-- svkhskvhb -->
+        <li id="li2">我是班长2</li>666
+        <li>
+            我是班长3
+            <span>aaa</span>
+        </li>
+        <li>我是班长4</li>
+        <li>我是班长5</li>
+        <!-- 我是暗恋班长的班花 -->
+    </ul>
+    <script>
+        var li2 = document.querySelector('#li2');
+        var sp = document.querySelector('span');
+        console.log(li2.parentNode);    //  ul
+        console.log(sp.parentElement);
+        console.log(li2.parentNode.parentNode); // body
+        console.log(li2.parentNode.parentNode.parentNode);  // html
+        console.log(li2.parentNode.parentNode.parentNode.parentNode);   // document
+        console.log(li2.parentNode.parentNode.parentNode.parentNode.parentNode);    // null
+    </script>   
+</body>
+</html>

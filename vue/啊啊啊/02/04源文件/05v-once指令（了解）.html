@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- v-once:只执行一次vue语法 -->
+    <div id="app">
+      <button @click="btnClick">点我啊</button>
+      <div v-once>{{msg}}</div>
+    </div>
+    <script src="./vue.js"></script>
+    <script>
+      new Vue({
+        el: "#app",
+        data: {
+          msg: "这是一个寂寞的天",
+        },
+        methods: {
+          btnClick() {
+            this.msg = Math.random() * 999;
+            window.console.log(this.msg);
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

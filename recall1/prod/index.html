@@ -1,0 +1,272 @@
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0, viewport-fit=cover">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="msapplication-tap-highlight" content="no">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Cache-Control" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <title></title>
+  <script>
+    (function (para) {
+      var p = para.sdk_url, n = para.name, w = window, d = document, s = 'script', x = null, y = null;
+      if (typeof (w['sensorsDataAnalytic201505']) !== 'undefined') {
+        return false;
+      }
+      w['sensorsDataAnalytic201505'] = n;
+      w[n] = w[n] || function (a) { return function () { (w[n]._q = w[n]._q || []).push([a, arguments]); } };
+      var ifs = ['track', 'quick', 'register', 'registerPage', 'registerOnce', 'trackSignup', 'trackAbtest', 'setProfile', 'setOnceProfile', 'appendProfile', 'incrementProfile', 'deleteProfile', 'unsetProfile', 'identify', 'login', 'logout', 'trackLink', 'clearAllRegister', 'getAppStatus'];
+      for (var i = 0; i < ifs.length; i++) {
+        w[n][ifs[i]] = w[n].call(null, ifs[i]);
+      }
+      if (!w[n]._t) {
+        x = d.createElement(s), y = d.getElementsByTagName(s)[0];
+        x.async = 1;
+        x.src = p;
+        x.setAttribute('charset', 'UTF-8');
+        w[n].para = para;
+        y.parentNode.insertBefore(x, y);
+      }
+    })({
+      sdk_url: 'https://cdn.jsdelivr.net/npm/sa-sdk-javascript@1.15.21/sensorsdata.min.js',
+      name: 'sensors',
+      server_url: 'http://sensorsdata.expertol.cn:8107/dashboard/?project=production&dash_type=normal&id=322&client=',
+      heatmap: { scroll_notice_map: 'not_collect' }
+    });
+    sensors.quick('autoTrack');
+  </script>
+  <link rel="stylesheet" href="http://activity.folkcam.cn/common/layer/theme/default/layer.css">
+  <link rel="stylesheet" href="http://activity.folkcam.cn/common/comm.css">
+  <link rel="stylesheet" href="./index.css" as="style">
+</head>
+
+<body>
+  <div class="page"></div>
+  <div class="homepage recharge-page fontfamily popup">
+    <!-- 轮播公告 -->
+    <div class="notice">
+      <ul>
+        <li>&nbsp;</li>
+      </ul>
+    </div>
+    <!-- 充值主页 -->
+    <div class="recharge">
+      <button class="give-btn fontfamily" onclick="toGive()">赠送记录</button>
+      <button class="rule-btn fontfamily" onclick="toRule()">活动规则</button>
+      <div class="recharge-main">
+        <div class="main-btn"></div>
+        <span class="popup">奖励一次性到账</span>
+        <div class="time-down time-days">仅剩<span id="day">7</span>天</div>
+        <div class="time-down time-full popup">仅剩<span id="day">7</span>天<span id="hour">00</span>:<span
+            id="min">00</span>:<span id="sec">00</span></div>
+        <ul class="week-ul">
+          <li class="main-item item1">
+            <div class="item-left re-card">
+              充98元送9800聊币
+              <div class="pendant"></div>
+            </div>
+            <div class="gorecharge" onclick="toCharge(1,this)">
+              <span>立即</span>
+              <span>充值</span>
+            </div>
+            <div class="cover popup"></div>
+          </li>
+          <li class="main-item item2">
+            <div class="item-left re-card">
+              充488元送73200聊币
+              <div class="pendant"></div>
+            </div>
+            <div class="gorecharge" onclick="toCharge(2,this)">
+              <span>立即</span>
+              <span>充值</span>
+            </div>
+            <div class="cover popup"></div>
+          </li>
+          <li class="main-item item3">
+            <div class="item-left re-card">
+              充1498元送299600聊币
+              <div class="pendant"></div>
+            </div>
+            <div class="gorecharge" onclick="toCharge(3,this)">
+              <span>立即</span>
+              <span>充值</span>
+            </div>
+            <div class="cover popup"></div>
+          </li>
+          <li class="main-item item4">
+            <div class="item-left re-card">
+              充4888元送1466400聊币
+              <div class="pendant"></div>
+            </div>
+            <div class="gorecharge" onclick="toCharge(4,this)">
+              <span>立即</span>
+              <span>充值</span>
+            </div>
+            <div class="cover popup"></div>
+          </li>
+        </ul>
+        <ul class="month-ul popup">
+          <li class="main-item item5">
+            <div class="item-left re-card">
+              <div class="pendant-mon flexbox">充98元</div>
+              <div class="item-text">得12600聊币</div>
+              <div class="item-song flexbox">送</div>
+              <div class="item-vip column">
+                <span class="vip-days"><span>30</span>天</span>
+                <span class="vip-type">高级会员</span>
+              </div>
+            </div>
+            <div class="gorecharge" onclick="toCharge(5,this)">
+              <span>立即</span>
+              <span>充值</span>
+            </div>
+            <div class="cover popup"></div>
+          </li>
+          <li class="main-item item6">
+            <div class="item-left re-card">
+              <div class="pendant-mon flexbox">充488元</div>
+              <div class="item-text">得57800聊币</div>
+              <div class="item-song flexbox">送</div>
+              <div class="item-vip column">
+                <span class="vip-days"><span>60</span>天</span>
+                <span class="vip-type">高级会员</span>
+              </div>
+            </div>
+            <div class="gorecharge" onclick="toCharge(6,this)">
+              <span>立即</span>
+              <span>充值</span>
+            </div>
+            <div class="cover popup"></div>
+          </li>
+          <li class="main-item item7">
+            <div class="item-left re-card">
+              <div class="pendant-mon flexbox">充1498元</div>
+              <div class="item-text">得178600聊币</div>
+              <div class="item-song flexbox">送</div>
+              <div class="item-vip column">
+                <span class="vip-days"><span>365</span>天</span>
+                <span class="vip-type">高级会员</span>
+              </div>
+            </div>
+            <div class="gorecharge" onclick="toCharge(7,this)">
+              <span>立即</span>
+              <span>充值</span>
+            </div>
+            <div class="cover popup"></div>
+          </li>
+          <li class="main-item item8">
+            <div class="item-left re-card">
+              <div class="pendant-mon flexbox">充4888元</div>
+              <div class="item-text">得552500聊币</div>
+              <div class="item-song flexbox">送</div>
+              <div class="item-vip column">
+                <span class="vip-days"><span>555</span>天</span>
+                <span class="vip-type">高级会员</span>
+              </div>
+            </div>
+            <div class="gorecharge" onclick="toCharge(8,this)">
+              <span>立即</span>
+              <span>充值</span>
+            </div>
+            <div class="cover popup"></div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="homepage give-record-page popup">
+    <!-- 轮播公告 -->
+    <div class="notice fontfamily">
+      <ul>
+        <li>&nbsp;</li>
+      </ul>
+    </div>
+    <!-- 赠送记录 -->
+    <div class="give-record fontfamily">
+      <div class="remain">
+        <div class="my-remain-btn"></div>
+        <div class="my-remain">
+          <i class="iconfont wallet-icon">&#xe629;</i>
+          账户余额： <span class="remain-count">0</span><span> 聊币</span>
+        </div>
+      </div>
+      <div class="remain-state">
+        <ul>
+          <li class="remain-give"><span>赠送聊币总额：</span><span class="unit"><span>0</span>聊币</span></li>
+          <li class="remain-willArrive"><span>待到账聊币余额：</span><span class="unit"><span>0</span>聊币</span></li>
+          <li class="remain-arrived  popup"><span>已到账聊币余额：</span><span class="unit"><span>0</span>聊币</span></li>
+          <li class="remain-arriveDay  popup"><span>剩余到账天数：</span><span class="unit"><span>0</span>天</span></li>
+          <li class="remain-arriving  popup"><span>剩余到账聊币余额：</span><span class="unit"><span>0</span>聊币</span></li>
+          <li class="remain-vip  popup"><span>高级会员剩余天数：</span><span class="unit"><span>0</span>天</span></li>
+        </ul>
+        <span onclick="toIndex()" class="to-index">史无前例的充值优惠活动，立即查看>>></span>
+        <button class="to-app fontfamily popup" onclick="toApp()">去聊天</button>
+      </div>
+    </div>
+    <footer>本次活动最终解释权归兔聊官方所有</footer>
+  </div>
+  <div class="dialog fontfamily">
+    <div id="week-rule" class="rule popup">
+      <div class="week-rule"></div>
+      <div class="rule-title">活动规则</div>
+      <div class="rule-box1 week-box1"></div>
+      <div class="rule-box1 week-box2"></div>
+      <div class="rule-wrap">
+        <p class='black-font'>1、每张充值优惠券仅可在有效期内使用一次；</p>
+        <p class='black-font'>2、充值优惠赠送的聊币，按以下说明时间分批发放，且只可在规定时间内当天使用，过期不使用视为主动放弃；</p>
+        <div class='black-font'>3、赠送聊币发放时间说明：<br />
+          <p class="gray-font">a.充值98元赠送9800聊币，分14天赠送，平均每天到账700聊币；</p>
+          <p class="gray-font">b.充值488元赠送73200聊币，分61天赠送，平均每天到账1200聊币；</p>
+          <p class="gray-font">c.充值1498元赠送299600聊币，分140天赠送，平均每天到账2140聊币；</p>
+          <p class="gray-font">d.充值4988元赠送1466400聊币，分600天赠送，平均每天到账2444聊币；</p>
+        </div>
+        <p class='black-font'>4、如有疑问可联系相关客服处理；</p>
+        <p class='black-font'>5、本优惠活动不与平台其他优惠券同时使用；</p>
+        <p class='black-font'>6、本活动最终解释权归兔聊官方所有。</p>
+      </div>
+      <ul>
+        <li>参与活动用户者，均视为同意该活动规则</li>
+      </ul>
+      <button onclick="layer.closeAll()" class="fontfamily">我已明白</button>
+    </div>
+    <div id="month-rule" class="rule popup">
+      <div class="rule-title">活动规则</div>
+      <div class="rule-box2 month-box1"></div>
+      <div class="rule-box2 month-box2"></div>
+      <div class="rule-wrap">
+        <p>1、每张充值优惠券仅可在有效期内使用一次；</p>
+        <p>2、充值优惠赠送的聊币一次性发放至账户；</p>
+        <p>3、若之前有充值过的用户，赠送聊币按原发放时间分批赠送</p>
+        <p>4、如有疑问可联系相关客服处理；</p>
+        <p>5、本优惠活动不与平台其他优惠券同时使用；</p>
+        <p>6、本活动最终解释权归兔聊官方所有。</p>
+      </div>
+      <ul>
+        <li>参与活动用户者，均视为同意该活动规则</li>
+      </ul>
+      <button onclick="layer.closeAll()" class="fontfamily">我已明白</button>
+    </div>
+    <div id="rechargeok" class="popup">
+      <span class="title">恭喜您</span>
+      <span class="isOK">充值成功</span>
+      <span class='to-record' onclick="toGive()">查看我的余额>>></span>
+      <button onclick="toApp()" class="recharge-btn">去聊天</button>
+      <button class="dialog-close" type="button" onclick="layer.closeAll()"></button>
+    </div>
+  </div>
+</body>
+<script src="http://activity.folkcam.cn/common/jquery.min.js"></script>
+<script src="http://activity.folkcam.cn/common/layer/layer.js"></script>
+<script src="http://activity.folkcam.cn/common/app.js"></script>
+<script src="http://activity.folkcam.cn/common/rem.js"></script>
+<script src="http://activity.folkcam.cn/common/config.js"></script>
+<script src="http://activity.folkcam.cn/common/moment.js"></script>
+<script src="./data.js"></script>
+<script src="./index.js"></script>
+
+</html>

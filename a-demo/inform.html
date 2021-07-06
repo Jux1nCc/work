@@ -1,0 +1,142 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <title>积分兑换钻石</title>
+    <link rel="stylesheet" href="http://activity.folkcam.cn/common/layer/theme/default/layer.css">
+    <link rel="stylesheet" href="comm.css">
+    <style type="text/css">
+        .wrap {
+            width: 100%;
+            height: 100vh;
+            background-color: #F5F5F5;
+        }
+
+        header {
+            width: 100%;
+            padding: 5%;
+            box-sizing: border-box;
+            border-radius: 10px !important;
+            background-color: #fff;
+        }
+
+        .input-want {
+            border: none;
+            height: 60px;
+            border-bottom: 1px solid #ccc;
+            width: 100%;
+            font-size: 24px;
+        }
+
+        .integral-p {
+            color: #666
+        }
+
+        .input-tip {
+            margin: 13px 0 5px;
+        }
+
+        .input-tip b {
+            color: #3079FF
+        }
+
+        .input-warn {
+            margin: 12px 0 32px 16px;
+        }
+
+        button.apply {
+            width: 90%;
+            margin: 0 auto;
+            height: 45px;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            background: linear-gradient(to right, #85F0C9, #78D3EA);
+        }
+
+        .rule-wrap {
+            margin-top: 10px;
+        }
+
+        .rule-wrap span {
+            color: #297BFE
+        }
+
+        #exchangeOK {
+            width: 80%;
+            margin: 0 auto;
+            background: #fff;
+            border-radius: 10px;
+            padding: 30px 10px;
+            position: relative
+        }
+
+        #exchangeOK h1,
+        #exchangeOK button {
+            background: #0FBCD9;
+            color: #fff
+        }
+
+        #exchangeOK h1 {
+            width: 50%;
+            border-radius: 5px;
+            text-align: center;
+            padding: 10px 0;
+            position: absolute;
+            top: -15px;
+            left: calc(50% - 25%);
+        }
+
+        #exchangeOK p {
+            line-height: 1.8;
+            font-weight: 600;
+        }
+
+        #exchangeOK p:first-of-type {
+            margin-top: 20px;
+        }
+
+        .layui-layer-page .layui-layer-content {
+            overflow: unset !important
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <header>
+            <p class="integral-p">兑换积分数</p>
+            <input class="input-want" type="tel" autofocus="autofocus" oninput="calculate()">
+            <p class="flexbox between input-tip">
+                <span>可兑换积分0.00</span>
+                <span>到账: <b>0.00</b>钻石</span>
+            </p>
+        </header>
+        <p class="input-warn">单次兑换积分数必须是不小于100积分的整数。</p>
+        <button onclick="changeok()" class="apply column">申请兑换</button>
+        <div class="flexbox rule-wrap">
+            <input type="checkbox" checked name="" id="">
+            <p>我已阅读并同意<span>兑换规则></span></p>
+        </div>
+        <div class="dialog">
+            <!-- 是否在app内打开 -->
+            <div id="exchangeOK" class="popup">
+                <h1>信息确认</h1>
+                <p class="userName">用户名: <span></span></p>
+                <p class="given-num">兑换积分数: -<span></span></p>
+                <p class="result-num">到账钻石数: +<span></span></p>
+                <button onclick="submit()">确认无误</button>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="http://activity.folkcam.cn/common/jquery.min.js"></script>
+<script src="http://activity.folkcam.cn/common/config.js"></script>
+<script src="http://activity.folkcam.cn/common/layer/layer.js"></script>
+<script src="index.js?v=001"></script>
+
+</html>

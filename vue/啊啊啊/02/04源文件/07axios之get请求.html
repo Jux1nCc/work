@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- axios.get
+    用法：
+    axios.get(url?参数=值&参数2=值2,{params:{参数名:值,参数名2:值2}}).then(function(response){
+        response就是后端接口返回值
+        .then就是调用接口成功的返回
+    }).catch(function(error){
+        //error:错误信息
+        //.catch就是失败返回处理
+    })    
+    this:它是vue实例对象，在mehtods里面访问data数据与methods方法都要加this,但是，它只限于methods里的方法第一层(不能在methods方法里面再套方法使用this)
+    以后在new Vue使用地方都是只管第一层（第一层方法），第二层，就是第一层方法里再套了一层function,如果是箭头函数还是可以使用this代表vue实例对象
+    -->
+    <div id="app">
+      <button @click="getData">点我啊</button>
+      <ul>
+        <li v-for="(item, index) in list" :key="index">
+          {{item}}
+        </li>
+      </ul>
+    </div>
+    <script src="./vue.js"></script>
+    <script src="./axios.js"></script>
+    <script>
+      new Vue({
+        el: "#app",
+        data: {
+          list: [],
+        },
+        methods: {
+          getData() {
+            // window.console.log("外面this:", this);
+            // let _this = this;
+            // axios
+            //   .get("https://autumnfish.cn/api/joke/list", {
+            //     params: {
+            //       num: 10,
+            //     },
+            //   })
+            //   .then(function (res) {
+            //     window.console.log("内部方法:", this);
+            //     _this.list = res.data.jokes;
+            //     window.console.log(res);
+            //   })
+            //   .catch(function (err) {
+            //     window.console.log(err);
+            //   });
+
+            axios
+              .get("https://autumnfish.cn/api/joke/list", {
+                params: {
+                  num: 10,
+                },
+              })
+              .then((res) => {
+                this.list = res.data.jokes;
+                window.console.log(res);
+              })
+              .catch((err) => {
+                window.console.log(err);
+              });
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

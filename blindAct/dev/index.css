@@ -1,0 +1,331 @@
+/* @font-face {
+  font-family: "PingFang";
+  src: url("./PingFangMedium.ttf");
+  font-weight: normal;
+  font-style: normal;
+  color: #333;
+}
+.PingFang{
+  font-family: 'PingFang';
+} */
+.page{
+  width: 100vw;
+  position: relative;
+  background-color: #3ec2a2;
+  z-index: 0;
+}
+.page>i{
+  position: absolute;
+  z-index: -1;
+}
+.flower1{
+  left: 0;
+  top: 29%;
+  width: .62rem;
+  height: .99rem;
+  /* background-image: url(./images/flower1.png); */
+  background-size: 100%;
+}
+.flower2{
+  right: 0;
+  top: 36%;
+  width: .5rem;
+  height: .99rem;
+  /* background-image: url(./images/flower2.png); */
+  background-size: 100%;
+}
+.flower3{
+  left: 0;
+  top: 56%;
+  width: .96rem;
+  height: 1.67rem;
+  /* background-image: url(./images/flower3.png); */
+  background-size: 100%;
+}
+.flower4{
+  left: 26%;
+  bottom: 28%;
+  width: 1rem;
+  height: .99rem;
+  /* background-image: url(./images/flower4.png); */
+  background-size: 100%;
+}
+.flower5{
+  right: 0;
+  bottom: 25%;
+  width: .93rem;
+  height: 1.41rem;
+  /* background-image: url(./images/flower5.png); */
+  background-size: 100%;
+}
+.flower6{
+  bottom: 1.5%;
+  left: 0;
+  width: 1.15rem;
+  height: 1.23rem;
+  /* background-image: url(./images/flower6.png); */
+  background-size: 100%;
+}
+.circle{
+  bottom: 0;
+  right: 0;
+  width: 1.62rem;
+  height: 1.74rem;
+  /* background-image: url(./images/circle.png); */
+  background-size: 100%;
+}
+header{
+  position: relative;
+  width: 100%;
+  height: 8.53rem;
+  /* background-image: url(images/head.png); */
+  background-size: 100%;
+}
+.rule-time{
+  position: absolute;
+  top: 44%;
+  left: 0;
+  width: 100%;
+  color: #fff;
+  font-size: .3rem;
+  text-align: center;
+  font-weight: 700;
+}
+.main{
+  width: 100%;
+  height: 24.4rem;
+  margin-top: -2.2rem;
+  padding-top: 1.2rem;
+}
+.main>p{
+  position: relative;
+  width: 6.85rem;
+  height: .36rem;
+  /* background-image: url(./images/font.png); */
+  background-size: 100%;
+  margin: 0 auto .5rem;
+}
+.main>p span{
+  font-size: .3rem;
+  font-weight: 400;
+}
+.ishave{
+  position: relative;
+  width: 6.6rem;
+  height: 1.1rem;
+  background-color: #f8e772;
+  border-radius: 0.18rem;
+  border: 0.05rem solid #e58528;
+  font-size: 0.35rem;
+  font-weight: 700;
+  margin: 0 auto;
+  color: #fd740f;
+}
+.ishave span{
+  font-size: 0.4rem;
+  color: #fff;
+  margin: .15rem;
+}
+.ishave i{
+  width: 0.6rem;
+  height: 0.54rem;
+  /* background-image: url(images/panda.png); */
+  background-size: 100%;
+}
+.gift{
+  width: 6.81rem;
+  height: 11.21rem;
+  /* background-image: url(./images/gift_border.png); */
+  background-size: 100%;
+  border-radius: 0.18rem;
+  margin: .9rem auto .9rem;
+  position: relative;
+  padding: .8rem .4rem 0;
+}
+.title{
+  width: 7.31rem;
+  height: .51rem;
+  /* background-image: url(images/title.png); */
+  background-size: 100%;
+  position: absolute;
+  top: -3%;
+  left: -4.4%;
+}
+.title-text{
+  width: 3.37rem;
+  height: .47rem;
+  /* background-image: url(./images/rule.png); */
+  background-size: 100%;
+  margin: 0 auto;
+}
+.gift-title-text{
+  width: 3.05rem;
+  height: .61rem;
+  /* background-image: url(./images/gift.png); */
+  background-size: 100%;
+  margin: 0 auto;
+}
+li{
+  width: 100%;
+  height: 3rem;
+  position: relative;
+}
+input{
+  width: 1rem;
+  border: none;
+  background-color: #f6837b;
+  text-align: center;
+  color: #000;
+  font-weight: 700;
+  font-size: .3rem;
+}
+input::-webkit-input-placeholder {
+  color: #000;
+}
+.gift-pic{
+  width: 1.7rem;
+  margin-right: .3rem;
+}
+.gift-pic img{
+  width: 1.4rem;
+  height: 1.4rem;
+  border-radius: 1.4rem;
+}
+.gift-pic div,
+.gift-pic span{
+  font-size: .22rem;
+  color: #f6837b;
+}
+.gift-count{
+  align-items: flex-start;
+  justify-content: space-between;
+  height: 1.7rem;
+  width: 3.9rem;
+}
+.gift-count span{
+  font-size: .24rem;
+  font-weight: 700;
+  color: #f6837b;
+}
+.gift-count-control{
+  position: relative;
+  width: 2.16rem;
+  height: .72rem;
+  background-color: #f6837b;
+  border: 0.02rem solid #000;
+  border-radius: .1rem;
+  justify-content: space-around;
+}
+.gift-count-control span{
+  color: #000;
+  font-weight: 700;
+  font-size: .4rem;
+}
+.gift-count-control .sub,
+.gift-count-control .line-sub{
+  margin-left: .1rem;
+}
+.gift-count-control .add,
+.gift-count-control .line-add{
+  margin-right: .1rem;
+}
+.control-line{
+  height: 100%;
+  width: 0.02rem;
+  background-color: #000;
+}
+.control-line.gray{
+  background-color: #c26261;
+}
+.gift-count-control .gray{
+  color: #c26261;
+}
+.gift-count-control .gift-unit{
+  position: absolute;
+  right: -15%;
+  top: 0;
+  height: 100%;
+  font-size: .24rem;
+  color: #f6837b;
+}
+.gift-count .isNeed{
+  color: #fff;
+}
+.gift-exchange{
+  width: 1.56rem;
+  height: .66rem;
+  border-radius: .66rem;
+  font-weight: 700;
+  font-size: .23rem;
+  color: #5b5b5b;
+  background-color: #a8a8a8;
+  box-shadow: inset 0px -4px 0px #646464;
+  padding-bottom: .05rem;
+}
+.gift-exchange.success{
+  background-color: #ffda5c;
+  color: #d34f21;
+  box-shadow: inset 0px -4px 0px #de6015;
+}
+.li-line{
+  position: absolute;
+  bottom: 0;
+  left: -2%;
+  height: .03rem;
+  width: 6.2rem;
+  background-color: #3fb886;
+}
+.rule{
+  width: 6.8rem;
+  height: 6rem;
+  border: 0.03rem solid #ffae19;
+  background-color: #fabfbf;
+  border-radius: 0.18rem;
+  margin: 0 auto;
+  position: relative;
+  padding: .8rem 0;
+}
+.rule-main{
+  margin-top: .2rem;
+  padding: 0 .6rem;
+}
+.rule-main p,
+.rule-main span{
+  color: #9a2c2c;
+  font-size: .26rem;
+  line-height: .5rem;
+  font-weight: 700;
+}
+.rule-main .white{
+  color: #fff;
+}
+footer{
+  width: 100%;
+  height: 1.5rem;
+  color: #fddfa9;
+  line-height: .5rem;
+}
+footer span{
+  font-size: .26rem;
+}
+.layui-layer.layui-layer-page.isLogin{
+  top: 10% !important;
+}
+#isLogin{
+  width: 6.56rem;
+  height: 9.4rem;
+  background-image: url(images/login.png);
+  background-size: 100%;
+  margin-left: 10%;
+}
+.isLogin-login{
+  width: 3rem;
+  height: .8rem;
+  bottom: 30%;
+  left: 32%;
+}
+.login-close{
+  width: .8rem;
+  height: .8rem;
+  left: 45%;
+}

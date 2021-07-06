@@ -1,0 +1,492 @@
+body {
+    background: url('../images/bg.jpg') no-repeat;
+    //  cover:图片按等比例铺满 一定会铺满屏幕 但图片可能显示不全
+    background-size: cover;
+    //  版心
+    .container{
+        min-width: 1024px;
+        max-width: 1920px;
+        min-height: 780px;
+        margin: 0 auto;
+        padding: 88px 20px 0;
+        background: url('../images/logo.png') no-repeat;
+        // contain:图片按的比例缩放 图片一定显示全  但可能会留白
+        background-size: contain;
+        display: flex;
+        // 第一列
+        .con-left {
+            flex : 3;
+            // 设备数据
+            .overview {
+                height: 110px;
+                    
+                .inner {
+                    display: flex;
+                    .item {
+                        flex : 1;
+                        text-align: center;
+
+                        p {
+                            font-size: 25px;
+                            font-weight: 700;
+                            margin-bottom: 10px;
+                        }
+                        span {
+                            color: #4C9BFD;
+                            font-size: 15px;
+                            i {
+                                color: #6ACCA3;
+                                margin-right: 4px;
+                            }
+                        }
+                    }
+                }
+            }
+            // 故障监控
+            .monitor {
+                margin-top: 20px;
+                height: 474px;
+                .inner {
+                    .tabs {
+                            a {
+                                color: #1950C4;
+                                font-size: 18px;
+                                padding: 0px 20px;
+                                &:nth-child(2) {
+                                    border-left: 2px solid #00F2F1;
+                            }
+                            
+                        }
+                        .active {
+                            color: #fff;
+                        }
+                    }
+                    .content {
+                        color: #4B82C8;
+
+                        .head {
+                            height: 35px;
+                            line-height: 35px;
+                            background-color: rgba(255,255,255,.1);
+                            display: flex;
+                            margin: 10px -30px 0;
+                            padding: 0 40px;
+                            text-align: left;
+
+                            span {
+                                color: #68D8FE;
+                                flex : 1;
+                                font-size: 14px;
+                                padding: 0 20px;
+                                &:nth-child(2) {
+                                    flex: 2;
+                                    margin-left: 50px;
+                                }
+                            }
+                        }
+                        .content-view {
+                            height: 350px;
+                            overflow: hidden;
+                            position: relative;
+                            .carousel {
+                                position: absolute;
+                                .row {
+                                    height: 35px;
+                                    line-height: 35px;
+                                    display: flex;
+                                    position : relative;
+
+                                    span {
+                                        flex : 1;
+                                        padding: 0 30px;
+                                        &:nth-child(2) {
+                                            flex : 2;
+                                            white-space: nowrap;
+                                            overflow: hidden;
+                                            text-overflow: ellipsis;
+                                        }
+                                        &:nth-child(3) {
+                                            margin-left: -60px;
+                                        }
+                                    }
+                                    i {
+                                        position: absolute;
+                                        left : 10px;
+                                        line-height: 35px;
+                                        display: none;
+                                    }
+                                }
+                                .active {
+                                    background-color: rgba(255,255,255,.1);
+                                    i {
+                                        display: block;
+                                    }
+                                }
+
+                            }
+                        }
+                    }
+                }
+            }
+            // 点位分布
+            .point {
+                height: 335px;
+                margin-top: 20px;
+
+                h3 {
+                    font-size: 20px;
+                }
+                .chart {
+                    height: 240px;
+                    display: flex;
+                    padding: 20px 0 0 20px;
+
+                    .pie {
+                        flex : 3;
+                        background-color: rgba(255,255,255,.1);
+                    }
+                    .data {
+                        flex : 1.6;
+                        margin-left: 20px;
+                        height: 100%;
+                        background:url(../images/rect.png) no-repeat;
+                        background-size: cover;
+                        display: flex;
+                        flex-direction: column;
+                        .item {
+                            flex : 1;
+                            margin: 40px 0 0 30px;
+                            p {
+                                font-size: 24px;
+                                margin-bottom: 5px;
+                            }
+                            span {
+                                font-size: 16px;
+                                color: #4C9BFD;
+                                
+                                i {
+                                    color: #ED3F35;
+                                }
+                                
+                            }
+                            &:nth-child(2) {
+                                span {
+                                    i {
+                                        color: #EACF19;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        // 第二列
+        .con-center {
+            flex : 4;
+            // 全国统计图 
+            .map {
+                margin-left: 20px;
+
+                h3 {
+                    color: #fff;
+                    font-size: 20px;
+                    padding-top: 40px;
+                    padding-bottom: 20px;
+                    
+                    i {
+                        color: #68e8fe;
+                    }
+                }
+                .chart {
+                    height: 520px;
+                    background-color: rgba(255,255,255,.1);
+                }
+            }
+            // 全国用户量
+            .user {
+                height: 337px;
+                margin-top: 20px;
+                margin-left: 20px;
+                
+                h3 {
+                    font-size: 20px;
+                }
+                .chart {
+                    height: 240px;
+                    display: flex;
+                    padding: 20px 0 0 20px;
+
+                    .bar {
+                        flex : 7;
+                        background-color: rgba(255,255,255,.1);
+                    }
+                    .data {
+                        flex : 2.4;
+                        margin-left: 20px;
+                        height: 100%;
+                        background:url(../images/rect.png) no-repeat;
+                        background-size: cover;
+                        display: flex;
+                        flex-direction: column;
+                        .item {
+                            flex : 1;
+                            margin: 40px 0 0 30px;
+                            p {
+                                font-size: 24px;
+                                margin-bottom: 5px;
+                            }
+                            span {
+                                font-size: 16px;
+                                color: #4C9BFD;
+                                
+                                i {
+                                    color: #ED3F35;
+                                }
+                                
+                            }
+                            &:nth-child(2) {
+                                span {
+                                    i {
+                                        color: #EACF19;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+            }
+        }
+        // 第三列
+        .con-right {
+            flex : 3;
+            padding-left: 20px;
+            // 订单统计
+            .order {
+                height: 146px;
+                .inner {
+                    .fifter {
+                        height: 20px;
+                        font-size: 18px;
+                        line-height: 20px;
+                        color: #1950C4;
+                        margin-bottom: 24px;
+
+                        ul {
+                            li {
+                                float: left;
+                                padding: 0 20px;
+                                cursor: pointer;
+                                border-left: 2px solid #00F2F1;
+                                &:nth-child(1) {
+                                    padding-left: 0;
+                                    border-left: 0;
+                                }
+                            }
+                            .active {
+                                color: #fff;
+                            }
+                        }
+                    }
+                    .data {
+                        display: flex;
+                        .item {
+                            float: left;
+                            flex : 1;
+                            h4 {
+                                font-size: 24px;
+                                margin-bottom: 10px;
+                            }
+                            span {
+                                color: #4C9BFD;
+                                
+                                i {
+                                    color: #ED3F35;
+                                }
+                                
+                            }
+                            &:nth-child(2) {
+                                i {
+                                    color: #EACF19;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            // 销售额统计
+            .sales {
+                height: 245px;
+                margin: 20px 0 ;
+                .caption {
+                    h3 {
+                        float: left;
+                        font-size: 20px;
+                        margin-right: 15px;
+                    }
+                    ul {
+                        float: left;
+                        color: #098DC0;
+                        height: 20px;
+                        margin-top: 6px;
+                        border-left: 2px solid #00F2F1;
+                        li {
+                            float: left;
+                            font-size: 16px;
+                            margin-left: 24px;
+                            padding: 0 2px;
+                            cursor: pointer;
+                        }
+                        .active {
+                            color: #fff;
+                            background-color: #4C9BFD;
+                            border-radius: 2px;
+                        }
+                    }
+                }
+            }
+            // 渠道分布和销售进度
+            .wrap {
+                height: 230px;
+                display: flex;
+                // 渠道分布
+                .channel {
+                    flex: 1;
+                    margin-right: 20px;
+                    h3 {
+                        font-size: 20px;
+                        height: 36px;
+                        line-height: 36px;
+                    }
+                    .data {
+                        height: 70px;
+                        display: flex;
+                        margin-top: 10px;
+                        .item {
+                            height: 100%;
+                            flex : 1;
+                            h4 {
+                                font-size: 28px;
+                                small {
+                                    font-size: 16px;
+                                }
+                            }
+                            span {
+                                color: #4C9BFD;
+                                font-size: 14px;
+                            }
+                            &:nth-child(2) {
+                                margin-left: 70px;
+                            }
+                        }
+                    }
+                }
+                // 一季度销售额
+                .quarter {
+                    flex: 1;
+                    .inner {
+                        h3 {
+                            font-size: 20px;
+                            height: 40px;
+                            line-height: 40px;
+                        }
+                        .chart {
+                            height: 80px;
+                            position: relative;
+                            .gauge {
+                                height: 100%;
+                            }
+                            .lable {
+                                font-size: 30px;
+                                position: absolute;
+                                left: 50%;
+                                top: 50%;
+                                transform: translate(-50%,-30%);
+                                small {
+                                    font-size: 16px;
+                                }
+                            }
+                        }
+                        .data {
+                            display : flex;
+                            .item {
+                                flex : 1;
+                                h4 {
+                                    font-size: 22px;
+                                    margin-bottom: 10px;
+                                }
+                                span {
+                                    color : #4C9BFD;
+                                }
+                            }    
+                        }
+                    }
+                }
+            }
+            // 全国热榜
+            .hot {
+                height: 280px;
+                margin: 20px 0 ;
+                .inner {
+                    display: flex;
+                    .all {
+                        flex : 3;
+                        height: 100%;
+                        text-align: center;
+                        h3 {
+                            font-size: 18px;
+                        }
+                        li {
+                            font-size: 16px;
+                            margin-top: 25px;
+                            i {
+                                font-size: 30px;
+                                vertical-align: middle;
+                                margin: 0 10px;
+                            }
+                        }
+                    }
+                    .province {
+                        flex : 7;
+                        height: 100%;
+                        h3 {
+                            font-size: 18px;
+    
+                        }
+                        .data {
+                            margin-top: 10px;
+                            display : flex;
+                            .sup {
+                                flex : 1;
+                                padding-left: 30px;
+                                li {
+                                    color: #4995f4;
+                                    height: 30px;
+                                    line-height: 30px;
+                                    font-size: 14px;
+                                    span{
+                                        &:nth-child(1){
+                                            float: left;
+                                        }
+                                        &:nth-child(2){
+                                            float: right;
+                                        }
+                                    }
+                                }
+                                .active {
+                                    color: #a3c6f2;
+                                    background-color: rgba(10, 67, 188, 0.2);
+                                }
+                                &:nth-child(2) {
+                                    background-color:rgba(10, 67, 188, 0.2);
+                                    padding: 0px 15px; 
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

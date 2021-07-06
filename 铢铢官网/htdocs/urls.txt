@@ -1,0 +1,1 @@
+curl -H 'Content-Type:text/plain' --data-binary @urls.txt "http://data.zz.baidu.com/urls?site=www.rabbitlive.cn&token=9D9GmRUw54qfaJ3t&type=mip" 

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- vue基本使用
+1:导包（导一个开发环境的包）
+2：布局（以前怎么写现在还是怎么写）
+3：实例化
+     -->
+    <!-- 2：布局 -->
+    <div id="app" class="xxx">
+      {{ message }}
+      <p>{{ ooo }}</p>
+    </div>
+    <!-- 1：导包 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+      //3:实例化
+      var app = new Vue({
+        //el:element简写，实际内部就是执行一个querySelector
+        //注意点：html与body不能作选择
+        //el选择实际就是为了确定vue使用范围
+        el: "#app",
+        // 数据
+        data: {
+          message: "Hello Vue!",
+          ooo: "123",
+        },
+      });
+    </script>
+  </body>
+</html>

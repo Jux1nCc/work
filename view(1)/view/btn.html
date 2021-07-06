@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="viewport"
+          content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no"/>
+    <style type="text/css">
+        html,
+        body,
+        div,
+        span,
+        applet,
+        object,
+        iframe,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        p,
+        blockquote,
+        pre,
+        a,
+        abbr,
+        acronym,
+        address,
+        big,
+        cite,
+        code,
+        del,
+        dfn,
+        em,
+        font,
+        img,
+        ins,
+        kbd,
+        q,
+        s,
+        samp,
+        small,
+        strike,
+        strong,
+        sub,
+        sup,
+        tt,
+        var,
+        b,
+        u,
+        i,
+        center,
+        dl,
+        dt,
+        dd,
+        ol,
+        ul,
+        li,
+        fieldset,
+        form,
+        label,
+        legend,
+        table,
+        caption,
+        tbody,
+        tfoot,
+        thead,
+        tr,
+        th,
+        td {
+            border: 0;
+            outline: 0;
+            vertical-align: baseline;
+            background: transparent;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            line-height: 1;
+        }
+
+        ol,
+        ul {
+            list-style: none;
+        }
+
+        blockquote,
+        q {
+            quotes: none;
+        }
+
+        blockquote:before,
+        blockquote:after,
+        q:before,
+        q:after {
+            content: none;
+        }
+
+        :focus {
+            outline: 0;
+        }
+
+        ins {
+            text-decoration: none;
+        }
+
+        del {
+            text-decoration: line-through;
+        }
+
+        table {
+            border-collapse: collapse;
+            border-spacing: 0;
+        }
+
+        .btn_back {
+            width: 100%;
+            height: 100%;
+            background: #eee;
+            position: absolute;
+            bottom: 0%;
+            border-top-left-radius: 25px;
+            border-top-right-radius: 25px;
+        }
+
+        .btn_close {
+            position: relative;
+            float: right;
+            right: 1.2rem;
+            top: 1.2rem;
+            color: #999;
+        }
+
+        .btn_content {
+            width: 85%;
+            height: 90%;
+            position: absolute;
+            bottom: 0%;
+            left: 7%;
+        }
+
+        .btn_notice {
+            border-top: 1px solid #eee;
+            padding: 0.5rem 0;
+            line-height: 1.2;
+        }
+
+        .mui-switch {
+            width: 3.7rem;
+            height: 1.8rem;
+            float: right;
+            position: relative;
+            border: 1px solid #dfdfdf;
+            background-color: #fdfdfd;
+            box-shadow: #dfdfdf 0 0 0 0 inset;
+            border-radius: 20px;
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+            background-clip: content-box;
+            display: inline-block;
+            -webkit-appearance: none;
+            user-select: none;
+            outline: none;
+        }
+
+        .mui-switch:before {
+            content: '';
+            width: 2rem;
+            height: 1.7rem;
+            position: absolute;
+            top: 0px;
+            left: 0;
+            border-radius: 20px;
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+            background-color: #fff;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+        }
+
+        .mui-switch:checked {
+            border-color: #64bd63;
+            box-shadow: #64bd63 0 0 0 16px inset;
+            background-color: #64bd63;
+        }
+
+        .mui-switch:checked:before {
+            left: 25px;
+        }
+
+        .mui-switch.mui-switch-animbg {
+            transition: background-color ease 0.4s;
+        }
+
+        .mui-switch.mui-switch-animbg:before {
+            transition: left 0.3s;
+        }
+
+        .mui-switch.mui-switch-animbg:checked {
+            box-shadow: #dfdfdf 0 0 0 0 inset;
+            background-color: #64bd63;
+            transition: border-color 0.4s, background-color ease 0.4s;
+        }
+
+        .mui-switch.mui-switch-animbg:checked:before {
+            transition: left 0.3s;
+        }
+
+        .mui-switch.mui-switch-anim {
+            transition: border cubic-bezier(0, 0, 0, 1) 0.4s, box-shadow cubic-bezier(0, 0, 0, 1) 0.4s;
+        }
+
+        .mui-switch.mui-switch-anim:before {
+            transition: left 0.3s;
+        }
+
+        .mui-switch.mui-switch-anim:checked {
+            box-shadow: #64bd63 0 0 0 16px inset;
+            background-color: #64bd63;
+            transition: border ease 0.4s, box-shadow ease 0.4s, background-color ease 1.2s;
+        }
+
+        .mui-switch.mui-switch-anim:checked:before {
+            transition: left 0.3s;
+        }
+
+        .btn_switch {
+            border-top: 1px solid #eee;
+            line-height: 2.5;
+            padding: 0.5rem 0;
+            height: 8%;
+        }
+
+        .btn_txt {
+            width: 2rem;
+            height: 1.5rem;
+            border: 0;
+        }
+
+        .btn_label {
+            float: right;
+        }
+
+        .btn_modify {
+            border: 0;
+            background: #fff;
+            color: blue;
+        }
+
+        .btn_description {
+            border-top: 1px solid #eee;
+            padding: 0.5rem 0;
+        }
+    </style>
+</head>
+
+<body style="height: 458px;">
+<div class="btn_back">
+    <a class="btn_close" onclick="jumpToMe()">X</a>
+    <div class="btn_content">
+        <p class="btn_notice">
+            开关为绿色，可接受视频或者语言电话。忙碌时，请将开关关闭，否则，会影响您的通话率。接通率越低，排名越后。
+        </p>
+        <p class="btn_switch">
+            <span>视频上线</span>
+            <label><input class="mui-switch" type="checkbox" id="videoFlag" onclick="onleChange(1)"></label>
+        </p>
+        <p class="btn_switch">
+            <span>语音上线</span>
+            <label><input class="mui-switch" type="checkbox" id="voiceFlag" onclick="onleChange(2)"></label>
+        </p>
+        <p class="btn_switch">
+            <span>对好友私信收费</span>
+            <label><input class="mui-switch" type="checkbox" id="friendFlag" onclick="friendChange()"></label>
+        </p>
+        <p class="btn_switch">
+            <span>我愿意被推荐给新用户</span>
+            <label><input class="mui-switch" type="checkbox" id="usersBePushFlag" onclick="usersBePushed()"></label>
+        </p>
+        <p class="btn_switch">
+            <span>视频</span>
+            <label class="btn_label">
+                <input type="text" class="btn_txt" disabled="ture" id="video_btn" min="0" maxlength="3"
+                       oninput="value=value.replace(/[^\d]/g,'')"/>
+                <span style="color: #999;">聊币/分钟</span>
+                <span class="btn_modify" id="video" onclick="priceModify(1)">编辑</span>
+            </label>
+        </p>
+        <p class="btn_switch">
+            <span>语音</span>
+            <label class="btn_label">
+                <input type="text" class="btn_txt" disabled="ture" id="voice_btn" min="0" maxlength="3"
+                       oninput="value=value.replace(/[^\d]/g,'')"/>
+                <span style="color: #999;">聊币/分钟</span>
+
+                <span class="btn_modify" id="voice" onclick="priceModify(2)">编辑</span>
+            </label>
+        </p>
+        <p class="btn_description">
+            想要获取更多推荐，请到“我”-“更多”-“修改头像”完成“本人”认证。
+        </p>
+    </div>
+</div>
+</body>
+<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+<!--<script type="text/javascript" src="js/layer.js"></script>-->
+<script src="activities/spring/js/layer/layer.js"></script>
+<script>
+    $(document).ready(function () {
+        init();
+    });
+
+    function jumpToMe() {
+        //应用内
+        window.webkit.messageHandlers.jumpToMe.postMessage({customerId: '2001'});
+    }
+
+    function init() {
+        var data = {
+            customerId: getUrlParam(window.location, "customerId"),
+            token: getUrlParam(window.location, "token"),
+            tokenCustomerId: getUrlParam(window.location, "customerId")
+        }
+        $.ajax({
+            url: "../api/opInfo/findVideoInfo",
+            type: "POST",
+            async: true,
+            data: data,
+            dataType: 'json',
+            success: function (data) {
+                if (data.code == 0) {
+                    var d = data.data;
+                    $("#videoFlag").prop("checked", d.vedioFlag == 1);
+                    $("#voiceFlag").prop("checked", d.voiceFlag == 1);
+                    $("#friendFlag").prop("checked", d.friendFlag == 1);
+                    $("#usersBePushFlag").prop("checked", d.recommendFlag == 1);
+                    $("#video_btn").val(d.postPrice);
+                    $("#voice_btn").val(d.voicePrice);
+                } else {
+                    layer.msg("兔聊：" + data.message);
+                }
+            },
+            error: function () {
+                layer.msg("兔聊：网络异常，请检查网络");
+            }
+        });
+    }
+
+    /**
+     * 视频语音上下线
+     * @param d
+     */
+    function onleChange(d) {
+        debugger;
+        var isOnleIndex;
+        var url;
+        if (d == 1) {
+            if ($("#videoFlag").prop("checked")) {
+                isOnleIndex = 2;
+            } else {
+                isOnleIndex = 5;
+            }
+            url = "../api/opInfo/updateOnle";
+        } else {
+            if ($("#voiceFlag").prop("checked")) {
+                isOnleIndex = 1;
+            } else {
+                isOnleIndex = 0;
+            }
+            url = "../api/opInfo/voiceOpenFlag";
+        }
+
+
+        var data = {
+            customerId: getUrlParam(window.location, "customerId"),
+            tokenCustomerId: getUrlParam(window.location, "customerId"),
+            token: getUrlParam(window.location, "token"),
+            isOnle: isOnleIndex,
+            isOpen: isOnleIndex
+        }
+        $.ajax({
+            url: url,
+            type: "POST",
+            async: true,
+            data: data,
+            dataType: 'json',
+            success: function (data) {
+                if (data.code == 0) {
+                    if (d == 1) {
+                        if (isOnleIndex == 2) {
+                            layer.msg("兔聊：视频上线成功，您可以接收视频和信息了。");
+                        } else {
+                            layer.msg("兔聊：视频下线成功，但您仍然可以接收信息。");
+                        }
+
+                    } else {
+                        if (isOnleIndex == 1) {
+                            layer.msg("兔聊：语音上线成功。");
+                        } else {
+                            layer.msg("兔聊：语音下线成功。");
+                        }
+                    }
+                    window.webkit.messageHandlers.jumpEase.postMessage({customerId: '2001', friend: isOnleIndex});
+
+                } else {
+                    if (d == 1) {
+                        if (isOnleIndex == 2) {
+                            $("#videoFlag").prop("checked", false);
+                        } else {
+                            $("#videoFlag").prop("checked", true);
+                        }
+                    } else {
+                        if (isOnleIndex == 1) {
+                            $("#voiceFlag").prop("checked", false);
+                        } else {
+                            $("#voiceFlag").prop("checked", true);
+                        }
+                    }
+                    layer.msg("兔聊：提交失败，" + data.message);
+                }
+            },
+            error: function () {
+                if (d == 1) {
+                    if (isOnleIndex == 2) {
+                        $("#videoFlag").prop("checked", false);
+                    } else {
+                        $("#videoFlag").prop("checked", true);
+                    }
+                } else {
+                    if (isOnleIndex == 1) {
+                        $("#voiceFlag").prop("checked", false);
+                    } else {
+                        $("#voiceFlag").prop("checked", true);
+                    }
+                }
+                layer.msg("兔聊：网络异常，请检查网络");
+            }
+        });
+
+
+    }
+
+    /**
+     * 对好友收费/不收费
+     */
+    function friendChange() {
+        debugger;
+        var flag = $("#friendFlag").prop("checked");
+        var isOpen = flag ? 1 : 0;
+        var data = {
+            customerId: getUrlParam(window.location, "customerId"),
+            tokenCustomerId: getUrlParam(window.location, "customerId"),
+            token: getUrlParam(window.location, "token"),
+            isOpen: isOpen
+        }
+        $.ajax({
+            url: "../api/opInfo/friendChargeFlag",
+            type: "POST",
+            async: true,
+            data: data,
+            dataType: 'json',
+            success: function (data) {
+                if (data.code == 0) {
+
+                    layer.msg("兔聊：设置成功");
+
+                } else {
+                    $("#friendFlag").prop("checked", isOpen == 1 ? false : true);
+                    layer.msg("兔聊：提交失败，" + data.message);
+                }
+            },
+            error: function () {
+                $("#friendFlag").prop("checked", isOpen == 1 ? false : true);
+                layer.msg("兔聊：网络异常，请检查网络");
+            }
+        });
+    }
+
+    /**
+     *我愿意被推荐给新用户
+     */
+    function usersBePushed() {
+        debugger;
+        var flag = $("#usersBePushFlag").prop("checked");
+        var f = flag ? 1 : 0;
+        var data = {
+            customerId: getUrlParam(window.location, "customerId"),
+            tokenCustomerId: getUrlParam(window.location, "customerId"),
+            token: getUrlParam(window.location, "token"),
+            flag: f
+        }
+        $.ajax({
+            url: "../api/opInfo/usersBePushed",
+            type: "POST",
+            async: true,
+            data: data,
+            dataType: 'json',
+            success: function (data) {
+                if (data.code == 0) {
+
+                    layer.msg("兔聊：设置成功");
+
+                } else {
+                    $("#usersBePushFlag").prop("checked", f == 1 ? false : true);
+                    layer.msg("兔聊：提交失败，" + data.message);
+                }
+            },
+            error: function () {
+                $("#usersBePushFlag").prop("checked", f == 1 ? false : true);
+                layer.msg("兔聊：网络异常，请检查网络");
+            }
+        });
+    }
+
+
+    /**
+     * 修改价格
+     * @param d
+     */
+    function priceModify(d) {
+        debugger;
+        var price;
+        if (d == 1) {
+            if ($("#video_btn").prop("disabled") == true) {
+                $("#video_btn").prop("disabled", false);
+                $("#video").text("完成");
+                return;
+            }
+            price = $("#video_btn").val();
+        } else {
+            if ($("#voice_btn").prop("disabled") == true) {
+                $("#voice_btn").prop("disabled", false);
+                $("#voice").text("完成");
+                return;
+            }
+            price = $("#voice_btn").val();
+        }
+        if (price == null || price == '') {
+            return;
+        }
+        debugger;
+        if (price < 0 || price > 500) {
+            if (d == 1) {
+                $("#video_btn").blur();
+                $("#video").focus();
+            } else {
+                $("#voice_btn").blur();
+                $("#voice").focus();
+            }
+            layer.msg("兔聊：收费限定为0-500聊币/分钟");
+            return;
+        }
+        var data = {
+            customerId: getUrlParam(window.location, "customerId"),
+            tokenCustomerId: getUrlParam(window.location, "customerId"),
+            token: getUrlParam(window.location, "token"),
+            price: price,
+            type: d
+        }
+        $.ajax({
+            url: "../api/opInfo/updatePostPrice",
+            type: "POST",
+            async: true,
+            data: data,
+            dataType: 'json',
+            success: function (data) {
+                if (data.code == 0) {
+                    if (d == 1) {
+                        $("#video_btn").prop("disabled", true);
+                        $("#video").text("编辑");
+                        $("#video_btn").blur();
+                    } else {
+                        $("#voice_btn").prop("disabled", true);
+                        $("#voice").text("编辑");
+                        $("#voice_btn").blur();
+                    }
+
+                    layer.msg("兔聊：设置成功");
+
+                } else {
+                    if (d == 1) {
+                        $("#video_btn").blur();
+                    } else {
+                        $("#voice_btn").blur();
+                    }
+                    layer.msg("兔聊：提交失败，" + data.message);
+                }
+            },
+            error: function () {
+                if (d == 1) {
+                    $("#video_btn").blur();
+                } else {
+                    $("#voice_btn").blur();
+                }
+                layer.msg("兔聊：网络异常，请检查网络");
+            }
+        });
+
+
+    }
+
+    // 弹出警告
+    function showWarningTip(text) {
+        var html = ''
+            + '<div class="popLayerWarning">'
+            + '<span class="warning-tip-text">' + text + '</span>'
+            + '</div>';
+        $('body').append($(html));
+        setTimeout(function () {
+            $('.popLayerWarning').remove();
+        }, 3000);
+    }
+
+
+    //获取Url的参数
+    function getUrlParam(url, name) {
+        var pattern = new RegExp("[?&]" + name + "\=([^&]+)", "g");
+        var matcher = pattern.exec(url);
+        var items = null;
+        if (matcher != null) {
+            try {
+                items = decodeURIComponent(decodeURIComponent(matcher[1]));
+            } catch (e) {
+                try {
+                    items = decodeURIComponent(matcher[1]);
+                } catch (e) {
+                    items = matcher[1];
+                }
+            }
+        }
+        return items;
+    }
+
+</script>
+
+</html>

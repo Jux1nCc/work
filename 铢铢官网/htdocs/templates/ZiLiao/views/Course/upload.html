@@ -1,0 +1,978 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>课程上传</title>
+		<link rel="stylesheet" href="../../public/css/style.css" />
+		<link rel="stylesheet" href="../../package/layui/css/layui.css" />
+
+		<script type="text/javascript" src="../../package/layui/layui.js"></script>
+		<script src="../../public/js/public/jquery.min.js"></script>
+		<script src="../../public/js/public/jquery.cookie.min.js"></script>
+		<script src="../../public/js/public/es6-promise.min.js"></script>
+		<script src="../../public/js/public/aliyun-oss-sdk-5.2.0.min.js"></script>
+		<script src="../../public/js/public/aliyun-upload-sdk-1.4.0.min.js"></script>
+		<script src="../../public/js/index.js"></script>
+		<script src="../../public/js/public/sortable.js"></script>
+
+	</head>
+
+	<body>
+		<!--上传课程-->
+		<div id="Upload_course">
+			<!-- 课程上传 -->
+			<div class="content_Uploadvideo">
+				<!-- 视频上传 -->
+				<div class="layui-upload">
+
+					<div class="layui-upload-list">
+						<p class="updata_video_title"><span>课程上传</span></p>
+						<div class="Video_list">
+							<p class="all_albums_show"><span>节目前的序号是该节目在专辑内的位置，<b style="color: red;">您可以拖动节目调整排序</b></span><label>本专辑已发布 <b id="currNum">0</b>集课程</label></p>
+							<ul id="video_list_li">
+
+							</ul>
+						</div>
+
+						<div class="video_Description">
+							<form style="margin-top: 15px;">
+								<img src="../../img/addvideo.png" id="filesimg" />
+								<input type="file" name="file" id="filesVideo" accep="video/*" multiple/>
+							</form>
+							<p>支持多个文件同时上传：<br/> 听说单个课程保持在20分钟左右，用户学习效率会更高
+							</p>
+						</div>
+
+					</div>
+					<!--<button type="button" class="layui-btn" id="testListAction">开始上传</button>-->
+				</div>
+				<!--<button type="button" class="layui-btn layui-btn-normal" id="testList">选择上传文件</button>-->
+				<div class="upload_video_select">
+					<div class="All_albums">
+						<p style="margin-bottom: 20px;">为当前上传的视频选择一个专辑</p>
+						<select name="All_albumssel" id="All_albumssel"></select>
+						<label style="margin-left: 50px;">当前所选专辑类型为：<span id="albumType" ></span></label>
+					</div>
+
+					<div class="content_sunbtn">
+						<p>点击发布，代表我已阅读并同意
+							<a href="../Description/property.html" target="_blank">《知识产权承诺》</a>
+						</p>
+						<input type="button" value="发布" id="content_subvideo" onclick="subvideo()" />
+						<input type="button" value="取消" id="content_recharge" />
+					</div>
+				</div>
+
+				<div id="videoimgshow"></div>
+
+			</div>
+
+			<div class="content_Tutorial">
+				<h3>如何录制课程？</h3>
+				<p>录制课程其实很简单，只要您有真才实学，就可以录制课程。我们为您精心挑选了录制课程的软件和使用教程，请查看</p>
+				<p>
+					<a href="https://www.apowersoft.cn/record-all-screen" target="_blank">录制软件下载</a>
+				</p>
+				<p>
+					<a href="../../views/Description/usetutorial.html" target="_blank">录制软件使用教程</a>
+				</p>
+				<p>
+					<span>不知道什么样的课程内容会吸引人？赶紧联系我们的工作人员吧！</span><br/>
+					<span>联系电话：400*******</span><br/>
+					<span>联系QQ：123456789</span>
+				</p>
+				<p>
+					<span>视频专辑支持的文件格式包括：AIFF , AIF , MP4 , 3GP , AVI , WMV , MPG , VOB , FLV , MOV , RMVB , RM , MPEG，且单个视频文件大小不得超过2G；</span><br/>
+					<br/><span>音频专辑支持的文件格式包括：MP3 , WMA , WAV , FLAC , OGG , MP2 , AAC , AMR , M4A，且单个音频文件大小不得超过200M；</span><br/>
+					<br/><span>请遵守<a href="../../views/Description/copyright.html" target="_blank">版权声明</a>相关约定，只上传版权拥有者允许你上传的声音/视频文件；<span style="color: red;">如上传盗版内容，将会导致下架、封号、索赔，甚至被追究刑事责任。</span></span>
+				</p>
+
+			</div>
+		</div>
+	</body>
+
+	<script>
+		var uploadNumber = 0; //默认开始上传的数目
+		var uploadComplete = false; //判断是否上传完成
+		userData = '';
+		var releaseVideo = true; //默认为true
+		var uploadOver = true;
+		var uploadHaven = false;
+		var listCurriculum = []; //专辑的集合
+		var currNum = 0;
+		var uploadIndex = 1;
+		var foramtList = [] //格式合法的数组
+		var saveLocalFile = []; //视频的对象
+		var videoFileList = []; //视频的对象
+		var allFileList = []; //视频的对象
+		var uploader;
+		var selectNum = 0;
+		var childNodes;
+		var selectVideoTimes = 0; //是否第一次上传视频
+		var currentUploadNum = 0; //当前正在上传的个数
+		var uploadMap = new Map();
+		var beginSelect = true;
+		var oldSelectPos = 0;
+		var postAulm = true;
+		var videoType = 1 ;  //默认是视频
+		var audios = ["MP3" , "WMA" , "WAV" , "FLAC" , "OGG" , "MP2" , "AAC" , "AMR" , "M4A"];
+		var video = ["AIFF" , "AIF" , "MP4" , "3GP" , "AVI" , "WMV" , "MPG" , "VOB" , "FLV" , "MOV" , "RMVB" , "RM" , "MPEG"];
+		//var format = ["AIFF", "AIF", "MP4", "3GP", "AVI", "WMV", "MPG", "VOB", "FLV", "MOV", "RMVB", "RM", "MPEG", "MP3", "WMA", "WAV", "FLAC", "OGG", "MP2", "AAC", "AMR", "M4A"];
+		//var uploadOverSelect = true;
+		sessionStorage.setItem('releaseVideo', releaseVideo);
+		var curriculumPhoto = "https://expertol-qualifications.oss-cn-shenzhen.aliyuncs.com/quaAlbum/1547451736399.jpg";
+		document.getElementById("filesVideo").addEventListener('change', function(event) { //点击事件
+			//console.log("点击了选择视频: " + selectVideoTimes);
+			selectVideoTimes++;
+
+//			$(".upload_video_select").css("display", "block")
+
+			//if(uploadOverSelect == "true" || uploadOverSelect =='true' || uploadOverSelect ==true){  
+
+			//		if(list.length >= 5){
+			//			var str = "最多同时上传5个视频";
+			//  		fun.promptmsg(str);
+			//			return;
+			//		}
+			//		allFileList = event.target.files;
+			//		if(allFileList.length > 0){
+			//			selectNum ++;
+			//			console.log(selectNum);
+			//			uploadOver = false;
+			//				var selectFileObj = new Object();
+			//     				saveLocalFile.push(event.target.files[0].name);
+			//     				selectFileObj.files =  event.target.files[0];
+			//     				selectFileObj.upload = true;
+			//     				foramtList.push(selectFileObj);  //遍历添加到新数组里面 
+			//     				//这里做请求
+			//     				funs.getUploadAuth(event.target.files[0],foramtList.length);  //开始请求第一个
+			//     		
+			//		}
+			releaseVideo = false; //标志位为false
+			sessionStorage.setItem('releaseVideo', releaseVideo);
+			if(funs.allFormatCheck(event.target.files) != false){
+				//console.log("全部类型一样")
+				
+				for(var i = 0; i < event.target.files.length; i++) { //遍历文件数组
+
+				//选择了多个文件之后，判断每个文件的格式
+				//console.log(funs.formatCheck(event.target.files[i]))
+				if(funs.formatCheck(event.target.files[i]) == true && (saveLocalFile.indexOf(event.target.files[i].name) == -1)) { //格式为合法,并且已存在，
+					uploadOver = false; //只要选择了视频，就不能提交
+					var myFileName = event.target.files[i].name;
+					beginSelect = false;
+					funs.progress(0, event.target.files[i].size, myFileName); //创建所有的进度条
+
+					var selectFileObj = new Object();
+
+					saveLocalFile.push(myFileName);
+					selectFileObj.files = event.target.files[i];
+					if(event.target.files.length == 1){			
+						selectFileObj.upload = true;  
+					}else{
+						if(i == 0) {
+							selectFileObj.upload = true;
+						} else {
+							selectFileObj.upload = false;
+						}	
+					}
+//					console.log("组装：" + i)
+//					console.log(selectFileObj)
+					foramtList.push(selectFileObj); //添加文件到数组
+				}
+
+			}
+		
+			if(currentUploadNum < 5) {
+				
+				//console.log(event.target.files)
+				if(funs.formatCheck(event.target.files[0]) == true ) { //格式为合法,并且已存在，
+					currentUploadNum++;
+					funs.getUploadAuth(event.target.files[0],currentUploadNum);
+				}
+				
+				
+
+			
+			}
+				
+				
+			}else{
+				console.log("全部类型不一样")  //提示所选类型不一样
+				var str = "所选文件跟专辑类型不符，请再次选择";
+						fun.promptmsg(str);
+				
+			}
+		
+			
+		});
+
+
+
+		//封装进度条
+		var funs = {
+
+			allFormatCheck :function(arr){
+				
+				for(let value of arr){
+						var filesname = value.name;
+					var index = filesname.lastIndexOf(".");
+					var suffix = filesname.substring(index + 1).toUpperCase();
+					console.log(suffix)
+					if(videoType == 1){ //视频
+						console.log("视频： " + video.indexOf(suffix))
+						if(video.indexOf(suffix) == -1){
+							return false;
+							
+						}else{
+							continue;
+						}
+					}else{  //音频
+						console.log("音频： " + audios.indexOf(suffix))
+						if(audios.indexOf(suffix) == -1){
+							return false;
+						}else{
+							continue;
+							
+						}
+					}
+				}
+					
+				
+			},
+
+			progress: function(width, idTag, name) {  
+					
+					if(name.indexOf("'") != -1){
+						name = name.replace(/'/g,"");  
+					}
+				if(document.getElementById(idTag) == null) { 
+					currNum = "";
+					if(width == 0 ){
+						width = "等待上传"
+					} else{
+						width = width
+					}
+					//console.log(currNum)
+					var str = "<li aid='" + name + "' id='" + name + "_list'>"
+					str += "<p class='list_paixu' id='" + name + "_num'>" + currNum + "</p>";
+
+					str += "<lable>" + name + "</lable>"
+
+					str += "<div class='container' >";
+					str += "<div  id='" + idTag + "' style='width:0%;'></div> ";
+					str += "</div>";
+					str += "<span id='" + name + "'>" + width + "</span>"
+					//			 	str += "<a aid='"+name+" id='"+idTag+"' onclick='renewFun(this)''>取消上传</a>"
+					//			 	str += "<input id='"+name+"' onclick='deleteFun(this)' type='button' value='删除'>"
+					str += "</li>";
+
+					$("#video_list_li").append(str);
+					$(".all_albums_show").css("display", "block")
+				} else {
+					var id = document.getElementById(idTag);
+					
+					id.style.width = (width) + "%";
+					var total = document.getElementById(name);
+					
+					if(total != null){
+						if(width == 100) {
+							total.innerHTML = "上传成功 <input id='" + name + "' onclick='deleteFun(this)' type='button' value='删除'>";   
+						}  else {
+							total.innerHTML = "上传中：" + (width) + "% <a style='display:none' id='" + name + "' onclick='renewFun(this)''>取消上传</a>";
+						} 
+					}
+				
+				}
+			},
+			
+			uploaderFailure : function(width, idTag,name){
+				var id = document.getElementById(idTag);
+				//id.style.width = (width) + "%";
+				var total = document.getElementById(name); 
+				if(total != null){
+					if(width == 0) {
+						total.innerHTML = "上传失败 <input id='" + name + "' onclick='resumeUpload(this)' type='button' value='重新上传'>";   
+					} 
+				}
+			},
+
+			//选择后的课程数
+			CurrNumber: function(currentNum) {
+				//console.log("list.length: " + list.length);
+				for(var index = 0; index < saveLocalFile.length; index++) {
+					currentNum++;
+					//console.log("排序时的数目: " + currentNum)
+					
+				//	console.log(document.getElementById(saveLocalFile[index]))
+					var pTag = document.getElementById(saveLocalFile[index] + "_num");
+					//console.log(pTag)
+					if(pTag != null) {
+						pTag.innerText = currentNum;
+					}
+
+				}
+				currNum = currentNum;
+
+				//console.log("排序完成之后的数目: " + currentNum);  
+			},
+
+			formatCheck: function(filesObj) { //检查格式
+
+				var filesname = filesObj.name;
+				var index = filesname.lastIndexOf(".");
+				var suffix = filesname.substring(index + 1).toUpperCase();
+				var filessize = filesObj.size;
+				if(videoType == 0){   //音频还是视频判断,0
+						//把format数组放到最外面
+					if(audios.indexOf(suffix) == -1) {
+						var str = "所选文件跟专辑类型不符，请再次选择";
+						fun.promptmsg(str);
+						return
+						
+					} else if(filessize < 204800) {
+						var str = "音频文件大小不得超过200M";
+						
+						fun.promptmsg(str);
+						return
+						
+					} else {
+	
+						return true;
+					}
+				}else{
+						//判断视频
+						//console.log("video")
+					if(video.indexOf(suffix) == -1) {
+						var str = "所选文件跟专辑类型不符，请再次选择";
+						fun.promptmsg(str);
+						return;
+					} else if(filessize < 2097512) {
+						var str = "视频文件大小不得超过2G";
+						fun.promptmsg(str);
+						return;
+					}else {
+					//console.log("video:true")
+						return true;
+					}
+				}
+			
+
+			},
+
+			uploadNumCount: function() {
+				//遍历数组，看看还剩多少个在等待上传
+				var countNum = 0;
+				foramtList.forEach(function(value, i) {
+					//console.log(value)
+					if(value.upload == false) {
+						countNum++;
+					}
+				});
+
+				return countNum;
+
+			},
+
+			getUploadAuth: function(files,currentNum) { //获取视频上传凭证
+
+				var customerId = sessionStorage.getItem('customerId');
+				var fileName = files.name;
+				var title = customerId + "~" + fileName;
+				var filessize = files.size;
+
+				$.get(base_url + "/api/app/ParameterManagement/GetVideoUploadAddress", {
+					"action": 'CreateUploadVideo',
+					"fileName": fileName,
+					"title": title,
+					"fileSize": filessize,
+					"description": '123123',
+					"cateId": '135724169', //879471725正式环境   135724169 测试环境
+					"tags": '课程',
+					"templateGroupId":"772ecdf3694fa9ddeaea84b678ee3a58" //不转码 不加密
+
+				}, function(data) {
+//					console.log(fileName)  
+//					console.log(data)
+					if(data.result == true && data.code == 0) { //获取凭证完成	
+						funs.createUploader(files, data.data.uploadAuth, data.data.uploadAddress, data.data.videoId);
+						var videoInfo = new Object(); //视频对象
+						videoInfo.curriculumName = fileName;
+						videoInfo.customerId = customerId;
+						videoInfo.videoId = data.data.videoId;
+						videoFileList.push(videoInfo);
+						//console.log("创建凭证时上传的数目: " + currentUploadNum);
+						if(currentNum < 5) { //上一个文件获取凭证完成之后，开始获取下一个文件
+							
+							//console.log("标志位+1的数目: " + currentUploadNum);
+							if(foramtList.length > 1){
+							//	console.log(foramtList.length)
+								currentNum++;
+								currentUploadNum = currentNum;
+								for(var i = 0; i < foramtList.length; i++) { //遍历数组,只要有一个没有上传完成，那就是false，如果最后为true，说明全部上传完
+									//console.log(foramtList[i])
+									if(foramtList[i].upload == false) {  //判断失效了
+										uploadOver = false;
+										foramtList[i].upload = true;   
+										funs.getUploadAuth(foramtList[i].files, currentUploadNum);
+										return;
+									} else {
+										
+										//全部上传完成  全部上传完成的时候，
+										uploadOver = true;
+										
+									}
+	
+								}
+							}else{
+								uploadOver = true;
+							}
+							
+						
+
+					}
+						
+						
+						//开始上传  
+//						var videoInfo = new Object(); //视频对象
+//						videoInfo.curriculumName = fileName;
+//						videoInfo.customerId = customerId;
+//						videoInfo.videoId = data.data.videoId;
+//						videoFileList.push(videoInfo); //将视频信息存到数组，以便提交，所有上传的视频都会走这一步
+//						//测试
+//						//uploader.setUploadAuthAndAddress(currentNum, data.data.uploadAuth, data.data.uploadAddress,data.data.videoId);	
+//						//return data.data;
+//						
+//						//
+//						
+
+
+
+					}
+
+				})
+			},
+			
+			//刷新上传地址和凭证
+			refreshVideoID: function(uploadInfo,myUploader){
+				//console.log(uploadInfo)
+				$.post(base_url + "/api/app/ParameterManagement/refreshUplodeAddress",{
+					"vid":uploadInfo.videoId
+				},function(data){
+					//console.log(data)
+					myUploader.setUploadAuthAndAddress(uploadInfo, data.data.uploadAuth, data.data.uploadAddress);
+					//myUploader.startUpload();
+				})
+			},
+
+			createUploader: function(files, uploadAuth, uploadAddress, videoId) { //创建阿里云上传客户端 ,你选两个视频试试
+				var b = 0;
+				uploader = new AliyunUpload.Vod({
+					//分片大小默认1M，不能小于100K
+					partSize: 1048576,
+					//并行上传分片个数，默认5  
+					parallel: 5,
+					//网络原因失败时，重新上传次数，默认为3
+					retryCount: 5,
+					//网络原因失败时，重新上传间隔时间，默认为2秒
+					retryDuration: 30,
+					// 开始上传
+					'onUploadstarted': function(uploadInfo) { 
+
+						uploadOverSelect = false;
+						//console.log("继续5")
+						var str = "onUploadStarted:" + uploadInfo.file.name + ", endpoint:" + uploadInfo.endpoint + ", bucket:" + uploadInfo.bucket + ", object:" + uploadInfo.object
+						//console.log(str);
+						//上传方式1, 需要根据uploadInfo.videoId是否有值，调用点播的不同接口获取uploadauth和uploadAddress，如果videoId有值，调用刷新视频上传凭证接口，否则调用创建视频上传凭证接口
+						//console.log(window.sessionStorage.getItem('uploadAuth')+ " ; " + window.sessionStorage.getItem('uploadAddress')+ " ; " + window.sessionStorage.getItem('videoId'))
+						//console.log(uploadInfo.videoId)
+						//.setUploadAuthAndAddress(uploadInfo, uploadAuth, uploadAddress, videoId);
+						if(!uploadInfo.videoId){ 
+							//console.log("正常")
+							uploader.setUploadAuthAndAddress(uploadInfo, uploadAuth, uploadAddress, videoId);
+							
+							//uploader.startUpload();
+						}else{     //这是异常的流程，失败，刷新，才会走这里，但是，我们测试一下
+							//console.log("异常")
+							funs.refreshVideoID(uploadInfo,uploader);  
+							
+						}
+						
+						//上传方式2 
+						// uploader.setSTSToken(uploadInfo, accessKeyId, accessKeySecret,secretToken);
+
+					},
+					// 文件上传成功
+					'onUploadSucceed': function(uploadInfo) { //这里的上传完成应该不是全部完成的回调
+						//在这里执行上传到数据库的操作，哪个上传到阿里云成功了，就上传哪个，这里有file.name。根据名字上传
+						//console.log("onUploadSucceed: " + uploadInfo.file.name + ", endpoint:" + uploadInfo.endpoint + ", bucket:" + uploadInfo.bucket + ", object:" + uploadInfo.object);
+						//上传到阿里云成功
+						console.log("单个文件上传成功: " + uploadInfo.file.name)
+						//每当有一个文件上传完成，就可以上传下一个文件,修改正在上传的文件总数
+						
+						uploadOver = true;  
+
+					},
+
+					// 文件上传失败
+					'onUploadFailed': function(uploadInfo, code, message) {   //这里是上传失败
+						//console.log(uploadInfo.file.name)
+						funs.uploaderFailure(0, 0, uploadInfo.file.name);
+						console.log("上传失败: file:" + uploadInfo.file.name + ",code:" + code + ", message:" + message);
+						//上传失败的时候，就提示重新上传
+						
+						
+					},
+					// 文件上传进度，单位：字节
+					'onUploadProgress': function(uploadInfo, totalSize, loadedPercent) {
+						uploadOver = false;
+						var width = Math.ceil(loadedPercent * 100);
+						var percentHt = "名字：" + uploadInfo.file.name + ", 大小:" + totalSize + ", 精度条:" + width + "%";
+					//	console.log("上传进度："+ uploadInfo.file.name + " width " + width)
+						funs.progress(width, totalSize, uploadInfo.file.name);  
+
+						//console.log(percentHt);
+					},
+					//视频删除
+					'deleteFile': function(uploadInfo) {},
+					'cancelFile': function(uploadInfo) { //这里也没有执行 之前不是可以嘛 阿里云的js呢
+						//console.log("cancelFile: file:" + uploadInfo.file.name );
+					},
+					// 上传凭证超时
+					'stopUpload': function(uploadInfo) { //停止
+						console.log("stopUpload: file:" + uploadInfo.file.name);
+
+					},
+					'onUploadTokenExpired': function(uploadInfo) {
+						console.log("onUploadTokenExpired");
+						//上传方式1  实现时，根据uploadInfo.videoId调用刷新视频上传凭证接口重新获取UploadAuth
+						//uploader.resumeUploadWithAuth(sessionStorage.getItem('uploadAuth'));
+
+					},
+					//全部文件上传结束
+					'onUploadEnd': function(uploadInfo) { //有文件全部上传完成调用回调，标志位好像没走这里
+						
+						if(currentUploadNum != 0) {
+							currentUploadNum--;
+						}
+						//console.log("全部文件上传完成: " + currentUploadNum);
+						uploadOver = true;
+//						console.log("上传结束：" + "onUploadEnd: uploaded all the files");
+//						console.log("开始下一个文件上传: " + currentUploadNum);
+						if(currentUploadNum < 5) { //正在上传的数目小于5个，那就继续上传
+							 if(foramtList.length > 1){
+							 		for(var i = 0; i < foramtList.length; i++) { //遍历数组,只要有一个没有上传完成，那就是false，如果最后为true，说明全部上传完
+								if(foramtList[i].upload == false) {  //最后全部为true
+									console.log(foramtList[i])
+									currentUploadNum ++;   
+									uploadOver = false;
+									foramtList[i].upload = true;
+									funs.getUploadAuth(foramtList[i].files, currentUploadNum);
+									return;
+
+								} else {  //就会执行到这里
+									//全部上传完成  全部上传完成的时候，
+									uploadOver = true;
+									
+									
+								}
+
+							}
+							 }else{
+							 	uploadOver = true;
+							 }
+						
+
+						}
+						//console.log("全部文件上传完成标志位: " + uploadOver);
+						//						if(foramtList.length > 5) {
+						//							for(var i = 0; i < foramtList.length; i++) { //遍历数组,只要有一个没有上传完成，那就是false，如果最后为true，说明全部上传完
+						//								if(foramtList[i].upload == false) {
+						//
+						//									uploadOver = false;
+						//									foramtList[i].upload = true;
+						//									funs.getUploadAuth(foramtList[i]. , 0);
+						//									return;
+						//
+						//								} else {
+						//									//全部上传完成
+						//									uploadOver = true;
+						//								}
+						//
+						//							}
+						//
+						//						}
+
+					},
+
+				});
+				var userData = '{"Vod":{"UserData":"{"IsShowWaterMark":"false","Priority":"7"}"}}';
+				var jsonUserData = JSON.stringify(userData);
+				uploader.addFile(files, null, null, null, jsonUserData);
+				uploader.startUpload();
+				uploadMap.set(files.name,uploader);  //将当前文件和上传loader对应
+			}
+
+		}
+
+		//删除按钮  删除事件
+		function deleteFun(btnid) {
+			var delid = btnid.id;
+			currNum = localStorage.getItem('currNum', 0);
+			var aid = btnid.parentElement.parentElement;
+			//console.log("删除的时候: " + delid)
+
+			aid.remove()
+			var lists = uploader.listFiles();
+			//console.log(lists)
+			//删除只能删除上传到阿里云成功的
+			for(var i = 0; i < videoFileList.length; i++) {
+				if(delid == videoFileList[i].curriculumName) {
+					videoFileList.splice(i, 1);
+					//listVideoFile.splice(i,1);    		
+				}
+
+			}
+			//console.log(saveLocalFile.indexOf(delid))
+			if(saveLocalFile.indexOf(delid) != -1) {
+				saveLocalFile.splice(saveLocalFile.indexOf(delid), 1);
+			}
+			for(var index = 0; index < lists.length; index++) {
+				if(delid == lists[index].file.name) {
+					uploader.deleteFile(index); //删除没有报错
+					break;
+				}
+			}
+
+			funs.CurrNumber(currNum);
+		}
+
+		function resumeUpload(name){  
+			//console.log(name)
+			
+			var videotype = name.value;
+			
+			//console.log(videotype)
+			var idKey = name.id;
+			//console.log(idKey)
+			var upload = uploadMap.get(idKey);
+			upload.startUpload();
+		}
+
+		//取消上传
+		function renewFun(newx) {
+			//uploader.stopUpload();
+			var newxs = newx.id;
+			currNum = localStorage.getItem('currNum', 0);
+
+			var aid = newx.parentElement.parentElement;
+			//aid.remove()
+			uploader.listFiles();
+			var lists = uploader.listFiles();
+			//console.log(lists)
+			for(var i = 0; i < list.length; i++) {
+				if(newxs == list[i].curriculumName) {
+
+					list.splice(i, 1);
+					videoFileList.splice(i, 1);
+
+				}
+			}
+			for(var i = 0; i < lists.length; i++) {
+				if(newxs == lists[i].file.name) { //还是执行取消
+					uploader.cancelFile(i);
+					uploadOverSelect = true;
+				}
+			}
+			funs.CurrNumber(currNum);
+
+		}
+
+		function abcImg(videoInfo) {
+			//console.log("传进来：" + videoInfo.curriculumName)
+			$.post(base_url + "/api/app/ParameterManagement/getVideoMessage", {
+				"vid": videoInfo.videoId
+			}, function(data) {
+				//console.log(data)  
+				if(data.result == true && data.code == 0) {
+					if(data.data.coverURL != null) {
+						videoInfo.curriculumPhoto = data.data.coverURL;
+					} else {
+						videoInfo.curriculumPhoto = curriculumPhoto; //默认的封面
+					}
+					if(data.data.duration != null) {
+						videoInfo.curriculumTime = data.data.duration;
+					} else {
+						videoInfo.curriculumTime = "0";
+					}
+				} else {
+					videoInfo.curriculumPhoto = curriculumPhoto;
+					videoInfo.curriculumTime = "0";
+				}
+
+				postVideo(videoInfo);
+
+			})
+			//			console.log(videoInfo.curriculumName) //怎么没有打印
+			//			postVideo(videoInfo);
+		}
+
+		function subvideo() { //如果全部上传完成 
+			if(uploadOver == true || uploadOver == 'true' || uploadOver == "true") { 
+
+				//在这里获取li
+				var uls = document.getElementById('video_list_li')
+				//console.log(uls);
+				childNodes = uls.childNodes;
+				
+//				console.log(childNodes);
+//				console.log(videoFileList);
+				//savchileLocalFile.splice(0,saveLocalFile.length);
+				if(childNodes.length > 1) { //第一个上传的
+					var name = childNodes[uploadIndex].id;
+					var index = name.lastIndexOf("_");
+					var nameArr = name.substring(0, index);
+					//console.log(nameArr)
+					for(var i = 0; i < videoFileList.length; i++) {
+						//console.log(videoFileList[i].curriculumName)
+						if(videoFileList[i].curriculumName == nameArr) {
+							//console.log(videoFileList[i].curriculumName)
+							videoFileList[i].unionId = sessionStorage.getItem('unionId'); //这才是排序的第一位
+							abcImg(videoFileList[i]);
+							return;
+						}
+
+					}
+
+				}
+
+			} else {
+				var str = "课程没上传完成，不可以发布";
+				fun.promptmsg(str);
+
+			}
+
+		}
+
+		function postVideo(videoInfo) {
+			var vid = videoInfo.videoId;
+			//console.log(videoInfo.videoId)  
+			var curriculumTime = parseInt(videoInfo.curriculumTime);
+
+			$.post(base_url + "/api/curriculum/insertCurriculum", {
+				"curriculumName": videoInfo.curriculumName, //视频名称
+				"curriculumTime": curriculumTime, //视频时长
+				"customerId": videoInfo.customerId, //用户id
+				"videoId": videoInfo.videoId, //视频id
+				"unionId": videoInfo.unionId, //专辑id
+
+				"curriculumPhoto": videoInfo.curriculumPhoto //封面
+			}, function(data) {
+				console.log(data)
+				++uploadIndex; //这里第一次要默认为1
+				//console.log(uploadIndex)
+				if(uploadIndex < childNodes.length) {
+					var name = childNodes[uploadIndex].id;
+					var index = name.lastIndexOf("_");
+					var nameArr = name.substring(0, index);
+					//console.log(nameArr)
+					for(var i = 0; i < videoFileList.length; i++) {
+						//console.log(videoFileList[i].curriculumName)
+						if(videoFileList[i].curriculumName == nameArr) {
+							videoFileList[i].unionId = sessionStorage.getItem('unionId'); //这才是排序的第一位 unionId 专辑id
+							abcImg(videoFileList[i]);
+							return;
+						}
+
+					}
+				} else {
+					uploadIndex = 1; //要从1开始
+					window.location.href = "mycourses.html";
+					releaseVideo = true;
+					sessionStorage.setItem('releaseVideo', releaseVideo);
+				}
+
+				if(data.result == true && data.code == 0) {
+
+				} else {
+					var str = "课程上传失败，请稍后再试";
+					fun.promptmsg(str) 
+				}
+
+			})
+
+		}
+
+		$(document).ready(function() {
+			var customerId = sessionStorage.getItem('customerId');
+			//获取全部专辑
+			$.get(base_url + "/api/union/myWorks", {
+					"customerId": customerId
+				},
+				function(data) {
+					
+					console.log(data)
+					var datas = data.data.unionList.length;
+					
+
+					if(datas != 0 == 0) {
+						alert("你还没有专辑,请先创建专辑");
+
+						window.location.href = "edit.html";
+					} else {
+						if(data.result == true && data.code == 0) { //获取专辑成功
+
+							sessionStorage.setItem('countCurriculum', data.data.countCurriculum); //所有课程条数
+							sessionStorage.setItem('unionId', data.data.unionList[0].unionId); //专辑id
+							currNum = data.data.unionList[0].curriculumNum;
+							$("#currNum").text(data.data.unionList[0].curriculumNum);
+							localStorage.setItem('currNum', currNum);
+							listCurriculum = data.data.unionList;  //专辑列表
+							
+							
+						}
+						var customerId = sessionStorage.getItem('customerId');
+						//获取所有专辑
+						if(sessionStorage.getItem('customerId') != null) {
+							for(j = 0; j < data.data.unionList.length; j++) {
+								arr = data.data.unionList[j].unionName
+								unionId = data.data.unionList[j].unionId;
+								
+								$("#All_albumssel").append("<option value='" + unionId + "'>" + arr + "</option>" + unionId);
+
+							}
+							var option = document.getElementsByTagName("option");
+
+							$("#All_albumssel").click(function() { //点击事件 选择专辑
+								
+								
+								var innerhtml = option[(this.selectedIndex)].innerText;
+								var unionId = option[(this.selectedIndex)].value;
+								for(var index = 0; index < listCurriculum.length; index++) {
+									if(unionId == listCurriculum[index].unionId) {
+										console.log(listCurriculum[index].videoType)
+										if(beginSelect){
+											oldSelectPos = index;
+											videoType = listCurriculum[index].videoType;
+											currNum = listCurriculum[index].curriculumNum;
+											localStorage.setItem('currNum', currNum);
+												$("#currNum").text(currNum);
+												if(videoType == 0){
+												$("#albumType").text("音频内容")
+											} else {
+												$("#albumType").text("视频内容")
+											}
+											funs.CurrNumber(currNum);
+										}else{
+											console.log(videoType)
+											if(videoType == listCurriculum[index].videoType){
+												oldSelectPos = index;
+												currNum = listCurriculum[index].curriculumNum;
+											localStorage.setItem('currNum', currNum);
+											$("#currNum").text(currNum);
+												if(videoType == 0){
+												$("#albumType").text("音频内容")
+											} else {
+												$("#albumType").text("视频内容")
+											}
+											funs.CurrNumber(currNum);
+											
+										}else{  
+											var options = document.getElementById('All_albumssel').children;
+									        options[oldSelectPos].selected=true;
+											var unionId = listCurriculum[oldSelectPos].unionId;
+											currNum = listCurriculum[oldSelectPos].curriculumNum;
+											localStorage.setItem('currNum', currNum);
+											$("#currNum").text(currNum);
+											funs.CurrNumber(currNum);
+										}
+										}
+										
+									
+										
+									
+									//	console.log(listCurriculum[index].videoType)
+										//console.log(videoType)
+										
+										//console.log(listCurriculum[index].unionName + " ; " + currNum)
+										break;
+									}
+								}
+								sessionStorage.setItem('unionId', unionId);
+
+							})
+
+						}
+					}
+					videoType = data.data.unionList[0].videoType   //首先给的默认值不影响后面的赋值，后面的赋值会自动更改默认值
+					if(videoType == 0){
+						$("#albumType").text("音频内容")
+					} else {
+						$("#albumType").text("视频内容")
+					}
+				})
+
+			//拖动排序  
+			'use strict';
+			var byId = function(id) {
+					return document.getElementById(id);
+				},
+				console = window.console;
+
+			Sortable.create(byId('video_list_li'), {
+				group: "words",
+				animation: 150,
+				store: {
+					get: function(sortable) {
+						var order = localStorage.getItem(sortable.options.group);
+
+						return order ? order.split('|') : [];
+					},
+					set: function(sortable) {
+						var order = sortable.toArray();
+						localStorage.setItem(sortable.options.group, order.join('|'));
+
+						var newIndex = localStorage.getItem('newIndex');
+						var oldIndex = localStorage.getItem('oldIndex');
+						if(newIndex != oldIndex) {
+							var temp = saveLocalFile[oldIndex];
+							saveLocalFile.splice(oldIndex, 1);
+							saveLocalFile.splice(newIndex, 0, temp);
+
+							var videoFile = saveLocalFile[oldIndex];
+							saveLocalFile.splice(oldIndex, 1);
+							saveLocalFile.splice(newIndex, 0, videoFile);
+						}
+						//console.log("oldIndex: " + oldIndex + " newIndex: " + newIndex)
+					}
+				},
+			});
+
+		})
+		
+
+		window.addEventListener("beforeunload", function(event) {
+			event = event || window.event;
+			var y = event.clientY;
+			releaseVideo = sessionStorage.getItem("releaseVideo", true);
+			console.log("点击其他操作 : " + releaseVideo)
+			if(releaseVideo == true || releaseVideo == 'true' || releaseVideo == "true") {
+
+			} else {
+				if(y <= 0 || y >= Math.max(document.body ? document.body.clientHeight : 0, document.documentElement ? document.documentElement.clientHeight : 0)) {
+					//IE 和 Firefox 
+					alert("IE or Firefox");
+					event.returnValue = "确定要刷新或关闭浏览器窗口？";
+				}
+				event.returnValue = "我在这写点东西...";
+			}
+
+		});
+
+		//			window.onbeforeunload = function(event) {
+		//			    event.returnValue = "我在这写点东西...";
+		//			};
+	</script>
+
+</html>

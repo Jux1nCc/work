@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>首页</title>
+	<link rel="stylesheet" type="text/css" href="../css/swiper.min.css" />
+	<link rel="stylesheet" type="text/css" href="../css/all.css" />
+	<link rel="stylesheet" type="text/css" href="../css/header.css" />
+	<link rel="stylesheet" type="text/css" href="css/index1.css?v=001" />
+</head>
+
+<body>
+	<div id="head"></div>
+	<section class="swiper-container">
+		<div class="swiper-wrapper">
+			<div class="section1 swiper-slide  slide1">
+				<div class="content">
+					<p>更自然地找到真爱</p>
+					<ul style="padding-left: 0;">
+						<li>免费<i></i>真实<i></i>防打扰</li>
+						<li>露不露脸你决定</li>
+					</ul>
+					<div class="btn">
+						<div class="btn1">
+							<div>
+								<img src="image/ios.png" width="28" height="28">
+								<p>ios下载</p>
+							</div>
+						</div>
+						<div class="btn2">
+							<div>
+								<img src="image/安卓.png" width="28" height="28">
+								<p>Android下载</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="zhe">
+					<video style="width: 100vw;" autoplay loop muted name="video" id="video" src="../mov/bg.mp4"></video>
+
+				</div>
+			</div>
+			<div class="section2 swiper-slide  slide2">
+				<div class="content">
+					<div class="left">
+						<img src="image/img2.png">
+					</div>
+					<div class="right">
+						<p>免费</p>
+						<ul style="padding-left: 0;">
+							<li>免费精准匹配对象</li>
+							<li>免费查看“喜欢的人”更多详细资料</li>
+							<li>免费查看、回复所有未读消息</li>
+							<li>免费语音视频聊天、回复喜欢的人</li>
+							<li>让你谈情说爱不为钱烦恼</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="section2  swiper-slide  slide3">
+				<div class="content">
+					<div class="left">
+						<img src="image/编组%2013.png">
+					</div>
+					<div class="right">
+						<p>真实</p>
+						<ul style="padding-left: 0;">
+							<li>身边的朋友都在用的婚恋交友APP</li>
+							<li>本人认证，年龄、身高、学历、收入、职业、户口、房车情况等多维度资料，24小时人工审核，确保用户信息真实可靠</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="section2  swiper-slide  slide4">
+				<div class="content">
+					<div class="left">
+						<img src="image/编组%208.png">
+					</div>
+					<div class="right">
+						<p>防打扰</p>
+						<ul style="padding-left: 0;">
+							<li>根据你所在位置、你的个人资料、你所填写的择偶要求，快速过滤掉不符合你要求的人，减少无效信息沟通</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="section2 swiper-slide  slide5">
+				<div class="content">
+					<div class="left">
+						<img src="image/编组%202.png">
+					</div>
+					<div class="right">
+						<p>露不露脸你决定</p>
+						<ul style="padding-left: 0;">
+							<li>好看的皮囊千篇一律</li>
+							<li>有趣的灵魂万里挑一</li>
+							<li>露不露脸，你说了算</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<nav>
+		<ul>
+			<li class="choose"></li>
+		</ul>
+	</nav>
+	<footer id="videoWrap">
+		<video src="../mov/video.mp4" loop autoplay muted></video>
+	</footer>
+	<!-- <div class="swiper-pagination"></div> -->
+	<script src="../js/jquery-3.4.1.min.js"></script>
+	<script src="../js/swiper.min.js"></script>
+	<script src="../js/config.js"></script>
+	<script src="../js/header.js"></script>
+	<script src="js/index1.js?v=001"></script>
+</body>
+<script>
+	// 移动端打开跳转到移动端页面
+	(function (doc, win) {
+		let docEl = doc.documentElement,
+			resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+			recalc = function () {
+				let clientWidth = docEl.clientWidth;
+				if (!clientWidth) return;
+				if (clientWidth <= 1000) {
+					window.location.href = "../../app/index.html";
+				}
+			};
+		if (!doc.addEventListener) return;
+		win.addEventListener(resizeEvt, recalc, false);
+		doc.addEventListener('DOMContentLoaded', recalc, false);
+	})(document, window);
+</script>
+
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<link rel="icon" href="../../img/favicon.ico" type="image/x-icon">
+		<title></title>
+		<link rel="stylesheet" href="../../public/css/style.css">
+		<link rel="stylesheet" href="../../package/layui/css/layui.css" />
+
+		<script type="text/javascript" src="../../package/layui/layui.js"></script>
+		<script src="../../public/js/public/jquery.min.js"></script>
+		<script src="../../public/js/index.js"></script>
+	</head>
+	<body>
+		<div id="help">
+			<div class="help_title">
+				<h3>你一定遇到了下面的问题</h3>
+			</div>
+			<div class="help_problem_list">
+				<ul id="help_Account">
+					<li class=""><strong>账号问题</strong></li>
+					<li><a href="javasceipt:;" class="qtione"  onclick="accountClick('account','qtione')">如何登陆我的账号？</a></li> 
+					<li><a href="javasceipt:;" class="qtitwe" onclick="accountClick('account','qtitwe')">如何找回密码？</a></li>
+					<li><a href="javasceipt:;" class="qtithree" onclick="accountClick('account','qtithree')">无法收到短信验证码？</a></li>
+					<li><a href="javasceipt:;" class="qtifour" onclick="accountClick('account','qtifour')">账号被封号怎么办？</a></li>
+					<li><a href="javasceipt:;" class="qtifure" onclick="accountClick('account','qtifure')">如何修改昵称？</a></li>
+				</ul>
+				<ul class="help_play">
+					<li><strong>播放问题</strong></li>
+					<li><a href="javasceipt:;" class="qtione" onclick="accountClick('play','qtione')">购买课程后怎么听课？</a></li>
+					<li><a href="javasceipt:;" class="qtitwe" onclick="accountClick('play','qtitwe')">视频课程播放没声音？闪退？</a></li>
+					<li><a href="javasceipt:;" class="" onclick="accountClick('play','qtithree')">课程可以下载吗？</a></li>
+					<li><a href="javasceipt:;" class="" onclick="accountClick('play','qtifour')">播放加载缓存慢，其他应用都是正常？</a></li>
+				</ul>
+				<ul class="help_courese">
+					<li><strong>课程问题</strong></li>
+					<li><a href="javasceipt:;" onclick="accountClick('courese','qtione')">新手必看！如何创建专辑并上传课程？</a></li>
+					<li><a href="javasceipt:;" onclick="accountClick('courese','qtitwe')">课程是直播还是录播？</a></li>
+					<li><a href="javasceipt:;" onclick="accountClick('courese','qtithree')">课程有效期是多久？</a></li>
+					<li><a href="javasceipt:;" onclick="accountClick('courese','qtifour')">课程可以试看吗？</a></li>
+				</ul>
+			</div>
+			
+			<div class="help_problem_list">
+				<ul class="help_user">
+					<li><strong>专家问题</strong></li>
+					<li><a href="javasceipt:;" onclick="accountClick('user','qtione')">如何入驻成为专家？</a></li>
+					<li><a href="javasceipt:;" onclick="accountClick('user','qtitwe')">如何修改自己的专家资料？</a></li>
+					<li><a href="javasceipt:;" onclick="accountClick('user','qtithree')">如何提现？</a></li>
+					<li><a href="javasceipt:;" onclick="accountClick('user','qtifour')">视频课程上传后审核需要多久？</a></li>
+				</ul>
+				<ul class="help_guide">
+					<li><strong>课程制作指南</strong></li>
+					<li><a href="../Description/usetutorial.html" target="_blank">录屏使用教程</a></li>
+					
+					<li><a href="javasceipt:;" onclick="accountClick('guide','qtione')">如何取一个有吸引力的标题？</a></li>
+					<li><a href="javasceipt:;" onclick="accountClick('guide','qtitwe')">成功案例：大数据告诉你，转化率最高的<br/>标题是怎么样的？</a></li>
+					<li><a href="javasceipt:;" onclick="accountClick('guide','qtithree')">优质专辑封面制作速成教程？</a></li>
+					
+				</ul>
+				<ul class="help_specification">
+					<li><strong>平台规范</strong></li>
+					<li><a href="javasceipt:;" onclick="accountClick('specification','qtione')">平台专辑封面上传规范。</a></li>
+					<li><a href="javasceipt:;" onclick="accountClick('specification','qtitwe')">录制上传的内容有什么要求？</a></li>
+					<li><a href="javasceipt:;" onclick="accountClick('specification','qtithree')">刷量对您的发展会有哪些潜在风险？</a></li>
+					<li><a href="javasceipt:;" onclick="accountClick('specification','qtifour')">咨聊平台违规行为说明？</a></li>
+					<li><a href="javasceipt:;" onclick="accountClick('specification','qtifoue')">平台作品标题输入规范？</a></li>
+					<li><a href="javasceipt:;" onclick="accountClick('specification','qtisix')">如何正确使用咨聊平台的内容？</a></li>
+				</ul>
+			</div>
+			
+			<div class="help_problem_list">
+			
+				<ul class="help_other">
+					<li><strong>常见问题</strong></li>
+					<li><a href="javasceipt:;" onclick="accountClick('other','qtione')">购买课程后可以退款吗？</a></li>
+					<li><a href="javasceipt:;" onclick="accountClick('other','qtitwe')">如何查询我的课程订单？</a></li>
+					<li><a href="javasceipt:;" onclick="accountClick('other','qtithree')">为什么会被封号？</a></li>
+					<li><a href="javasceipt:;" onclick="accountClick('other','qtifour')">“咨聊”App是否有电脑版？</a></li>
+					<li><a href="javasceipt:;" onclick="accountClick('other','qtifoue')">如何联系到客服？</a></li>
+				</ul>
+			</div>
+		</div>
+	</body>
+	<script>
+		
+		
+		function accountClick(type,tip) {  
+			//console.log(type + " ; " + tip)
+			switch(type){  
+				case "account":				
+					//跳转到账号
+					window.open('account.html?'+encodeURI(tip))
+					
+				break;
+				
+				case "play":
+					window.open('play.html?'+ encodeURI(tip))
+				break;
+				
+				case "courese":
+					window.open('courese.html?'+ encodeURI(tip))
+				break;
+				
+				case "user":
+					window.open('user.html?'+ encodeURI(tip))
+				break;
+				
+				case "guide":
+					window.open('guide.html?'+ encodeURI(tip))
+				break;
+				
+				case "specification":
+					window.open('specification.html?'+ encodeURI(tip))
+				break;
+				
+				case "other":
+					window.open('other.html?'+ encodeURI(tip))
+				break;
+				
+				default:
+				
+				break;
+			}
+			
+			
+		}
+	</script>
+	
+</html>

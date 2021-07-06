@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+	    
+<title>支付收银台</title> 
+<meta http-equiv="Content-type" content="text/html; charset=GBK"> 
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="format-detection" content="telephone=no"> 
+<link type="text/css" rel="stylesheet" href="/upay/wps/css/global.css"> 
+<link type="text/css" rel="stylesheet" href="/upay/wps/css/style.css"> 
+<meta http-equiv="Pragma" content="no-cache">
+	    <link type="text/css" rel="stylesheet" href="/upay/wps/css/ordercenter_dtl.css">
+	    <style type="text/css">
+	    	.backdiv{
+				position: absolute;
+			    width: 40px;
+			    height: 45px;
+			    z-index: 99999;
+			}
+	    </style>
+	    <script type="text/javascript" src="/upay/wps/js/jquery-1.4.2.min.js"></script>
+	</head>
+	<body class="bg_body">
+		<div id="barstlyflg">
+			<a id="iphoneSubmit" href="javascript:void(0)" style="display: none;"><div class="backdiv" style="left: 0px;"></div></a>
+			<div id="androidSubmit" class="backdiv" onclick="pagNtfUrl()" style="left: 0px;"></div>
+			<header class="tc bg_hd bg_head">
+			    <h2 class="ui_hd" style="background: url('/upay/wps/images/icon_b/arrow_l.png') no-repeat;background-position: 0px 7px;background-position-x: 1%;background-size:30px 30px;text-shadow: none;color:#000;">支付收银台</h2>
+			</header>
+		</div>
+		<section>
+		    
+    		<div class="sec_center img_center">
+    		    <p>
+    		       <img src="/upay/wps/images/fail_x.png" alt="Fail" width="45px;" height="45px;">
+    		    </p>
+    		    <p class="no_shadow">操作失败！</p>
+    		    <p class="c_grayb2 mt10">
+    		        
+    			        
+    			            
+        				        
+        				            该支付请求无效.
+        				        
+        				        
+    		                
+    			        
+    			        <!-- RPM31050： -->
+    			    
+    		    </p>
+    		    <div class="pd0_15 mtb50">
+			        <button id="androidSubmit2" type="button" class="ui_btn ui_btn_s2" onclick="pagNtfUrl()">完成</button>
+					<a id="iphoneSubmit2" class="ui_btn ui_btn_s2" style="display: none;" href="javascript:void(0)">完成</a>
+				</div>
+    		</div>
+		</section><!--/section-->
+		<script type="text/javascript">
+			var ORD_NO = "";
+			var SEA_URL = "http://www.js.10086.cn:80/upay/wps/service/queryFialParaForder.xhtml";
+			var pag_ntf_url = "";
+			$(function(){
+				searchUrl();
+			});
+			
+			function testbrowser(){
+		    	//判断移动端是iphone还是android
+		    	 var browser = {
+		 	   			versions : function() {
+		 	   				var u = navigator.userAgent, app = navigator.appVersion;
+		 	   				return { //移动终端浏览器版本信息 
+		 	   					ios : !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端 
+		 	   					android : u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或uc浏览器 
+		 	   					iPhone : u.indexOf('iPhone') > -1, //是否为iPhone或者QQHD浏览器 
+		 	   					iPad : u.indexOf('iPad') > -1, //是否iPad 
+		 	   				};
+		 	   			}(),
+		 	   		}
+		 	 		if (browser.versions.iPhone || browser.versions.iPad
+		 	 				|| browser.versions.ios) {
+		 	 			//alert("测试--我是ios");
+		 	 			addNtfUrlForIphone();
+		 	 			$("#androidSubmit").hide();
+		 	 			$("#androidSubmit2").hide();
+		 	 			$("#iphoneSubmit").show();
+		 	 			$("#iphoneSubmit2").show();
+		 	 		}else if (browser.versions.android) {
+		 	 			//alert("测试--我是安卓");
+		 	 			$("#androidSubmit").show();
+		 	 			$("#androidSubmit2").show();
+		 	 			$("#iphoneSubmit").hide();
+		 	 			$("#iphoneSubmit2").hide();
+		 	 		}else{
+		 	 			
+		 	 		}
+			}
+			
+			function searchUrl(){
+				if(ORD_NO=="" || ORD_NO==null){
+					return;
+				}
+				$.ajax({
+				        type: "POST",
+				        url:SEA_URL,
+				        data : {
+							"ORD_NO" : ORD_NO
+						},
+						dataType : "json",
+						success: function(msg) {
+							if ("RPM00000" == msg.GWA.MSG_CD) {
+								
+								if(msg.BARSTLYFLG!=null && msg.BARSTLYFLG!="" && msg.BARSTLYFLG!=undefined){
+									var barstlyflg = msg.BARSTLYFLG;
+									if(barstlyflg==1){
+										 $("#barstlyflg").hide();
+									}
+								}
+								
+								if(msg.PAG_NTF_URL!=null && msg.PAG_NTF_URL!="" && msg.PAG_NTF_URL!=undefined){
+									pag_ntf_url = msg.PAG_NTF_URL;
+								}
+							}
+							testbrowser();
+				        },
+						error: function(msg) {
+							testbrowser();
+				        }
+				    });
+			}
+			
+			function pagNtfUrl(){
+				if(pag_ntf_url==null || $.trim(pag_ntf_url)==""){
+					return;
+				}
+		    	window.location.href = pag_ntf_url;
+			}
+		    
+		    function addNtfUrlForIphone(){
+		    	if(pag_ntf_url==null || $.trim(pag_ntf_url)==""){
+					return;
+				}
+		    	$("#iphoneSubmit").attr("href",pag_ntf_url);
+		    	$("#iphoneSubmit2").attr("href",pag_ntf_url);
+		    }
+		    </script>
+		
+	
+</body>
+</html>

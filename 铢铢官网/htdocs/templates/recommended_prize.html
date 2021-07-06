@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0"/>
+		<title>建议有奖</title>
+		<link rel="icon" type="image/x-icon" href="/images/favicon.ico">  
+		<link rel="stylesheet" href="/css/common-xchl.css"/>
+	</head>
+	<style type="text/css">
+		body{
+			margin: 0;
+			padding: 0;
+		}
+		p{
+			margin: 0;
+			padding: 5px 0 0 0;
+		}
+		#buju{
+			width: 100%;
+			height: 100%;
+			/*border: 1px solid black;*/
+			background-color: #fff;
+		}
+		
+		#ding{
+			/*border: 1px solid red;*/
+			background-color: rgb(28,160,241);
+			border-radius:0px 0px 30px 30px;
+			padding: 20px;
+/* 			line-height:24px */
+		}
+		div{
+			font-size: 15px;
+			color: aliceblue;
+		}
+		#jiangli{
+			/*text-indent:260px;*/
+			text-align: center;
+			font-weight: bold;
+			margin: 20px 0;
+/* 			line-height:24px */
+		}
+		.tou{
+			/*text-indent:190px;*/
+			font-size:14px;
+			text-align:left;
+			line-height:24px;
+		}
+		.test{
+			font-size: 14px;
+ 			text-indent:50px; 
+			margin:0px;
+		}
+		form p{
+			color: black;
+			font-size: 14px;
+			font-weight: bold;
+			text-indent:20px;
+			margin: 20px 0 10px 0;
+		}
+		form input{
+			margin:0px 20px 0px 20px;
+			width: 90%;
+			height: 100%;
+			border: 1px solid #eee;
+			background-color: rgb(237 237 237);
+			font-size: 30px;
+		}
+		#jianyi>div{
+			border: 1px solid black;
+			width: 97%;
+			/* height: 300px; */
+			margin:25px 20px 0px 20px;
+			color: black;
+			overflow: hidden;
+		}
+		#jianyi textarea{
+			clear: both;
+			width: 100%;
+			height: 100%;
+			margin: 0;
+			border: none;
+			padding: 0;
+			outline: none;
+			resize:none;
+			font-size: 16px;
+		}
+		/* 图片上传 */
+		.imgUpdate{
+			width: 70px;
+			height: 70px;
+			background-color: #ccc;
+			float: left;
+			margin-left: 10px;
+			margin-bottom: 10px;
+			position: relative;
+			cursor: pointer;
+		}
+		.imgUpdate::after,
+		.imgUpdate::before{
+			content: '';
+			display: block;
+			background-color: #eee;
+			position: absolute;
+		}
+		.imgUpdate::before{
+			width: 60px;
+			height: 10px;
+			border-radius: 5px;
+			top: 50%;
+			left: 50%;
+			margin-left: -30px;
+			margin-top: -5px;
+		}
+		.imgUpdate::after{
+			width: 10px;
+			height: 60px;
+			border-radius: 5px;
+			top: 40%;
+			left: 50%;
+			margin-left: -5px;
+			margin-top: -23px;
+		}
+		.imgUpdate img{
+			position: absolute;
+			width: 70px;
+			height: 70px;
+			z-index: 1;
+			background-color: #ddd;
+		}
+		.imgUpdate .close{
+			background-color: #eee;
+			cursor: pointer;
+			display: block;
+			width: 30px;
+			height: 30px;
+			position: absolute;
+			border-radius: 50%;
+			z-index: 999;
+			right: 0;
+		}
+		.imgUpdate .close::before,
+		.imgUpdate .close:after{
+			content: '';
+			position: absolute;
+			width: 80%;
+			top: 50%;
+			left: 10%;
+			height: 2px;
+			margin-top: -1px;
+			border-radius: 1px;
+			background: #222;
+		}
+		.close::before {
+			transform: rotate(45deg);
+		}
+		.close::after {
+			transform: rotate(-45deg);
+		}
+		.file{
+			position: absolute;
+			width: 70zpx;
+			height: 70px;
+			left: 0;
+			top: 0;
+			cursor: pointer;
+			/* background-color: #33FF33; */
+			/* background-image: url(img/addpics.png);//定义背景图片， */
+			/* background-repeat: no-repeat; */
+			z-index: 100;
+			margin: 0;
+			opacity: 0;
+		}
+		#submit{
+			height: 40px;
+			width: 180px;
+			font-size:18px;
+			border-radius:20px 20px 20px 20px;
+			background-color: rgb(28,160,241);
+			margin:25px 0px 20px 25%;
+		}
+		textarea{
+			background-color: rgb(237,237,237,237);
+		}
+		#text{
+			background-color: rgb(237,237,237,237);
+			width: 90%;
+			
+		}
+		#test2{
+			color:rgb(166,213,248);
+ 			margin-top:30px; 
+/*  			margin-bottom:15px;  */
+			text-align: center;
+			font-size:12px;
+ 			text-indent:0px;
+			
+		}
+		#jiange{
+			margin-top:-10px;
+			
+		}
+		marquee{
+			background-color: #f5d225;
+			color:white;
+			font-size:18px;
+			margin: 0;
+			padding: 10px;
+			position: absolute;
+		}
+		#k{
+			font-size:18px;
+		}
+	</style>
+	<body>
+		<div id="buju">
+		<marquee direction="left" behavior="scroll" scrollamount="10" scrolldelay="200"> 
+		上月获奖名单：&nbsp;
+		恭喜159****6601的用户荣获一等奖(华为Mate20 pro一台)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		恭喜137****4680的用户荣获二等奖(华为Mate20一台)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		恭喜130****7095的用户荣获二等奖(华为Mate20一台)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		恭喜176****1069的用户荣获三等奖(100聊币)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		恭喜186****1907的用户荣获三等奖(100聊币)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		恭喜132****1011的用户荣获三等奖(100聊币)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		</marquee>
+		<p id="k">&nbsp;</p>
+			<div id="ding">
+				<p class="tou">为了不断改进产品，提升产品体验，让咨聊APP能更好的服务广大用户，咨聊开放接受用户反馈，我们将对提出优质建议的用户给予丰厚奖励！活动长期有效！</p>
+				<p id="jiangli">/&nbsp;&nbsp;奖励设置&nbsp;&nbsp;/</p>
+				<p class="test">一等奖（1名）：华为Mate20 pro一台/名</p>
+				<p class="test">二等奖（2名）：华为Mate20一台/名</p>
+				<p class="test">三等奖（3名）：100聊币/名</p>
+				<p class="test" id ="test2">获奖名单将会在每月7号前公布，<br>我们会有专人联系你领取奖品！</p>
+			</div>
+			<div id="">
+				<form >
+					<p>你的姓名</p><input type="text" name="" id="uname" value="" />
+					<p>电话号码</p><input type="text" name="" id="phone" value="" />
+					<div id="jianyi">
+					<p>建议详情</p>
+						<div id="text">
+							<textarea name="" id="test"></textarea>
+							<div class="imgUpdate"><input type="file" name="file" class="file" value="" src="img/addpics.png" accept="image/*"></div>
+							
+				
+							<!--<img src="img/addpics.png"/>-->
+						</div>
+					</div>
+					<input type="button" value="提交" id="submit"/>
+<!-- 					<input type="button" value="提交" id="submit" onclick="gatewaybillImportData();"/> -->
+				</form>
+			</div>
+		</div>
+		<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+		<script src="/ZiLiao/public/js/jquery.min.js"></script>
+		<script src="/js/common.js"></script>
+		<script>
+			$(function(){
+				customerId = getURLParameter("customerId");
+		 		sessionStorage.setItem('customerId',customerId);
+				// 上传图片预览及删除逻辑
+				$('#jianyi')
+					// 上传图片按钮
+					.on('change','.file',function(e){
+						var imgUrl = window.URL.createObjectURL(this.files[0]);  // 获取选择上传的图片路径
+
+						// 显示选择上传的图片
+						var imgHtml = `<img src="${imgUrl}"/><i class="close"></i>` 
+						$(this).parent().append(imgHtml);
+
+						// 如果没有超过9张 则添加上传图片DOM
+						if ($('.imgUpdate').length < 9) {
+							$(this).parent().parent().append('<div class="imgUpdate"><input type="file" name="file" class="file" value="" src="img/addpics.png"></div>');
+						}
+					})
+					// 删除已选上传图片按钮
+					.on('click','.close',function(e){
+						if ($('.close').length == 9 ) {
+							$(this).parent().parent().append('<div class="imgUpdate"><input type="file" name="file" class="file" value="" src="img/addpics.png"></div>');
+						}
+						$(this).parent().remove();
+					})
+					
+					//上传图片
+					$("#submit").click(function(){
+						var urls="";
+// 						urls = gatewaybillImportData();
+// 						alert(urls)
+				 		$('.file').each(function(i){
+				 			var xhr = new XMLHttpRequest();
+					 		var fd = new FormData();
+				 			var f = this.files[0];
+				 			if(undefined!=f){
+						 		fd.append('files', f);
+						 		fd.append("jsonpCallback",'jsonpCallback');
+						 		//请求
+						 		xhr.open("POST", "/api/customer/dataImport");
+								xhr.send(fd);
+								xhr.onload = function(e) { 
+									var obj = eval('(' + this.response + ')');
+									urls=urls+obj.url+",";
+									$("#submit").attr("name",urls);
+					 			}
+				 			}
+				 		})
+					    //给个定时任务，两秒之后执行获取相应的上传图片地址
+				 		var urls=setTimeout(attr, 2000); 
+					});
+				
+			})
+			
+			function attr(){
+				var name=$("#submit").attr("name");
+				//去掉最后一个逗号
+// 		 		if (name.length > 0) {
+// 		 			name = name.substr(0, name.length - 1);
+// 			    }
+				//alert(name)
+				var uname = $("#uname").val();
+				var phone = $("#phone").val();
+				var text = $("#test").val();
+				if(uname==null){
+					alert("请输入姓名！！")
+				}
+				if(phone==null){
+					alert("请输入手机号！！")
+				}
+				if(text==null){
+					alert("请输入您的建议内容！！")
+				}
+// 				alert("name="+name)
+// 				alert("uname="+uname)
+// 				alert("phone="+phone)
+// 				alert("text="+text)
+				var customerId = sessionStorage.getItem('customerId');
+				if(""!=customerId&&""!=phone&&""!=text){
+					$.post("/api/customerQuestion/insertCustomerQuestion",{"customerId":customerId,"question":text,"questionType":1,"tel":phone,"name":uname,"picturePath":name},function(data){
+						console.log(data)
+						if(data.result==true){
+							alert("提交成功!!")
+							//刷新页面
+							window.location.reload();
+						}else{
+							alert("提交失败!!")
+						}
+					});
+				}else{
+					alert("请填写完整的资料")
+				}
+				return name;
+			}
+			
+			function gatewaybillImportData(){
+					//返回路径
+				var urls="";
+		 		$('.file').each(function(i){
+		 			var xhr = new XMLHttpRequest();
+			 		var fd = new FormData();
+		 			var f = this.files[0];
+		 			if(undefined!=f){
+				 		fd.append('files', f);
+				 		fd.append("jsonpCallback",'jsonpCallback');
+				 		//请求
+				 		xhr.open("POST", "/api/customer/dataImport");
+						xhr.send(fd);
+						xhr.onload = function(e) { 
+							var obj = eval('(' + this.response + ')');
+							urls=urls+obj.url+",";
+							console.log(urls)
+			 			}
+		 			}
+		 		})
+		 		setTimeout("showTime()", 5000);
+		 		if (urls.length > 0) {
+				 	urls = urls.substr(0, urls.length - 1);
+				}
+		 		return urls;
+	 		}
+		</script>
+	</body>
+</html>

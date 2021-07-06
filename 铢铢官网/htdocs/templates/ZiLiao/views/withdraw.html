@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<link rel="icon" href="../img/favicon.ico" type="image/x-icon">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="keywords" content="" />
+		<title>提现</title>
+		<link rel="stylesheet" href="../public/css/withdraw.css">
+		<link rel="stylesheet" href="../package/layui/css/layui.css" />
+		<script type="text/javascript" src="../package/layui/layui.js"></script>
+		<script src="../public/js/public/jquery.min.js"></script>
+		<script src="../public/js/withdrow.js"></script>
+		<script src="../public/js/index.js"></script>
+
+	</head>
+
+	<body class="layui-layout-body">
+		<div class="layui-layout layui-layout-admin">
+			<div class="layui-header">
+				<div class="layui-logo"><img src="../img/logo.png"></div>
+				<!-- 头部区域（可配合layui已有的水平导航） -->
+				<ul class="layui-nav layui-layout-right" id="top_title_nav">
+					<li class="layui-nav-item">
+						<a href="../../index.html">首页</a>
+					</li>
+					<li class="layui-nav-item">
+						<a href="index.html" class="Page_jump">专家工作台</a>
+					</li>
+					<li class="layui-nav-item" style="display: none;">
+						<a href="javascript:;">消息</a>
+						<dl class="layui-nav-child">
+							<dd>
+								<a href="news.html" class="Page_jump">系统通知</a>
+							</dd>
+							<dd>
+								<a href="" class="Page_jump">专辑评论通知</a>
+							</dd>
+							<dd>
+								<a href="" class="Page_jump">课程评论通知</a>
+							</dd>
+							<dd>
+								<a href="" class="Page_jump">动态评论通知</a>
+							</dd>
+							<dd>
+								<a href="" class="Page_jump">账单通知</a>
+							</dd>
+						</dl>
+					</li>
+					<li class="layui-nav-item">
+						<a href="pay.html" >充值</a>
+					</li>
+					<li class="layui-nav-item">
+						<a href="withdraw.html" class="color_slect">提现</a>
+					</li>
+					<li class="layui-nav-item">
+						<a href="about.html">关于我们</a>
+					</li>
+					<li class="layui-nav-item">
+						<a  class="l_header_back">退出</a>
+					</li>
+				</ul>
+			</div>
+
+			<div class="layui-body">
+				<div class="l_withd l_pay l_sesame W1200">
+            <!-- 温馨提示 -->
+            <div class="l_reminder">
+                <h1>温馨提示：</h1>
+                <p>您在咨聊APP和咨聊官网都能进行提现。提交提现申请后，您可以到咨聊APP“我的-账单明细”中查询到提现记录。</p>
+            </div>
+            <!-- 内容 -->
+            <div class="l_sesame_con">
+                <div class="l_pay_top clearfix">
+                    <!-- 头像 -->
+                    <div class="l_sesame_head fl clearfix">
+                        <div class="l_sesame_head_img fl"><img src="" alt="" id="l_sesame_img"></div> 
+                        <div class="l_sesame_head_nam">
+                            <p></p>
+                            <h2>咨聊ID：<span></span></h2>
+                        </div>   
+                    </div>
+                    <!-- 右侧 -->
+                    <div class="l_pay_balan fl" style="margin-left:79px;">
+                        <h1>可提现收益</h1>
+                        <p><span></span>聊币</p>
+                    </div>
+                    <!-- 右侧 -->
+<!--                     <div class="l_withd_future fr"> -->
+<!--                         <h1>近五天收益</h1> -->
+<!--                         <h2><a href="javascript:;" id="scroll_l">（ 不可提现<em><img src="../img/why.png" alt=""></em>）</a></h2> -->
+<!--                         <h3><span>15</span>聊币</h3> -->
+<!--                     </div> -->
+                </div>
+                <!-- 输入内容 -->
+                <div class="l_withd_tex">
+                    <ul>
+                        <li class="clearfix">
+                            <span>真实姓名</span>
+                            <input type="text" id="Unam" placeholder="张三" onkeyup="this.value=this.value.replace(/^ +| +$/g,'')">
+                            <label class="user-update-hint" id="Unamhint"></label>
+                        </li>
+                        <li class="clearfix">
+                            <span>支付宝账号</span>
+                            <input type="text" id="Upha" placeholder="11111222@qq.com"   onkeyup="value=value.replace(/[\u4E00-\u9FA5]/g,'')">
+                        	 <label class="user-update-hint" id="Uphahint"></label>
+                        </li>
+                        <li class="clearfix">
+                            <span>验证码</span>
+                            <input type="number" class="Ucod" placeholder="验证码将发送到170****1234" onkeyup="this.value=this.value.replace(/^ +| +$/g,'')">
+                            <!-- 点击获取验证码 -->
+                            <div class="l_withd_code">
+                                <!--<button id="btninfo">获取验证码</button>-->
+                                <input type="button" id="btninfo" value="获取验证码">
+                            </div>
+                        </li>
+                        <li class="clearfix">
+                            <span>提现聊币</span>
+                            <input type="number" class="Uwit" placeholder="填写提现聊币数量" onkeyup="this.value=this.value.replace(/^ +| +$/g,'')">
+                            <!--<input type="number" class="Uwit" placeholder="填写提现聊币数量" readonly="readonly" onkeyup="this.value=this.value.replace(/^ +| +$/g,'')">-->
+                            <!-- 全部提现 -->
+                            <div class="l_withd_tx"><a href="javascript:;">全部提现</a></div>
+                        </li>
+                        <li class="clearfix">
+                            <span>实际到账金额</span>
+                            <input type="number" class="Umon" placeholder="0元" readonly="readonly" onkeyup="this.value=this.value.replace(/^ +| +$/g,'')">
+
+                            <!--<input type="text" class="Umon" placeholder="98元" onkeyup="this.value=this.value.replace(/^ +| +$/g,'')">-->
+                        </li>
+                    </ul>
+                </div>
+                <!-- 按钮 -->
+                <div class="l_public_btn">
+                    <a href="javascript:;" id="btn" style="color:#fff;">立即提现</a>
+                    <!--<a id="btn" style="color:#fff;">立即提现</a>-->
+                </div>
+                <!-- 提现规则 -->
+                <div class="l_withd_rule">
+                    <h1>提现规则：</h1>
+                    <p>1、提现时，按1聊币可兑现1元计算，结果采用四舍五入，保留两位小数。</p>
+                    <p>2、满50聊币才能提现。</p>
+                    <p>3、提现到支付宝每笔收取0.5%元，最少2元/笔，最高25元封顶（该费用由支付宝收取）。</p>
+                    <p>4、单笔提现聊币数50~5000聊币，单日限额5000聊币。</p>
+                    <p>5、周五、周六、周日、周一的提现金额，周二到账；周二、周三、周四的提现金额周五到账；月底和国家法定节假日，提现顺延到下一个周二、周五到账。</p>
+                    <p>6、提现申请时验证码将发送到该账号绑定的手机号，请先到咨聊APP绑定手机号再进行提现操作。</p>
+                </div>
+            </div>
+        </div>
+
+				<div class="footer">
+					<div class="container">
+						<ul class="about_info">
+							<li class="ablout_me">
+								联系我们
+							</li>
+							<li>
+								E-mail：zhengxm@expertol.cn
+							</li>
+							<li>
+								公司电话：0755-86957345
+							</li>
+							<li>
+								公司地址：深圳市南山区高新南八路
+							</li>
+							<li>
+								工勘大厦1903室
+							</li>
+						</ul>
+						<ul class="about_info">
+							<li class="ablout_me">用户协议</li>
+							<li>
+								<a href="privacy.html"  target="_blank">《用户隐私政策》</a>
+							</li>
+							<li>
+								<a href="protocol.html"  target="_blank">《用户协议政策》</a>
+							</li>
+						</ul>
+						<ul class="about_info">
+							<li class="ablout_me">商务合作</li>
+							<li>
+								<a href="withdraw.html">商务合作</a>
+							</li>
+						</ul>
+						<ul class="xz_eq">
+							<li class="ablout_me">微信服务号</li>
+							<li><img src="../img/icon_01.png"></li>
+						</ul>
+						<ul class="xz_eq">
+							<li class="ablout_me">客户端</li>
+							<li><img src="../img/download.png" class="ios_xzeq">
+								<a><img src="../img/iosxz.png" class="iosxz"></a><br>
+								<a><img src="../img/anzhuo.png" style="padding: 5px;"></a>
+							</li>
+						</ul>
+
+					</div>
+					<div class="copy-right-top">
+						<div class="copy-right">
+							© 2018 咨聊·Expertol All Rights Reserved. 粤ICP备18019391号
+						</div>
+
+					</div>
+				</div>
+
+			</div>
+
+		</div>
+	</body>
+	<script>
+		//JavaScript代码区域
+		layui.use(['layer', 'form', 'element'], function() {
+			var layer = layui.layer,
+				form = layui.form,
+				element = layui.element,
+				laypage = layui.laypage
+		});
+		
+		
+	</script>
+
+</html>

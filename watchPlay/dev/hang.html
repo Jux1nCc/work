@@ -1,0 +1,248 @@
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0, viewport-fit=cover">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="msapplication-tap-highlight" content="no">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Cache-Control" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <title>看直播 拿花式福利</title>
+  <link rel="stylesheet" href="http://activity.folkcam.cn/common/comm.css">
+  <link rel="stylesheet" href="http://activity.folkcam.cn/common/layer/theme/default/layer.css">
+  <style>
+    .wrap {
+      position: relative;
+      width: 100%;
+      /* height: 100vh; */
+      height: 75vh;
+      margin: 20% auto;
+      background-image: url("images/hang_0.png");
+      background-size: 100% 100%;
+    }
+
+    .main {
+      position: absolute;
+      /* bottom: 10%; */
+      bottom: 13%;
+      left: 12%;
+      width: 74%;
+      /* height: 27%; */
+      height: 31%;
+      /* background-color: rgba(0, 0, 0, .5); */
+      justify-content: space-around;
+      border-top-left-radius: 10%;
+      border-top-right-radius: 10%;
+      overflow: hidden;
+    }
+
+    .main>div {
+      position: relative;
+      width: 100%;
+      height: 45%;
+    }
+
+    .progress {
+      width: 0%;
+      height: 100%;
+      border-top-right-radius: 1rem;
+      border-bottom-right-radius: 1rem;
+      background-color: #7b00ff;
+    }
+
+    .text {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      justify-content: space-between;
+      padding: 0 5%;
+    }
+
+    .text span {
+      color: #fff;
+      font-size: .4rem;
+    }
+
+    .btn {
+      background: linear-gradient(90deg, #f96486, #f13150);
+      width: 80%;
+      height: 60%;
+      border-radius: 1rem;
+      font-size: .5rem;
+      color: #fff;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap" onclick="openHang()">
+    <div class="main column">
+      <div class="live-time">
+        <div class="progress"></div>
+        <div class="text flexbox">
+          <span>看播时长</span>
+          <span class="value">
+            <span class="curr-value">0</span>/<span class="goal-value">10</span>
+          </span>
+          <!-- <div class="btn flexbox">领取奖励</div> -->
+        </div>
+      </div>
+      <div class="send-message">
+        <div class="progress"></div>
+        <div class="text flexbox">
+          <span>发送评论</span>
+          <span class="value">
+            <span class="comment-curr-value">0</span>/<span class="comment-goal-value">30</span>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+<script src="http://activity.folkcam.cn/common/config.js"></script>
+<script src="http://activity.folkcam.cn/common/app.js"></script>
+<script src="http://activity.folkcam.cn/common/jquery.min.js"></script>
+<script src="http://activity.folkcam.cn/common/layer/layer.js"></script>
+<script src="http://activity.folkcam.cn/common/rem.js"></script>
+<script>
+  // 挂件页
+  var hang = {
+    env: 'demo',
+    // token: $config.getQueryStringByName("token"),
+    customerId: $config.getQueryStringByName("customerId"),
+    liveCustomerId: $config.getQueryStringByName("liveCustomerId"),
+    init: function () {
+      hang.created()
+    },
+    created: function () {
+      var parmas = {
+        // token: hang.token,
+        customerId: hang.customerId,
+        liveCustomerId: hang.liveCustomerId
+      }
+      $.ajax({
+        type: 'GET',
+        url: $config.toUrl(hang.env, '/api/liveAct/getWatchAndLiveTaskSchedule'),
+        data: parmas,
+        dataType: 'json',
+        success: function (res) {
+          if (res.result) {
+            hang.mounted(res.data)
+          } else {
+            layer.msg(res.message)
+          }
+        },
+        error: function () {
+          layer.msg('网络异常', {
+            time: false,
+            shade: 0.5
+          })
+        }
+      })
+    },
+    mounted: function (data) {
+      data.currValue = parseInt(data.currValue / 60)
+      data.goalValues[0] = parseInt(data.goalValues[0] / 60)
+      data.goalValues[1] = parseInt(data.goalValues[1] / 60)
+      data.goalValues[2] = parseInt(data.goalValues[2] / 60)
+      if (data.currValue < data.goalValues[0]) {
+        $('.live-time .text').html(
+          '<span>看播时长</span>' +
+          '<span class="value">' +
+          '<span class="curr-value">0</span>/' +
+          '<span class="goal-value">10</span></span>'
+        )
+        $('.live-time .text').css('justify-content', 'space-between')
+        $('.curr-value').text(data.currValue)
+        $('.goal-value').text(data.goalValues[0])
+        $('.live-time .progress').css('width', data.currValue / data.goalValues[0] * 100 + '%')
+      } else {
+        if (data.isGets[0] == 0) {
+          $('.live-time .text').css('justify-content', 'center')
+          $('.live-time .text').html('<div class="btn flexbox">领取奖励</div>')
+          $('.live-time .progress').css('width', '0')
+        } else {
+          if (data.currValue < data.goalValues[1]) {
+            $('.live-time .text').html(
+              '<span>看播时长</span>' +
+              '<span class="value">' +
+              '<span class="curr-value">0</span>/' +
+              '<span class="goal-value">10</span></span>'
+            )
+            $('.live-time .text').css('justify-content', 'space-between')
+            $('.curr-value').text(data.currValue)
+            $('.goal-value').text(data.goalValues[1])
+            $('.live-time .progress').css('width', data.currValue / data.goalValues[1] * 100 + '%')
+          } else {
+            if (data.isGets[1] == 0) {
+              $('.live-time .text').css('justify-content', 'center')
+              $('.live-time .text').html('<div class="btn flexbox">领取奖励</div>')
+              $('.live-time .progress').css('width', '0')
+            } else {
+              if (data.currValue < data.goalValues[2]) {
+                $('.live-time .text').html(
+                  '<span>看播时长</span>' +
+                  '<span class="value">' +
+                  '<span class="curr-value">0</span>/' +
+                  '<span class="goal-value">10</span></span>'
+                )
+                $('.live-time .text').css('justify-content', 'space-between')
+                $('.curr-value').text(data.currValue)
+                $('.goal-value').text(data.goalValues[2])
+                $('.live-time .progress').css('width', data.currValue / data.goalValues[2] * 100 + '%')
+              } else {
+                if (data.isGets[2] == 0) {
+                  $('.live-time .text').css('justify-content', 'center')
+                  $('.live-time .text').html('<div class="btn flexbox">领取奖励</div>')
+                  $('.live-time .progress').css('width', '0')
+                } else {
+                  $('.live-time .value').html('<span>已领奖</span>')
+                  $('.live-time .progress').css('width', '0')
+                }
+              }
+            }
+          }
+        }
+      }
+      if (data.commentIsGet) {
+        $('.send-message .value').html('<span>已领奖</span>')
+        $('.send-message .progress').css('width', '0')
+      } else {
+        if (!data.commentCurrValue) data.commentCurrValue = 0
+        if (data.commentCurrValue < data.commentGoalValue) {
+          $('.comment-curr-value').text(data.commentCurrValue)
+          $('.send-message .progress').css('width', data.commentCurrValue / data.commentGoalValue * 100 + '%')
+        } else {
+          if (data.currValue < data.goalValues[2]) {
+            $('.comment-curr-value').text(data.commentCurrValue)
+            $('.send-message .progress').css('width', '100%')
+          } else {
+            $('.send-message .text').html('<div class="btn flexbox">领取奖励</div>')
+            $('.send-message .text').css('justify-content', 'center')
+            $('.send-message .progress').css('width', '0')
+          }
+        }
+      }
+      if (data.isGets[0] == data.isGets[1] == data.isGets[2] == 1 && data.commentIsGet) {
+        $('.wrap').css('background-image', 'url(images/hang_10.png)').html('')
+      }
+    }
+  }
+  hang.init()
+  setInterval(() => {
+    if ($config.browser.versions.android) {
+      client.toastText()
+    } else {
+      window.webkit.messageHandlers.toastText.postMessage({})
+    }
+    // hang.init()
+  }, 30000);
+</script>
+
+</html>

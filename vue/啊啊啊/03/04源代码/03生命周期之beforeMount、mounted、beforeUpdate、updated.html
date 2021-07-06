@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- 生命周期
+    beforeCreate:创建前，它还不能访问data与methods
+    created:创建后，它可以访问data与methods,它还不能访问vue渲染后的dom
+    beforeMount:渲染前，准备渲染数据，但是还没开始渲染，所以还是不能访问vue渲染后的dom
+    mounted:渲染后，可以访问vue渲染后的dom,它是第一个可以访问vue渲染后的dom的生命周期（进入页面dom操作就在这里进行）
+    上面四个生命周期只会执行一次
+    beforeUpdate:更新前，vue页面上使用的数据已修改，但是还没有完成渲染
+    updated:更新后，vue页面上使用的数据已修改且页面已完成渲染
+    下面二个只要vue页面上使用的数据已修改，都会触发
+
+    created:进入页面接口调用
+    mounted：进入页面dom操作
+    beforeUpdate ,updated在实际项目中不要使用
+
+    ref获取dom
+    1:在标签上定义一个ref  ref="值"
+    2：this.$refs.ref值
+    -->
+    <div id="app">
+      <button @click="btnClick">点我啊</button>
+      <div id="wrapper" ref="xxx">{{msg}}</div>
+    </div>
+    <script src="./vue.js"></script>
+    <script>
+      new Vue({
+        el: "#app",
+        data: {
+          msg: "这是一个寂寞的天",
+          a: 0,
+        },
+        created() {
+          window.console.log("原生写法:", document.getElementById("wrapper"));
+          window.console.log("vue写法:", this.$refs.xxx);
+        },
+        beforeMount() {
+          window.console.log("beforeMount:", this.$refs.xxx);
+        },
+        mounted() {
+          window.console.log("mounted:", this.$refs.xxx);
+        },
+        beforeUpdate() {
+          window.console.log("beforeUpdate");
+          debugger;
+        },
+        updated() {
+          window.console.log("updated");
+          debugger;
+        },
+        methods: {
+          btnClick() {
+            debugger;
+            // this.msg = Math.random() * 999;
+            this.a = Math.random() * 999;
+            window.console.log(this.a);
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

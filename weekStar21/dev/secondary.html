@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0, viewport-fit=cover">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="msapplication-tap-highlight" content="no">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Cache-Control" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <title>我的最强助攻榜</title>
+  <link rel="stylesheet" href="http://activity.folkcam.cn/common/comm.css">
+  <link rel="stylesheet" href="http://activity.folkcam.cn/common/layer/theme/default/layer.css">
+  <!-- <link rel="stylesheet" href="secondary.css?v=001"> -->
+  <style>
+    .page {
+      position: relative;
+      width: 100vw;
+      background: linear-gradient(#703efd, #e562ce);
+      padding-bottom: .7rem;
+    }
+
+    .page.init {
+      height: 15rem;
+    }
+
+    header {
+      width: 95%;
+      height: 6.65rem;
+      background-image: url(images/head.png);
+      background-size: 100% 100%;
+      margin-bottom: .5rem;
+    }
+
+    .back-home-btn {
+      position: absolute;
+      right: 0;
+      top: 5rem;
+      width: 1.38rem;
+      height: .66rem;
+      background-size: 100% 100%;
+      z-index: 99;
+      background-image: url(images/back_homepage.png);
+    }
+
+    .rank-wrap {
+      width: 6.78rem;
+      background-color: #ba77f4;
+      border: 0.04rem solid #ffd5fb;
+      border-radius: .18rem;
+      margin: 0 auto;
+    }
+
+    .rank-nav {
+      width: 100%;
+      height: .9rem;
+    }
+
+    .rank-nav-item {
+      width: 100%;
+      height: 100%;
+      font-size: .32rem;
+      color: #ffe9f3;
+      text-align: center;
+      line-height: .9rem;
+    }
+
+    .rank-nav-1 {
+      color: #ffe179;
+      background-image: url("images/rank1_nav_1.png");
+      background-size: 100% 100%;
+    }
+
+    .rank-nav-2 {
+      border-bottom: 0.04rem solid #ffe37f;
+    }
+
+    .rank-main.init {
+      height: 3rem;
+      text-align: center;
+      line-height: 3rem;
+    }
+
+    .rank-main .init-text {
+      font-size: .36rem;
+      color: #ffe179;
+      font-weight: 700;
+      height: 2rem;
+      text-align: center;
+      line-height: 2rem;
+    }
+
+    .init-text i {
+      display: inline-block;
+      width: .66rem;
+      height: .41rem;
+      background-image: url(images/crown.png);
+      background-size: 100% 100%;
+      margin-right: .3rem;
+    }
+
+    .rank-main ul {
+      margin-top: .4rem;
+      padding: 0.1rem .3rem;
+    }
+
+    .rank-main ul.full {
+      height: 12.4rem;
+      overflow: hidden;
+      overflow-y: auto;
+    }
+
+    .rank-main li {
+      position: relative;
+      width: 6.27rem;
+      height: 1.75rem;
+      background-color: #7828e6;
+      border-radius: .1rem;
+      margin-bottom: .15rem;
+      justify-content: space-around;
+      padding-right: 1.5rem;
+    }
+
+    .rank-main li.look-more {
+      background-color: rgba(0, 0, 0, 0);
+      border: none;
+      box-shadow: none;
+      justify-content: center;
+      height: .5rem;
+      margin: 0;
+      color: #fff;
+      font-size: .3rem;
+    }
+
+    .li-title {
+      position: absolute;
+      top: -3%;
+      left: 34%;
+      width: 2.68rem;
+      height: .5rem;
+      background-image: url(images/homepage_rankitem_title.png);
+      background-size: 100% 100%;
+      font-size: .24rem;
+      color: #ffe179;
+      text-align: center;
+      line-height: .5rem;
+    }
+
+    .li-num {
+      width: .38rem;
+      height: .46rem;
+      font-size: .26rem;
+      color: #fff;
+      font-weight: 700;
+      text-align: center;
+      line-height: .46rem;
+    }
+
+    .li-num img {
+      width: 100%;
+      height: 100%;
+    }
+
+    .li-pic {
+      position: relative;
+    }
+
+    .li-pic img {
+      width: 1.25rem;
+      height: 1.25rem;
+      border: 0.06rem solid #f781ff;
+      border-radius: 50%;
+      box-shadow: 0 0 .2rem #7a50bf;
+    }
+
+    .li-pic .crown {
+      position: absolute;
+      top: -10%;
+      left: -10%;
+      width: .66rem;
+      height: .41rem;
+      background-image: url(images/crown.png);
+      background-size: 100% 100%;
+      transform: rotate(-30deg);
+    }
+
+    .li-pic .live-icon {
+      left: 20%;
+    }
+
+    .li-info {
+      height: .7rem;
+    }
+
+    .li-info div {
+      font-size: .24rem;
+      color: #7bd0fe;
+    }
+
+    .li-info span {
+      font-size: .24rem;
+      color: #ffd258;
+    }
+
+    .live-icon {
+      position: absolute;
+      bottom: 0;
+      left: 32%;
+      width: .8rem;
+      height: .32rem;
+      background-color: #52c0f5;
+      border-radius: .2rem;
+      font-size: .22rem;
+      color: #fff;
+      z-index: 3;
+    }
+
+    #openOutApp {
+      width: 5.46rem;
+      height: 8.54rem;
+      background-image: url(images/miyi.png);
+      background-size: 100% 100%;
+      margin: 0 auto;
+    }
+
+    .to-download {
+      width: 2rem;
+      height: .64rem;
+      bottom: 40%;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page init">
+    <header></header>
+    <div class="back-home-btn" onclick="toHomePage()"></div>
+    <div class="rank-wrap">
+      <div class="rank-nav flexbox">
+        <div class="rank-nav-item rank-nav-1" onclick="changeNav(this,1)">日榜助攻</div>
+        <div class="rank-nav-item rank-nav-2" onclick="changeNav(this,2)">周榜助攻</div>
+      </div>
+      <div class="rank-main">
+        <div class="init-text">
+          <i></i>排名暂未产生，敬请期待
+        </div>
+        <ul class="popup">
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="dialog">
+    <div id="openOutApp" class="popup">
+      <button class="dialog-ok to-download" onclick="download()"></button>
+      <button class="dialog-close login-close"></button>
+    </div>
+  </div>
+</body>
+<script src="http://activity.folkcam.cn/common/rem.js"></script>
+<script src="http://activity.folkcam.cn/common/app.js"></script>
+<script src="http://activity.folkcam.cn/common/config.js"></script>
+<script src="http://activity.folkcam.cn/common/jquery.min.js"></script>
+<script src="http://activity.folkcam.cn/common/layer/layer.js"></script>
+<script src="http://res.cdn.openinstall.io/openinstall.js"></script>
+<script>
+  var week = {
+    env: 'demo',
+    customerId: $config.getQueryStringByName("customerId"),
+    isFrom: $config.getQueryStringByName("isFrom"),
+    token: $config.getQueryStringByName("token"),
+    type: $config.getQueryStringByName("type"),
+    appType: $config.getQueryStringByName("appType"),
+    appBool: openInWebview(),// 是否app外打开
+    rank: null,
+    page: 1,
+    pageSize: 15,
+    app: [{  //兔聊  
+      name: '兔聊',
+      downloadUrl: 'https://www.expertol.cn/',
+      appKey: 'bmhy9f',
+      vipName: '会员',
+      util: '聊币',
+      title: '发现身边的俊男美女，线上聊，线下约。快来找我吧，点击进入 >',
+      textContent: '发现身边“美”一刻',
+      umImage1: 'https://jw-yunying.oss-cn-shenzhen.aliyuncs.com/share/image/defaultShare.jpg'
+    },
+    { //觅伊
+      name: '觅伊',
+      downloadUrl: 'http://www.rklive888.com/',
+      appKey: 'c6xjxt',
+      vipName: '贵族',
+      util: '钻石',
+      title: '找对象 上觅伊',
+      textContent: '6000万人都在玩的交友APP',
+      umImage1: 'https://jw-yunying.oss-cn-shenzhen.aliyuncs.com/share/image/defaultShare.jpg'
+    }],
+    created: function (type) {
+      var parmas = {
+        customerId: week.customerId,
+        token: week.token,
+        type: type,
+        page: 1,
+        pageSize: week.pageSize
+      }
+      $.ajax({
+        type: 'GET',
+        url: $config.toUrl(week.env, '/act/weekstar/v2/getRankCustomer'),
+        data: parmas,
+        dataType: 'json',
+        success: function (res) {
+          if (res.result) {
+            week.rank = res.data.ranks
+            week.mounted(res.data, type)
+          } else {
+            $config.yfAlert(res.message)
+          }
+        },
+        error: function (error) {
+          layer.msg('网络异常', {
+            time: false,
+            shade: 0.5
+          })
+        }
+      })
+    },
+    mounted: function (data, type) {
+      if (type == 5) {
+        $($('.rank-nav-item')[0]).addClass('rank-nav-2').removeClass('rank-nav-1').siblings('.rank-nav-item').addClass('rank-nav-1').removeClass('rank-nav-2')
+      }
+      if (data.ranks && data.ranks.length > 0) {
+        if (data.ranks.length > 2) {
+          $('.page').removeClass('init')
+        }
+        $('.init-text').addClass('popup')
+        $('.rank-main ul').removeClass('popup').html(' ')
+        if (data.ranks.length >= 7) {
+          $('.rank-main ul').addClass('full')
+        } else {
+          $('.rank-main ul').removeClass('full')
+        }
+        for (var i = 0; i < data.ranks.length; i++) {
+          var str =
+            '<li class="flexbox">' +
+            '<div class="li-title ' + (i < 3 ? '' : 'popup') + '">第' + (i == 0 ? '一' : (i == 1 ? '二' : '三')) + '名</div>' +
+            '<div class="li-num">' +
+            '<img class="' + (i < 3 ? '' : 'popup') + '" src="images/homepage_pic_' + (i == 0 ? '1' : (i == 1 ? '2' : '3')) + '.png">' + (i > 2 ? i + 1 : '') + '</div>' +
+            '<div class="li-pic" onclick="jumpToPersonal(' + data.ranks[i].customerId + ')">' +
+            '<div class="crown ' + (i == 0 ? '' : 'popup') + '"></div>' +
+            '<img src="' + data.ranks[i].photo + '?x-oss-process=image/resize,m_mfit,h_80,w_80">' + (i == 0 ? '<div class="live-icon flexbox">星探</div>' : '') + '</div>' +
+            '<div class="li-info column">' +
+            '<div class="li-name">' + data.ranks[i].nickName + '</div>' +
+            '<div class="li-value">贡献积分: <span>' + fmoney(data.ranks[i].gainGiftAmt) + '</span></div>' +
+            '</div>' +
+            '</li>'
+          $('.rank-main ul').append(str)
+        }
+        if (data.ranks.length >= 15) {
+          $('.rank-main ul').append('<li class="flexbox look-more" onclick="lookMore(this,' + type + ')">点击查看更多<i class="look-more-icon"></i></li>')
+        }
+      }
+    }
+  }
+  function toHomePage() {
+    if (!week.appBool) {
+      if (week.appType == 1) {
+        $('#openOutApp').css('background-image', 'url(images/tuliao.png)')
+      }
+      $config.dialogComm($('#openOutApp'), 'openOutApp')
+      return
+    }
+    window.history.go(-1)
+  }
+  function changeNav(that, type) {
+    $(that).addClass('rank-nav-1').removeClass('rank-nav-2').siblings('.rank-nav-item').addClass('rank-nav-2').removeClass('rank-nav-1')
+    week.created(type == 1 ? 4 : 5)
+  }
+  function fmoney(s) {
+    s = parseFloat((s + "").replace(/[^\d\.-]/g, "")) + "";
+    var l = s.split(".")[0].split("").reverse();
+    t = "";
+    for (i = 0; i < l.length; i++) {
+      t += l[i] + ((i + 1) % 3 == 0 && (i + 1) != l.length ? "," : "");
+    }
+    return t.split("").reverse().join("");
+  }
+  function lookMore(that, type) {
+    $(that).addClass('popup')
+    week.page++
+    if (week.rank.length > 285) {
+      $('.rank-main ul').append('<li class="flexbox look-more">榜单最多展示前300位用户</li>')
+      return
+    }
+    var parmas = {
+      customerId: week.customerId,
+      token: week.token,
+      type: type,
+      page: week.page,
+      pageSize: week.pageSize
+    }
+    $.ajax({
+      type: 'GET',
+      url: $config.toUrl(week.env, '/act/weekstar/v2/getRankCustomer'),
+      data: parmas,
+      dataType: 'json',
+      success: function (res) {
+        if (res.result) {
+          for (var i = 0; i < res.data.ranks.length; i++) {
+            week.rank.push(res.data.ranks[i])
+            var str =
+              '<li class="flexbox">' +
+              '<div class="li-num">' + week.rank.length + '</div>' +
+              '<div class="li-pic" onclick="jumpToPersonal(' + res.data.ranks[i].customerId + ')">' +
+              '<img src="' + res.data.ranks[i].photo + '?x-oss-process=image/resize,m_mfit,h_80,w_80">' +
+              '</div>' +
+              '<div class="li-info column">' +
+              '<div class="li-name">' + res.data.ranks[i].nickName + '</div>' +
+              '<div class="li-value">贡献积分: <span>' + fmoney(res.data.ranks[i].gainGiftAmt) + '</span></div>' +
+              '</div>' +
+              '</li>'
+            $('.rank-main ul').append(str)
+          }
+          if (res.data.ranks.length >= 15) {
+            $('.rank-main ul').append('<li class="flexbox look-more" onclick="lookMore(this)">点击查看更多<i class="look-more-icon"></i></li>')
+          } else {
+            $('.rank-main ul').append('<li class="flexbox look-more">你已经看到了我的底线~</li>')
+          }
+        } else {
+          $config.yfAlert(res.message)
+        }
+      },
+      error: function (error) {
+        layer.msg('网络异常', {
+          time: false,
+          shade: 0.5
+        })
+      }
+    })
+  }
+  function download() {
+    layer.closeAll()
+    if ($config.browser.versions.android) {
+      window.location.href = week.app[week.appType - 1].downloadUrl
+    } else {
+      if (week.appType == 1) {
+        window.location.href = week.app[0].downloadUrl
+      } else {
+        var data = OpenInstall.parseUrlParams();//openinstall.js中提供的工具函数，解析url中的所有查询参数
+        new OpenInstall({
+          /*appKey必选参数，openinstall平台为每个应用分配的ID*/
+          appKey: week.app[1].appKey,
+          onready: function () {
+            var m = this;
+            /*在app已安装的情况尝试拉起app*/
+            m.schemeWakeup();
+            // 未安装时去Appstore
+            m.wakeupOrInstall();
+          }
+        })
+      }
+    }
+  }
+  function shareTc() {
+    var img = "http://miyiurl.rklive888.com/activities/weekstar21/dev/images/miao.png",
+      title = '礼物周星争夺战',
+      subtitle = '守擂周星, 做璀璨周星主播',
+      sharingState = 'weekstarsV2',
+      apptype = week.appType
+    var path = window.location.href.split('?')[0], url = '',
+      arr = window.location.href.split('?')[1].split('&'), result = [];
+    for (var i = 0; i < arr.length; i++) {
+      (function (index) {
+        var item = arr[index];
+        if (item.indexOf('customerId') < 0 && item.indexOf('token') < 0 && item.indexOf('isFrom') < 0) {
+          result.push(item)
+        }
+      })(i)
+    }
+    result.push('isFrom=h5');
+    query = result.join('&');
+    if (apptype) {
+      url = path + '?' + query + '&appType=' + apptype;
+    } else {
+      url = path + '?' + query;
+    }
+    if (browser.versions.android) {
+      client.jumpToShare(img, title, url, subtitle, sharingState);
+    } else {
+      window.webkit.messageHandlers.jumpToShare.postMessage({
+        img: img,
+        title: title,
+        url: url,
+        subtitle: subtitle,
+        type: sharingState,
+        shareLink: 0,
+      });
+    }
+  }
+  week.created(week.type == 1 ? 4 : 5)
+</script>
+
+</html>

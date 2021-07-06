@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>悦听</title>
+  <style>
+    .flex{
+      display: flex;
+      align-items: center;
+    }
+    .flexbox{
+      display: flex;
+      flex-direction: column;
+    }
+    img{
+      width: 30px;
+      height: 30px;
+      border-radius: 30px;
+    }
+    .pinlun{
+      height: 500px;
+      overflow: auto;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <input v-model="songName" type="text" @keyup.enter="search" />
+    <div class="main flex">
+      <div class="songList">
+        <div class="songItem" v-for="(item, index) in songList" :key="index" @click='playSong(item.id)' v-text="item.name"></div>
+      </div>
+      <div class="radioImg"></div>
+      <div class="pinlun">
+        <div>热门留言</div>
+        <div v-for="(item, index) in pinlunList" :key="index" class="flexbox">
+          <div class="flex">
+            <img :src="item.user.avatarUrl" alt="">
+            <div class="name" v-text="item.user.nickname"></div>
+          </div>
+          <div class="neirong" v-text="item.content"></div>
+        </div>
+      </div>
+    </div>
+    <audio :src="songUrl" autoplay='autoplay' loop='loop' controls='controls'></audio>
+  </div>
+</body>
+<script src="../js/vue.js"></script>
+<script src="../js/axios.js"></script>
+<script>
+  // https://autumnfish.cn/search
+  // https://autumnfish.cn/comment/music?id=186016&limit=1
+  new Vue({
+    el:'#app',
+    data(){
+      return {
+        songName:'',
+        songList:[],
+        pinlunList: [],
+        songUrl:''
+      }
+    },
+    methods:{
+      search(){
+        axios({
+          url:'https://autumnfish.cn/search',
+          params:{ keywords : this.songName }
+        }).then(res=>{
+          console.log(res);
+          this.songList = res.data.result.songs
+        })
+      },
+      playSong(id){
+        this.getUrl(id)
+        this.getComm(id)
+      },
+      getComm(id){
+        axios({
+          url:'https://autumnfish.cn/comment/music',
+          params:{id,limit:20}
+        }).then(res=>{
+          console.log(res);
+          this.pinlunList = res.data.hotComments
+        })
+      },
+      getUrl(id){
+        axios({
+          url:'https://autumnfish.cn/song/url',
+          params:{id}
+        }).then(res=>{
+          console.log(res);
+          this.songUrl = res.data.data[0].url
+        })
+      }
+    }
+  })
+</script>
+</html>

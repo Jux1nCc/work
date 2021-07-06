@@ -1,0 +1,13 @@
+<view>
+  <button class="weui-btn weui-btn_primary">
+    主操作
+  </button>
+  <button class="weui-btn weui-btn_primary weui-btn_loading">
+    <i class="weui-loading"></i>正在加载
+  </button>
+  <button class="weui-btn weui-btn_primary weui-btn_disabled">
+    禁止点击
+  </button>
+  <navigator url="../mine/mine">前往首页</navigator>
+  <button bind:tap="buttonHandler">前往首页</button>
+</view>

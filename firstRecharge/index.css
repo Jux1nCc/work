@@ -1,0 +1,614 @@
+.page{
+  position: relative;
+  width: 100vw;
+  background: linear-gradient(#fec453,#fe4e4e);
+}
+header{
+  width: 100%;
+  height: 6rem;
+  background-image: url("images/head.png");
+  background-size: 100% 100%;
+}
+.rule-btn{
+  position: absolute;
+  right: 0;
+  top: .35rem;
+  width: 1.72rem;
+  height: .71rem;
+  background-image: url("images/rule_btn.png");
+  background-size: 100% 100%;
+}
+.wrap{
+  width: 7.02rem;
+  margin: -1.25rem auto .5rem;
+}
+.wrap>li{
+  position: relative;
+  width: 7.02rem;
+  height: 5.03rem;
+  background-image: url("images/wrap_bg.png");
+  background-size: 100% 100%;
+  margin-bottom: .7rem;
+  padding-top: .8rem;
+  border-radius: .15rem;
+}
+.wrap>li.small-height{
+  height: 1.67rem;
+  transition: height .5s;
+}
+.wrap>li.big-height{
+  height: 5.03rem;
+  transition: height .5s;
+}
+.wrap>li .title{
+  position: absolute;
+  top: -.3rem;
+  left: 1.33rem;
+  width: 4.36rem;
+  height: .75rem;
+  background-size: 100% 100%;
+}
+.slide-text{
+  color: #666;
+  font-size: 0.32rem;
+  text-align: center;
+}
+.wrap .wrap-6 .title{
+  background-image: url("images/title_6.png");
+}
+.wrap .wrap-18 .title{
+  background-image: url("images/title_18.png");
+}
+.wrap .wrap-25 .title{
+  background-image: url("images/title_25.png");
+}
+.wrap .wrap-30 .title{
+  background-image: url("images/title_30.png");
+}
+.wrap .wrap-40 .title{
+  background-image: url("images/title_40.png");
+}
+.wrap .wrap-50 .title{
+  background-image: url("images/title_50.png");
+}
+.wrap .wrap-98 .title{
+  background-image: url("images/title_98.png");
+}
+.wrap .wrap-298 .title{
+  background-image: url("images/title_298.png");
+}
+.wrap .wrap-488 .title{
+  background-image: url("images/title_488.png");
+}
+.wrap>li .close-btn{
+  position: absolute;
+  right: .16rem;
+  top: .16rem;
+  width: 1.02rem;
+  height: .4rem;
+  background-image: url("images/close_btn.png");
+  background-size: 100% 100%;
+}
+.wrap .wrap-6 .open-btn{
+  background-image: url("images/open_1.png");
+}
+.wrap .wrap-18 .open-btn{
+  background-image: url("images/open_1.png");
+}
+.wrap .wrap-25 .open-btn{
+  background-image: url("images/open_1.png");
+}
+.wrap .wrap-30 .open-btn{
+  background-image: url("images/open_1.png");
+}
+.wrap .wrap-40 .open-btn{
+  background-image: url("images/open_1.png");
+}
+.wrap .wrap-50 .open-btn{
+  background-image: url("images/open_1.png");
+}
+.wrap .wrap-98 .open-btn{
+  background-image: url("images/open_2.png");
+}
+.wrap .wrap-298 .open-btn{
+  background-image: url("images/open_2.png");
+}
+.wrap .wrap-488 .open-btn{
+  background-image: url("images/open_2.png");
+}
+.wrap>li .award-text{
+  position: relative;
+  width: 100%;
+  height: .5rem;
+}
+.wrap>li .award-text i{
+  position: absolute;
+  bottom: 0%;
+  left: 23%;
+  width: 3.8rem;
+  height: .1rem;
+  background-color: #FFCFBE;
+  border-radius: .1rem;
+}
+.wrap .wrap-98  .award-text i,
+.wrap .wrap-298  .award-text i,
+.wrap .wrap-488  .award-text i{
+  background-color: #f7b7ff;
+}
+.wrap>li .award-text p{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: .26rem;
+  text-align: center;
+  font-weight: 700;
+}
+.wrap>li .award-text p img{
+  width: .53rem;
+  height: .53rem;
+  vertical-align: bottom;
+}
+.wrap>li .award-text p span{
+  font-size: .4rem;
+}
+.award-wrap{
+  width: 100%;
+  height: 2.1rem;
+  margin: .25rem auto;
+  justify-content: space-around;
+  padding-top: .25rem;
+}
+.wrap>li .slide-wrap>i{
+  display: block;
+  width: 6.54rem;
+  height: 0.01rem;
+  background: #FECFBE;
+  margin: 0 auto;
+}
+.recharge-wrap{
+  width: 100%;
+  height: 1.08rem;
+  justify-content: space-between;
+  padding: 0 .2rem;
+}
+.award-item{
+  position: relative;
+  width: 1.5rem;
+  height: 100%;
+}
+#payWaysOne .award-item{
+  width: 1.4rem;
+}
+.award-item-num{
+  position: absolute;
+  top: -15%;
+  left: 0;
+  width: 100%;
+  text-align: right;
+  color: #999999;
+  font-size: .22rem;
+}
+.award-img{
+  width: 1.5rem;
+  height: 1.23rem;
+  background-image: url("images/award_item.png");
+  background-size: 100% 100%;
+  padding: .15rem;
+  margin-bottom: .1rem;
+}
+.wrap-98 .award-img,
+.wrap-298 .award-img,
+.wrap-488 .award-img{
+  background-image: url("images/award_item_1.png");
+}
+#payWaysOne .award-img{
+  background-image: none;
+}
+.award-img img{
+  width: 100%;
+  height: 100%;
+}
+.award-name,
+.award-price{
+  font-size: .22rem;
+  color: #FF1B0D;
+  text-align: center;
+  width: 100%;
+}
+.wrap-98 .award-name,
+.wrap-98 .award-price,
+.wrap-298 .award-name,
+.wrap-298 .award-price,
+.wrap-488 .award-name,
+.wrap-488 .award-price{
+  color: #AD25FC;
+}
+.recharge-wrap p{
+  color: #333;
+  font-size: .32rem;
+}
+.recharge-wrap p span{
+  font-size: .32rem;
+}
+.recharge-wrap p .pay-money{
+  font-size: .4rem;
+  font-weight: 700;
+}
+.recharge-wrap p .red-text{
+  font-size: .32rem;
+}
+.recharge-wrap img{
+  width: 2.16rem;
+  height: .81rem;
+}
+.red-text{
+  color: #FF1B0D !important;
+}
+.wrap-98 .red-text,
+.wrap-298 .red-text,
+.wrap-488 .red-text{
+  color: #AD25FC !important;
+}
+footer{
+  width: 100%;
+  height: 1rem;
+  text-align: center;
+  font-size: .28rem;
+  color: #fff;
+}
+footer a{
+  font-size: .28rem;
+  color: #FED94A;
+}
+#isLogin{
+  width: 5.4rem;
+  height: 8.87rem;
+  margin: 0 auto;
+  padding-top: 1.35rem;
+}
+#isLogin .main{
+  position: relative;
+  width: 100%;
+  height: 6.2rem;
+  background-color: #fff;
+  border-radius: .3rem;
+  margin-bottom: .44rem;
+  padding-top: 2rem;
+}
+.isLogin-title{
+  width: 3.23rem;
+  height: 3.23rem;
+  position: absolute;
+  top: -1.35rem;
+  left: 1.09rem;
+}
+#isLogin h2{
+  font-size: 0.36rem;
+  text-align: center;
+}
+#isLogin button,
+#paySuccess button{
+  width: 3.19rem;
+  height: .97rem;
+  background-image: url("images/dia_btn.png");
+  background-size: 100% 100%;
+  font-size: 0.36rem;
+  color: #fff;
+  margin: 1.35rem 1.1rem .15rem;
+  background-color: rgba(0,0,0,0);
+  padding-bottom: .1rem;
+}
+#isLogin p,
+#paySuccess p{
+  font-size: 0.26rem;
+  color: #AD1810;
+  text-align: center;
+}
+#isLogin .close,
+#paySuccess .close,
+#payWaysTwo .close,
+#payWaysOne .close{
+  text-align: center;
+}
+#rulePage{
+  width: 6.5rem;
+  height: 11rem;
+  margin: 0 auto;
+}
+.layui-layer.layui-layer-page.isLogin,
+.layui-layer.layui-layer-page.rulePage,
+.layui-layer.layui-layer-page.paySuccess,
+.layui-layer.layui-layer-page.payWaysOne,
+.layui-layer.layui-layer-page.payWaysTwo{
+  top: 10% !important;
+}
+#rulePage .close_wrap{
+  height: .8rem;
+  text-align: right;
+  margin-bottom: .3rem;
+}
+#rulePage .close_wrap img,
+#paySuccess .close img,
+#payWaysOne .close img,
+#payWaysTwo .close img,
+#isLogin .close img{
+  width: .8rem;
+  height: .8rem;
+}
+#rulePage .main{
+  position: relative;
+  width: 100%;
+  height: 7.7rem;
+  background-color: #fff;
+  border-radius: .2rem;
+  padding-top: .77rem;
+}
+#rulePage .main-title{
+  position: absolute;
+  top: -3%;
+  left: 16%;
+  width: 4.36rem;
+  height: .75rem;
+  background-image: url("images/rule_title.png");
+  background-size: 100% 100%;
+}
+#rulePage .main-text{
+  width: 100%;
+  height: 100%;
+  padding: 0 .3rem .5rem;
+  overflow: hidden;
+  overflow-y: auto;
+  line-height: .45rem;
+}
+#rulePage .main-text h6{
+  font-size: .28rem;
+  color: #333;
+}
+#rulePage .main-text p{
+  font-size: .28rem;
+  color: #6a6a6a;
+}
+#rulePage .main-text span{
+  font-size: .28rem;
+  color: #707070;
+}
+#paySuccess{
+  width: 5.57rem;
+  height: 8rem;
+  margin: 0 auto;
+}
+#paySuccess .main{
+  width: 100%;
+  height: 6.65rem;
+  background-image: url("images/pay_success_bg.png");
+  background-size: 100% 100%;
+  margin-bottom: .2rem;
+  padding-top: .34rem;
+}
+#paySuccess .main .title{
+  width: 4.38rem;
+  height: 2.61rem;
+  background-image: url("images/pay_success.png");
+  background-size: 100% 100%;
+  margin: 0 auto;
+}
+#paySuccess .main h1{
+  color: #B1271F;
+  font-size: .48rem;
+  text-align: center;
+  margin: .2rem 0 .56rem;
+}
+#paySuccess .main button{
+  margin: .1rem 1.1rem;
+}
+#payWaysOne,
+#payWaysTwo{
+  width: 6.4rem;
+  height: 10.43rem;
+  margin: 0 auto;
+}
+#payWaysOne .main,
+#payWaysTwo .main{
+  width: 100%;
+  height: 8.88rem;
+  background-color: #F9CBBB;
+  border-radius: .3rem;
+  margin-bottom: .1rem;
+  padding: .36rem .28rem 0;
+}
+#payWaysOne .main h1,
+  #payWaysTwo .main h1{
+  font-size: 0.4rem;
+  color: #000;
+  text-align: center;
+}
+#payWaysOne .main-payWays{
+  width: 5.84rem;
+  height: 2.19rem;
+  background: #FFF;
+  border-radius: .15rem;
+  margin: .3rem auto;
+  padding: .3rem 0;
+}
+#payWaysOne .main-payWays>div{
+  width: 100%;
+  height: 1rem;
+  justify-content: space-between;
+  padding: 0 .2rem;
+}
+#payWaysOne .diamond,
+#payWaysTwo .diamond{
+  display: inline-block;
+  width: .3rem;
+  height: .3rem;
+  background-image: url("images/diamond_2.png");
+  background-size: 100% 100%;
+  margin-right: .1rem;
+}
+#payWaysOne .diamond.isSelect{
+  width: .36rem;
+  height: .36rem;
+}
+.pay-ways-logo-wrap,
+.pay-ways-diamond-wrap{
+  position: relative;
+  font-size: 0.32rem;
+  color: #333;
+}
+#payWaysOne .pay-ways-logo-wrap.isSelect{
+  font-size: .28rem;
+}
+.pay-ways-logo-wrap img{
+  position: absolute;
+  right: -20%;
+  top: -50%;
+  width: .84rem;
+  height: .42rem;
+}
+.alipay-logo,
+.wechat-logo{
+  display: inline-block;
+  width: .5rem;
+  height: .5rem;
+  background-size: 100% 100%;
+  margin-right: .12rem;
+}
+.alipay-logo{
+  background-image: url("images/alipay.png");
+}
+.wechat-logo{
+  background-image: url("images/wechat.png");
+}
+.select-icon{
+  width: .32rem;
+  height: .32rem;
+  border-radius: 50%;
+  border: 1px solid #ddd;
+  margin-left: .1rem;
+}
+.select-icon.isSelect{
+  background-image: url("images/select.png");
+  background-size: 100% 100%;
+}
+#payWaysOne .main-payWays .line{
+  width: 5.44rem;
+  height: 0.01rem;
+  background: #ddd;
+  margin: .2rem auto;
+}
+#payWaysOne .welfare{
+  width: 5.84rem;
+  height: 2.85rem;
+  background: #FFF;
+  border-radius: .15rem;
+  padding: .1rem;
+}
+#payWaysOne .welfare .title{
+  color: #FD1B1B;
+  text-align: center;
+  font-size: 0.26rem;
+  margin-bottom: .4rem;
+}
+#payWaysOne .welfare .award-name,
+#payWaysOne .welfare .award-price{
+  color: #333;
+  font-size: .2rem;
+}
+#payWaysOne button,
+#payWaysTwo button{
+  width: 3.19rem;
+  height: 0.97rem;
+  background-image: url("images/dia_btn.png");
+  background-size: 100% 100%;
+  margin: .36rem auto .1rem;
+  padding: 0 .4rem .1rem;
+  background-color: rgba(0,0,0,0);
+  color: #fff;
+  font-size: 0.32rem;
+  justify-content: space-around;
+}
+#payWaysOne button span{
+  font-size: 0.46rem;
+}
+#payWaysOne button span i{
+  font-size: 0.28rem;
+  font-style: normal;
+  margin-right: .1rem;
+}
+#payWaysOne p,
+#payWaysTwo p{
+  font-size: 0.22rem;
+  color: #333;
+}
+.pay-ways-select{
+  justify-content: space-around;
+  height: .9rem;
+  align-items: flex-end;
+}
+#payWaysTwo .alipay,
+#payWaysTwo .wechat{
+  width: 2.22rem;
+  height: 0.74rem;
+  background: #FFF;
+  border: 1px solid #999999;
+  border-bottom: none;
+  border-top-left-radius: .14rem;
+  border-top-right-radius: .14rem;
+  font-size: .26rem;
+  color: #999;
+}
+#payWaysTwo .alipay .alipay-logo{
+  background-image: url("images/alipay_1.png");
+}
+#payWaysTwo .alipay.isSelect .alipay-logo{
+  background-image: url("images/alipay.png");
+}
+#payWaysTwo .wechat .wechat-logo{
+  background-image: url("images/wechat_1.png");
+}
+#payWaysTwo .wechat.isSelect .wechat-logo{
+  background-image: url("images/wechat.png");
+}
+#payWaysTwo .alipay.isSelect,
+#payWaysTwo .wechat.isSelect{
+  width: 2.7rem;
+  height: .9rem;
+  border: 1px solid #1BBB1F;
+  border-bottom: none;
+  color: #333;
+}
+#payWaysTwo .alipay.isSelect{
+  border: 1px solid #2F73F9;
+  border-bottom: none;
+}
+.pay-money-select{
+  width: 5.84rem;
+  height: 4.25rem;
+  background: #FFF;
+  border: 1px solid #2F73F9;
+  border-radius: .15rem;
+  padding: .1rem .2rem;
+}
+.pay-money-select li{
+  height: 1rem;
+  width: 100%;
+  border-bottom: 1px solid #ddd;
+  justify-content: space-between;
+}
+.pay-money-select li:last-child{
+  border: none;
+}
+#payWaysTwo .diamond{
+  width: .36rem;
+  height: .36rem;
+}
+.pay-money-li-diamond .diamond-text{
+  color: #333333;
+  font-size: 0.32rem;
+}
+.pay-money-li-money .money-text{
+  color: #000;
+  font-size: 0.32rem;
+}

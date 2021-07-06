@@ -1,0 +1,204 @@
+    @font-face {
+      font-family: "youshe";
+      src: url("./优设标题黑.ttf");
+      font-weight: normal;
+      font-style: normal;
+      color: #333;
+    }
+
+    @font-face {
+      font-family: "pingfang";
+      src: url("./PingFangMedium.ttf");
+      font-weight: normal;
+      font-style: normal;
+      color: #333;
+    }
+    .font-family {
+      font-family: 'pingfang';
+    }
+
+    .wrap1 {
+      width: 100%;
+      height: 100vh;
+      background: rgba(255, 255, 255, 0);
+    }
+
+    .wrap1-main {
+      width: 100%;
+      height: 80%;
+      position: relative;
+    }
+
+    .wrap1-main .wrap1-fade {
+      position: absolute;
+      top: -5%;
+      right: 2%;
+      width: 50%;
+      height: 9%;
+      border: 1px solid #e33d25;
+      border-radius: 0.92rem;
+      font-size: 0.3rem;
+      color: #e33d25;
+    }
+    .wrap1 .main-img {
+      display: block;
+      width: 90%;
+      height: 60%;
+      margin: 0 auto;
+    }
+
+    .wrap1 .main {
+      position: absolute;
+      top: 37%;
+      left: 7%;
+      width: 85%;
+      height: 67%;
+    }
+
+    .wrap1-main div {
+      position: absolute;
+      left: 0;
+      width: 100%;
+      color: #fa5348;
+      line-height: 1.4;
+      text-align: center;
+    }
+
+    .wrap1-main div p,
+    .wrap1-time,
+    .wrap1-credits {
+      font-size: 0.4rem;
+
+    }
+
+    .receive {
+      top: 42%;
+    }
+
+    .receiving {
+      top: 66%;
+      font-size: 0.38rem;
+    }
+    .receiving .appUnit{
+      font-size: 0.34rem;
+    }
+    .award-over .appUnit{
+      font-size: 0.34rem;
+    }
+    .deputy {
+      bottom: 3.5%;
+      font-size: 0.4rem;
+    }
+
+    .wrap2 {
+      width: 100%;
+      height: 100vh;
+      background: rgba(255, 255, 255, 0);
+    }
+
+    .wrap2 img {
+      display: block;
+      width: 90%;
+    }
+
+    .wrap3 {
+      width: 100%;
+      height: 100vh;
+      background: rgba(255, 255, 255, 0);
+    }
+
+    .wrap3-main {
+      position: relative;
+      width: 100%;
+      height: 60%;
+    }
+
+    .wrap3 img {
+      display: block;
+      width: 90%;
+      margin: 0 auto;
+    }
+
+    .wrap3 .main {
+      position: absolute;
+      top: 55%;
+      left: 13%;
+      width: 70%;
+      height: 60%;
+      background-color: #ffe0d6;
+      border: 2px solid #fff;
+      border-top-left-radius: 0.3rem;
+      border-bottom-right-radius: 0.3rem;
+      overflow: hidden;
+    }
+
+    .watch-time,
+    .send-comm {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      width: 100%;
+      height: 35%;
+      border-bottom: 2px solid #fff;
+      box-shadow: inset 1px 1px 10px #febab3;
+    }
+
+    .watch-time p,
+    .send-comm p {
+      font-size: 0.45rem;
+      color: #fff; 
+      z-index: 3;
+    }
+
+    .onceDay {
+      height: 30%;
+      font-size: 0.3rem;
+      white-space: nowrap;
+      color: #e33d25;
+      box-shadow: inset 1px 1px 10px #febab3;
+    }
+
+    .progress {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 0%;
+      height: 100%;
+      background-color: #e95e49;
+      border-top-right-radius: 0.4rem;
+      border-bottom-right-radius: 0.4rem;
+    }
+
+    .wrap3 .summ-btn {
+      height: 90%;
+      width: 80%;
+      background: linear-gradient(#fd881b, #f3420d);
+      border: none;
+      border-radius: 0.5rem;
+      color: #fff;
+      z-index: 3;
+      font-size: 0.34rem;
+    }
+
+    .wrap3-all{
+      height: 70%;
+      color: #e33d25;
+      text-align: center;
+      font-size: 0.45rem;
+      box-shadow: inset 1px 1px 10px #febab3;
+      border-bottom: 2px solid #fff;
+    }
+    .miss{
+      background-color: #c7c7c7;
+      box-shadow: none;
+    }
+    
+
+    .wrap1 .wrap1-main .youshe {
+      font-family: 'youshe';
+      font-size: 0.5rem;
+    }
+    .youshe .appUnit1{
+      font-size: 0.5rem;
+    }

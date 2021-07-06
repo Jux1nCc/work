@@ -1,0 +1,344 @@
+<head>
+    <title></title>
+    <meta charset="utf-8">
+    <meta http-equiv="”Cache-Control”" content="”no-transform”">
+    <meta http-equiv="”Cache-Control”" content="”no-siteapp”">
+
+    <meta name="keywords" content="兔聊、直播、兔聊官网、tuliao、tuliaozhibo">
+    <meta name="description" content="兔聊(rablive.cn) 一对一直播，所有的妹子都在这里！">
+
+    
+    <!-- QQ validation -->
+    <meta property="qc:admins" content="24244377313016201276375">
+    <script language="javascript" type="text/javascript"
+	src="wapRechage/js/jquery-1.7.1.min.js"></script>
+
+    <link rel="stylesheet" href="vedio/base_530450d.css">
+    <link rel="stylesheet" href="vedio/nav_7ed034c.css">
+    <link rel="stylesheet" href="https://g.alicdn.com/de/prismplayer/1.9.5/skins/default/index-min.css">
+    <link rel="stylesheet" type="text/css" href="vedio/reflow_video_585408a.css">
+
+    <!--[if IE]><script src="vedio/fix-ie8_e8a0650.js"></script><![endif]-->
+    <script async="" src="vedio/analytics.js"></script><script src="vedio/core_1f49c51.js"></script>
+    <script type="text/javascript" data-single="true" src="vedio/asyncmap_0bd3a0b.js"></script>
+    <script type="text/javascript" src="js/quartz.js"></script> 
+    <script type="text/javascript" data-single="true" src="https://g.alicdn.com/de/prismplayer/1.9.5/prism-h5-min.js"></script>
+    
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <!-- <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
+
+    <script>
+        var ZB_GA_ID = 'UA-75850242-1';
+    </script>
+    
+    
+<script>
+    window.PAGEVIEW_NAME = '/share/video/';
+</script>
+
+<script>
+var gaAccount = window.ZB_GA_ID || 'UA-75850242-1';
+
+var _gaq = _gaq || [];
+var gaqpush=function(){};
+var gaevent=function(){};
+var gapageview=function(){};
+var trackPV = gapageview;
+
+var sampleLimit = 20;
+
+
+</script>
+
+
+</head>
+<body>
+    
+<header class="header">
+   <div class="container">
+        
+        <a class="logo-warpper-new" href="/">
+             <img class="logo" src="vedio/logo.png" alt="Logo">
+        </a>
+        
+        <!--原nav start-->
+        <nav class="nav-warpper">
+            <a href="/">首页</a>
+            <a href="/pay/union_pay/">用户充值</a>
+            <a href="/greenlive/union_hall/">绿色主播联盟</a>
+            <a href="/gamehall/">游戏</a>
+            <a href="/gamemessage/">手游资讯</a>
+            <a href="/gameabout/">关于我们</a>
+            <div class="msg-more">更多...
+                <ul class="second-tab">
+                    <li><a href="/agreement/">用户协议</a></li>
+                    <li><a href="/privacy/">隐私政策</a></li>
+                    <li><a href="/exception/">免责声明</a></li>
+                    <li><a href="/complain/">投诉指引</a> </li>
+                </ul>
+            </div>             
+        </nav>
+        <!--原nav end-->
+   </div> 
+</header>
+
+    
+<div id="pageletReflowVideo" class="reflow-video clearfix">
+    
+ <div class="video-container" >
+    <div class="poster-page" style="width: 320px;height: 569px; margin-top: -284.5px;">
+<!--         <a class="poster-link" href="javascript:;" onclick="playVedio();"> -->
+            <div class="img-wrap" id="player">
+                <img class="poster-image" alt="" src="vedio/2dd6000680381d00a119.jpg" onerror="this.src='vedio/2dd6000680381d00a119.jpg'">
+            </div>
+            <div class="play-btn"></div>
+<!--         </a> -->
+        <div class="player-container" data-src="http://video.rablive.cn/dfa941b3383741ae8c0ff1fdbcb1ea08/563a20e18c2f47bc82b326071559e4ac-5287d2089db37e62345123a1be272f8b.mp4" 
+        	data-poster-src="vedio/2dd6000680381d00a119.jpg">
+        </div>
+    </div> 
+    
+     <div  class="prism-player" id="J_prismPlayer" style="position: absolute"></div>
+</div>
+<div class="right-box">
+    <div class="user-area clearfix">
+        <div class="avatar">
+            <span class="span-avatar"><img src="" alt=""></span>
+        </div>
+        <div class="info">
+            <p class="nickname"></p>
+            <p class="text"></p>
+        </div>
+    </div>
+    <div class="qrcode-wrap">
+        <p class="title">【扫码下载兔聊，观看TA的视频】</p>
+        <div class="qrcode">
+            <p class="qrcode-img"></p>
+        </div>
+    </div>
+</div> 
+</div>
+
+<script>
+ 		var vid=getUrlParam(window.location,"vid");
+ 		var tokenCustomerId=getUrlParam(window.location,"tokenCustomerId");
+ 		var playUrl,nickName,photo,code;
+ 		if(vid){
+ 			$.ajax({
+				url : "../wap/view/getVedioPath", 
+ 				type : "GET",
+ 				data : {"vid":vid,"tokenCustomerId":tokenCustomerId},
+ 				dataType : "json",
+ 				success : function(data) {
+ 					if(data.code=="0"){
+ 						var cdata = data.data;
+ 						if(cdata.playUrl){
+ 							playUrl = cdata.playUrl;
+ 							nickName = cdata.nickName;
+ 							photo = cdata.photo;
+ 							$(".nickname").html("<span>"+nickName+"</span>");
+ 							$(".short-id").html("<span>"+cdata.customerId+"</span>");
+ 							$(".avatar").html("<img src='"+cdata.photo+"'  alt=''>");
+ 							$(".text").html(cdata.playCnt+"次播放");
+ 							$("#player").css("background-image","url("+cdata.playImg+")");
+ 							$(".qrcode-img").css("background","url("+cdata.qrCode+")");
+ 							document.title=nickName+"的视频"; 
+ 							if(cdata.code){
+ 								code = cdata.code;
+ 							}
+ 					        // 初始化播放器
+ 					        var player = new prismplayer({
+ 					            id: "player", // 容器id
+ 								source: playUrl,// 视频地址
+ 					            autoplay: false,    //自动播放：否
+ 					            width: '100%',       // 播放器宽度
+ 					            height: '100%',  	 // 播放器高度
+ 					           	cover : cdata.playImg,
+  					           skinLayout: [
+  					                       {
+  					                           "name":"bigPlayButton",
+  					                           "align":"blabs",
+  					                           "x":30,
+  					                           "y":80
+  					                       },
+  					                       {
+  					                           "name":"controlBar",
+  					                           "align":"blabs",
+  					                           "x":0,
+  					                           "y":0,
+  					                           "children":[
+  					                               {
+  					                                   "name":"progress",
+  					                                   "align":"tlabs",
+  					                                   "x":0,
+  					                                   "y":0
+  					                               }
+  					                           ]
+  					                       }
+  					                   ]
+ 					        });
+ 					       $("#player").css("height","100%");
+ 					       var clickDom = document.getElementById("player");
+ 					        clickDom.addEventListener("click", function(e) {
+ 					        // 调用播放器的play方法
+ 					        	$(".play-btn").hide();
+//  					        	$("#player").css("background-image","");
+ 					            player.play();
+ 					        });
+ 						}
+ 					}
+ 				},
+ 				error : function(x, h, e) {
+ 					
+ 				}
+ 			});
+ 		}
+        
+ 		
+ 		/* var clickGuideDom = document.getElementById("downLoad");
+ 		clickGuideDom.addEventListener("click", function(e) {
+        	getCode();
+        });  */
+        // 监听播放器的pause事件
+//         player.on("pause", function() {
+//         });
+      //获取Url的参数
+		function getUrlParam(url, name) {
+			var pattern = new RegExp("[?&]" + name + "\=([^&]+)", "g");
+			var matcher = pattern.exec(url);
+			var items = null;
+			if (matcher != null) {
+				try {
+					items = decodeURIComponent(decodeURIComponent(matcher[1]));
+				} catch (e) {
+					try {
+						items = decodeURIComponent(matcher[1]);
+					} catch (e) {
+						items = matcher[1];
+					}
+				}
+			}
+			return items;
+		}
+      
+		function useCodeToPack(code){
+			 if(code){
+				$.ajax({
+				    type:"get",    //请求方式
+				    async:true,    //是否异步
+				    url:"http://apptest.rablive.cn:8081/androidpack",
+				    dataType:"jsonp",    //跨域json请求一定是jsonp
+				    jsonp: "callbackparam",    //跨域请求的参数名，默认是callback
+				        //jsonpCallback:"successCallback",    //自定义跨域参数值，回调函数名也是一样，默认为jQuery自动生成的字符串
+				    data:{"code":code},    //请求参数
+
+				    beforeSend: function() {
+				        //请求前的处理
+				    },
+
+				    success: function(data) {
+				        //请求成功处理，和本地回调完全一样
+				    },
+
+				    complete: function() {
+				        //请求完成的处理
+				    },
+
+				    error: function() {
+				        //请求出错处理
+				    }
+				});
+			} 
+		}
+      
+      function getCode(){
+    		// 动态创建 input 元素
+			var aux = document.createElement("input");
+			// 获得需要复制的内容
+			aux.setAttribute("value", code);
+			// 添加到 DOM 元素中
+			document.body.appendChild(aux);
+			// 执行选中
+			// 注意: 只有 input 和 textarea 可以执行 select() 方法.
+			aux.select();
+			// 获得选中的内容
+			var content = window.getSelection().toString();
+			// 执行复制命令
+			document.execCommand("copy");
+			// 将 input 元素移除
+			document.body.removeChild(aux);
+			
+			
+			var androidURL = "http://a.app.qq.com/o/simple.jsp?pkgname=cn.folkcam.rablive.jwrablive";
+			if(code){
+				androidURL = "http://apptest.folkcam.cn/test/"+code+"/rablive.apk";
+			}
+			var browser = {
+				versions : function() {
+					var u = navigator.userAgent, app = navigator.appVersion;
+					return {
+
+						android : u.indexOf('Android') > -1
+								|| u.indexOf('Linux') > -1,
+
+						iPhone : u.indexOf('iPhone') > -1,
+
+						iPad : u.indexOf('iPad') > -1,
+						iPod : u.indexOf('iPod') > -1,
+
+					};
+				}(),
+				language : (navigator.browserLanguage || navigator.language)
+						.toLowerCase()
+			}
+			if (browser.versions.iPhone || browser.versions.iPad
+					|| browser.versions.iPod) {
+				//如果是ios系統，直接跳轉至appstore該應用首頁，傳遞参數为該應用在appstroe的id號
+				window.location.href = "https://itunes.apple.com/us/app/tu-liao-liao-ni-xiang-liao/id1155891716?l=zh&ls=1&mt=8";
+			} else if (browser.versions.android) {
+			 	var winHeight = $(window).height();
+				function is_weixin() {
+				    var ua = navigator.userAgent.toLowerCase();
+				    if (ua.match(/MicroMessenger/i) == "micromessenger") {
+				        return true;
+				    } else {
+				        return false;
+				    }
+				}
+				var isWeixin = is_weixin();
+				if(isWeixin){
+					$(".weixin-tip").css("height",winHeight);
+		            $(".weixin-tip").show();
+				}else{
+					window.location.href = androidURL;
+				}
+			}else{
+				window.location.href = "http://www.folkcam.cn";
+			}
+      }
+      
+    </script>
+    
+<footer class="footer">
+    <div class="divier"></div>
+    <div class="container">
+        <div class="infomation">
+            <p>
+                2016&nbsp;©&nbsp;兔聊&nbsp;folkcam.cn&nbsp;|&nbsp;粤ICP备16028473号-1&nbsp;|&nbsp;深圳镜玩科技科技有限公司
+            </p>
+            <p>地址&nbsp;:&nbsp;深圳市南山区高新南四道18号创维半导体设计大厦东座11层A10号&nbsp;|&nbsp;联系电话&nbsp;:&nbsp;0755-32917510</p>
+            <p>
+                <a target="_blank" href="http://www.12377.cn/">中国互联网举报中心</a>&nbsp;|&nbsp;网络文化经营许可证 粤网文[2017] 1842-215号&nbsp;|&nbsp;违法和不良信息举报：0755-32917510
+            </p>
+            <div class="gognan-box">
+                <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010802021428">
+                    <img src="//s3.bytecdn.cn/huoshan/resource/live_web/static/image/gongan_d0289dc.png">
+                    粤ICP备16028473号-2
+                </a>
+            </div>
+        </div>
+   </div> 
+</footer>
+
+
+</body>

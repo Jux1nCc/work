@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .box {
+        width: 500px;
+        height: 500px;
+        background-color: #f00;
+      }
+      .xxx-enter-active {
+        /* transition: all 0.5s; */
+        animation: move 1s;
+      }
+      @keyframes move {
+        0% {
+          opacity: 0;
+          width: 0;
+          height: 0;
+        }
+        100% {
+          width: 500px;
+          height: 500px;
+          background-color: #f00;
+        }
+      }
+      .xxx-leave-active {
+        animation: move2 2s;
+      }
+      @keyframes move2 {
+        0% {
+          width: 500px;
+          height: 500px;
+          background-color: #f00;
+        }
+        100% {
+          opacity: 0;
+          width: 0;
+          height: 0;
+          transform: translateX(300px);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 单元素动画实现
+        实现条件：进入/离开   v-if/v-show
+        过程：1：先用transition标签包住
+              2：在transition标签上加一个name属性，name属性的值是后面css的前缀
+              .xxx-enter-active:进入动画执行体
+              .xxx-leave-active:离开动画执行体
+              .xxx-enter:进入时，希望从什么状态变到正常状态
+              .xxx-leave-to:离开时，希望从正常状态变到什么状态
+       -->
+    <div id="app">
+      <button @click="bol=!bol">点我啊</button>
+      <transition name="xxx">
+        <div class="box" v-if="bol"></div>
+      </transition>
+    </div>
+    <script src="./vue.js"></script>
+    <script>
+      new Vue({
+        el: "#app",
+        data: {
+          bol: true,
+        },
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>入驻页</title>
+		<link rel="stylesheet" href="../../public/css/style.css">
+		<link rel="stylesheet" href="../../package/layui/css/layui.css" />
+
+		<script type="text/javascript" src="../../package/layui/layui.js"></script>
+		<script src="../../public/js/public/jquery.min.js"></script>
+		<script src="../../public/js/public/jquery.cookie.min.js"></script>
+		<script src="../../public/js/index.js"></script>
+	</head>
+	<body>
+		<div id="Application_join">
+			<div class="Application_join_title">
+				<a href="javascript:history.go(-1)" class="cert_return_btn" ><img src="../../img/backoff.png">返回</a>
+				<h3>入驻申请</h3>
+			</div>
+			<div class="Application_join_info">
+				<P class="Application_title">成为认证专家，即可享受以下特权</P>
+				<div class="Account_binding_Description">
+					<img src="../../img/menoy.png" />	<br /><br />
+					<span>知识变现</span>
+				</div>
+				<div class="Account_binding_Description">
+					<img src="../../img/bgpt.png" />	<br /><br />
+					<span>平台曝光</span>
+				</div>
+				<div class="Account_binding_Description">
+					<img src="../../img/fw.png" />	<br /><br />
+					<span>专业服务</span>
+				</div>
+			</div>
+		
+			<div class="Application_join_type">
+				<P class="Application_title">请选择入驻类型</P>
+				<div class="Application_join_user" style="margin-left: 30%;">
+					<a href="javascript:;" id="Application_user" onclick="onclickuser(1)"><img src="../../img/userjoin.png"><br /><br />
+					<span>个人入驻</span></a>
+					<p>选择后，您在平台中的课程传播均展示您的个人信息</p>
+				</div>
+				<div class="Application_join_user">
+					<a href="javascript:;" id="Application_expert" onclick="onclickuser(2)"><img src="../../img/qyrz.png"><br /><br />
+					<span>企业入驻</span></a>
+					<p>选择后，您在平台中的课程传播均展示您的企业信息</p>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

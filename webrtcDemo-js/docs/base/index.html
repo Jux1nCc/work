@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="../assets/bootstrap.min.css">
+  <style>
+    .bg-f2 {
+      background-color: #f8f9fa;
+    }
+
+    video {
+      width: 320px;
+      height: auto;
+    }
+
+    .videoRow {
+      margin-top: 30px;
+    }
+
+    #previewLabel {
+      display: block;
+      position: absolute;
+    }
+  </style>
+  <title>推拉流基础功能</title>
+</head>
+
+<body class="bg-f2">
+  <div class="container">
+
+    <div class="my-3 p-3 bg-white rounded box-shadow small">
+
+      <h6 class="border-bottom border-gray pb-2 mb-0">基础推拉流</h6>
+
+      <div class="row" style="margin-top:1%">
+
+        <div class="col-sm">
+          <div class="input-group input-group-sm mb-3">
+            <div class="input-group-prepend">
+              <label class="input-group-text" for="audioList"><strong class="text-gray-dark">音频设备</strong></label>
+            </div>
+            <select class="custom-select" id="audioList">
+            </select>
+          </div>
+        </div>
+
+        <div class="col-sm">
+          <div class="input-group input-group-sm mb-3">
+            <div class="input-group-prepend">
+              <label class="input-group-text" for="videoList"><strong class="text-gray-dark">视频设备</strong></label>
+            </div>
+            <select class="custom-select" id="videoList">
+            </select>
+          </div>
+        </div>
+
+        <div class="col-sm">
+          <div class="input-group input-group-sm mb-3">
+            <div class="input-group-prepend">
+              <label class="input-group-text" for="audioOutputList"><strong class="text-gray-dark">输出设备</strong></label>
+            </div>
+            <select class="custom-select" id="audioOutputList">
+            </select>
+          </div>
+        </div>
+
+        <div class="col-sm">
+          <div class="input-group input-group-sm mb-3">
+            <div class="input-group-prepend">
+              <label class="input-group-text" for="playMode"><strong class="text-gray-dark playMode">拉流模式</strong></label>
+            </div>
+            <select class="custom-select" id="playMode">
+              <option value="auto" class="auto">默认（自动）</option>
+              <option value="video" class="onlyVideo">只拉视频</option>
+              <option value="audio" class="onlyAudio">只拉音频</option>
+              <option value="all" class="all">拉音视频</option>
+            </select>
+          </div>
+        </div>
+
+
+        <div class="col-sm">
+          <div class="input-group input-group-sm mb-3">
+            <div class="input-group-prepend">
+              <label class="input-group-text" for="roomId"><strong class="text-gray-dark">房间号</strong></label>
+            </div>
+            <input type="email" class="form-control d-inline" id="roomId"
+              aria-describedby="emailHelp" placeholder="请输入房间号">
+          </div>
+        </div>
+
+      </div>
+
+      <div class="row">
+
+        <div class="col-sm">
+          <div class="input-group input-group-sm mb-3">
+            <div class="input-group-prepend">
+              <label class="input-group-text" for="AEC"><strong class="text-gray-dark">回声消除</strong></label>
+            </div>
+            <select class="custom-select" id="AEC">
+              <option value="1" class="auto">是</option>
+              <option value="0" class="onlyVideo">否</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="col-sm">
+          <div class="input-group input-group-sm mb-3">
+            <div class="input-group-prepend">
+              <label class="input-group-text" for="AGC"><strong class="text-gray-dark">自动增益</strong></label>
+            </div>
+            <select class="custom-select" id="AGC">
+              <option value="1" class="auto">是</option>
+              <option value="0" class="onlyVideo">否</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="col-sm">
+          <div class="input-group input-group-sm mb-3">
+            <div class="input-group-prepend">
+              <label class="input-group-text" for="ANS"><strong class="text-gray-dark">噪声抑制</strong></label>
+            </div>
+            <select class="custom-select" id="ANS">
+              <option value="1" class="auto">是</option>
+              <option value="0" class="onlyVideo">否</option>
+            </select>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="row">
+
+        <div class="col-sm">
+          <div class="input-group input-group-sm mb-3">
+            <div class="input-group-prepend">
+              <label class="input-group-text" for="cdnUrl"><strong class="text-gray-dark">cdn地址</strong></label>
+            </div>
+            <input type="email" class="form-control d-inline" id="cdnUrl" aria-describedby="emailHelp"
+              placeholder="请输入cdn地址">
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+
+        <div class="col-sm">
+          <div class="input-group input-group-sm mb-3">
+            <div class="input-group-prepend">
+              <label class="input-group-text" for="signalUrl"><strong class="text-gray-dark">信令地址</strong></label>
+            </div>
+            <input type="email" class="form-control d-inline" id="signalUrl" aria-describedby="emailHelp"
+              placeholder="请输入信令服务器地址,开发者请忽略">
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm">
+          <button type="button" id="createRoom" class="btn btn-primary btn-sm">创建房间预览推流</button>
+          <button type="button" id="createRoomNoPublish" class="btn btn-primary btn-sm">创建房间只预览</button>
+          <button type="button" id="publishStream" class="btn btn-primary btn-sm">推流</button>
+          <button type="button" id="openRoom" class="btn btn-primary btn-sm">进入房间</button>
+          <button type="button" id="createRoomCdn" class="btn btn-primary btn-sm">创建房间(转推cdn)</button>
+          <button type="button" id="leaveRoom" class="btn btn-secondary btn-sm">退出</button>
+          <button type="button" id="toggleCamera" class="btn btn-primary btn-sm enableCamera">启用/关闭摄像头</button>
+          <button type="button" id="toggleSpeaker" class="btn btn-primary btn-sm enableMicrophone">启用/关闭麦克风</button>
+          <button type="button" id="setLocalAudioOutput" class="btn btn-primary btn-sm">更改输出设备</button>
+        </div>
+      </div>
+
+      <div class="row" style="margin-top:1%">
+        <div class="col-sm">
+          <!-- <button type="button" id="setLocalAudioOutput" class="btn btn-primary btn-sm">更改输出设备</button>
+          <button type="button" id="getAudioInfo" class="btn btn-primary btn-sm">获取推流音频信息</button>
+          <button type="button" id="stopgetAudioInfo" class="btn btn-primary btn-sm">stop获取推流音频信息</button>
+          <button type="button" id="getAudioPCM" class="btn btn-primary btn-sm">获取音频pcm数据</button>
+          <button type="button" id="downloadWAV" class="btn btn-primary btn-sm">下载wav</button>
+          <button type="button" id="stopPCM" class="btn btn-primary btn-sm">停止获取PCM</button> -->
+          <button type="button" id="switchVideo" class="btn btn-primary btn-sm">更改视频输入设备</button>
+          <button type="button" id="switchAudio" class="btn btn-primary btn-sm">更改音频输入设备</button>
+        </div>
+      </div>
+
+      <div class="row videoRow">
+        <div class="col-sm">
+          <label id="previewLabel" class="text-white"></label>
+          <video id="previewVideo" autoplay muted playsinline controls></video>
+        </div>
+        <div class="col-sm remoteVideo">
+          <!-- <video  autoplay muted playsinline></video> -->
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+
+</body>
+<script src="../assets/vconsole.min.js"></script>
+<script>
+  var vConsole = new VConsole();
+  console.log('Hello world');
+</script>
+<script src="../assets/jquery-3.3.1.min.js"></script>
+<script src="../assets/popper.min.js"></script>
+<script src="../assets/bootstrap.min.js"></script>
+<!-- zego js sdk -->
+<script src="../assets/jZego-rtc.js"></script>
+<script src="../common.js?v=014"></script>
+<script>
+  let mediaUtil
+  let pcmBuffer = []
+
+  $(function () {
+
+    let speakersList = []
+
+    ZegoClient.enumDevices(deviceInfo => {
+      if (deviceInfo.speakers) {
+        deviceInfo.speakers.forEach((device, index) => {
+          if (!device.label) {
+            device.label = 'speaker' + index
+          }
+
+          speakersList.push('<option value="' + device.deviceId + '">' + device.label + '</option>')
+          console.log('speakers:' + device.label)
+          $('#audioOutputList').html(speakersList.join(''))
+        });
+      }
+    }, err => alert(err))
+
+
+
+    $('#createRoomCdn').click(function () {
+      openRoom($('#roomId').val(), 1);
+    });
+
+    //更改拉流端音频输出设备
+    $('#setLocalAudioOutput').click(function () {
+      $('.remoteVideo video') && zg.setLocalAudioOutput($('.remoteVideo video')[0], $('#audioOutputList').val())
+    })
+
+    //获取播放流音量
+    $('#getAudioInfo').click(function () {
+      if (window.souder) return
+
+      window.souder = ZegoClient.getAudioInfo($('#previewVideo')[0], function (e) {
+        e && console.error(e);
+      });
+      window.souderTimer = setInterval(() => {
+        console.log(souder);
+      }, 2000);
+    });
+
+
+    $('#stopgetAudioInfo').click(function () {
+      if (window.souder) {
+        clearInterval(window.souderTimer);
+        window.souder.stop();
+        delete window.souder
+      }
+    });
+
+    $('#getAudioPCM').click(function () {
+      if ($('#previewVideo')[0].srcObject === null) {
+        alert('请先预览视频')
+        return
+      }
+      if (mediaUtil) {
+        alert('pcm数据已在获取');
+        return
+      }
+      mediaUtil = ZegoClient.getAudioInfo($('#previewVideo')[0], (err) => {
+        err && console.error(err)
+      }, {
+        type: 'pcm',
+        bufferSize: 16384,
+        channels: 1,
+        sampleBit: 16,
+        sampleRate: 44100
+      })
+
+      mediaUtil.onReceiveBuffer = (buf) => {
+        console.log('buf', buf)
+
+        pcmBuffer.push(buf)
+
+      }
+    })
+
+    $('#downloadWAV').click(function () {
+      if (pcmBuffer.length === 0) {
+        alert('未获取到pcm数据')
+        return
+      }
+      // 将pcm转为wav
+      var wav = mediaUtil.encodeWave(pcmBuffer)
+      console.log(wav)
+      var blob = new Blob([wav], {
+        type: 'audio/wav'
+      })
+
+      var url = (window.URL || window.webkitURL).createObjectURL(blob)
+      var link = document.createElement('a')
+      link.download = new Date().getTime() + '.wav'
+      link.style.display = 'none'
+      link.href = url
+
+      document.body.appendChild(link)
+      link.click()
+
+      document.body.removeChild(link)
+      pcmBuffer = []
+    })
+
+    $('#stopPCM').click(function () {
+      if (pcmBuffer.length === 0) {
+        alert('请先获取pcm数据')
+        return
+      }
+      ac = window.AudioContext ? window.AudioContext: webkitAudioContext;
+      mediaUtil.mic.disconnect(mediaUtil.script)
+      mediaUtil.script.disconnect(ac.destination)
+      pcmBuffer = []
+      mediaUtil = null
+      console.warn('stop PCM')
+    })
+  });
+
+  //推流
+  function publish() {
+    zg.startPublishingStream(_config.idName, previewVideo, null, {
+      cdnUrl: $('#cdnUrl').val() || ''
+    });
+  }
+
+  function leaveRoom() {
+    console.info('leave room  and close stream');
+
+    if (isPreviewed) {
+      zg.stopPreview(previewVideo);
+      zg.stopPublishingStream(_config.idName);
+      isPreviewed = false;
+    }
+
+    for (var i = 0; i < useLocalStreamList.length; i++) {
+      zg.stopPlayingStream(useLocalStreamList[i].stream_id);
+    }
+
+    if (pcmBuffer.length !== 0) {
+      ac = AudioContext || webkitAudioContext
+      mediaUtil.mic.disconnect(mediaUtil.script)
+      mediaUtil.script.disconnect(ac.destination)
+      pcmBuffer = []
+      mediaUtil = null
+      console.warn('stop PCM')
+    }
+
+    if (window.souder) {
+      clearInterval(window.souderTimer);
+      window.souder.stop();
+      delete window.souder
+    }
+
+
+    useLocalStreamList = [];
+    $('.remoteVideo').html('');
+    zg.logout();
+  }
+</script>
+
+</html>

@@ -1,0 +1,282 @@
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0, viewport-fit=cover">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="msapplication-tap-highlight" content="no">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Cache-Control" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <title>中秋闹国庆</title>
+  <link rel="stylesheet" href="http://activity.folkcam.cn/common/layer/theme/default/layer.css">
+  <link rel="stylesheet" href="http://activity.folkcam.cn/common/comm.css">
+  <link rel="stylesheet" href="./index.css?v=202009281024" as="style">
+</head>
+
+<body>
+  <div class="wrap fontfamily">
+    <header>
+      <div class="notice">
+        <div class="notice-wrap flexbox">
+        </div>
+      </div>
+    </header>
+    <button class="pos-btn act-rule" onclick="toRule()">
+      <span>活动奖励及规则</span>
+    </button>
+    <button class="pos-btn welf2-icon" onclick="toWelf(this)" href='#wrap_welf2'>
+      <span>福利二</span>
+    </button>
+    <div class="wrap-welf1 main-card">
+      <img src="image/welftitle1.png" alt="" id="wrap_welf1">
+      <div class="border-card">
+        <div class="csImg img-welf1title" data-src="./image/image.png"></div>
+        <div class="btn-title">
+          <div class="csImg goalbtn" data-src="./image/image.png"></div>
+          <div class="csImg awardbtn" data-src="./image/image.png"></div>
+        </div>
+        <div class="welf1-main">
+          <ul class="welf1-left">
+            <li class="gray">≥<br />7888元</li>
+            <li class="gray">3999元</li>
+            <li class="gray">899元</li>
+            <li class="gray">299元</li>
+            <li class="gray">49元</li>
+          </ul>
+          <ul class="welf1-right">
+            <li class="gray">
+              <i class="right-icon"></i>
+              <div class="right-award">
+                <div class="award">
+                  <div class="csImg timeline1-img1" data-src="./image/image.png"></div>
+                  <p>返现10%资格</p>
+                  <p class="red">(充8000元就可返800元哦)</p>
+                </div>
+                <div class="award">
+                  <div class="csImg timeline1-img2" data-src="./image/image.png"></div>
+                  <p>所有进场特效</p>
+                  <p>畅享x15天</p>
+                </div>
+              </div>
+            </li>
+            <li class="flexli gray">
+              <i class="right-icon"></i>
+              <div class="right-award">
+                <div class="award">
+                  <div class="csImg timeline2-img1" data-src="./image/image.png"></div>
+                  <p>活动礼物</p>
+                  <p>4折特权</p>
+                </div>
+                <div class="award">
+                  <div class="csImg timeline2-img2" data-src="./image/image.png"></div>
+                  <p>返现6.5%资格</p>
+                </div>
+              </div>
+            </li>
+            <li class="flexli gray">
+              <i class="right-icon"></i>
+              <div class="right-award">
+                <div class="award">
+                  <div class="csImg timeline3-img1" data-src="./image/image.png"></div>
+                  <p>活动礼物</p>
+                  <p>6折特权</p>
+                </div>
+                <div class="award room-tips">
+                  <div class="csImg timeline3-img2" data-src="./image/image.png"></div>
+                  <p>直播间入场提示</p>
+                </div>
+              </div>
+            </li>
+            <li class="flexli gray">
+              <i class="right-icon"></i>
+              <div class="right-award">
+                <div class="award">
+                  <div class="csImg timeline4-img1" data-src="./image/image.png"></div>
+                  <p>活动礼物</p>
+                  <p>8折特权</p>
+                </div>
+                <div class="award">
+                  <div class="csImg timeline4-img2" data-src="./image/299-千里共婵娟.png"></div>
+                  <p>千里共婵娟</p>
+                  <p>文字气泡*10天</p>
+                </div>
+              </div>
+            </li>
+            <li class="flexli gray">
+              <i class="right-icon"></i>
+              <div class="right-award">
+                <div class="award">
+                  <div class="csImg timeline5-img1" data-src="./49-土豪撒钱.png"></div>
+                  <p>“土豪撒钱”</p>
+                  <p>进场特效x5天</p>
+                </div>
+                <div class="award">
+                  <div class="csImg timeline5-img2" data-src="./image/49-国庆快乐.png"></div>
+                  <p>“国庆快乐”</p>
+                  <p>头像框x7天</p>
+                </div>
+              </div>
+            </li>
+          </ul>
+          <div class="progress">
+            <div class="bar"></div>
+          </div>
+        </div>
+        <p class="progress-current">
+        </p>
+        <div class="progress-target">
+          <p>再充值<strong>49</strong>元即可解锁<br>机不可失的<b>“土豪撒钱”进场特效…</b></span></p>
+          <div class="csImg check-gift" data-src="./image/image.png" onclick="checkGift()"></div>
+        </div>
+        <div class="csImg progress-btn" onclick="doCharge()" data-src="./image/image.png"></div>
+        <p class="progress-tip">各档奖励层层叠加，充越多越划算~</p>
+      </div>
+      <div class="border-card list-wrap">
+        <img class="list-nav" src="image/nav1.png" alt="">
+        <button class="nav1-btn" onclick="changeNav(1)"></button>
+        <button class="nav2-btn" onclick="changeNav(2)"></button>
+        <div class="list-title">
+          <div class="csImg list-title-text" data-src="./image/rankdouble.png"></div>
+          <p class="list-tip">活动期间送出活动礼物(助攻值)最多的10名用户<br />将会在活动结束后获得<strong>全场礼物<b>5折</b></strong>特权</p>
+          <p class="list-tip2">按照每日充值金额进行排名<br />每日前10有奖励</p>
+        </div>
+        <div class="list-rank">
+          <div class="list-rank-title">
+            <p class="rank-title-num">-- 我的排名：<strong>10000</strong> --</p>
+            <p class="rank-title-num" style="display: none;">-- 我的今日排名：<strong>10000</strong> --</p>
+            <p class="rank-title-gap">距<span>上一名</span>差：<strong>90000</strong> 助攻值</p>
+            <p class="rank-title-gap" style="display: none;">充值额距<span>上一名</span>差：<strong>90000</strong> 元</p>
+          </div>
+          <div class="table-row">
+            <div class="csImg refresh-list" onclick="refresh()" data-src="./image/image.png"></div>
+            <div class="table-wrap"></div>
+          </div>
+        </div>
+        </img>
+      </div>
+    </div>
+    <div class="wrap-welf2 main-card">
+      <span class="large font60 ruizi">买<span class="appVip font60">会员</span>送<span
+          class="appUnit font60">聊币</span></span>
+      <span class="small font24"><span class="appVip font24">会员</span>享特权 就是赞</span>
+      <img src="image/welftitle2.png" alt="" id="wrap_welf2">
+      <div class="border-card">
+        <table class="welf2-table" cellpadding="0" cellspacing="0">
+          <tr>
+            <td class="td-top">购买/续费<span class="appVip">会员</span>类别</td>
+            <td class="td-top">奖励<span class="appUnit">聊币</span>数</td>
+          </tr>
+          <tr>
+            <td>3个月<span class="appGold">高级会员</span></td>
+            <td class="td-red tr-recom">
+              <span class="appAwardNum1">5000</span>（相当于4折）
+              <div class="csImg td-label-img" data-src="./image/image.png"></div>
+            </td>
+          </tr>
+          <tr>
+            <td>3个月<span class="appSliver">普通会员</span></td>
+            <td class="td-red"><span class="appAwardNum2">3000</span>（相当于5折）</td>
+          </tr>
+          <tr>
+            <td>1个月<span class="appGold">高级会员</span></td>
+            <td>
+              <span class="appAwardNum3">1200</span>
+            </td>
+          </tr>
+          <tr>
+            <td class="td-bottom">1个月<span class="appSliver">普通会员</span></td>
+            <td class="td-bottom"><span class="appAwardNum4">500</span></td>
+          </tr>
+        </table>
+
+      </div>
+    </div>
+    <footer>
+      <p>如有疑问请联系在线客服</p>
+      <p>一 本活动最终解释权归<span class="appName">兔聊</span>所有 一</p>
+    </footer>
+  </div>
+  <div class="dialog fontfamily">
+    <!-- 是否在app内打开 -->
+    <div id="openOutApp" class="popup" data-src="image/dialog-openOutApp.png">
+      <h1>活动需要在<span class='appName'>兔聊</span>APP内进行</h1>
+      <button class="dialog-ok" onclick="download()">立即下载</button>
+      <button class="dialog-close"></button>
+    </div>
+    <!-- 是否登录 -->
+    <div id="isLogin" class="popup" data-src="image/dialog-login.png">
+      <button class="dialog-ok isLogin-login" onclick="jumpToMe()">登录</button>
+      <button class="dialog-close isLogin-close"></button>
+    </div>
+    <!-- 每日福利 -->
+    <div id="dayWelf" class="popup">
+      <div class="dayWelf-wrap">
+        <h6><b>10月8日</b>的登录福利
+          <p>活动期间，天天<b class="warn">领福利</b>，每天都不同！<br>今日可领 <span>满20-3充值券</span></p>
+        </h6>
+        <img src="./image/default.png" alt="">
+        <div class="btn-wrap flexbox between">
+          <button onclick="getNotWelf()">我不想要</button>
+          <button onclick="getWelf(allAata)">立即领取</button>
+        </div>
+        <p class="tip">发放说明：如果您已购高级会员，将给您有效期延长7天；如果您已购普通会员，将给您有效期延长8天。</p>
+        <p class="desp">提示：高级会员有很多权限，<br>记得去「我-更多->会员」了解下哦～</p>
+      </div>
+      <button class="dialog-close dayWelf-close"></button>
+    </div>
+    <div id="getWelf" class="popup">
+      <div class="getWelf-wrap">
+        <h1>领取成功</h1>
+        <p class="column"></p>
+        <button class="getWelf-ok" onclick="layer.closeAll()">我知道啦</button>
+      </div>
+    </div>
+    <!-- 充值奖励 -->
+    <div id="recharge" class="popup" data-src="image/recharge.png">
+      <div class="recharge-wrap">
+        <h6>已充值达目标值<b>49</b>元</h6>
+        <h1></h1>
+        <button class="recharge-ok" onclick="layer.closeAll()">我知道了</button>
+        <div class="recharge-tip"></div>
+        <strong></strong>
+      </div>
+      <button class="dialog-close recharge-close"></button>
+    </div>
+    <!-- 打折活动礼物 -->
+    <div id="discount" class="popup" data-src="image/dialog-discount.png">
+      <div class="discount-wrap">
+        <div class="flexbox around">
+          <p><img src="./rabbit.png" alt=""><br>双兔戏月<br>（815<span class="appUnit">聊币</span>）</p>
+          <p><img src="./千里共婵娟.png" alt=""><br>千里共婵娟<br>（2999<span class="appUnit">聊币</span>）</p>
+          <p><img src="./image/71周年.png" alt=""><br>71周年<br>（100<span class="appUnit">聊币</span>）</p>
+        </div>
+        <div class="flexbox">
+          <p><img src="./image/国庆游轮奢华游.png" alt=""><br>国庆邮轮奢华游<br>（6666<span class="appUnit">聊币</span>）</p>
+          <p class="ml"><img src="./image/千年之恋.png" alt=""><br>千年之恋<br>（38000<span class="appUnit">聊币</span>）</p>
+        </div>
+      </div>
+      <button class="dialog-ok discount-ok" onclick="layer.closeAll()"></button>
+      <button class="dialog-close discount-close"></button>
+    </div>
+    <!-- 充值提醒 -->
+    <div id="chargeTip" class="popup" data-src="image/dialog-chargeTip.png">
+      <button class="dialog-ok chargeTip-ok" onclick="layer.closeAll()"></button>
+      <button class="dialog-close chargeTip-close"></button>
+    </div>
+  </div>
+</body>
+
+<script src="http://activity.folkcam.cn/common/jquery.min.js"></script>
+<script src="http://activity.folkcam.cn/common/polyfill.js"></script>
+<script src="http://activity.folkcam.cn/common/layer/layer.js"></script>
+<script src="http://activity.folkcam.cn/common/app.js"></script>
+<script src="http://activity.folkcam.cn/common/rem.js"></script>
+<script src="http://activity.folkcam.cn/common/config.js"></script>
+<script src="http://activity.folkcam.cn/common/moment.js"></script>
+<script src="index.js?v=20200929"></script>
+
+</html>

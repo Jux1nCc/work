@@ -1,0 +1,46 @@
+@charset "utf-8";
+/*reset*/
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote,th,td{padding:0;margin:0;-webkit-tap-highlight-color:rgba(255,255,255,0)}
+html{font-size:0.625%;}
+section,article,aside,header,footer,nav,dialog,figure{display:block}
+li{list-style:none;}
+table{border-collapse:collapse;border-spacing:0}
+img{border:0;vertical-align:middle;width:100%}
+em,i{font-style:normal;}
+a{text-decoration:none; color: #000; }
+input{outline:none}
+
+body{width: 100%;font-size:0.14rem; font-family:"Microsoft YaHei",arial,simsun,SimHei;background:#ffffff;color:#000 }
+
+/*public*/
+/*color*/
+.red{color:#b71e33}
+.blue{color:#2c9bff}
+.green{color:#5dd23a}
+.orange{color:#ff8b00}
+.yellow{color:#ffb433}
+.gray{color:#999}
+.back{color:#000}
+.g-b{color:#bbb;}
+.g-6{color:#666}
+.lnk{color:#00baff}
+.pink{color:#f997d8}
+/*text-align*/
+.ta_c{text-align: center;}
+.ta_r{text-align: right;}
+.ta_l{text-align: left;}
+/*text-decoration*/
+.td-th{text-decoration:line-through;}
+/*display*/
+.show{display:block;}
+.hide{display:none;}
+/*float*/
+.fr{ float:right;}
+.fl{float:left;}
+
+.f-12{font-size:0.12rem;}
+.f-14{font-size:0.14rem;}
+.none{display:none;}
+.center{text-align: center;}
+.msg-tips{width:100%;background: #282828; color:#fff; text-align: center;overflow: hidden;height: 0.4rem; line-height: 0.4rem;position: fixed;top:-0.4rem;font-size:0.14rem;}
+

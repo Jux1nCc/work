@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html style="font-size: 100px;"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<title>兔聊App - 陌生人的一对一私密视频</title>
+<meta name="description" content="在兔聊App，你可以和陌生的女孩子一对一私密视频聊天。无聊的时候，在兔聊App可以找附近的女孩子私密视频哦！线上聊，线下约。小恩小惠，女孩陪你聊到天亮。">
+<meta name="keywords" content="陪聊,陪聊App,美女陪聊,陪聊兼职,陪聊网,陪聊软件,陪聊师,网上兼职陪聊,兔聊App,兔聊IOS,Android安卓下载,土聊,涂聊,图聊">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="stylesheet" type="text/css" href="share_files/style.css"><!--样式-->
+<script type="text/javascript" src="share_files/jquery-1.js"></script><!--jQ库-->
+<script type="text/javascript" src="share_files/swiper-3.js"></script><!--手机轮播库-->
+<script type="text/javascript" src="../js/clipboard.min.js?version=20190626"></script>
+<script type="text/javascript" src="../js/quartz.js"></script>
+<script type="text/javascript" charset="UTF-8" src="//res.cdn.openinstall.io/openinstall.js"></script>
+<script type="text/javascript">
+    //openinstall初始化时将与openinstall服务器交互，应尽可能早的调用
+    /*web页面向app传递的json数据(json string/js Object)，应用被拉起或是首次安装时，通过相应的android/ios api可以获取此数据*/
+    var data = OpenInstall.parseUrlParams();//openinstall.js中提供的工具函数，解析url中的所有查询参数
+    new OpenInstall({
+        /*appKey必选参数，openinstall平台为每个应用分配的ID*/
+        appKey : "bmhy9f",
+        /*可选参数，自定义android平台的apk下载文件名；个别andriod浏览器下载时，中文文件名显示乱码，请慎用中文文件名！*/
+        //apkFileName : 'com.fm.openinstalldemo-v2.2.0.apk',
+        /*可选参数，是否优先考虑拉起app，以牺牲下载体验为代价*/
+        //preferWakeup:true,
+        /*自定义遮罩的html*/
+        //mask:function(){
+        //  return "<div id='openinstall_shadow' style='position:fixed;left:0;top:0;background:rgba(0,255,0,0.5);filter:alpha(opacity=50);width:100%;height:100%;z-index:10000;'></div>"
+        //},
+        /*openinstall初始化完成的回调函数，可选*/
+        onready : function() {
+            var m = this, button = document.getElementById("downloadButton");
+            button.style.visibility = "visible";
+
+            /*在app已安装的情况尝试拉起app*/
+            m.schemeWakeup();
+            /*用户点击某个按钮时(假定按钮id为downloadButton)，安装app*/
+            button.onclick = function() {
+                m.wakeupOrInstall();
+                return false;
+            }
+        }
+    }, data);
+
+</script>
+
+</head>
+<body>
+	<div id="mobile_top" style="display:none;position: absolute;z-index: 999;top: 0;width: 100%;height: 100%;">
+				<img src="" id="mobile_img" style="width: 100%; height: 100%;"/>
+			</div>
+	<div class="mobile_wrap typehei teback">
+        <a id="downloadButton" href="javascript:void(0)" class="down" style="visibility: visible;">立即下载</a>
+        <a href="" class="more"><img src="share_files/ico44.png" alt=""></a>
+	<div class="swiper-container swiper-container-vertical">
+    	<div class="swiper-wrapper">
+    <div class="one_page swiper-slide swiper-slide-active" style="height: 971px;">
+    	<div class="logo">
+        	<img src="share_files/ico1.png" alt="">
+            <!--<div class="text">
+            	<h2>兔聊</h2>
+                <p>Rabbit Live</p>
+            </div>-->
+        </div>
+            <div class="pict">
+            <p>附近的TA</p>
+            <p>线上聊得好 喜欢再见面</p>
+            <img src="share_files/ico3.png" alt="">
+        </div>
+    </div>	<!--1-->
+    
+    <!--<div class="two_page public swiper-slide swiper-slide-next" style="height: 971px;">        
+    	<div class="text">
+        	<p>附近的TA</p>
+            <p>线上聊得好 喜欢就见面</p>
+        </div>
+        <img src="share_files/ico3.png" alt="">
+    </div>--><!--2-->
+    
+    <div class="three_page public swiper-slide" style="height: 971px;">
+    	<div class="text">
+        	<p>视频连线</p>
+            <p>与心仪的Ta独享二人世界</p>
+        </div>
+        <img src="share_files/ico5.png" alt="">
+    </div><!--3-->
+    
+    <div class="four_page public swiper-slide" style="height: 971px;">
+    	<div class="text">
+        	<p>智能匹配</p>
+            <p>一键匹配 快速开聊</p>
+        </div>
+        <img src="share_files/ico4.png" alt="">
+    </div><!--4-->
+	
+	<div class="three_page public swiper-slide" style="height: 971px;">
+    	<div class="text">
+        	<p>创意短视频</p>
+            <p>视频动态 找到“志同道合”的 TA</p>
+        </div>
+        <img src="share_files/ico99.png" alt="">
+    </div><!--5-->
+	
+	<div class="three_page public swiper-slide" style="height: 971px;">
+    	<div class="text">
+        	<p>视频直播</p>
+            <p>美女直播 发现不一样的美</p>
+        </div>
+        <img src="share_files/ico100.png" alt="">
+    </div><!--6-->
+    
+     
+    <div class="code swiper-slide" style="height: 971px;">
+    	<!--<h1></h1>-->
+        <div class="pict">
+        	<img src="share_files/img0.png" alt="">
+        	<p>扫描二维码免费下载</p>
+			<p>或点击“立即下载”</p>
+        </div>
+    </div><!--5-->
+    
+            </div><!--swiper-wrapper-->
+    </div><!--swiper-container-->
+    
+    
+    
+    </div><!--mobile_wrap-->
+    
+    <div class="alertbox">
+    	<div class="layout">
+        	<a class="close rogate"><img src="share_files/ico77.png" alt=""></a>
+        	<h2>请到微信公众号关注“兔聊服务”进行充值</h2>
+        </div>
+		
+    <div class="alertbox-sw">
+    	<div class="layout-sw">
+        	<a class="close rogate"><img src="share_files/ico77.png" alt=""></a>
+        	<h2>请到微信公众号关注“兔聊服务”进行充值</h2>
+        </div>
+		
+    </div>
+<div class="kwd" id="kwd" style="display: none">
+			</div>
+<script type="text/javascript" src="share_files/type.js"></script><!--封装函数-->
+<script>
+var swiper = new Swiper('.swiper-container', {
+	pagination: '.swiper-pagination',
+	paginationClickable: true,
+	direction: 'vertical'
+});
+setInterval(function(){
+		if($('.swiper-slide-active').index()>0){
+				$('.mobile_wrap').removeClass('teback');
+			}else{
+					$('.mobile_wrap').addClass('teback');
+				}
+		if($('.swiper-slide-active').index()==4){
+				$('.more').hide();
+			}else{
+					$('.more').show();
+				}
+	},100)
+	$('.alertbox .layout .close').click(function(){
+			$(".alertbox").fadeOut();
+		})
+		$('.Recharge').click(function(){
+			$(".alertbox").fadeIn();
+		})
+		
+</script>
+
+<script type="text/javascript">
+var code =  getUrlParam(url, 'code');
+var timer = setTimeout(
+        function() {
+            var button = document.getElementById("downloadButton");
+            button.style.visibility = "visible";
+            button.onclick = function() {
+            	// 动态创建 input 元素
+    			var aux = document.createElement("input");
+    			// 获得需要复制的内容
+    			aux.setAttribute("value", code);
+    			// 添加到 DOM 元素中
+    			document.body.appendChild(aux);
+    			// 执行选中
+    			// 注意: 只有 input 和 textarea 可以执行 select() 方法.
+    			aux.select();
+    			// 获得选中的内容
+    			var content = window.getSelection().toString();
+    			// 执行复制命令
+    			document.execCommand("copy");
+    			// 将 input 元素移除
+    			document.body.removeChild(aux);
+    			if (isWeixin > -1 || isQQ) {
+    		        //微信中显示遮罩提示在浏览器中打开或进入应用宝
+    		        if(isIOS) {
+    					$("#mobile_top").css("display","block");
+    					$("#mobile_img").attr("src","img/iOS.png")
+    					$(".down").css("display","none")
+    				} else if(isAndroid) {
+    					$("#mobile_top").css("display","block");
+    					$("#mobile_img").attr("src","img/android.png")
+    					$(".down").css("display","none")
+    				}
+    		    } else {
+    		    	if(isIOS) {
+    					window.location = "http://mp.weixin.qq.com/s?__biz=MzIwNTU4NTk0Nw==&mid=100000651&idx=1&sn=71ade5739afcd92588c3bf89c54cc8da&chksm=172fe8ff205861e972989f705473d96542723d1b82129efb8b3395183b6e0c2ed8b61e7e002c#rd";
+    				} else if(isAndroid) {
+    					window.location = "http://jw-version.oss-cn-shenzhen.aliyuncs.com/android/RabLiveOffical.apk";
+    				} else {
+    					window.location = "https://www.expertol.cn";
+    				}
+    		    }
+            }
+ }, 3000);
+    //错误处理：确保app始终能正常的安装
+    var u = navigator.userAgent,
+	app = navigator.appVersion;
+	var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Linux') > -1; //g
+	var isIOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+	var isWeixin = u.indexOf(" MicroMessenger/"); //微信浏览器终端
+	var isQQ = u.match(/\sQQ/i) == " qq"; //QQ浏览器终端
+	if (isWeixin > -1 || isQQ) {
+        //微信中显示遮罩提示在浏览器中打开或进入应用宝
+        if(isIOS) {
+			$("#mobile_top").css("display","block");
+			$("#mobile_img").attr("src","img/iOS.png")
+			$(".down").css("display","none")
+		} else if(isAndroid) {
+			$("#mobile_top").css("display","block");
+			$("#mobile_img").attr("src","img/android.png")
+			$(".down").css("display","none")
+		}
+    } else {
+    	if(isIOS) {
+ 			//window.location = "http://mp.weixin.qq.com/s?__biz=MzIwNTU4NTk0Nw==&mid=100000651&idx=1&sn=71ade5739afcd92588c3bf89c54cc8da&chksm=172fe8ff205861e972989f705473d96542723d1b82129efb8b3395183b6e0c2ed8b61e7e002c#rd";
+		} else if(isAndroid) {
+ 			//window.location = "http://jw-version.oss-cn-shenzhen.aliyuncs.com/android/RabLiveOffical.apk";
+		} else {
+			window.location = "https://www.expertol.cn";
+		}
+    }
+    
+		
+</script>
+</div></body></html>
